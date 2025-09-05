@@ -1,0 +1,15 @@
+{
+    "mappings": [
+      "/content/worldbank-trn/ext/:/",
+      "/content/worldbank-trn/ext/configuration:/.helix/config.json",
+      "/content/worldbank-trn/ext/metadata:/metadata.json",
+      "/content/worldbank-trn/ext/placeholders:/placeholders.json",
+      "/content/worldbank-trn/ext/taxonomy:/taxonomy.json",
+      "/content/worldbank-trn/ext/headers:/.helix/headers.json",
+      "/content/dam/worldbank-trn/ext/icons/:/icons/"
+    ],
+    "includes": [
+      "/content/worldbank-trn/",
+      "/content/dam/worldbank-trn/"
+    ]
+  }

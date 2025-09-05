@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--externalweb-ibrd--wbgextapp.aem.page/
-- Live: https://main--externalweb-ibrd--wbgextapp.aem.live/
+- Preview: https://main--wbcopy--helms-charity.aem.page/
+- Live: https://main--wbcopy--helms-charity.aem.live/
 
 ## Installation
 

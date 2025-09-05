@@ -1,10 +1,9 @@
 version: 1
 
 indices:
-  site-en: &base-site
+  pages:
     include:
       - '/ext/en/**'
-      - '/ext/ja/**'
     exclude:
       - '/ext/en/drafts'
       - '/ext/en/drafts/**'
@@ -14,127 +13,23 @@ indices:
       - '/ext/en/nav'
       - '/ext/en/data'
       - '/ext/en/data/**'
-      - '/ext/ja/drafts'
-      - '/ext/ja/drafts/**'
-      - '/ext/ja/fragments'
-      - '/ext/ja/fragments/**'
-      - '/ext/ja/footer'
-      - '/ext/ja/nav'
-      - '/ext/ja/data'
-      - '/ext/ja/data/**'
     target: /ext/en/query-index.json
     properties:
       title:
-        select: main h1
-        value: textContent(el)
-      navTitle:
         select: head > meta[property="og:title"]
-        value: attribute(el, "content")
-      bcTitle:
-        select: head > meta[name="navtitle"]
-        value: attribute(el, "content")
+        value: attribute(el, 'content')
+      template:
+        select: head > meta[name="template"]
+        value: attribute(el, 'content')
       description:
         select: head > meta[name="description"]
-        value: attribute(el, "content")
+        value: attribute(el, 'content')
       image:
         select: head > meta[property="og:image"]
-        value: match(attribute(el, "content"), "^(https?:\/\/.*?(danaher.com))+(.*)|^(.*)")
-      publishDate:
-        select: head > meta[name="published-time"]
-        value: parseTimestamp(attribute(el, "content"), "ddd, DD MMM YYYY hh:mm:ss GMT")
-      contentDate:
-        select: head > meta[name="content_date"]
-        value: parseTimestamp(attribute(el, "content"), "MM/DD/YYYY")
-      contentType:
-        select: head > meta[name="content_type"]
-        value: attribute(el, "content")
-      languages:
-        select: head > meta[name="languages"]
-        value: attribute(el, "content")
-      originating_unit:
-        select: head > meta[name="originating_unit"]
-        value: attribute(el, "content")
-      author:
-        select: head > meta[name="author"]
-        value: attribute(el, "content")
-      information_classification:
-        select: head > meta[name="information_classification"]
-        value: attribute(el, "content")
+        value: match(attribute(el, 'content'), "https:\/\/[^/]+(/.*)")
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
-
-  site-zh:
-    <<: *base-site
-    include:
-      - '/ext/zh/**'
-    exclude:
-      - '/ext/zh/drafts'
-      - '/ext/zh/drafts/**'
-      - '/ext/zh/fragments'
-      - '/ext/zh/fragments/**'
-      - '/ext/zh/footer'
-      - '/ext/zh/nav'
-      - '/ext/zh/data'
-      - '/ext/zh/data/**'
-    target: /ext/zh/query-index.json
-  
-  site-ru:
-    <<: *base-site
-    include:
-      - '/ext/ru/**'
-    exclude:
-      - '/ext/ru/drafts'
-      - '/ext/ru/drafts/**'
-      - '/ext/ru/fragments'
-      - '/ext/ru/fragments/**'
-      - '/ext/ru/footer'
-      - '/ext/ru/nav'
-      - '/ext/ru/data'
-      - '/ext/ru/data/**'
-    target: /ext/ru/query-index.json
-
-  site-fr:
-    <<: *base-site
-    include:
-      - '/ext/fr/**'
-    exclude:
-      - '/ext/fr/drafts'
-      - '/ext/fr/drafts/**'
-      - '/ext/fr/fragments'
-      - '/ext/fr/fragments/**'
-      - '/ext/fr/footer'
-      - '/ext/fr/nav'
-      - '/ext/fr/data'
-      - '/ext/fr/data/**'
-    target: /ext/fr/query-index.json
-
-  site-es:
-    <<: *base-site
-    include:
-      - '/ext/es/**'
-    exclude:
-      - '/ext/es/drafts'
-      - '/ext/es/drafts/**'
-      - '/ext/es/fragments'
-      - '/ext/es/fragments/**'
-      - '/ext/es/footer'
-      - '/ext/es/nav'
-      - '/ext/es/data'
-      - '/ext/es/data/**'
-    target: /ext/es/query-index.json
-
-  site-ar:
-    <<: *base-site
-    include:
-      - '/ext/ar/**'
-    exclude:
-      - '/ext/ar/drafts'
-      - '/ext/ar/drafts/**'
-      - '/ext/ar/fragments'
-      - '/ext/ar/fragments/**'
-      - '/ext/ar/footer'
-      - '/ext/ar/nav'
-      - '/ext/ar/data'
-      - '/ext/ar/data/**'
-    target: /ext/ar/query-index.json
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
