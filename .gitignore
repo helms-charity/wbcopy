@@ -1,0 +1,10 @@
+.hlx/*
+coverage/*
+logs/*
+node_modules/*
+
+helix-importer-ui
+.DS_Store
+*.bak
+.idea
+ext/styles/container.css

@@ -1,0 +1,60 @@
+name: Verify PR Source Branch
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - aemqa
+      - aemtrn/stage
+      - preprod
+      - main
+
+jobs:
+  verify_source_branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check PR Source Branch
+        id: check_source
+        run: |
+          echo "Base branch: ${{ github.base_ref }}"
+          echo "Head branch: ${{ github.head_ref }}"
+          
+          VALID=false
+          case "${{ github.base_ref }}" in
+            "aemqa")
+              # A PR to 'aemqa' must come from 'aemdev'
+              if [[ "${{ github.head_ref }}" == "aemdev" ]]; then
+                VALID=true
+              fi
+              ;;
+            "aemtrn/stage")
+              # A PR to 'aemtrn/stage' must come from 'aemqa'
+              if [[ "${{ github.head_ref }}" == "aemqa" ]]; then
+                VALID=true
+              fi
+              ;;
+            "preprod")
+              # A PR to 'preprod' must come from 'aemtrn/stage'
+              if [[ "${{ github.head_ref }}" == "aemtrn/stage" ]]; then
+                VALID=true
+              fi
+              ;;
+            "main")
+              # A PR to 'main' must come from 'preprod'
+              if [[ "${{ github.head_ref }}" == "preprod" ]]; then
+                VALID=true
+              fi
+              ;;
+            *)
+              # Allow PRs to other branches if your workflow supports them
+              VALID=true
+              ;;
+          esac
+          
+          if [ "$VALID" = false ]; then
+            echo "::error::Invalid PR source. A pull request to ${{ github.base_ref }} must originate from the specified upstream branch."
+            exit 1
+          else
+            echo "PR source is valid. Continuing workflow."
+          fi

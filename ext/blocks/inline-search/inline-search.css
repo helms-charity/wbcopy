@@ -1,0 +1,83 @@
+.inline-search-container .default-content-wrapper {
+  margin-bottom: var(--spacing-huge);
+  width: 75%;
+}
+.inline-search-container .default-content-wrapper p {
+  color: var(--text-on-light-default);
+  font-size: var(--font-size-500);
+  font-weight: var(--body-font-weight-regular);
+  line-height: 150%;
+  letter-spacing: -0.25px;
+  margin: var(--spacing-none);
+}
+.inline-search-container h2 {
+  margin: 0rem 0rem var(--spacing-regular) 0rem;
+}
+.inline-search-container .section-rows {
+  display: flex;
+  flex-wrap: wrap;
+}
+.inline-search-container .section-rows .col-ctrl-1 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+@media (width >= 768px) {
+  .inline-search-container .col-ctrl-2 .inline-search-wrapper {
+    padding-right: var(--spacing-xlarge);
+  }
+  .inline-search-container .col-ctrl-3 .inline-search-wrapper {
+    padding-left: var(--spacing-xlarge);
+    border-left: 1px solid var(--divider-on-light-emphasis);
+  }
+}
+@media (width <= 767px) {
+  .inline-search-container .col-ctrl-2 .inline-search-wrapper {
+    margin-bottom: var(--spacing-huge);
+  }
+}
+    @media (width >=768px) {
+     html[dir="rtl"] .inline-search-container .col-ctrl-2 .inline-search-wrapper {
+    padding: 0rem 0rem 0rem var(--spacing-xlarge);
+     }
+    html[dir="rtl"] .inline-search-container .col-ctrl-3 .inline-search-wrapper {
+    padding: 0rem var(--spacing-xlarge) 0rem 0rem;
+    border: 0px;
+    border-right: 1px solid var(--divider-on-light-emphasis);
+     }
+  }
+.inline-search h3 {
+  margin: 0rem 0rem var(--spacing-medium) 0rem;
+}
+.inline-search.vertical .main-heading p.button-container {
+  display: none;
+}
+.inline-search.vertical .mini-card-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-regular);
+}
+.inline-search.vertical .mini-card {
+  border: 0px;
+  padding-block-start: 0px;
+}
+.inline-search.vertical .mini-card-container {
+  gap: var(--spacing-large);
+}
+.inline-search.vertical .see-all-link-wrapper-header {
+  display: block;
+}
+.inline-search.vertical .see-all-link {
+  color: var(--text-on-light-link-primary-enabled);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  padding: 6px 0px;
+  border: 0px;
+  border-bottom: 2px solid var(--divider-on-light-emphasis);
+  background-color: transparent;
+  border-radius: 0px;
+}
+.inline-search.vertical .see-all-link:hover {
+  border-bottom: 2px solid var(--background-container-on-light-link-primary-hover);
+}

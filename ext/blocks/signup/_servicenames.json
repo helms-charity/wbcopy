@@ -1,0 +1,422 @@
+[
+    {
+        "name": "Select Service Key",
+        "value": ""
+    },
+    {
+        "name": "Accountability Matters",
+        "value": "Accountability Matters|SVC368"
+    },
+    {
+        "name": "Africa East-French",
+        "value": "Africa East-French|SVC206"
+    },
+    {
+        "name": "Africa KITS Monthly Newsletter",
+        "value": "Africa KITS Monthly Newsletter|SVC134"
+    },
+    {
+        "name": "Africa West-English",
+        "value": "Africa West-English|SVC204"
+    },
+    {
+        "name": "Africa West-French",
+        "value": "Africa West-French|SVC203"
+    },
+    {
+        "name": "Boletín de América Latina y el Caribe",
+        "value": "Boletín de América Latina y el Caribe|SVC305"
+    },
+    {
+        "name": "Business Environment Explorer - External Newsletter",
+        "value": "Business Environment Explorer - External Newsletter|SVC207"
+    },
+    {
+        "name": "Cambodia e-Newsletter",
+        "value": "Cambodia e-Newsletter|SVC96"
+    },
+    {
+        "name": "CAWEP Newsletter (English)",
+        "value": "CAWEP Newsletter (English)|SVC220"
+    },
+    {
+        "name": "CAWEP Newsletter External Russian",
+        "value": "CAWEP Newsletter External Russian|SVC221"
+    },
+    {
+        "name": "CFRR Program Newsletter",
+        "value": "CFRR Program Newsletter|SVC72"
+    },
+    {
+        "name": "Civil Society Newsletter",
+        "value": "Civil Society Newsletter|wbg-svc-cso-nl"
+    },
+    {
+        "name": "DE4A External Newsletter Service",
+        "value": "DE4A External Newsletter Service|SVC186"
+    },
+    {
+        "name": "DEC Research Newsletter",
+        "value": "DEC Research Newsletter|wbg-svc-dec-rsrch-nl"
+    },
+    {
+        "name": "EAP China Chinese",
+        "value": "EAP China Chinese|wbg-svc-eap-china-chinese"
+    },
+    {
+        "name": "EAP China English",
+        "value": "EAP China English|wbg-svc-eap-china-eng"
+    },
+    {
+        "name": "EAP Indonesia Bahasa Newsletter",
+        "value": "EAP Indonesia Bahasa Newsletter|wbg-svc-eap-indo-bah-nl"
+    },
+    {
+        "name": "EAP Indonesia English Newsletter",
+        "value": "EAP Indonesia English Newsletter|wbg-svc-eap-indo-eng-nl"
+    },
+    {
+        "name": "EAP Korea Newsletter",
+        "value": "EAP Korea Newsletter|wbg-svc-eap-kor-nl"
+    },
+    {
+        "name": "EAP Laos Newsletter",
+        "value": "EAP Laos Newsletter|wbg-svc-eap-laos-nl"
+    },
+    {
+        "name": "EAP Malaysia Newsletter ",
+        "value": "EAP Malaysia Newsletter |wbg-svc-eap-malaysia"
+    },
+    {
+        "name": "EAP Mongolia English Newsletter",
+        "value": "EAP Mongolia English Newsletter|wbg-svc-mongo-eng-nl"
+    },
+    {
+        "name": "EAP Mongolia Mongolian Newsletter",
+        "value": "EAP Mongolia Mongolian Newsletter|wbg-svc-eap-mongo-mongolian-nl"
+    },
+    {
+        "name": "EAP Philippines Newsletter ",
+        "value": "EAP Philippines Newsletter |wbg-svc-eap-phili-nl"
+    },
+    {
+        "name": "EAP Singapore",
+        "value": "EAP Singapore|wbg-svc-singapore"
+    },
+    {
+        "name": "EAP Thailand Newsletter ",
+        "value": "EAP Thailand Newsletter |wbg-svc-eap-thai-nl"
+    },
+    {
+        "name": "EAP Vietnam with English",
+        "value": "EAP Vietnam with English|SVC80"
+    },
+    {
+        "name": "EAP Vietnam with Vietnamese",
+        "value": "EAP Vietnam with Vietnamese|SVC81"
+    },
+    {
+        "name": "ECACE Newsletter",
+        "value": "ECACE Newsletter|wbg-svc-ecace"
+    },
+    {
+        "name": "ECA Turkey Newsletter in English",
+        "value": "ECA Turkey Newsletter in English|SVC78"
+    },
+    {
+        "name": "ECA Turkey Newsletter in Turkey",
+        "value": "ECA Turkey Newsletter in Turkey|SVC79"
+    },
+    {
+        "name": "ESMAP Event Announcement Newsletter",
+        "value": "ESMAP Event Announcement Newsletter|wbg-svc-esmap-evnt"
+    },
+    {
+        "name": "ESMAP Monthly Newsletter",
+        "value": "ESMAP Monthly Newsletter|SVC280"
+    },
+    {
+        "name": "ESMAP Newsletter | May 2023",
+        "value": "ESMAP Newsletter | May 2023|wbg-svc-esmap-ebltn"
+    },
+    {
+        "name": "ESMAP Publication Announcement Newsletter",
+        "value": "ESMAP Publication Announcement Newsletter|wbg-svc-esmap-pub"
+    },
+    {
+        "name": "Forced Displacement Research Updates",
+        "value": "Forced Displacement Research Updates|SVC228"
+    },
+    {
+        "name": "Friends of IDA Newsletter",
+        "value": "Friends of IDA Newsletter|SVC99"
+    },
+    {
+        "name": "Getting Infrastructure Finance Right",
+        "value": "Getting Infrastructure Finance Right|SVC120"
+    },
+    {
+        "name": "Global Findex Findings Newsletter",
+        "value": "Global Findex Findings Newsletter|SVC385"
+    },
+    {
+        "name": "Governance Update",
+        "value": "Governance Update|SVC123"
+    },
+    {
+        "name": "GPSA Newsletters",
+        "value": "GPSA Newsletters|wbg-svc-gpsa"
+    },
+    {
+        "name": "GTP Newsletter Service",
+        "value": "GTP Newsletter Service|SVC213"
+    },
+    {
+        "name": "GWSP Bi Monthly Newsletter",
+        "value": "GWSP Bi Monthly Newsletter|SVC275"
+    },
+    {
+        "name": "Human Capital Projects Public Newsletter",
+        "value": "Human Capital Projects Public Newsletter|SVC65"
+    },
+    {
+        "name": "IBN Newsletter",
+        "value": "IBN Newsletter|wbg-svc-ibn"
+    },
+    {
+        "name": "Ideas for Impact - Institute for Economic Development",
+        "value": "Ideas for Impact - Institute for Economic Development|SVC346"
+    },
+    {
+        "name": "IEG Insights",
+        "value": "IEG Insights|SVC260"
+    },
+    {
+        "name": "IFC Education Newsletter Service",
+        "value": "IFC Education Newsletter Service|SVC181"
+    },
+    {
+        "name": "IFC Health Newsletter Service",
+        "value": "IFC Health Newsletter Service|SVC180"
+    },
+    {
+        "name": "Joint Data Center Monthly Newsletter ",
+        "value": "Joint Data Center Monthly Newsletter |SVC115"
+    },
+    {
+        "name": "Knowledge4Jobs",
+        "value": "Knowledge4Jobs|SVC155"
+    },
+    {
+        "name": "KWPF Newsletter Service",
+        "value": "KWPF Newsletter Service|SVC401"
+    },
+    {
+        "name": "LAC Spanish - External Newsletter ",
+        "value": "LAC Spanish - External Newsletter |SVC303"
+    },
+    {
+        "name": "Latin America & the Caribbean at Glance",
+        "value": "Latin America & the Caribbean at Glance|SVC304"
+    },
+    {
+        "name": "Law, Justice & Development Newsletter",
+        "value": "Law, Justice & Development Newsletter|wbg-svc-ljd"
+    },
+    {
+        "name": "LC6 Newsletter - Bolivia",
+        "value": "LC6 Newsletter - Bolivia|SVC290"
+    },
+    {
+        "name": "LC6 Newsletter  - Chile",
+        "value": "LC6 Newsletter  - Chile|SVC292"
+    },
+    {
+        "name": "LC6 Newsletter - Ecuador",
+        "value": "LC6 Newsletter - Ecuador|SVC291"
+    },
+    {
+        "name": "LC6 Newsletter - Peru",
+        "value": "LC6 Newsletter - Peru|SVC293"
+    },
+    {
+        "name": "Leaders in Urban Transport Planning Program",
+        "value": "Leaders in Urban Transport Planning Program|SVC237"
+    },
+    {
+        "name": "LSMS Highlights",
+        "value": "LSMS Highlights|SVC210"
+    },
+    {
+        "name": "MIGA Monthly Newsletter",
+        "value": "MIGA Monthly Newsletter|SVC200"
+    },
+    {
+        "name": "Monthly newsletter PPIAF & GIH ",
+        "value": "Monthly newsletter PPIAF & GIH |SVC311"
+    },
+    {
+        "name": "OneSouthAsia Internal Newsletter",
+        "value": "OneSouthAsia Internal Newsletter|SVC244"
+    },
+    {
+        "name": "Opening the World Bank Group to Parliamentarians",
+        "value": "Opening the World Bank Group to Parliamentarians|SVC234"
+    },
+    {
+        "name": "Partnership for Market Implementation (PMI) Service",
+        "value": "Partnership for Market Implementation (PMI) Service|SVC408"
+    },
+    {
+        "name": "Partnership for Market Implementation Service",
+        "value": "Partnership for Market Implementation Service|SVC400"
+    },
+    {
+        "name": "PEI",
+        "value": "PEI|SVC127"
+    },
+    {
+        "name": "Platform for Collaboration on Tax(PCT)",
+        "value": "Platform for Collaboration on Tax(PCT)|SVC129"
+    },
+    {
+        "name": "Poverty and Inequality Newsletter",
+        "value": "Poverty and Inequality Newsletter|SVC301"
+    },
+    {
+        "name": "PPP Newsletter",
+        "value": "PPP Newsletter|wbg-svc-ppp-nl"
+    },
+    {
+        "name": "PRWP Monthly Newsletter",
+        "value": "PRWP Monthly Newsletter|SVC298"
+    },
+    {
+        "name": "S4YE",
+        "value": "S4YE|SVC125"
+    },
+    {
+        "name": "Sahel Adaptive Social Protection Program Quarterly Digest - French Newsletter Service",
+        "value": "Sahel Adaptive Social Protection Program Quarterly Digest - French Newsletter Service|SVC274"
+    },
+    {
+        "name": "Sahel Adaptive Social Protection Program Quarterly Digest Newsletter Service",
+        "value": "Sahel Adaptive Social Protection Program Quarterly Digest Newsletter Service|SVC272"
+    },
+    {
+        "name": "Sanctions Board Insights Service",
+        "value": "Sanctions Board Insights Service|SVC190"
+    },
+    {
+        "name": "SIEF Newsletter",
+        "value": "SIEF Newsletter|wbg-svc-sief-nl"
+    },
+    {
+        "name": "Skills4Dev External Newsletter",
+        "value": "Skills4Dev External Newsletter|SVC227"
+    },
+    {
+        "name": "Small States Newsletter",
+        "value": "Small States Newsletter|SVC405"
+    },
+    {
+        "name": "Social Protection and Jobs",
+        "value": "Social Protection and Jobs|SVC222"
+    },
+    {
+        "name": "TERI's Tunisian insights",
+        "value": "TERI's Tunisian insights|SVC255"
+    },
+    {
+        "name": "The World Bank Geneva Service",
+        "value": "The World Bank Geneva Service|SVC132"
+    },
+    {
+        "name": "The World Bank in Poland - newsletter",
+        "value": "The World Bank in Poland - newsletter|SVC105"
+    },
+    {
+        "name": "Think Africa Partnership",
+        "value": "Think Africa Partnership|SVC331"
+    },
+    {
+        "name": "Trade Matters Newsletter",
+        "value": "Trade Matters Newsletter|SVC171"
+    },
+    {
+        "name": "Umbrella Facility for Gender Equalty Newsletters",
+        "value": "Umbrella Facility for Gender Equalty Newsletters|wbg-svc-ufge-nl"
+    },
+    {
+        "name": "WB Education e-Newsletter",
+        "value": "WB Education e-Newsletter|SVC187"
+    },
+    {
+        "name": "WBG External Corporate Arabic Newsletter",
+        "value": "WBG External Corporate Arabic Newsletter|wbg-svc-ext-corp-arb-nl"
+    },
+    {
+        "name": "WBG External Corporate English Newsletter",
+        "value": "WBG External Corporate English Newsletter|wbg-svc-ext-corp-eng-nl"
+    },
+    {
+        "name": "WBG External Corporate French Newsletter",
+        "value": "WBG External Corporate French Newsletter|wbg-svc-ext-frc-corp-nl"
+    },
+    {
+        "name": "WBG External Corporate Spanish Newsletter",
+        "value": "WBG External Corporate Spanish Newsletter|wbg-svc-ext-corp-spn-nl"
+    },
+    {
+        "name": "WBL Newsletter",
+        "value": "WBL Newsletter|SVC126"
+    },
+    {
+        "name": "WB Tokyo Office - eNews Newsletter",
+        "value": "WB Tokyo Office - eNews Newsletter|SVC86"
+    },
+    {
+        "name": "WB Tokyo Office - English Newsletter",
+        "value": "WB Tokyo Office - English Newsletter|SVC84"
+    },
+    {
+        "name": "WEESA CoP – Members List",
+        "value": "WEESA CoP – Members List|SVC278"
+    },
+    {
+        "name": "What Have We Learned? The Evaluation Podcast",
+        "value": "What Have We Learned? The Evaluation Podcast|SVC289"
+    },
+    {
+        "name": "World Bank East Asia & Pacific Newsletter Service",
+        "value": "World Bank East Asia & Pacific Newsletter Service|SVC268"
+    },
+    {
+        "name": "World Bank India External Newsletter Service Template",
+        "value": "World Bank India External Newsletter Service Template|SVC104"
+    },
+    {
+        "name": "Worldbank Live Upcoming Events Service",
+        "value": "Worldbank Live Upcoming Events Service|worldbanklive-upcoming-events-service"
+    },
+    {
+        "name": "Worldbank Live Upcoming Events Service Arabic",
+        "value": "Worldbank Live Upcoming Events Service Arabic|worldbanklive-upcoming-events-service-arabic"
+    },
+    {
+        "name": "Worldbank Live Upcoming Events Service French",
+        "value": "Worldbank Live Upcoming Events Service French|worldbanklive-upcoming-events-service-french"
+    },
+    {
+        "name": "Worldbank Live Upcoming Events Service Spanish",
+        "value": "Worldbank Live Upcoming Events Service Spanish|worldbanklive-upcoming-events-service-spanish"
+    },
+    {
+        "name": "World Bank Publications Newsletter",
+        "value": "World Bank Publications Newsletter|wbg-svc-pub-nl"
+    },
+    {
+        "name": "World Bank Trust Funds and Partnerships in Action",
+        "value": "World Bank Trust Funds and Partnerships in Action|SVC316"
+    }
+]

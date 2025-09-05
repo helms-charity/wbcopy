@@ -1,0 +1,9 @@
+.*
+*.md
+karma.config.js
+LICENSE
+package.json
+package-lock.json
+test/*
+tools/admin-api/*
+_*

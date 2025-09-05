@@ -1,0 +1,38 @@
+name: Enforce Promotion Order
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - aemqa
+      - aemtrn
+      - stage
+      - preprod
+      - main
+
+jobs:
+  enforce:
+    name: check-branch-flow          # <-- MUST match the required check text
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Validate allowed source branch
+        shell: bash
+        run: |
+          BASE="${{ github.event.pull_request.base.ref }}"
+          HEAD="${{ github.event.pull_request.head.ref }}"
+          echo "Base: $BASE | Head: $HEAD"
+          allowed=false
+          case "$BASE" in
+            aemqa)          [[ "$HEAD" == "aemdev" ]] && allowed=true ;;
+            aemtrn|stage)   [[ "$HEAD" == "aemqa"  ]] && allowed=true ;;
+            preprod)        [[ "$HEAD" == "stage"  ]] && allowed=true ;;
+            main)           [[ "$HEAD" == "preprod"]] && allowed=true ;;
+          esac
+          if ! $allowed; then
+            echo "::error::Disallowed source branch '$HEAD' for target '$BASE'."
+            exit 1
+          fi
+          echo "Promotion path check passed."

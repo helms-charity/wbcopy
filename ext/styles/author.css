@@ -1,0 +1,17 @@
+.section.data-card-noborder .data-cards.news-card-variation > .rte-container .button-container {
+  margin: var(--spacing-regular) 0 0;
+}
+.section.data-card-noborder .data-cards.news-card-variation > .rte-container .button-container a {
+  color: var(--text-on-light-link-primary-enabled);
+  font-size: var(--theloop-xl-button-font-size);
+  font-weight: var(--theloop-button-label-font-weight);
+  line-height: var(--theloop-button-label-line-height);
+  letter-spacing: var(--theloop-button-label-letter-spacing);
+  background: transparent;
+  border-bottom: 2px solid rgba(0, 67, 112, 0.55);
+  border-radius: var(--border-radius-none);
+  padding: var(--spacing-none) var(--spacing-none) var(--spacing-tiny) var(--spacing-none);
+}
+.section.data-card-noborder .data-cards.news-card-variation > .rte-container .button-container a:hover {
+      border-bottom: 2px solid var(--background-container-on-light-link-primary-hover);
+}

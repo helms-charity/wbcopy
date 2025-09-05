@@ -1,0 +1,77 @@
+/*=== begin dropdown css===*/
+.tui__dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tui__dropdown_toggle {
+    color: var(--text-on-light-link-primary-enabled);
+    font-size: var(--lift-button-label-font-size);
+    font-weight: var(--lift-button-label-font-weight);
+    line-height: var(--lift-button-label-line-height); /* 150% */
+    letter-spacing: var(--lift-button-label-letter-spacing);
+    display: flex;
+    padding: var(--lift-button-v-padding) var(--lift-button-h-padding);
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--lift-button-gap, 6px);
+    border-radius: var(--lift-button-border-radius, 32px);
+    border: 2px solid var(--outline-on-light-link-enabled);
+    background: var(--background-container-on-light-link-secondary-enabled);
+  }
+  .tui__dropdown_toggle:after {
+    width: 4px;
+    height: 4px;
+    border-width: 0 2px 2px 0;
+    border-style: solid;
+    content: "";
+    transform: rotateZ(45deg);
+    margin-left: 6px;
+  }
+  .tui__dropdown_toggle[aria-expanded=false]:after {
+    margin-top: 0px;
+  }
+  .tui__dropdown_toggle[aria-expanded=true]:after {
+    transform: rotateZ(-135deg);
+    margin-top: 4px;
+  }
+  .tui__dropdown_toggle[aria-expanded=true], .tui__dropdown_toggle:hover {
+    border: 2px solid var(--background-container-on-light-link-primary-hover);
+    background-color: var(--background-container-on-light-link-primary-hover);
+    color: var(--text-on-light-link-primary-hover);
+  }
+  
+  .tui__dropdown_menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    display: none;
+    margin-top: var(--spacing-xxsmall);
+    padding: var(--spacing-regular);
+    border-radius: var(--border-radius-medium);
+    border: 1px solid var(--outline-on-light-subdued);
+    background: var(--background-white);
+    
+  }
+  
+  .tui__secondary_dropdown_menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xxsmall);
+    list-style: none;
+    margin: var(--spacing-none);
+    padding: var(--spacing-none);
+  }
+  .tui__secondary_dropdown_menu li a {
+    color: var(--text-on-light-link-primary-enabled);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    text-decoration: none;
+  }
+  
+  /*=== end dropdown css===*/

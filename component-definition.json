@@ -1,0 +1,1153 @@
+{
+  "groups": [
+    {
+      "title": "Default Content",
+      "id": "default",
+      "components": [
+        {
+          "title": "Text",
+          "id": "text",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/text/v1/text",
+                "template": {}
+              }
+            }
+          }
+        },
+        {
+          "title": "Title",
+          "id": "title",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/title/v1/title",
+                "template": {
+                  "model": "title"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Image",
+          "id": "image",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/image/v1/image",
+                "template": {}
+              }
+            }
+          }
+        },
+        {
+          "title": "Button",
+          "id": "button",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/button/v1/button",
+                "template": {}
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Sections",
+      "id": "sections",
+      "components": [
+        {
+          "title": "Section",
+          "id": "section",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Section",
+                  "model": "section",
+                  "style": "default",
+                  "filter": "section"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Grid",
+      "id": "grid",
+      "components": [
+        {
+          "title": "Grid",
+          "id": "grid",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Grid",
+                  "model": "grid",
+                  "style": "grid",
+                  "filter": "section"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Blocks",
+      "id": "blocks",
+      "components": [
+        {
+          "title": "Bio Detail",
+          "id": "bio-detail",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "model": "bio-detail",
+                  "name": "Bio Detail",
+                  "image": "/content/dam/world-bank/sample/placeholder-black.png",
+                  "display-name": "Axel van Trotsenburg",
+                  "job-title": " <p>Senior Managing Director</p><p>World Bank Group</p>",
+                  "x-link": "www.xlink.com",
+                  "linkedin-link": "www.linkedin.com",
+                  "instagram-link": "www.instagram.com",
+                  "media-inquiries": "<p><strong>Kimberly Versak</strong></p><p>Senior External Affairs Officer</p><p><strong><em><a href='tel:2024588881' title='Tel: 202-458-8881'>Tel: 202-458-8881</a></em></strong></p><p><strong><em><a href='mailto:kversak@worldbank.org' title='kversak@worldbank.org'>kversak@worldbank.org</a></em></strong></p>",
+                  "resources": "<p><strong><em><a href='#' title='Full Bio'>Full Bio</a></em></strong></p><p> <strong><em><a href='#' title='High-Res Photo'>High-Res Photo</a></em></strong> </p> <p><strong><em><a href='#' title='Other Download'>Other Download</a></em></strong></p>"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Block Quote",
+          "id": "block-quote",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Block Quote",
+                  "model": "block-quote",
+                  "title": "Block Quote"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Breadcrumb",
+          "id": "breadcrumb",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Breadcrumb",
+                  "model": "breadcrumb"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Cards",
+          "id": "cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Cards",
+                  "model": "cards",
+                  "filter": "cards",
+                  "item1": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Card",
+                    "model": "card",
+                    "image": "/content/dam/world-bank/sample/placeholder-black.png",
+                    "imageAlt": "Alt Text",
+                    "text": "<h3>Lorem Ipsum</h3><p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p><p class = 'button-container'><a href='#'>Read Bio</a></p>"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Card",
+          "id": "card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Card",
+                  "model": "card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Carousel",
+          "id": "carousel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Carousel",
+                  "model": "carousel",
+                  "filter": "carousel",
+                  "item1": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Card",
+                    "model": "card",
+                    "image": "/content/dam/world-bank/sample/placeholder-black.png",
+                    "text": "<p>Explore History - essential data to learn about the important moments in the history of the World Bank while discovering the gems of the World Bank Group Archives</p>"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Columns",
+          "id": "columns",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/columns/v1/columns",
+                "template": {
+                  "columns": "2",
+                  "rows": "1"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Curated Cards",
+          "id": "curated-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Curated Cards",
+                  "filter": "curated-cards",
+                  "item1": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Curated Card",
+                    "model": "curated-card",
+                    "curated-card-tags": "world-bank:content-type/feature story",
+                    "curated-card-title": "Curated Card Title 1",
+                    "curated-card-description": "Card Description",
+                    "curated-card-link": "/content/world-bank/global/en"
+                  },
+                  "item2": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Curated Card",
+                    "model": "curated-card",
+                    "curated-card-tags": "world-bank:content-type/event",
+                    "curated-card-title": "Curated Card Title 2",
+                    "curated-card-description": "Card Description",
+                    "curated-card-link": "/content/world-bank/global/en"
+                  },
+                  "item3": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Curated Card",
+                    "model": "curated-card",
+                    "curated-card-tags": "world-bank:content-type/event",
+                    "curated-card-title": "Curated Card Title 3",
+                    "curated-card-description": "Card Description",
+                    "curated-card-link": "/content/world-bank/global/en"
+                  },
+                  "item4": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Curated Card",
+                    "model": "curated-card",
+                    "curated-card-tags": "world-bank:content-type/event",
+                    "curated-card-title": "Curated Card Title 4",
+                    "curated-card-description": "Card Description",
+                    "curated-card-link": "/content/world-bank/global/en"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Curated Card",
+          "id": "curated-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Curated Card",
+                  "model": "curated-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Data Cards",
+          "id": "data-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Data Cards",
+                  "model": "data-cards",
+                  "filter": "data-cards",
+                  "title": "<p><strong>Data</strong> for Development</p>",
+                  "description": "<p>Essential data to guide decisions, monitor progress, and evaluate impacts</p>",
+                  "additional-text": "<p>Explore by focus area</p>"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Data Card",
+          "id": "data-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Data Card",
+                  "model": "data-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "News Card",
+          "id": "news-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "News Card",
+                  "model": "news-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Dynamic Media Asset",
+          "id": "dm-asset",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Dynamic Media Asset",
+                  "model": "dm-asset"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Explore Cards",
+          "id": "explore-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Explore Cards",
+                  "model": "explore-cards",
+                  "filter": "explore-cards",
+                  "title": "<p>Explore Development Stories <strong>From Around the World</strong></p>",
+                  "item1": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Explore Card",
+                    "model": "explore-card",
+                    "fileReference": "/content/dam/world-bank/sample/placeholder-black.png",
+                    "alt": "Alt text",
+                    "title": "Green Jobs. Learn What They Are. And Why We’re Invested.",
+                    "link": "/content/world-bank/global/en",
+                    "content-type": "world-bank:content-type/audio",
+                    "story-type": "world-bank:story-type/immersive-stories"
+                  },
+                  "item2": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Explore Card",
+                    "model": "explore-card",
+                    "fileReference": "/content/dam/world-bank/sample/placeholder-black.png",
+                    "alt": "Alt text",
+                    "title": "Inside Somalia: Signs of Hope on the Road to Recovery.",
+                    "link": "/content/world-bank/global/en",
+                    "content-type": "world-bank:content-type/article",
+                    "story-type": "world-bank:story-type/the-development-podcast"
+                  },
+                  "item3": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Explore Card",
+                    "model": "explore-card",
+                    "fileReference": "/content/dam/world-bank/sample/placeholder-black.png",
+                    "alt": "Alt text",
+                    "title": "Discover the Link Between Plastic Pollution and Poverty.",
+                    "link": "/content/world-bank/global/en",
+                    "content-type": "world-bank:content-type/video",
+                    "story-type": "world-bank:story-type/expert-answers"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Explore Card",
+          "id": "explore-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Explore Card",
+                  "model": "explore-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Fragment",
+          "id": "fragment",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Fragment",
+                  "model": "fragment",
+                  "key-value": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Heading",
+          "id": "heading",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Heading",
+                  "model": "heading"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Iframe",
+          "id": "iframe",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Iframe",
+                  "model": "iframe"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Leaders List",
+          "id": "leaders-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Leaders List",
+                  "model": "leaders-list"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Live Now",
+          "id": "live-now",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "live-now",
+                  "model": "live-now",
+                  "key-value": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Impact Card",
+          "id": "impact-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Impact Card",
+                  "model": "impact-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Mini Cards",
+          "id": "mini-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Mini Cards",
+                  "filter": "mini-cards",
+                  "model": "mini-cards",
+                  "mini-cards-heading": "<p>The Heading for <strong>Mini Cards Block</strong></p>",
+                  "item1": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Mini Card",
+                    "model": "mini-card",
+                    "mini-card-image": "/content/dam/world-bank/sample/placeholder-black.png",
+                    "mini-card-tag": "world-bank:content-type/event",
+                    "mini-card-title": "Mini Card Title",
+                    "mini-card-date": "July 18",
+                    "mini-card-time": "8:30 AM",
+                    "mini-card-link": "/content/world-bank/global/en",
+                    "mini-card-location": "city, country",
+                    "alt": "default alt"
+                  },
+                  "item2": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Mini Card",
+                    "model": "mini-card",
+                    "mini-card-image": "/content/dam/world-bank/sample/placeholder-black.png",
+                    "mini-card-tag": "world-bank:content-type/event",
+                    "mini-card-title": "Mini Card Title",
+                    "mini-card-date": "July 18",
+                    "mini-card-time": "",
+                    "mini-card-link": "/content/world-bank/global/en",
+                    "alt": "default alt"
+                  },
+                  "item3": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Mini Card",
+                    "model": "mini-card",
+                    "mini-card-image": "/content/dam/world-bank/sample/placeholder-black.png",
+                    "mini-card-tag": "world-bank:content-type/event",
+                    "mini-card-title": "Mini Card Title",
+                    "mini-card-date": "July 18",
+                    "mini-card-time": "",
+                    "mini-card-link": "/content/world-bank/global/en",
+                    "alt": "default alt"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Mini Card",
+          "id": "mini-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Mini Card",
+                  "model": "mini-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Organizational Cards",
+          "id": "organizational-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Organizational Cards",
+                  "model": "organizational-cards",
+                  "filter": "organizational-cards",
+                  "item1": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Organizational Card",
+                    "model": "organizational-card",
+                    "acronym": "IBRD",
+                    "title": "International Bank for Reconstruction and Development",
+                    "mission": "Placeholder",
+                    "link": "/content/world-bank/global/en",
+                    "linkText": "Learn More"
+                  },
+                  "item2": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Organizational Card",
+                    "model": "organizational-card",
+                    "acronym": "IDA",
+                    "title": "International Development Association",
+                    "mission": "IDA provides grants and interest-free loans to the world's poorest nations to help them grow equitably and sustainably.",
+                    "link": "/content/world-bank/global/en",
+                    "linkText": "Learn More"
+                  },
+                  "item3": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Organizational Card",
+                    "model": "organizational-card",
+                    "acronym": "IFC",
+                    "title": "International Finance Corporation",
+                    "mission": "Placeholder",
+                    "link": "/content/world-bank/global/en",
+                    "linkText": "Learn More"
+                  },
+                  "item4": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Organizational Card",
+                    "model": "organizational-card",
+                    "acronym": "MIGA",
+                    "title": "Multilateral Investment Guarantee Agency",
+                    "mission": "Placeholder",
+                    "link": "/content/world-bank/global/en",
+                    "linkText": "Learn More"
+                  },
+                  "item5": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Organizational Card",
+                    "model": "organizational-card",
+                    "acronym": "ICSID",
+                    "title": "International Centre for Settlement of Investment Disputes",
+                    "mission": "Placeholder",
+                    "link": "/content/world-bank/global/en",
+                    "linkText": "Learn More"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Priority List",
+          "id": "priority-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Priority List",
+                  "model": "priority-list",
+                  "filter": "priority-list"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Priority Item",
+          "id": "priority-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Priority Item",
+                  "model": "priority-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Research Publications Cards",
+          "id": "research-publications-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Research Publications Cards",
+                  "model": "research-publications-cards",
+                  "filter": "research-publications-cards",
+                  "title": "<p>&nbsp;<strong>Research</strong> & Publications</p>",
+                  "buttontext": "More Research & Publications",
+                  "buttonlink": "https://www.worldbank.org",
+                  "item1": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Research Publications Card",
+                    "model": "research-publications-card",
+                    "image": "/content/dam/world-bank/sample/placeholder-black.png",
+                    "alt": "Global Economy Set for Weakest Showing in 30 Years",
+                    "title": "Global Economy Set for Weakest Showing in 30 Years",
+                    "description": "Find global economic outlook, regional outlooks and special topics in this twice-a-year flagship publication.",
+                    "href": "https://www.worldbank.org",
+                    "buttontext": "Read Full Report",
+                    "buttonlink": "https://www.worldbank.org"
+                  },
+                  "item2": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Research Publications Card",
+                    "model": "research-publications-card",
+                    "image": "/content/dam/world-bank/sample/placeholder-black.png",
+                    "alt": "Bend the Emissions Curve",
+                    "title": "Bend the Emissions Curve",
+                    "description": "State and Trends of Carbon Pricing 2024 helps inform, influence and incentivize better policies for a warming world.",
+                    "href": "https://www.worldbank.org",
+                    "buttontext": "Read Full Report",
+                    "buttonlink": "https://www.worldbank.org"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Research Publications Card",
+          "id": "research-publications-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Research Publications Card",
+                  "model": "research-publications-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Signup",
+          "id": "signup",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Signup",
+                  "model": "signup"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Tabs",
+          "id": "tabs",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Tabs",
+                  "model": "tabs",
+                  "filter": "tabs",
+                  "item1": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Tab",
+                    "model": "tab",
+                    "title": "Tab"
+                  },
+                  "item2": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Tab",
+                    "model": "tab",
+                    "title": "Tab"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Tab",
+          "id": "tab",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Tab",
+                  "model": "tab",
+                  "title": "Tab",
+                  "filter": "tab"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Teaser",
+          "id": "teaser",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Teaser",
+                  "model": "teaser",
+                  "key-value": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Video",
+          "id": "video",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Video",
+                  "model": "video"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Dropdown List",
+          "id": "dropdown-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Dropdown List",
+                  "model": "dropdown-list",
+                  "filter": "dropdown-list"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Dropdown Item",
+          "id": "dropdown-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Dropdown Item",
+                  "model": "dropdown-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Dropdown With Description",
+          "id": "dropdown-with-description",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Dropdown With Description",
+                  "model": "dropdown-with-description"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Dropdown",
+          "id": "dropdown",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Dropdown",
+                  "model": "dropdown"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Country List",
+          "id": "country-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Country List",
+                  "model": "country-list"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Search In Site",
+          "id": "search-in-site",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Search In Site",
+                  "model": "search-in-site"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Custom Image",
+          "id": "custom-image",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Custom Image",
+                  "model": "custom-image"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Feature Cards",
+          "id": "feature-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Feature Cards",
+                  "model": "feature-cards",
+                  "filter": "feature-cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Feature Card",
+          "id": "feature-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Feature Card",
+                  "model": "feature-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "News Banner",
+          "id": "news-banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "News Banner",
+                  "model": "news-banner"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Collapsible Text",
+          "id": "collapsible-text",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Collapsible Text",
+                  "model": "collapsible-text"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Inline Search",
+          "id": "inline-search",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Inline Search",
+                  "model": "inline-search"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Social Media",
+          "id": "social-media",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Social Media",
+                  "model": "social-media"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Indicator Charts",
+          "id": "indicator-charts",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Indicator Charts",
+                  "model": "indicator-charts",
+                  "filter": "indicator-charts"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Country Charts",
+          "id": "country-charts",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Country Charts",
+                  "model": "country-charts",
+                  "filter": "country-charts"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Stay Connected",
+          "id": "stay-connected",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Stay Connected",
+                  "model": "stay-connected",
+                  "filter": "stay-connected"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Icon Item",
+          "id": "icon-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Icon Item",
+                  "model": "icon-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Indicator Item",
+          "id": "indicator-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Indicator Item",
+                  "model": "indicator-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Indicator List",
+          "id": "indicator-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Indicator List",
+                  "model": "indicator-list"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Custom Text",
+          "id": "custom-text",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Custom Text",
+                  "model": "custom-text",
+                  "heading": "My Heading",
+                  "body": "<p>Enter some body text here...</p>"
+                }
+              }
+            }
+          }
+        }
+
+      ]
+    }
+  ]
+}

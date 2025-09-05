@@ -1,0 +1,295 @@
+
+/*=== Begin Region indicator ====*/
+.data-indicator-container > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+@media (width >= 1024px) {
+  .data-indicator-container > div {
+    flex-direction: row;
+  }
+  .data-indicator-container > div > div {
+    flex-basis: 50%;
+  }
+  .data-indicator-container > div > div:last-child {
+    flex-basis: 50%;
+  }
+}
+@media (width >= 1366px) {
+  .data-indicator-container > div {
+    flex-direction: row;
+  }
+  .data-indicator-container > div > div {
+    flex-basis: 53%;
+  }
+  .data-indicator-container > div > div:last-child {
+    flex-basis: 40%;
+  }
+}
+.data-indicator-container > div .data-indicator-header img {
+  width: 100%;
+}
+.data-indicator-container > div .close-icon {
+  background-color: transparent;
+  padding: var(--spacing-tiny);
+  border: 0px;
+  float: right;
+}
+.data-indicator-container > div .data-indicator-source {
+  padding: var(--spacing-medium);
+  align-items: flex-start;
+  border-radius: var(--border-radius-large);
+  background: var(--neutral-solid-10-s);
+  backface-visibility: hidden;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  transform: rotateY(-180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow-y: auto;
+}
+.data-indicator-container > div .data-indicator-source > div {
+  padding-top: var(--spacing-large);
+}
+.data-indicator-container > div .data-indicator-source p {
+  color: var(--text-on-light-emphasis);
+  font-size: var(--font-size-300);
+  font-style: normal;
+  font-weight: var(--body-font-weight-regular);
+  line-height: 150%;
+  margin: 0rem 0rem var(--spacing-regular) 0rem;
+}
+.data-indicator-container > div .data-indicator-source .button {
+  background-color: transparent;
+  border: 0px;
+  color: var(--text-on-light-link-primary-enabled);
+  font-size: var(--theloop-button-label-font-size);
+  font-weight: var(--theloop-button-label-font-weight);
+  line-height: var(--theloop-button-label-line-height); /* 150% */
+  letter-spacing: var(--theloop-button-label-letter-spacing);
+  padding: var(--spacing-none) var(--spacing-none) var(--spacing-tiny) var(--spacing-none);
+  border-bottom: 2px solid rgba(0, 67, 112, 0.55);
+  border-radius: 0px;
+}
+.data-indicator-container > div .data-indicator-source .button:after {
+  font-family: "loopicon";
+  content: "\e123";
+  font-size: 80%;
+  transform: rotate(45deg);
+  display: inline-block;
+  position: relative;
+  top: 0px;
+  margin-left: var(--spacing-tiny);
+}
+.data-indicator-container > div .data-indicator-source .button:hover {
+  border-bottom: 2px solid var(--global-interactive-on-dark-hover);
+}
+.data-indicator-container > div .data-indicator-chart {
+  padding: var(--spacing-medium);
+  flex-direction: column;
+  align-items: flex-start;
+ 
+  display: flex;
+  border-radius: var(--border-radius-large);
+  background: var(--neutral-solid-10-s);
+  position: relative;
+}
+.data-indicator-container > div .data-indicator-chart.hover .data-indicator-source {
+  transform: rotateY(0deg);
+}
+.data-indicator-container > div .data-indicator-title a {
+  color: var(--text-on-light-link-primary-enabled);
+  font-size: var(--font-size-700);
+  font-style: normal;
+  font-weight: var(--label-font-weight);
+  line-height: 125%;
+  /* 35px */
+  letter-spacing: -0.42px;
+  text-decoration: none;
+  margin-bottom: var(--spacing-xxsmall);
+  display: inline-block;
+}
+.data-indicator-container > div .data-indicator-title a .lp-arrow-up {
+  font-size: 70%;
+  transform: rotate(45deg);
+  display: inline-block;
+  position: relative;
+}
+html[dir=rtl] .data-indicator-container > div .data-indicator-title a .lp-arrow-up {
+  font-size: 70%;
+  transform: rotate(-45deg);
+  display: inline-block;
+  position: relative;
+}
+.data-indicator-container > div .data-indicator-title a .lp-arrow-down {
+  font-size: 70%;
+  transform: rotate(-45deg);
+  display: inline-block;
+  position: relative;
+}
+html[dir=rtl] .data-indicator-container > div .data-indicator-title a .lp-arrow-down {
+  font-size: 70%;
+  transform: rotate(45deg);
+  display: inline-block;
+  position: relative;
+}
+.data-indicator-container > div .data-indicator-title a:hover {
+  color: var(--global-interactive-on-dark-focused);
+}
+.data-indicator-container > div .data-indicator-description {
+  color: var(--text-on-light-emphasis);
+  font-size: var(--font-size-300);
+  font-style: normal;
+  font-weight: var(--body-font-weight-regular);
+  line-height: 125%;
+  /* 20px */
+  margin: 0rem 0rem var(--spacing-large) 0rem;
+}
+.data-indicator-container > div .data-indicator-list {
+  padding: var(--spacing-none);
+  margin: var(--spacing-none);
+}
+.data-indicator-container > div .data-indicator-list li {
+  list-style: none;
+  padding: var(--spacing-large) var(--spacing-xsmall);
+  border-top: 2px solid var(--divider-on-light-subdued);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--spacing-regular);
+  align-self: stretch;
+  justify-content: space-between;
+}
+@media (width <= 1023px) {
+  .data-indicator-container > div > div .data-indicator-list li:first-child {
+    border-top: 0px;
+  }
+}
+@media (width <= 1023px) {
+  .data-indicator-container > div > div .data-indicator-list:first-child {
+    padding-bottom: var(--spacing-xxlarge);
+  }
+}
+
+.data-indicator-container > div .data-indicator-list .data-indicator-listtitle {
+ width: 68%;
+}
+.data-indicator-container > div .data-indicator-list .data-indicator-listtitle a {
+  color: var(--text-on-light-highlight);
+  font-size: var(--font-size-600);
+  font-weight: var(--body-font-weight-bold);
+  line-height: 150%;
+  /* 36px */
+  letter-spacing: -0.084px;
+  text-decoration: none;
+}
+.data-indicator-container > div .data-indicator-list .data-indicator-listtitle a:hover {
+  color: var(--global-interactive-on-dark-focused);
+}
+.data-indicator-container > div .data-indicator-list .data-indicator-value {
+  margin: 0;
+  color: var(--text-on-light-emphasis);
+  font-size: var(--font-size-600);
+  font-weight: var(--body-font-weight-regular);
+  line-height: 150%;
+  width: 18%;
+  letter-spacing: -0.084px;
+}
+.data-indicator-container > div .data-indicator-list .data-up-arrow {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 125px;
+  background: var(--blue-70);
+  position: relative;
+}
+.data-indicator-container > div > div .data-indicator-list .data-up-arrow:after {
+  font-family: "loopicon";
+  content: "\e123";
+  font-size: 80%;
+  display: inline-block;
+  position: relative;
+  top: 0px;
+  color: #fff;
+}
+.data-indicator-container > div .data-indicator-list .data-down-arrow {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 125px;
+  background: var(--blue-70);
+  position: relative;
+}
+.data-indicator-container > div > div .data-indicator-list .data-down-arrow:after {
+  font-family: "loopicon";
+  content: "\e120";
+  font-size: 80%;
+  display: inline-block;
+  position: relative;
+  top: 0px;
+  color: #fff;
+}
+.data-indicator-flip {
+      color: var(--text-on-light-link-primary-enabled);
+      font-size: var(--font-size-200);
+      font-weight: var(--body-font-weight-regular);
+      line-height: 150%;
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-skip-ink: none;
+      text-decoration-thickness: auto;
+      text-underline-offset: auto;
+      cursor: pointer;
+    }
+/*=== End Region indicator ====*/
+.indicator-charts-container .heading-wrapper > div a.button {
+  display: block;
+}
+@media (width <= 1024px) {
+  .indicator-charts-container .heading-wrapper > div a.button {
+    display: none;
+  }
+}
+  .indicator-charts-container div.button-wrapper {
+    display: none;
+  }
+  @media (width <= 1023px) {
+    .indicator-charts-container div.button-wrapper{
+      display: block;
+    }
+  }
+.indicator-charts-container .heading-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xxlarge);
+}
+
+.data-indicator-block {
+  height: 100%;
+  width: 100%;
+  margin-bottom: var(--spacing-large);
+}
+
+.data-up-arrow, .data-down-arrow {
+ min-width: 40px;
+    min-height: 40px;
+}
+.chart-value {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+/* .region-charts-container  {
+  display: flex !important;
+} */

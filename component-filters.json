@@ -1,0 +1,174 @@
+[
+  {
+    "id": "main",
+    "components": [
+      "section",
+      "grid"
+    ]
+  },
+  {
+    "id": "section",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title",
+      "cards",
+      "columns",
+      "data-cards",
+      "curated-cards",
+      "explore-cards",
+      "mini-cards",
+      "research-publications-cards",
+      "live-now",
+      "signup",
+      "teaser",
+      "tabs",
+      "priority-list",
+      "leaders-list",
+      "bio-detail",
+      "carousel",
+      "organizational-cards",
+      "breadcrumb",
+      "block-quote",
+      "impact-cards",
+      "heading",
+      "dm-asset",
+      "fragment",
+      "video",
+      "iframe",
+      "dropdown-list",
+      "country-list",
+      "dropdown-with-description",
+      "search-in-site",
+      "feature-cards",
+      "custom-image",
+      "news-banner",
+      "collapsible-text",
+      "indicator-charts",
+      "inline-search",
+      "social-media",
+      "country-charts",
+      "stay-connected",
+      "custom-text"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "columns",
+    "components": []
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title",
+      "dm-asset",
+      "heading",
+      "teaser",
+      "dropdown"
+    ]
+  },
+  {
+    "id": "curated-cards",
+    "components": [
+      "curated-card"
+    ]
+  },
+  {
+    "id": "data-cards",
+    "components": [
+      "data-card",
+      "news-card"
+    ]
+  },
+  {
+    "id": "explore-cards",
+    "components": [
+      "explore-card"
+    ]
+  },
+  {
+    "id": "impact-cards",
+    "components": [
+      "impact-card"
+    ]
+  },
+  {
+    "id": "mini-cards",
+    "components": [
+      "mini-card"
+    ]
+  },
+  {
+    "id": "organizational-cards",
+    "components": [
+      "organizational-card"
+    ]
+  },
+  {
+    "id": "priority-list",
+    "components": [
+      "priority-item"
+    ]
+  },
+  {
+    "id": "research-publications-cards",
+    "components": [
+      "research-publications-card"
+    ]
+  },
+  {
+    "id": "tabs",
+    "components": [
+      "tab"
+    ]
+  },
+  {
+    "id": "dropdown-list",
+    "components": [
+      "dropdown-item"
+    ]
+  },
+  {
+    "id": "stay-connected",
+    "components": [
+      "icon-item"
+    ]
+  },
+  {
+    "id": "country-list",
+    "components": []
+  },
+  {
+    "id": "feature-cards",
+    "components": [
+      "feature-card"
+    ]
+  },
+  {
+    "id": "indicator-charts",
+    "components": [
+      "indicator-item"
+    ]
+  },
+    {
+    "id": "country-charts",
+    "components": [
+      "indicator-list"
+    ]
+  }
+]

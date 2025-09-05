@@ -1,0 +1,30 @@
+{
+    "models": [
+        {
+            "id": "signup",
+            "fields": [
+                {
+                    "component": "select",
+                    "valueType": "string",
+                    "name": "newsletter",
+                    "label": "Select Newsletter",
+                    "value": "",
+                    "options": [
+                        {
+                            "name": "Default Newsletter",
+                            "value": ""
+                        },
+                        {
+                            "name": "Newsletter 1",
+                            "value": "newsletter-1"
+                        },
+                        {
+                            "name": "Newsletter 2",
+                            "value": "newsletter-2"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
