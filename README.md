@@ -7,7 +7,8 @@ These will be the same content because there is no 'preview' in AEM 6.5
 - Preview: https://main--wbcopy--helms-charity.aem.page/en/home
 - Live: https://main--wbcopy--helms-charity.aem.live/en/home
 
-- MSC: weretail-global-b75-dev
+- Customer's Stage-comm author is the content source.
+- /content/wbcopy/ext/en/home is the home page
 
 ## Installation
 
