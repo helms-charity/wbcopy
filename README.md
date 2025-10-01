@@ -1,9 +1,10 @@
 # Your Project's Title...
-Your project's description...
+https://academy.worldbank.org/en/home
 
 ## Environments
-- Preview: https://main--wbcopy--helms-charity.aem.page/
-- Live: https://main--wbcopy--helms-charity.aem.live/
+These will be the same content because there is no 'preview' in AEM 6.5
+- Preview: https://main--wbcopy--helms-charity.aem.page/en/home
+- Live: https://main--wbcopy--helms-charity.aem.live/en/home
 
 ## Installation
 
