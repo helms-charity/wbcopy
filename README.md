@@ -1,5 +1,6 @@
 # Your Project's Title...
 https://academy.worldbank.org/en/home
+Swapna's Aemy trial repo: https://github.com/aemysites/sthirumal-250806
 
 ## Environments
 These will be the same content because there is no 'preview' in AEM 6.5
