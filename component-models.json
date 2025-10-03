@@ -2811,6 +2811,10 @@
           {
             "name": "Senior Leadership view",
             "value": "senior-leadership"
+          },
+          {
+            "name": "Sticky Card view",
+            "value": "sticky-card"
           }
         ]
       }
