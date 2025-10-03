@@ -5,6 +5,7 @@
       "/content/wbcopy/ext/metadata:/metadata.json",
       "/content/wbcopy/placeholders:/placeholders.json",
       "/content/wbcopy/ext/taxonomy:/taxonomy.json",
+      "/content/wbcopy/ext/metadata:/metadata.json",
       "/content/wbcopy/ext/headers:/.helix/headers.json",
       "/content/dam/wbcopy/ext/icons/:/icons/"
     ],
