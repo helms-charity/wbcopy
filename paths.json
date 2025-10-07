@@ -9,7 +9,7 @@
       "/content/wbcopy/ext/metadata:/metadata.json",
       "/content/wbcopy/ext/headers:/.helix/headers.json",
       "/content/dam/wbcopy/ext/icons/:/icons/",
-      "/content/wbcopy/ext.resource/scripts/editor-support.js:/ext/scripts/editor-support.js"
+      "/content/wbcopy/ext.resource/scripts/editor-support.js:/content/wbcopy/ext.resource/ext/scripts/editor-support.js"
     ],
     "includes": [
       "/content/wbcopy/",
