@@ -1,0 +1,177 @@
+{
+  "definitions": [
+    {
+      "title": "Indicator Charts",
+      "id": "indicator-charts",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Indicator Charts",
+              "model": "indicator-charts",
+              "filter": "indicator-charts"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "indicator-charts",
+      "fields": [
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "pageType",
+          "value": "",
+          "label": "Page Type",
+          "options": [
+            {
+              "name": "Region",
+              "value": "region"
+            },
+            {
+              "name": "Topic",
+              "value": "topic"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "selector",
+          "value": "",
+          "label": "Selector",
+          "valueType": "string",
+          "required": true,
+          "options": [
+            {
+              "name": "Africa",
+              "value": "AFR"
+            },
+            {
+              "name": "West Africa",
+              "value": "AFW"
+            },
+            {
+              "name": "East Africa",
+              "value": "AFE"
+            },
+            {
+              "name": "East Asia & Pacific",
+              "value": "EAS"
+            },
+            {
+              "name": "Europe & Central Asia",
+              "value": "ECS"
+            },
+            {
+              "name": "Latin America & Caribbean",
+              "value": "LCN"
+            },
+            {
+              "name": "Middle East and North Africa",
+              "value": "MEA"
+            },
+            {
+              "name": "South Asia",
+              "value": "SAS"
+            }
+          ],
+          "condition": {
+            "==": [
+              {
+                "var": "pageType"
+              },
+              "region"
+            ]
+          }
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "title",
+          "value": "",
+          "label": "Heading",
+          "required": true
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "buttontext",
+          "label": "Button Text",
+          "value": "",
+          "required": true
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "buttonlink",
+          "label": "Button Link",
+          "value": "",
+          "required": true
+        },
+        {
+          "component": "text",
+          "name": "CategoryName",
+          "value": "MIDDLE EAST AND NORTH AFRICA",
+          "label": "Category Name",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "sourceLabel",
+          "value": "Source",
+          "label": "Source Label",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "datasetLabel",
+          "value": "Dataset",
+          "label": "Dataset Label",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "data360ButtonText",
+          "value": "Go to Data 360",
+          "label": "Data 360 Button Text",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "indicator-item",
+      "fields": [
+        {
+          "component": "text",
+          "name": "indicatorID",
+          "label": "Indicator ID",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "indicatorName",
+          "label": "Indicator Name",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "unitMeasure",
+          "label": "Unit Measure",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "indicator-charts",
+      "components": [
+        "indicator-item"
+      ]
+    }
+  ]
+}

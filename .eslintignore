@@ -1,1 +1,8 @@
-helix-importer-ui
+node_modules/
+*.min.js
+dist/
+build/
+coverage/
+component-models.json
+component-definition.json
+component-filters.json
