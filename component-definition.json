@@ -439,6 +439,21 @@
           }
         },
         {
+          "title": "Dropdown With Description",
+          "id": "dropdown-with-description",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Dropdown With Description",
+                  "model": "dropdown-with-description"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Dropdown",
           "id": "dropdown",
           "plugins": {
@@ -575,6 +590,23 @@
                   "name": "Fragment",
                   "model": "fragment",
                   "key-value": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Grid",
+          "id": "grid",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Grid",
+                  "model": "grid",
+                  "style": "grid",
+                  "filter": "section"
                 }
               }
             }
@@ -757,6 +789,21 @@
           }
         },
         {
+          "title": "News Banner",
+          "id": "news-banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "News Banner",
+                  "model": "news-banner"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Organizational Cards",
           "id": "organizational-cards",
           "plugins": {
@@ -906,6 +953,21 @@
                 "template": {
                   "name": "Research Publications Card",
                   "model": "research-publications-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Search In Site",
+          "id": "search-in-site",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Search In Site",
+                  "model": "search-in-site"
                 }
               }
             }

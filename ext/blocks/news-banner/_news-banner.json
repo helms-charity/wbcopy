@@ -1,0 +1,77 @@
+{
+  "definitions": [
+    {
+      "title": "News Banner",
+      "id": "news-banner",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "News Banner",
+              "model": "news-banner"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "news-banner",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false,
+          "required": true,
+          "description": "Select an image for the news banner"
+        },
+        {
+          "component": "text",
+          "name": "altText",
+          "value": "World Bank Group Default Image",
+          "label": "Image Alternate Text",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "hammer",
+          "value": "",
+          "label": "Hammer",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "title",
+          "value": "",
+          "label": "Title",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "title-link",
+          "value": "",
+          "label": "Title Link",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "value": "",
+          "label": "Description",
+          "valueType": "string"
+        },
+        {
+          "component": "boolean",
+          "valueType": "boolean",
+          "name": "add-play-icon",
+          "label": "Show play icon"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

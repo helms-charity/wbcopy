@@ -2158,6 +2158,7 @@
         "name": "image",
         "label": "Image",
         "multi": false,
+        "description": "Max 1 Item",
         "required": true
       },
       {
@@ -3867,6 +3868,46 @@
     ]
   },
   {
+    "id": "dropdown-with-description",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "desc",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ddtitle",
+        "label": "Dropdown Title",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ddplaceholder",
+        "label": "Dropdown Placeholder",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "ddbodytext",
+        "value": "",
+        "label": "Card Body Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "dropdown",
     "fields": [
       {
@@ -4066,6 +4107,795 @@
         "value": "",
         "required": true,
         "label": "Fragment Path"
+      }
+    ]
+  },
+  {
+    "id": "grid",
+    "fields": [
+      {
+        "component": "select",
+        "name": "sec-swoosh",
+        "value": "",
+        "label": "Swoosh",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "No Swoosh",
+            "value": "sec-swoosh-none"
+          },
+          {
+            "name": "Left Center Swoosh (1)",
+            "value": "sec-swoosh-type1"
+          },
+          {
+            "name": "Right Top Swoosh (2)",
+            "value": "sec-swoosh-type2"
+          },
+          {
+            "name": "Left Top Swoosh (3)",
+            "value": "sec-swoosh-type3"
+          },
+          {
+            "name": "Swoosh for BG inside container - Desktop (5)",
+            "value": "sec-swoosh-type5"
+          },
+          {
+            "name": "Leaders profile swoosh (6)",
+            "value": "sec-swoosh-type6"
+          },
+          {
+            "name": "Right Center Swoosh (7)",
+            "value": "sec-swoosh-type7"
+          },
+          {
+            "name": "Right Swoosh (8)",
+            "value": "sec-swoosh-type8"
+          },
+          {
+            "name": "Right Swoosh (9)",
+            "value": "sec-swoosh-type9"
+          },
+          {
+            "name": "Right Swoosh (10)",
+            "value": "sec-swoosh-type10"
+          },
+          {
+            "name": "Right Swoosh (11)",
+            "value": "sec-swoosh-type11"
+          },
+          {
+            "name": "Primary Blue 90 theme Swoosh",
+            "value": "sec-swoosh-primary-blue-90"
+          }
+        ]
+      },
+      {
+        "component": "multiselect",
+        "name": "style",
+        "label": "Variant Style",
+        "valueType": "string",
+        "required": true,
+        "maxSize": 5,
+        "options": [
+          {
+            "name": "🎨Background",
+            "children": [
+              {
+                "name": "Transparent / White / Default",
+                "value": "bg-default"
+              },
+              {
+                "name": "Dark Background Container",
+                "value": "bg-primary-blue"
+              },
+              {
+                "name": "Primary Blue 90",
+                "value": "bg-primary-blue-90"
+              },
+              {
+                "name": "Primary Blue 70",
+                "value": "bg-primary-blue-70"
+              },
+              {
+                "name": "Neutrals 10",
+                "value": "bg-neutrals-10"
+              },
+              {
+                "name": "Neutrals 10 Gradient",
+                "value": "bg-neutrals-10-gradient"
+              },
+              {
+                "name": "Neutrals 20",
+                "value": "bg-neutrals-20"
+              },
+              {
+                "name": "Neutrals 05",
+                "value": "bg-neutrals-05-gradient"
+              },
+              {
+                "name": "Neutrals 07",
+                "value": "bg-neutrals-07-gradient"
+              },
+              {
+                "name": "Image",
+                "value": "bg-image"
+              }
+            ]
+          },
+          {
+            "name": "🧩Component",
+            "children": [
+              {
+                "name": "Banner Container",
+                "value": "full-banner-container"
+              },
+              {
+                "name": "Bottom Carousel",
+                "value": "bottom-carousel"
+              },
+              {
+                "name": "Button Title Container",
+                "value": "title-text-button-container"
+              },
+              {
+                "name": "Data Card Noborder",
+                "value": "data-card-noborder"
+              },
+              {
+                "name": "Feature Banner Container",
+                "value": "feature-banner-container"
+              },
+              {
+                "name": "List Container",
+                "value": "countrylist-container"
+              },
+              {
+                "name": "List With Border Container",
+                "value": "partnerlist-container"
+              },
+              {
+                "name": "Region Feature Card",
+                "value": "region-feature-card"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "sec-spacing",
+        "value": "",
+        "label": "Spacing Top (padding top)",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default spacing",
+            "value": "sec-spacing-default"
+          },
+          {
+            "name": "No space / padding",
+            "value": "section-none"
+          },
+          {
+            "name": "Spacing Between",
+            "value": "section-padding-between"
+          },
+          {
+            "name": "Spacing tiny",
+            "value": "section-tiny"
+          },
+          {
+            "name": "Spacing xxsmall",
+            "value": "section-xxsmall"
+          },
+          {
+            "name": "Spacing xsmall",
+            "value": "section-xsmall"
+          },
+          {
+            "name": "Spacing regular",
+            "value": "section-regular"
+          },
+          {
+            "name": "Spacing small",
+            "value": "section-small"
+          },
+          {
+            "name": "Spacing medium",
+            "value": "section-medium"
+          },
+          {
+            "name": "Spacing large",
+            "value": "section-large"
+          },
+          {
+            "name": "Spacing xlarge",
+            "value": "section-xlarge"
+          },
+          {
+            "name": "Spacing xxlarge",
+            "value": "section-xxlarge"
+          },
+          {
+            "name": "Spacing huge",
+            "value": "section-huge"
+          },
+          {
+            "name": "Spacing xhuge",
+            "value": "section-xhuge"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "sec-spacing-bottom",
+        "value": "",
+        "label": "Spacing Bottom (padding bottom)",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default spacing",
+            "value": "sec-spacing-default"
+          },
+          {
+            "name": "No space / padding",
+            "value": "section-none"
+          },
+          {
+            "name": "Spacing Between",
+            "value": "section-padding-between"
+          },
+          {
+            "name": "Spacing tiny",
+            "value": "section-tiny"
+          },
+          {
+            "name": "Spacing xxsmall",
+            "value": "section-xxsmall"
+          },
+          {
+            "name": "Spacing xsmall",
+            "value": "section-xsmall"
+          },
+          {
+            "name": "Spacing regular",
+            "value": "section-regular"
+          },
+          {
+            "name": "Spacing small",
+            "value": "section-small"
+          },
+          {
+            "name": "Spacing medium",
+            "value": "section-medium"
+          },
+          {
+            "name": "Spacing large",
+            "value": "section-large"
+          },
+          {
+            "name": "Spacing xlarge",
+            "value": "section-xlarge"
+          },
+          {
+            "name": "Spacing xxlarge",
+            "value": "section-xxlarge"
+          },
+          {
+            "name": "Spacing huge",
+            "value": "section-huge"
+          },
+          {
+            "name": "Spacing xhuge",
+            "value": "section-xhuge"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "sec-inside-container",
+        "label": "Show background color inside container.",
+        "condition": {
+          "!=": [
+            {
+              "var": "style"
+            },
+            "bg-image"
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "name": "col-ctrl",
+        "value": "",
+        "label": "Grids",
+        "description": "Select grid count",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "1",
+            "value": "col-1"
+          },
+          {
+            "name": "2",
+            "value": "col-2"
+          },
+          {
+            "name": "3",
+            "value": "col-3"
+          },
+          {
+            "name": "4",
+            "value": "col-4"
+          },
+          {
+            "name": "5",
+            "value": "col-5"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test1",
+        "label": "🧱 Grid 1",
+        "multi": false,
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col1-class",
+            "value": "",
+            "label": "Column 1 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col1-blocks",
+            "label": "Column 1 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              {
+                "name": "Collapsible Text",
+                "value": "collapsible-text"
+              },
+              {
+                "name": "Heading",
+                "value": "heading"
+              },
+              {
+                "name": "Inline Search",
+                "value": "inline-search"
+              },
+              {
+                "name": "Mini Cards",
+                "value": "mini-cards"
+              },
+              {
+                "name": "News Banner",
+                "value": "news-banner"
+              },
+              {
+                "name": "Research and Publications",
+                "value": "research-publications-cards"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              },
+              {
+                "name": "Signup",
+                "value": "signup"
+              },
+              {
+                "name": "Text",
+                "value": "text"
+              },
+              {
+                "name": "Video",
+                "value": "video"
+              },
+              {
+                "name": "Image",
+                "value": "image"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test2",
+        "label": "🧱 Grid 2",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "or": [
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-2"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-3"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-4"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-5"
+              ]
+            }
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col2-class",
+            "value": "",
+            "label": "Column 2 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col2-blocks",
+            "label": "Column 2 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              {
+                "name": "Collapsible Text",
+                "value": "collapsible-text"
+              },
+              {
+                "name": "Heading",
+                "value": "heading"
+              },
+              {
+                "name": "Inline Search",
+                "value": "inline-search"
+              },
+              {
+                "name": "Mini Cards",
+                "value": "mini-cards"
+              },
+              {
+                "name": "News Banner",
+                "value": "news-banner"
+              },
+              {
+                "name": "Research and Publications",
+                "value": "research-publications-cards"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              },
+              {
+                "name": "Signup",
+                "value": "signup"
+              },
+              {
+                "name": "Text",
+                "value": "text"
+              },
+              {
+                "name": "Video",
+                "value": "video"
+              },
+              {
+                "name": "Image",
+                "value": "image"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test3",
+        "label": "🧱 Grid 3",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "or": [
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-3"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-4"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-5"
+              ]
+            }
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col3-class",
+            "value": "",
+            "label": "Column 3 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col3-blocks",
+            "label": "Column 3 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              {
+                "name": "Collapsible Text",
+                "value": "collapsible-text"
+              },
+              {
+                "name": "Heading",
+                "value": "heading"
+              },
+              {
+                "name": "Inline Search",
+                "value": "inline-search"
+              },
+              {
+                "name": "Mini Cards",
+                "value": "mini-cards"
+              },
+              {
+                "name": "News Banner",
+                "value": "news-banner"
+              },
+              {
+                "name": "Research and Publications",
+                "value": "research-publications-cards"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              },
+              {
+                "name": "Signup",
+                "value": "signup"
+              },
+              {
+                "name": "Text",
+                "value": "text"
+              },
+              {
+                "name": "Video",
+                "value": "video"
+              },
+              {
+                "name": "Image",
+                "value": "image"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test4",
+        "label": "🧱 Grid 4",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "or": [
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-4"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-5"
+              ]
+            }
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col4-class",
+            "value": "",
+            "label": "Column 4 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col4-blocks",
+            "label": "Column 4 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              {
+                "name": "Collapsible Text",
+                "value": "collapsible-text"
+              },
+              {
+                "name": "Heading",
+                "value": "heading"
+              },
+              {
+                "name": "Inline Search",
+                "value": "inline-search"
+              },
+              {
+                "name": "Mini Cards",
+                "value": "mini-cards"
+              },
+              {
+                "name": "News Banner",
+                "value": "news-banner"
+              },
+              {
+                "name": "Research and Publications",
+                "value": "research-publications-cards"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              },
+              {
+                "name": "Signup",
+                "value": "signup"
+              },
+              {
+                "name": "Text",
+                "value": "text"
+              },
+              {
+                "name": "Video",
+                "value": "video"
+              },
+              {
+                "name": "Image",
+                "value": "image"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test5",
+        "label": "🧱 Grid 5",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "==": [
+            {
+              "var": "col-ctrl"
+            },
+            "col-5"
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col5-class",
+            "value": "",
+            "label": "Column 5 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col5-blocks",
+            "label": "Column 5 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              {
+                "name": "Collapsible Text",
+                "value": "collapsible-text"
+              },
+              {
+                "name": "Heading",
+                "value": "heading"
+              },
+              {
+                "name": "Inline Search",
+                "value": "inline-search"
+              },
+              {
+                "name": "Mini Cards",
+                "value": "mini-cards"
+              },
+              {
+                "name": "News Banner",
+                "value": "news-banner"
+              },
+              {
+                "name": "Research and Publications",
+                "value": "research-publications-cards"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              },
+              {
+                "name": "Signup",
+                "value": "signup"
+              },
+              {
+                "name": "Text",
+                "value": "text"
+              },
+              {
+                "name": "Video",
+                "value": "video"
+              },
+              {
+                "name": "Image",
+                "value": "image"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -4871,6 +5701,61 @@
     ]
   },
   {
+    "id": "news-banner",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false,
+        "required": true,
+        "description": "Select an image for the news banner"
+      },
+      {
+        "component": "text",
+        "name": "altText",
+        "value": "World Bank Group Default Image",
+        "label": "Image Alternate Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "hammer",
+        "value": "",
+        "label": "Hammer",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "title-link",
+        "value": "",
+        "label": "Title Link",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "add-play-icon",
+        "label": "Show play icon"
+      }
+    ]
+  },
+  {
     "id": "organizational-cards",
     "fields": [
       {
@@ -5086,6 +5971,84 @@
         "label": "Button Link",
         "value": "",
         "required": true
+      }
+    ]
+  },
+  {
+    "id": "search-in-site",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "prefix",
+        "label": "Prefix Heading",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Heading Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "desc",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formheader",
+        "label": "Form Header",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "formdesc",
+        "value": "",
+        "label": "Form Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formplaceholder",
+        "label": "Placeholder Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "targeturl",
+        "label": "Target URL",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "formlinks",
+        "value": "",
+        "label": "Form Links",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Variations",
+        "options": [
+          {
+            "name": "Default (Text - Search)",
+            "value": "default-variation"
+          },
+          {
+            "name": "Signup (Search - Text)",
+            "value": "signup-variation"
+          }
+        ]
       }
     ]
   },

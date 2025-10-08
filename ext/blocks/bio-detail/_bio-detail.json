@@ -34,6 +34,7 @@
           "name": "image",
           "label": "Image",
           "multi": false,
+          "description": "Max 1 Item",
           "required": true
         },
         {
