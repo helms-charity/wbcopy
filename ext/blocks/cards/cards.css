@@ -2,9 +2,10 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
-  grid-gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
 }
 
 .cards:not(.profile-summary) > ul > li {
@@ -13,7 +14,10 @@
 }
 
 .cards:not(.profile-summary) .cards-card-body {
-  margin: 16px;
+  position: relative;
+  padding: var(--spacing-large);
+  z-index: 1;
+  box-sizing: border-box;
 }
 
 .cards:not(.profile-summary) .cards-card-image {
@@ -25,7 +29,25 @@
 }
 
 .cards:not(.profile-summary) .cards-card-body > *:first-child {
-  margin-top: 0;
+  margin: 0;
+  color: var(--text-on-dark-emphasys, rgb(255 255 255 / 90%));
+  font-feature-settings: "liga" off, "clig" off;
+  font-size: var(--font-size-900);
+  font-style: normal;
+  font-weight: var(--label-font-weight);
+  line-height: 115%;
+  letter-spacing: -0.54px;
+  margin-bottom: 0.75rem;
+}
+
+
+.cards:not(.profile-summary) .cards-card-body > *:last-child {
+    color: var(--text-on-dark-default, rgb(255 255 255 / 75%));
+    font-size: var(--font-size-500);
+    font-style: normal;
+    font-weight: var(--body-font-weight-regular);
+    line-height: 150%;
+    letter-spacing: -0.25px;
 }
 
 .cards:not(.profile-summary) > ul > li img {
@@ -264,4 +286,63 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
     letter-spacing: -0.084px;
     line-height: 30px;
   }
+}
+
+.cards.sticky-card.block {
+  background-color: #bdf1ff;
+  padding: 0;
+}
+
+.cards.sticky-card.block > ul > li {
+  display: flex;
+  height: 607px;
+  width: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.cards.sticky-card.block > ul > li:nth-child(1) {
+  width: 41.6667%;
+}
+
+.cards.sticky-card.block > ul > li:nth-child(2) {
+  display: flex;
+  position: relative;
+  width: 33.3333%;
+  margin-top: 30%;
+  right: -10rem;
+  gap: var(--spacing-xsmall);
+  flex-shrink: 0;
+  z-index: 9;
+}
+
+.cards.sticky-card.block > ul > li:nth-child(3) {
+  margin-top: -20%;
+  left: 5rem;
+  width: 33.3333%;
+}
+
+.cards.sticky-card.block > ul > li:nth-child(4) {
+  margin-top: 10%;
+  right: -14rem;
+  width: 41.6667%;
+}
+
+.cards.sticky-card.block .cards-card-image {
+  background-color: blue;
+  width: auto;
+  height: 100%;
+  position: absolute;
+}
+
+.cards.sticky-card.block .cards-card-image picture {
+  background-color: green;
+}
+
+.cards.sticky-card.block .cards-card-image img {
+  height: 100%;
+  width: 100%;
 }
