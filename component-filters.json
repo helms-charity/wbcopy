@@ -2,8 +2,7 @@
   {
     "id": "main",
     "components": [
-      "section",
-      "grid"
+      "section"
     ]
   },
   {
@@ -36,21 +35,7 @@
       "dm-asset",
       "fragment",
       "video",
-      "iframe",
-      "dropdown-list",
-      "country-list",
-      "dropdown-with-description",
-      "search-in-site",
-      "feature-cards",
-      "custom-image",
-      "news-banner",
-      "collapsible-text",
-      "indicator-charts",
-      "inline-search",
-      "social-media",
-      "country-charts",
-      "stay-connected",
-      "custom-text"
+      "iframe"
     ]
   },
   {
@@ -76,10 +61,7 @@
       "image",
       "button",
       "title",
-      "dm-asset",
-      "heading",
-      "teaser",
-      "dropdown"
+      "dm-asset"
     ]
   },
   {
@@ -96,9 +78,21 @@
     ]
   },
   {
+    "id": "dropdown-list",
+    "components": [
+      "dropdown-item"
+    ]
+  },
+  {
     "id": "explore-cards",
     "components": [
       "explore-card"
+    ]
+  },
+  {
+    "id": "feature-cards",
+    "components": [
+      "feature-card"
     ]
   },
   {
@@ -132,15 +126,9 @@
     ]
   },
   {
-    "id": "tabs",
+    "id": "social-media",
     "components": [
-      "tab"
-    ]
-  },
-  {
-    "id": "dropdown-list",
-    "components": [
-      "dropdown-item"
+      "social-media-links"
     ]
   },
   {
@@ -150,25 +138,9 @@
     ]
   },
   {
-    "id": "country-list",
-    "components": []
-  },
-  {
-    "id": "feature-cards",
+    "id": "tabs",
     "components": [
-      "feature-card"
-    ]
-  },
-  {
-    "id": "indicator-charts",
-    "components": [
-      "indicator-item"
-    ]
-  },
-    {
-    "id": "country-charts",
-    "components": [
-      "indicator-list"
+      "tab"
     ]
   }
 ]
