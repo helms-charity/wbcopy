@@ -3,5 +3,5 @@ Please always provide the [GitHub issue(s)](../issues) your PR is for, as well a
 Fix #<gh-issue-id>
 
 Test URLs:
-- Before: https://main--externalweb-ibrd--wbgextapp.aem.live/
-- After: https://<branch>--externalweb-ibrd--wbgextapp.aem.live/
+- Before: https://main--wbcopy--helms-charity.aem.page/
+- After: https://<branch>--wbcopy-helms-charity.aem.page/
