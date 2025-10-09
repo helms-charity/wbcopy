@@ -2158,6 +2158,7 @@
         "name": "image",
         "label": "Image",
         "multi": false,
+        "description": "Max 1 Item",
         "required": true
       },
       {
@@ -2498,6 +2499,975 @@
     ]
   },
   {
+    "id": "country-charts",
+    "fields": [
+      {
+        "component": "select",
+        "name": "selector",
+        "value": "",
+        "label": "Country Selector",
+        "valueType": "string",
+        "required": true,
+        "options": [
+          {
+            "value": "AFG",
+            "name": "Afghanistan"
+          },
+          {
+            "value": "ALB",
+            "name": "Albania"
+          },
+          {
+            "value": "DZA",
+            "name": "Algeria"
+          },
+          {
+            "value": "ASM",
+            "name": "American Samoa"
+          },
+          {
+            "value": "AND",
+            "name": "Andorra"
+          },
+          {
+            "value": "AGO",
+            "name": "Angola"
+          },
+          {
+            "value": "ATG",
+            "name": "Antigua and Barbuda"
+          },
+          {
+            "value": "ARG",
+            "name": "Argentina"
+          },
+          {
+            "value": "ARM",
+            "name": "Armenia"
+          },
+          {
+            "value": "ABW",
+            "name": "Aruba"
+          },
+          {
+            "value": "AUS",
+            "name": "Australia"
+          },
+          {
+            "value": "AUT",
+            "name": "Austria"
+          },
+          {
+            "value": "AZE",
+            "name": "Azerbaijan"
+          },
+          {
+            "value": "BHS",
+            "name": "Bahamas, The"
+          },
+          {
+            "value": "BHR",
+            "name": "Bahrain"
+          },
+          {
+            "value": "BGD",
+            "name": "Bangladesh"
+          },
+          {
+            "value": "BRB",
+            "name": "Barbados"
+          },
+          {
+            "value": "BLR",
+            "name": "Belarus"
+          },
+          {
+            "value": "BEL",
+            "name": "Belgium"
+          },
+          {
+            "value": "BLZ",
+            "name": "Belize"
+          },
+          {
+            "value": "BEN",
+            "name": "Benin"
+          },
+          {
+            "value": "BMU",
+            "name": "Bermuda"
+          },
+          {
+            "value": "BTN",
+            "name": "Bhutan"
+          },
+          {
+            "value": "BOL",
+            "name": "Bolivia"
+          },
+          {
+            "value": "BIH",
+            "name": "Bosnia and Herzegovina"
+          },
+          {
+            "value": "BWA",
+            "name": "Botswana"
+          },
+          {
+            "value": "BRA",
+            "name": "Brazil"
+          },
+          {
+            "value": "VGB",
+            "name": "British Virgin Islands"
+          },
+          {
+            "value": "BRN",
+            "name": "Brunei Darussalam"
+          },
+          {
+            "value": "BGR",
+            "name": "Bulgaria"
+          },
+          {
+            "value": "BFA",
+            "name": "Burkina Faso"
+          },
+          {
+            "value": "BDI",
+            "name": "Burundi"
+          },
+          {
+            "value": "CPV",
+            "name": "Cabo Verde"
+          },
+          {
+            "value": "KHM",
+            "name": "Cambodia"
+          },
+          {
+            "value": "CMR",
+            "name": "Cameroon"
+          },
+          {
+            "value": "CAN",
+            "name": "Canada"
+          },
+          {
+            "value": "CYM",
+            "name": "Cayman Islands"
+          },
+          {
+            "value": "CAF",
+            "name": "Central African Republic"
+          },
+          {
+            "value": "TCD",
+            "name": "Chad"
+          },
+          {
+            "value": "CHI",
+            "name": "Channel Islands"
+          },
+          {
+            "value": "CHL",
+            "name": "Chile"
+          },
+          {
+            "value": "CHN",
+            "name": "China"
+          },
+          {
+            "value": "COL",
+            "name": "Colombia"
+          },
+          {
+            "value": "COM",
+            "name": "Comoros"
+          },
+          {
+            "value": "COD",
+            "name": "Congo, Dem. Rep."
+          },
+          {
+            "value": "COG",
+            "name": "Congo, Rep."
+          },
+          {
+            "value": "CRI",
+            "name": "Costa Rica"
+          },
+          {
+            "value": "CIV",
+            "name": "Cote d'Ivoire"
+          },
+          {
+            "value": "HRV",
+            "name": "Croatia"
+          },
+          {
+            "value": "CUB",
+            "name": "Cuba"
+          },
+          {
+            "value": "CUW",
+            "name": "Curacao"
+          },
+          {
+            "value": "CYP",
+            "name": "Cyprus"
+          },
+          {
+            "value": "CZE",
+            "name": "Czechia"
+          },
+          {
+            "value": "DNK",
+            "name": "Denmark"
+          },
+          {
+            "value": "DJI",
+            "name": "Djibouti"
+          },
+          {
+            "value": "DMA",
+            "name": "Dominica"
+          },
+          {
+            "value": "DOM",
+            "name": "Dominican Republic"
+          },
+          {
+            "value": "ECU",
+            "name": "Ecuador"
+          },
+          {
+            "value": "EGY",
+            "name": "Egypt, Arab Rep."
+          },
+          {
+            "value": "SLV",
+            "name": "El Salvador"
+          },
+          {
+            "value": "GNQ",
+            "name": "Equatorial Guinea"
+          },
+          {
+            "value": "ERI",
+            "name": "Eritrea"
+          },
+          {
+            "value": "EST",
+            "name": "Estonia"
+          },
+          {
+            "value": "SWZ",
+            "name": "Eswatini"
+          },
+          {
+            "value": "ETH",
+            "name": "Ethiopia"
+          },
+          {
+            "value": "FRO",
+            "name": "Faroe Islands"
+          },
+          {
+            "value": "FJI",
+            "name": "Fiji"
+          },
+          {
+            "value": "FIN",
+            "name": "Finland"
+          },
+          {
+            "value": "FRA",
+            "name": "France"
+          },
+          {
+            "value": "PYF",
+            "name": "French Polynesia"
+          },
+          {
+            "value": "GAB",
+            "name": "Gabon"
+          },
+          {
+            "value": "GMB",
+            "name": "Gambia, The"
+          },
+          {
+            "value": "GEO",
+            "name": "Georgia"
+          },
+          {
+            "value": "DEU",
+            "name": "Germany"
+          },
+          {
+            "value": "GHA",
+            "name": "Ghana"
+          },
+          {
+            "value": "GIB",
+            "name": "Gibraltar"
+          },
+          {
+            "value": "GRC",
+            "name": "Greece"
+          },
+          {
+            "value": "GRL",
+            "name": "Greenland"
+          },
+          {
+            "value": "GRD",
+            "name": "Grenada"
+          },
+          {
+            "value": "GUM",
+            "name": "Guam"
+          },
+          {
+            "value": "GTM",
+            "name": "Guatemala"
+          },
+          {
+            "value": "GIN",
+            "name": "Guinea"
+          },
+          {
+            "value": "GNB",
+            "name": "Guinea-Bissau"
+          },
+          {
+            "value": "GUY",
+            "name": "Guyana"
+          },
+          {
+            "value": "HTI",
+            "name": "Haiti"
+          },
+          {
+            "value": "HND",
+            "name": "Honduras"
+          },
+          {
+            "value": "HKG",
+            "name": "Hong Kong SAR, China"
+          },
+          {
+            "value": "HUN",
+            "name": "Hungary"
+          },
+          {
+            "value": "ISL",
+            "name": "Iceland"
+          },
+          {
+            "value": "IND",
+            "name": "India"
+          },
+          {
+            "value": "IDN",
+            "name": "Indonesia"
+          },
+          {
+            "value": "IRN",
+            "name": "Iran, Islamic Rep."
+          },
+          {
+            "value": "IRQ",
+            "name": "Iraq"
+          },
+          {
+            "value": "IRL",
+            "name": "Ireland"
+          },
+          {
+            "value": "IMN",
+            "name": "Isle of Man"
+          },
+          {
+            "value": "ISR",
+            "name": "Israel"
+          },
+          {
+            "value": "ITA",
+            "name": "Italy"
+          },
+          {
+            "value": "JAM",
+            "name": "Jamaica"
+          },
+          {
+            "value": "JPN",
+            "name": "Japan"
+          },
+          {
+            "value": "JOR",
+            "name": "Jordan"
+          },
+          {
+            "value": "KAZ",
+            "name": "Kazakhstan"
+          },
+          {
+            "value": "KEN",
+            "name": "Kenya"
+          },
+          {
+            "value": "KIR",
+            "name": "Kiribati"
+          },
+          {
+            "value": "PRK",
+            "name": "Korea, Dem. People's Rep."
+          },
+          {
+            "value": "KOR",
+            "name": "Korea, Rep."
+          },
+          {
+            "value": "XKX",
+            "name": "Kosovo"
+          },
+          {
+            "value": "KWT",
+            "name": "Kuwait"
+          },
+          {
+            "value": "KGZ",
+            "name": "Kyrgyz Republic"
+          },
+          {
+            "value": "LAO",
+            "name": "Lao PDR"
+          },
+          {
+            "value": "LVA",
+            "name": "Latvia"
+          },
+          {
+            "value": "LBN",
+            "name": "Lebanon"
+          },
+          {
+            "value": "LSO",
+            "name": "Lesotho"
+          },
+          {
+            "value": "LBR",
+            "name": "Liberia"
+          },
+          {
+            "value": "LBY",
+            "name": "Libya"
+          },
+          {
+            "value": "LIE",
+            "name": "Liechtenstein"
+          },
+          {
+            "value": "LTU",
+            "name": "Lithuania"
+          },
+          {
+            "value": "LUX",
+            "name": "Luxembourg"
+          },
+          {
+            "value": "MAC",
+            "name": "Macao SAR, China"
+          },
+          {
+            "value": "MDG",
+            "name": "Madagascar"
+          },
+          {
+            "value": "MWI",
+            "name": "Malawi"
+          },
+          {
+            "value": "MYS",
+            "name": "Malaysia"
+          },
+          {
+            "value": "MDV",
+            "name": "Maldives"
+          },
+          {
+            "value": "MLI",
+            "name": "Mali"
+          },
+          {
+            "value": "MLT",
+            "name": "Malta"
+          },
+          {
+            "value": "MHL",
+            "name": "Marshall Islands"
+          },
+          {
+            "value": "MRT",
+            "name": "Mauritania"
+          },
+          {
+            "value": "MUS",
+            "name": "Mauritius"
+          },
+          {
+            "value": "MEX",
+            "name": "Mexico"
+          },
+          {
+            "value": "FSM",
+            "name": "Micronesia, Fed. Sts."
+          },
+          {
+            "value": "MDA",
+            "name": "Moldova"
+          },
+          {
+            "value": "MCO",
+            "name": "Monaco"
+          },
+          {
+            "value": "MNG",
+            "name": "Mongolia"
+          },
+          {
+            "value": "MNE",
+            "name": "Montenegro"
+          },
+          {
+            "value": "MAR",
+            "name": "Morocco"
+          },
+          {
+            "value": "MOZ",
+            "name": "Mozambique"
+          },
+          {
+            "value": "MMR",
+            "name": "Myanmar"
+          },
+          {
+            "value": "NAM",
+            "name": "Namibia"
+          },
+          {
+            "value": "NRU",
+            "name": "Nauru"
+          },
+          {
+            "value": "NPL",
+            "name": "Nepal"
+          },
+          {
+            "value": "NLD",
+            "name": "Netherlands"
+          },
+          {
+            "value": "NCL",
+            "name": "New Caledonia"
+          },
+          {
+            "value": "NZL",
+            "name": "New Zealand"
+          },
+          {
+            "value": "NIC",
+            "name": "Nicaragua"
+          },
+          {
+            "value": "NER",
+            "name": "Niger"
+          },
+          {
+            "value": "NGA",
+            "name": "Nigeria"
+          },
+          {
+            "value": "MKD",
+            "name": "North Macedonia"
+          },
+          {
+            "value": "MNP",
+            "name": "Northern Mariana Islands"
+          },
+          {
+            "value": "NOR",
+            "name": "Norway"
+          },
+          {
+            "value": "OMN",
+            "name": "Oman"
+          },
+          {
+            "value": "PAK",
+            "name": "Pakistan"
+          },
+          {
+            "value": "PLW",
+            "name": "Palau"
+          },
+          {
+            "value": "PAN",
+            "name": "Panama"
+          },
+          {
+            "value": "PNG",
+            "name": "Papua New Guinea"
+          },
+          {
+            "value": "PRY",
+            "name": "Paraguay"
+          },
+          {
+            "value": "PER",
+            "name": "Peru"
+          },
+          {
+            "value": "PHL",
+            "name": "Philippines"
+          },
+          {
+            "value": "POL",
+            "name": "Poland"
+          },
+          {
+            "value": "PRT",
+            "name": "Portugal"
+          },
+          {
+            "value": "PRI",
+            "name": "Puerto Rico"
+          },
+          {
+            "value": "QAT",
+            "name": "Qatar"
+          },
+          {
+            "value": "ROU",
+            "name": "Romania"
+          },
+          {
+            "value": "RUS",
+            "name": "Russian Federation"
+          },
+          {
+            "value": "RWA",
+            "name": "Rwanda"
+          },
+          {
+            "value": "WSM",
+            "name": "Samoa"
+          },
+          {
+            "value": "SMR",
+            "name": "San Marino"
+          },
+          {
+            "value": "STP",
+            "name": "Sao Tome and Principe"
+          },
+          {
+            "value": "SAU",
+            "name": "Saudi Arabia"
+          },
+          {
+            "value": "SEN",
+            "name": "Senegal"
+          },
+          {
+            "value": "SRB",
+            "name": "Serbia"
+          },
+          {
+            "value": "SYC",
+            "name": "Seychelles"
+          },
+          {
+            "value": "SLE",
+            "name": "Sierra Leone"
+          },
+          {
+            "value": "SGP",
+            "name": "Singapore"
+          },
+          {
+            "value": "SXM",
+            "name": "Sint Maarten (Dutch part)"
+          },
+          {
+            "value": "SVK",
+            "name": "Slovak Republic"
+          },
+          {
+            "value": "SVN",
+            "name": "Slovenia"
+          },
+          {
+            "value": "SLB",
+            "name": "Solomon Islands"
+          },
+          {
+            "value": "SOM",
+            "name": "Somalia"
+          },
+          {
+            "value": "ZAF",
+            "name": "South Africa"
+          },
+          {
+            "value": "SSD",
+            "name": "South Sudan"
+          },
+          {
+            "value": "ESP",
+            "name": "Spain"
+          },
+          {
+            "value": "LKA",
+            "name": "Sri Lanka"
+          },
+          {
+            "value": "KNA",
+            "name": "St. Kitts and Nevis"
+          },
+          {
+            "value": "LCA",
+            "name": "St. Lucia"
+          },
+          {
+            "value": "MAF",
+            "name": "St. Martin (French part)"
+          },
+          {
+            "value": "VCT",
+            "name": "St. Vincent and the Grenadines"
+          },
+          {
+            "value": "SDN",
+            "name": "Sudan"
+          },
+          {
+            "value": "SUR",
+            "name": "Suriname"
+          },
+          {
+            "value": "SWE",
+            "name": "Sweden"
+          },
+          {
+            "value": "CHE",
+            "name": "Switzerland"
+          },
+          {
+            "value": "SYR",
+            "name": "Syrian Arab Republic"
+          },
+          {
+            "value": "TWN",
+            "name": "Taiwan, China"
+          },
+          {
+            "value": "TJK",
+            "name": "Tajikistan"
+          },
+          {
+            "value": "TZA",
+            "name": "Tanzania"
+          },
+          {
+            "value": "THA",
+            "name": "Thailand"
+          },
+          {
+            "value": "TLS",
+            "name": "Timor-Leste"
+          },
+          {
+            "value": "TGO",
+            "name": "Togo"
+          },
+          {
+            "value": "TON",
+            "name": "Tonga"
+          },
+          {
+            "value": "TTO",
+            "name": "Trinidad and Tobago"
+          },
+          {
+            "value": "TUN",
+            "name": "Tunisia"
+          },
+          {
+            "value": "TUR",
+            "name": "Turkiye"
+          },
+          {
+            "value": "TKM",
+            "name": "Turkmenistan"
+          },
+          {
+            "value": "TCA",
+            "name": "Turks and Caicos Islands"
+          },
+          {
+            "value": "TUV",
+            "name": "Tuvalu"
+          },
+          {
+            "value": "UGA",
+            "name": "Uganda"
+          },
+          {
+            "value": "UKR",
+            "name": "Ukraine"
+          },
+          {
+            "value": "ARE",
+            "name": "United Arab Emirates"
+          },
+          {
+            "value": "GBR",
+            "name": "United Kingdom"
+          },
+          {
+            "value": "USA",
+            "name": "United States"
+          },
+          {
+            "value": "URY",
+            "name": "Uruguay"
+          },
+          {
+            "value": "UZB",
+            "name": "Uzbekistan"
+          },
+          {
+            "value": "VUT",
+            "name": "Vanuatu"
+          },
+          {
+            "value": "VEN",
+            "name": "Venezuela, RB"
+          },
+          {
+            "value": "VNM",
+            "name": "Viet Nam"
+          },
+          {
+            "value": "VIR",
+            "name": "Virgin Islands (U.S.)"
+          },
+          {
+            "value": "PSE",
+            "name": "West Bank and Gaza"
+          },
+          {
+            "value": "YEM",
+            "name": "Yemen, Rep."
+          },
+          {
+            "value": "ZMB",
+            "name": "Zambia"
+          },
+          {
+            "value": "ZWE",
+            "name": "Zimbabwe"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Heading",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button Text",
+        "value": "",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonlink",
+        "label": "Button Link",
+        "value": "",
+        "required": true
+      },
+      {
+        "component": "text",
+        "name": "countryName",
+        "value": "AFGHANISTAN",
+        "label": "Country Name",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "sourceLabel",
+        "value": "Source",
+        "label": "Source Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "datasetLabel",
+        "value": "Dataset",
+        "label": "Dataset Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "data360ButtonText",
+        "value": "Go to Data 360",
+        "label": "Data 360 Button Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "comparisonCheckBoxText",
+        "value": "Compare with benchmark region data",
+        "label": "Checkbox Label Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "indicator-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "indicatorID",
+        "label": "Indicator ID",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "indicatorName",
+        "label": "Indicator Name",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "unitMeasure",
+        "label": "Unit Measure",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "country-list",
     "fields": [
       {
@@ -2685,6 +3655,35 @@
     ]
   },
   {
+    "id": "custom-text",
+    "fields": [
+      {
+        "component": "text",
+        "name": "heading",
+        "label": "Heading",
+        "valueType": "string",
+        "config": {
+          "placeholder": "Enter heading..."
+        }
+      },
+      {
+        "component": "richtext",
+        "name": "body",
+        "label": "Body",
+        "valueType": "string",
+        "config": {
+          "multiline": true,
+          "allowedFormats": [
+            "bold",
+            "italic",
+            "link",
+            "list"
+          ]
+        }
+      }
+    ]
+  },
+  {
     "id": "data-cards",
     "fields": [
       {
@@ -2865,6 +3864,46 @@
         "name": "imageAlt",
         "label": "Alt Text",
         "value": ""
+      }
+    ]
+  },
+  {
+    "id": "dropdown-with-description",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "desc",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ddtitle",
+        "label": "Dropdown Title",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ddplaceholder",
+        "label": "Dropdown Placeholder",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "ddbodytext",
+        "value": "",
+        "label": "Card Body Text",
+        "valueType": "string"
       }
     ]
   },
@@ -3068,6 +4107,795 @@
         "value": "",
         "required": true,
         "label": "Fragment Path"
+      }
+    ]
+  },
+  {
+    "id": "grid",
+    "fields": [
+      {
+        "component": "select",
+        "name": "sec-swoosh",
+        "value": "",
+        "label": "Swoosh",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "No Swoosh",
+            "value": "sec-swoosh-none"
+          },
+          {
+            "name": "Left Center Swoosh (1)",
+            "value": "sec-swoosh-type1"
+          },
+          {
+            "name": "Right Top Swoosh (2)",
+            "value": "sec-swoosh-type2"
+          },
+          {
+            "name": "Left Top Swoosh (3)",
+            "value": "sec-swoosh-type3"
+          },
+          {
+            "name": "Swoosh for BG inside container - Desktop (5)",
+            "value": "sec-swoosh-type5"
+          },
+          {
+            "name": "Leaders profile swoosh (6)",
+            "value": "sec-swoosh-type6"
+          },
+          {
+            "name": "Right Center Swoosh (7)",
+            "value": "sec-swoosh-type7"
+          },
+          {
+            "name": "Right Swoosh (8)",
+            "value": "sec-swoosh-type8"
+          },
+          {
+            "name": "Right Swoosh (9)",
+            "value": "sec-swoosh-type9"
+          },
+          {
+            "name": "Right Swoosh (10)",
+            "value": "sec-swoosh-type10"
+          },
+          {
+            "name": "Right Swoosh (11)",
+            "value": "sec-swoosh-type11"
+          },
+          {
+            "name": "Primary Blue 90 theme Swoosh",
+            "value": "sec-swoosh-primary-blue-90"
+          }
+        ]
+      },
+      {
+        "component": "multiselect",
+        "name": "style",
+        "label": "Variant Style",
+        "valueType": "string",
+        "required": true,
+        "maxSize": 5,
+        "options": [
+          {
+            "name": "🎨Background",
+            "children": [
+              {
+                "name": "Transparent / White / Default",
+                "value": "bg-default"
+              },
+              {
+                "name": "Dark Background Container",
+                "value": "bg-primary-blue"
+              },
+              {
+                "name": "Primary Blue 90",
+                "value": "bg-primary-blue-90"
+              },
+              {
+                "name": "Primary Blue 70",
+                "value": "bg-primary-blue-70"
+              },
+              {
+                "name": "Neutrals 10",
+                "value": "bg-neutrals-10"
+              },
+              {
+                "name": "Neutrals 10 Gradient",
+                "value": "bg-neutrals-10-gradient"
+              },
+              {
+                "name": "Neutrals 20",
+                "value": "bg-neutrals-20"
+              },
+              {
+                "name": "Neutrals 05",
+                "value": "bg-neutrals-05-gradient"
+              },
+              {
+                "name": "Neutrals 07",
+                "value": "bg-neutrals-07-gradient"
+              },
+              {
+                "name": "Image",
+                "value": "bg-image"
+              }
+            ]
+          },
+          {
+            "name": "🧩Component",
+            "children": [
+              {
+                "name": "Banner Container",
+                "value": "full-banner-container"
+              },
+              {
+                "name": "Bottom Carousel",
+                "value": "bottom-carousel"
+              },
+              {
+                "name": "Button Title Container",
+                "value": "title-text-button-container"
+              },
+              {
+                "name": "Data Card Noborder",
+                "value": "data-card-noborder"
+              },
+              {
+                "name": "Feature Banner Container",
+                "value": "feature-banner-container"
+              },
+              {
+                "name": "List Container",
+                "value": "countrylist-container"
+              },
+              {
+                "name": "List With Border Container",
+                "value": "partnerlist-container"
+              },
+              {
+                "name": "Region Feature Card",
+                "value": "region-feature-card"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "sec-spacing",
+        "value": "",
+        "label": "Spacing Top (padding top)",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default spacing",
+            "value": "sec-spacing-default"
+          },
+          {
+            "name": "No space / padding",
+            "value": "section-none"
+          },
+          {
+            "name": "Spacing Between",
+            "value": "section-padding-between"
+          },
+          {
+            "name": "Spacing tiny",
+            "value": "section-tiny"
+          },
+          {
+            "name": "Spacing xxsmall",
+            "value": "section-xxsmall"
+          },
+          {
+            "name": "Spacing xsmall",
+            "value": "section-xsmall"
+          },
+          {
+            "name": "Spacing regular",
+            "value": "section-regular"
+          },
+          {
+            "name": "Spacing small",
+            "value": "section-small"
+          },
+          {
+            "name": "Spacing medium",
+            "value": "section-medium"
+          },
+          {
+            "name": "Spacing large",
+            "value": "section-large"
+          },
+          {
+            "name": "Spacing xlarge",
+            "value": "section-xlarge"
+          },
+          {
+            "name": "Spacing xxlarge",
+            "value": "section-xxlarge"
+          },
+          {
+            "name": "Spacing huge",
+            "value": "section-huge"
+          },
+          {
+            "name": "Spacing xhuge",
+            "value": "section-xhuge"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "sec-spacing-bottom",
+        "value": "",
+        "label": "Spacing Bottom (padding bottom)",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default spacing",
+            "value": "sec-spacing-default"
+          },
+          {
+            "name": "No space / padding",
+            "value": "section-none"
+          },
+          {
+            "name": "Spacing Between",
+            "value": "section-padding-between"
+          },
+          {
+            "name": "Spacing tiny",
+            "value": "section-tiny"
+          },
+          {
+            "name": "Spacing xxsmall",
+            "value": "section-xxsmall"
+          },
+          {
+            "name": "Spacing xsmall",
+            "value": "section-xsmall"
+          },
+          {
+            "name": "Spacing regular",
+            "value": "section-regular"
+          },
+          {
+            "name": "Spacing small",
+            "value": "section-small"
+          },
+          {
+            "name": "Spacing medium",
+            "value": "section-medium"
+          },
+          {
+            "name": "Spacing large",
+            "value": "section-large"
+          },
+          {
+            "name": "Spacing xlarge",
+            "value": "section-xlarge"
+          },
+          {
+            "name": "Spacing xxlarge",
+            "value": "section-xxlarge"
+          },
+          {
+            "name": "Spacing huge",
+            "value": "section-huge"
+          },
+          {
+            "name": "Spacing xhuge",
+            "value": "section-xhuge"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "sec-inside-container",
+        "label": "Show background color inside container.",
+        "condition": {
+          "!=": [
+            {
+              "var": "style"
+            },
+            "bg-image"
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "name": "col-ctrl",
+        "value": "",
+        "label": "Grids",
+        "description": "Select grid count",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "1",
+            "value": "col-1"
+          },
+          {
+            "name": "2",
+            "value": "col-2"
+          },
+          {
+            "name": "3",
+            "value": "col-3"
+          },
+          {
+            "name": "4",
+            "value": "col-4"
+          },
+          {
+            "name": "5",
+            "value": "col-5"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test1",
+        "label": "🧱 Grid 1",
+        "multi": false,
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col1-class",
+            "value": "",
+            "label": "Column 1 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col1-blocks",
+            "label": "Column 1 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              {
+                "name": "Collapsible Text",
+                "value": "collapsible-text"
+              },
+              {
+                "name": "Heading",
+                "value": "heading"
+              },
+              {
+                "name": "Inline Search",
+                "value": "inline-search"
+              },
+              {
+                "name": "Mini Cards",
+                "value": "mini-cards"
+              },
+              {
+                "name": "News Banner",
+                "value": "news-banner"
+              },
+              {
+                "name": "Research and Publications",
+                "value": "research-publications-cards"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              },
+              {
+                "name": "Signup",
+                "value": "signup"
+              },
+              {
+                "name": "Text",
+                "value": "text"
+              },
+              {
+                "name": "Video",
+                "value": "video"
+              },
+              {
+                "name": "Image",
+                "value": "image"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test2",
+        "label": "🧱 Grid 2",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "or": [
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-2"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-3"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-4"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-5"
+              ]
+            }
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col2-class",
+            "value": "",
+            "label": "Column 2 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col2-blocks",
+            "label": "Column 2 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              {
+                "name": "Collapsible Text",
+                "value": "collapsible-text"
+              },
+              {
+                "name": "Heading",
+                "value": "heading"
+              },
+              {
+                "name": "Inline Search",
+                "value": "inline-search"
+              },
+              {
+                "name": "Mini Cards",
+                "value": "mini-cards"
+              },
+              {
+                "name": "News Banner",
+                "value": "news-banner"
+              },
+              {
+                "name": "Research and Publications",
+                "value": "research-publications-cards"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              },
+              {
+                "name": "Signup",
+                "value": "signup"
+              },
+              {
+                "name": "Text",
+                "value": "text"
+              },
+              {
+                "name": "Video",
+                "value": "video"
+              },
+              {
+                "name": "Image",
+                "value": "image"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test3",
+        "label": "🧱 Grid 3",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "or": [
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-3"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-4"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-5"
+              ]
+            }
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col3-class",
+            "value": "",
+            "label": "Column 3 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col3-blocks",
+            "label": "Column 3 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              {
+                "name": "Collapsible Text",
+                "value": "collapsible-text"
+              },
+              {
+                "name": "Heading",
+                "value": "heading"
+              },
+              {
+                "name": "Inline Search",
+                "value": "inline-search"
+              },
+              {
+                "name": "Mini Cards",
+                "value": "mini-cards"
+              },
+              {
+                "name": "News Banner",
+                "value": "news-banner"
+              },
+              {
+                "name": "Research and Publications",
+                "value": "research-publications-cards"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              },
+              {
+                "name": "Signup",
+                "value": "signup"
+              },
+              {
+                "name": "Text",
+                "value": "text"
+              },
+              {
+                "name": "Video",
+                "value": "video"
+              },
+              {
+                "name": "Image",
+                "value": "image"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test4",
+        "label": "🧱 Grid 4",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "or": [
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-4"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-5"
+              ]
+            }
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col4-class",
+            "value": "",
+            "label": "Column 4 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col4-blocks",
+            "label": "Column 4 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              {
+                "name": "Collapsible Text",
+                "value": "collapsible-text"
+              },
+              {
+                "name": "Heading",
+                "value": "heading"
+              },
+              {
+                "name": "Inline Search",
+                "value": "inline-search"
+              },
+              {
+                "name": "Mini Cards",
+                "value": "mini-cards"
+              },
+              {
+                "name": "News Banner",
+                "value": "news-banner"
+              },
+              {
+                "name": "Research and Publications",
+                "value": "research-publications-cards"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              },
+              {
+                "name": "Signup",
+                "value": "signup"
+              },
+              {
+                "name": "Text",
+                "value": "text"
+              },
+              {
+                "name": "Video",
+                "value": "video"
+              },
+              {
+                "name": "Image",
+                "value": "image"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test5",
+        "label": "🧱 Grid 5",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "==": [
+            {
+              "var": "col-ctrl"
+            },
+            "col-5"
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col5-class",
+            "value": "",
+            "label": "Column 5 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col5-blocks",
+            "label": "Column 5 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              {
+                "name": "Collapsible Text",
+                "value": "collapsible-text"
+              },
+              {
+                "name": "Heading",
+                "value": "heading"
+              },
+              {
+                "name": "Inline Search",
+                "value": "inline-search"
+              },
+              {
+                "name": "Mini Cards",
+                "value": "mini-cards"
+              },
+              {
+                "name": "News Banner",
+                "value": "news-banner"
+              },
+              {
+                "name": "Research and Publications",
+                "value": "research-publications-cards"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              },
+              {
+                "name": "Signup",
+                "value": "signup"
+              },
+              {
+                "name": "Text",
+                "value": "text"
+              },
+              {
+                "name": "Video",
+                "value": "video"
+              },
+              {
+                "name": "Image",
+                "value": "image"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -3352,6 +5180,153 @@
         "value": "",
         "label": "iFrame URL",
         "description": "Please provide a URL to an iFrame app."
+      }
+    ]
+  },
+  {
+    "id": "indicator-charts",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "pageType",
+        "value": "",
+        "label": "Page Type",
+        "options": [
+          {
+            "name": "Region",
+            "value": "region"
+          },
+          {
+            "name": "Topic",
+            "value": "topic"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "selector",
+        "value": "",
+        "label": "Selector",
+        "valueType": "string",
+        "required": true,
+        "options": [
+          {
+            "name": "Africa",
+            "value": "AFR"
+          },
+          {
+            "name": "West Africa",
+            "value": "AFW"
+          },
+          {
+            "name": "East Africa",
+            "value": "AFE"
+          },
+          {
+            "name": "East Asia & Pacific",
+            "value": "EAS"
+          },
+          {
+            "name": "Europe & Central Asia",
+            "value": "ECS"
+          },
+          {
+            "name": "Latin America & Caribbean",
+            "value": "LCN"
+          },
+          {
+            "name": "Middle East and North Africa",
+            "value": "MEA"
+          },
+          {
+            "name": "South Asia",
+            "value": "SAS"
+          }
+        ],
+        "condition": {
+          "==": [
+            {
+              "var": "pageType"
+            },
+            "region"
+          ]
+        }
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Heading",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button Text",
+        "value": "",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonlink",
+        "label": "Button Link",
+        "value": "",
+        "required": true
+      },
+      {
+        "component": "text",
+        "name": "CategoryName",
+        "value": "MIDDLE EAST AND NORTH AFRICA",
+        "label": "Category Name",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "sourceLabel",
+        "value": "Source",
+        "label": "Source Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "datasetLabel",
+        "value": "Dataset",
+        "label": "Dataset Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "data360ButtonText",
+        "value": "Go to Data 360",
+        "label": "Data 360 Button Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "indicator-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "indicatorID",
+        "label": "Indicator ID",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "indicatorName",
+        "label": "Indicator Name",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "unitMeasure",
+        "label": "Unit Measure",
+        "valueType": "string"
       }
     ]
   },
@@ -3726,6 +5701,61 @@
     ]
   },
   {
+    "id": "news-banner",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false,
+        "required": true,
+        "description": "Select an image for the news banner"
+      },
+      {
+        "component": "text",
+        "name": "altText",
+        "value": "World Bank Group Default Image",
+        "label": "Image Alternate Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "hammer",
+        "value": "",
+        "label": "Hammer",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "title-link",
+        "value": "",
+        "label": "Title Link",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "add-play-icon",
+        "label": "Show play icon"
+      }
+    ]
+  },
+  {
     "id": "organizational-cards",
     "fields": [
       {
@@ -3941,6 +5971,84 @@
         "label": "Button Link",
         "value": "",
         "required": true
+      }
+    ]
+  },
+  {
+    "id": "search-in-site",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "prefix",
+        "label": "Prefix Heading",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Heading Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "desc",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formheader",
+        "label": "Form Header",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "formdesc",
+        "value": "",
+        "label": "Form Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formplaceholder",
+        "label": "Placeholder Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "targeturl",
+        "label": "Target URL",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "formlinks",
+        "value": "",
+        "label": "Form Links",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Variations",
+        "options": [
+          {
+            "name": "Default (Text - Search)",
+            "value": "default-variation"
+          },
+          {
+            "name": "Signup (Search - Text)",
+            "value": "signup-variation"
+          }
+        ]
       }
     ]
   },
