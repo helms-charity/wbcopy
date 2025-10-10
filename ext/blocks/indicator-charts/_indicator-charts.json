@@ -39,7 +39,7 @@
           ]
         },
         {
-          "component": "select",
+         "component": "select",
           "name": "selector",
           "value": "",
           "label": "Selector",
@@ -80,12 +80,12 @@
             }
           ],
           "condition": {
-            "==": [
-              {
-                "var": "pageType"
-              },
-              "region"
-            ]
+              "==": [
+                {
+                  "var": "pageType"
+                },
+                "region"
+              ]
           }
         },
         {
@@ -141,7 +141,7 @@
           "valueType": "string"
         }
       ]
-    },
+      },
     {
       "id": "indicator-item",
       "fields": [

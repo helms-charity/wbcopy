@@ -14,7 +14,7 @@
             }
           }
         }
-      } 
+      }
     }
   ],
   "models": [
@@ -965,7 +965,7 @@
       ]
     },
     {
-      "id": "indicator-item",
+      "id": "indicator-list",
       "fields": [
         {
           "component": "text",
@@ -984,6 +984,24 @@
           "name": "unitMeasure",
           "label": "Unit Measure",
           "valueType": "string"
+        },
+        {
+          "component": "select",
+          "name": "chartType",
+          "value": "",
+          "label": "Chart Type Selector",
+          "valueType": "string",
+          "required": true,
+          "options": [
+            {
+              "name": "Line Chart",
+              "value": "line"
+            },
+            {
+              "name": "Pie Chart",
+              "value": "pie"
+            }
+          ]
         }
       ]
     }

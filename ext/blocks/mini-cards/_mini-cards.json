@@ -53,7 +53,7 @@
           }
         }
       }
-    }, 
+    },
     {
       "title": "Mini Card",
       "id": "mini-card",
@@ -80,8 +80,16 @@
           "value": "",
           "label": "Mini Cards Heading",
           "valueType": "string",
-          "required": true
+          "required": false
         },
+        {
+          "component": "richtext",
+          "name": "mini-cards-select-all-button",
+          "value": "",
+          "label": "Mini Cards Select Button",
+          "valueType": "string"
+        },
+  
         {
           "component": "select",
           "valueType": "string",
@@ -96,6 +104,10 @@
             {
               "name": "Image List",
               "value": "image-list-variation"
+            },
+            {
+              "name": "Mini Cards With Mobile SLider",
+              "value": "mini-card-with-slider"
             }
           ]
         }
@@ -109,14 +121,15 @@
           "valueType": "string",
           "name": "mini-card-image",
           "label": "Image",
-          "multi": false
+          "multi": false,
+          "description": "Max 1 Item"
         },
         {
           "component": "aem-tag",
           "name": "mini-card-tag",
           "label": "Card Type",
           "valueType": "string",
-          "required": true,
+          "required": false,
           "rootPath": "/content/cq:tags/world-bank/content-type",
           "multi": false
         },
@@ -163,6 +176,41 @@
           "name": "alt",
           "value": "",
           "label": "Mini Card Alt Text"
+        },
+        {
+          "component": "richtext",
+          "name": "mini-cards-desc",
+          "value": "",
+          "label": "Description",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "eyebrowtext",
+          "value": "",
+          "label": "Eyebrow Text"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "classes",
+          "value": "",
+          "label": "Classes",
+          "options": [
+            {
+              "name": "Vertical Image",
+              "value": "small-v-img"
+            },
+            {
+              "name": "Horizontal Image",
+              "value": "small-h-img"
+            },
+            {
+              "name": "Square Image",
+              "value": "small-s-img"
+            }
+          ]
         }
       ]
     }

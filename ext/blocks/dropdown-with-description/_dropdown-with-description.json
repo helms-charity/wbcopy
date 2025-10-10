@@ -49,7 +49,7 @@
           "value": ""
         },
         {
-          "component": "richtext",
+          "component": "richtext", 
           "name": "ddbodytext",
           "value": "",
           "label": "Card Body Text",

@@ -40,7 +40,7 @@
                 "model": "explore-card",
                 "fileReference": "/content/dam/world-bank/sample/placeholder-black.png",
                 "alt": "Alt text",
-                "title": "Discover The Link Between Plastic Pollution and Poverty.",
+                "title": "Discover the Link Between Plastic Pollution and Poverty.",
                 "link": "/content/world-bank/global/en",
                 "content-type": "world-bank:content-type/video",
                 "story-type": "world-bank:story-type/expert-answers"
@@ -77,6 +77,34 @@
           "value": "",
           "label": "Main heading",
           "required": true
+        },
+  
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "selectButton1",
+          "value": "",
+          "label": "Select Button1"
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "selectButton2",
+          "value": "",
+          "label": "Select Button2"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "classes",
+          "value": "",
+          "label": "Classes",
+          "options": [
+            {
+              "name": "Card With Button",
+              "value": "card-with-button"
+            }
+          ]
         }
       ]
     },
@@ -90,6 +118,7 @@
           "label": "Card Image",
           "required": true,
           "multi": false,
+          "description": "Select an image for the card",
           "rootPath": "/content/dam/world-bank"
         },
         {
@@ -114,13 +143,13 @@
           "value": "",
           "label": "Link",
           "required": true
-        }, 
+        },
         {
           "component": "aem-tag",
           "name": "content-type",
           "label": "Content Type",
           "valueType": "string",
-          "required": false,
+          "required": true,
           "rootPath": "/content/cq:tags/world-bank/content-type"
         },
         {
@@ -128,7 +157,7 @@
           "name": "story-type",
           "label": "Story Type",
           "valueType": "string",
-          "required": false,
+          "required": true,
           "rootPath": "/content/cq:tags/world-bank/story-type"
         },
         {

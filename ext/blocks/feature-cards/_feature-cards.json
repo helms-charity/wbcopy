@@ -15,7 +15,7 @@
           }
         }
       }
-    }, 
+    },
     {
       "title": "Feature Card",
       "id": "feature-card",
@@ -81,7 +81,8 @@
           "valueType": "string",
           "name": "image",
           "label": "Image",
-          "multi": false
+          "multi": false,
+          "description": "Select an image for the feature card"
         },
         {
           "component": "text",

@@ -94,7 +94,8 @@
           "valueType": "string",
           "name": "image",
           "label": "Icon",
-          "multi": false
+          "multi": false,
+          "description": "Select an icon for the impact card"
         },
         {
           "component": "text",
@@ -123,6 +124,43 @@
           "value": "",
           "label": "Impact Link",
           "valueType": "string"
+        },
+        {
+          "component": "select",
+          "name": "border-color",
+          "value": "",
+          "label": "Border Color",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "People",
+              "value": "people"
+            },
+            {
+              "name": "Prosperity",
+              "value": "prosperity"
+            },
+            {
+              "name": "Planet",
+              "value": "planet"
+            },
+            {
+              "name": "Infrastructure",
+              "value": "infrastructure"
+            },
+            {
+              "name": "Digital",
+              "value": "digital"
+            },
+            {
+              "name": "Cross Cutting Areas",
+              "value": "cross-cutting-areas"
+            }
+          ]
         }
       ]
     }

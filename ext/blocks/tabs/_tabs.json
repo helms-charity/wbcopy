@@ -27,7 +27,7 @@
           }
         }
       }
-    }, 
+    },
     {
       "title": "Tab",
       "id": "tab",
@@ -38,7 +38,8 @@
             "template": {
               "name": "Tab",
               "model": "tab",
-              "title": "Tab"
+              "title": "Tab",
+              "filter": "tab"
             }
           }
         }
@@ -83,8 +84,8 @@
               "value": "blogs"
             },
             {
-            "name": "News",
-            "value": "news"
+              "name": "News",
+              "value": "news"
             },
             {
               "name": "Events",
@@ -103,9 +104,26 @@
           "value": "",
           "label": "URL",
           "condition": {
-            "!=": [{ "var": "tab-type" }, "manual"]
+            "and": [
+              {
+                "!=": [
+                  {
+                    "var": "tab-type"
+                  },
+                  "manual"
+                ]
+              },
+              {
+                "!=": [
+                  {
+                    "var": "tab-type"
+                  },
+                  "text-image"
+                ]
+              }
+            ]
           }
-        }, 
+        },
         {
           "component": "boolean",
           "label": "POST",
@@ -113,26 +131,26 @@
           "value": "false",
           "valueType": "boolean",
           "condition": {
-          "or": [
-            {
-              "==": [
-                {
-                  "var": "tab-type"
-                },
-                "blogs"
-              ]
-            },
-            {
-              "==": [
-                {
-                  "var": "tab-type"
-                },
-                "events"
-              ]
-            }
-          ]
-        }
-        }, 
+            "or": [
+              {
+                "==": [
+                  {
+                    "var": "tab-type"
+                  },
+                  "blogs"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "tab-type"
+                  },
+                  "events"
+                ]
+              }
+            ]
+          }
+        },
         {
           "component": "text",
           "valueType": "string",
@@ -140,20 +158,21 @@
           "value": "",
           "label": "Body",
           "condition": {
-            "===": [
+            "==": [
               {
                 "var": "post"
               },
               true
             ]
           }
-          },
-          {
+        },
+        {
           "component": "aem-content",
           "valueType": "string",
           "name": "fragmentPath",
           "value": "",
           "label": "Fragment Path",
+          "rootPath":"/content/worldbank/corporate/ext/en/fragments/country",
           "condition": {
             "==": [
               {
@@ -178,7 +197,15 @@
               "name": "2 Column View",
               "value": "two-column-view"
             }
-          ]
+          ],
+          "condition": {
+            "!=": [
+              {
+                "var": "tab-type"
+              },
+              "manual"
+            ]
+          }
         },
         {
           "component": "text",
@@ -186,7 +213,15 @@
           "name": "display-items",
           "value": "",
           "label": "Display Items",
-          "description": "Number of items to display in this tab"
+          "description": "Number of items to display in this tab",
+          "condition": {
+            "!=": [
+              {
+                "var": "tab-type"
+              },
+              "manual"
+            ]
+          }
         },
         {
           "component": "boolean",
@@ -194,7 +229,15 @@
           "description": "Disable Load More button for this tab",
           "name": "disable-load-more",
           "value": "false",
-          "valueType": "boolean"
+          "valueType": "boolean",
+          "condition": {
+            "!=": [
+              {
+                "var": "tab-type"
+              },
+              "manual"
+            ]
+          }
         },
         {
           "component": "text",

@@ -15,7 +15,7 @@
           }
         }
       }
-    }, 
+    },
     {
       "title": "Dropdown Item",
       "id": "dropdown-item",
@@ -41,50 +41,26 @@
           "valueType": "string",
           "name": "subtitle",
           "value": "",
-          "label": "Subtitle"
-        },
-        {
-          "component": "richtext",
-          "valueType": "string",
-          "name": "title",
-          "label": "Title",
-          "value": "",
-          "required": true
-        },
-        {
-          "component": "text",
-          "valueType": "string",
-          "name": "linktext",
-          "label": "Link Text",
-          "value": "",
-          "required": true
-        },
-        {
-          "component": "text",
-          "valueType": "string",
-          "name": "linkhref",
-          "label": "Link Href",
-          "value": "",
-          "required": true
+          "label": "Title"
         }
       ]
     },
     {
       "id": "dropdown-item",
-      "fields": [       
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "label",
+          "label": "Select Text",
+          "value": ""
+        },
         {
           "component": "richtext",
           "name": "cardbodytext",
           "value": "",
           "label": "Card Body Text",
           "valueType": "string"
-        },
-        {
-          "component": "text",
-          "valueType": "string",
-          "name": "imageAlt",
-          "label": "Alt Text",
-          "value": ""
         }
       ]
     }

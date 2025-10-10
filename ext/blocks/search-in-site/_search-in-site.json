@@ -86,7 +86,7 @@
             {
               "name": "Default (Text - Search)",
               "value": "default-variation"
-            },
+            }, 
             {
               "name": "Signup (Search - Text)",
               "value": "signup-variation"

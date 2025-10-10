@@ -55,16 +55,6 @@
     "components": []
   },
   {
-    "id": "column",
-    "components": [
-      "text",
-      "image",
-      "button",
-      "title",
-      "dm-asset"
-    ]
-  },
-  {
     "id": "country-charts",
     "components": [
       "indicator-list"
@@ -135,12 +125,6 @@
     "id": "research-publications-cards",
     "components": [
       "research-publications-card"
-    ]
-  },
-  {
-    "id": "social-media",
-    "components": [
-      "social-media-links"
     ]
   },
   {

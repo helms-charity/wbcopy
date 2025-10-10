@@ -15,7 +15,7 @@
           }
         }
       }
-    }, 
+    },
     {
       "title": "Priority Item",
       "id": "priority-item",
@@ -48,24 +48,21 @@
           "valueType": "string",
           "name": "title",
           "label": "Title",
-          "value": "",
-          "required": true
+          "value": ""
         },
         {
           "component": "text",
           "valueType": "string",
           "name": "linktext",
           "label": "Link Text",
-          "value": "",
-          "required": true
+          "value": ""
         },
         {
           "component": "text",
           "valueType": "string",
           "name": "linkhref",
           "label": "Link Href",
-          "value": "",
-          "required": true
+          "value": ""
         }
       ]
     },
@@ -92,7 +89,8 @@
           "valueType": "string",
           "name": "image",
           "label": "Image",
-          "multi": false
+          "multi": false,
+          "description": "Select an image for the priority item"
         },
         {
           "component": "text",

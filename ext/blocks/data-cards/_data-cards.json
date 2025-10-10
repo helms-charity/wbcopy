@@ -18,7 +18,7 @@
           }
         }
       }
-    }, 
+    },
     {
       "title": "Data Card",
       "id": "data-card",
@@ -76,6 +76,13 @@
           "valueType": "string"
         },
         {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "see-all-label",
+          "label": "See All Stories Button",
+          "description": "See All Stories Button"
+        },
+        {
           "component": "select",
           "valueType": "string",
           "name": "classes",
@@ -91,7 +98,7 @@
               "value": "news-card-variation"
             },
             {
-              "name": "Horizontal Card",
+              "name": "News Horizontal Card",
               "value": "horizontal-card-variation"
             }
           ]
@@ -169,7 +176,8 @@
           "valueType": "string",
           "name": "news-card-image",
           "label": "Image",
-          "multi": false
+          "multi": false,
+          "description": "Select an image for the news card"
         },
         {
           "component": "text",
@@ -177,6 +185,20 @@
           "name": "alt",
           "value": "Default alt",
           "label": "News Card Alt Text"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "see-all-label",
+          "value": "",
+          "label": "See All Lable"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "see-all-link",
+          "value": "",
+          "label": "See All Link"
         }
       ]
     }

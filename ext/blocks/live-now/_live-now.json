@@ -33,7 +33,7 @@
               "name": "Test",
               "value": "test-mode"
             },
-            {
+            { 
               "name": "Normal",
               "value": "normal-mode"
             }

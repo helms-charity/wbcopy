@@ -62,10 +62,6 @@
             {
               "name": "Senior Leadership view",
               "value": "senior-leadership"
-            },
-            {
-              "name": "Sticky Card view",
-              "value": "sticky-card"
             }
           ]
         }
@@ -79,7 +75,8 @@
           "valueType": "string",
           "name": "image",
           "label": "Image",
-          "multi": false
+          "multi": false,
+          "description": "Max 1 Item"
         },
         {
           "component": "text",
