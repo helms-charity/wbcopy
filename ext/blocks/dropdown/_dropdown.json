@@ -16,7 +16,7 @@
             }
         }
     ],
-    "models": [
+    "models": [ 
         {
             "id": "dropdown",
             "fields": [

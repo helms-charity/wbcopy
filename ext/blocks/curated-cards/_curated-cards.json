@@ -18,7 +18,7 @@
                 "curated-card-title": "Curated Card Title 1",
                 "curated-card-description": "Card Description",
                 "curated-card-link": "/content/world-bank/global/en"
-              },
+              }, 
               "item2": {
                 "sling:resourceType": "core/franklin/components/block/v1/block/item",
                 "name": "Curated Card",

@@ -114,7 +114,7 @@
           "value": "",
           "label": "Link",
           "required": true
-        },
+        }, 
         {
           "component": "aem-tag",
           "name": "content-type",
