@@ -3997,7 +3997,7 @@
         "name": "content-type",
         "label": "Content Type",
         "valueType": "string",
-        "required": true,
+        "required": false,
         "rootPath": "/content/cq:tags/world-bank/content-type"
       },
       {
@@ -4005,7 +4005,7 @@
         "name": "story-type",
         "label": "Story Type",
         "valueType": "string",
-        "required": true,
+        "required": false,
         "rootPath": "/content/cq:tags/world-bank/story-type"
       },
       {
