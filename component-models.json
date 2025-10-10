@@ -19,7 +19,14 @@
         "valueType": "string",
         "name": "pageTitle",
         "label": "Page Title",
-        "required": true
+        "required": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "navTitle",
+        "label": "Navigation Title",
+        "required": false
       },
       {
         "component": "text",
@@ -37,11 +44,11 @@
       },
       {
         "component": "date-time",
-        "valueType": "date",
+        "valueType": "datetime",
         "value": "2024-09-23T00:00:00.000Z",
         "name": "content_date",
         "required": true,
-        "label": "Date Of Content creation"
+        "label": "Content Date"
       },
       {
         "component": "text",
@@ -1159,6 +1166,42 @@
         ]
       },
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "webpackage_id",
+        "label": "WebPackage ID"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buss_unit",
+        "label": "Business Unit"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "site_section",
+        "label": "Site Section"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "subsectionp2",
+        "label": "Site Sub Section 1"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "subsectionp3",
+        "label": "Site Sub Section 2"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "subsectionp4",
+        "label": "Site Sub Section 3"
+      },
+      {
         "component": "select",
         "name": "information_classification",
         "value": "",
@@ -1775,7 +1818,8 @@
         "valueType": "string",
         "name": "fileReference",
         "label": "Image",
-        "multi": false
+        "multi": false,
+        "description": "Select an image"
       },
       {
         "component": "text",
@@ -1874,6 +1918,439 @@
       }
     ]
   },
+ {
+  "id": "grid",
+    "fields": [
+      {
+        "component": "select",
+        "name": "sec-swoosh",
+        "value": "",
+        "label": "Swoosh",
+        "valueType": "string",
+        "options": [
+          { "name": "No Swoosh", "value": "sec-swoosh-none" },
+          { "name": "Left Center Swoosh (1)", "value": "sec-swoosh-type1" },
+          { "name": "Right Top Swoosh (2)", "value": "sec-swoosh-type2" },
+          { "name": "Left Top Swoosh (3)", "value": "sec-swoosh-type3" },
+          { "name": "Swoosh for BG inside container - Desktop (5)", "value": "sec-swoosh-type5" },
+          { "name": "Leaders profile swoosh (6)", "value": "sec-swoosh-type6" },
+          { "name": "Right Center Swoosh (7)", "value": "sec-swoosh-type7" },
+          { "name": "Right Swoosh (8)", "value": "sec-swoosh-type8" },
+          { "name": "Right Swoosh (9)", "value": "sec-swoosh-type9" },
+          { "name": "Right Swoosh (10)", "value": "sec-swoosh-type10" },
+          { "name": "Right Swoosh (11)", "value": "sec-swoosh-type11" },
+          { "name": "Primary Blue 90 theme Swoosh", "value": "sec-swoosh-primary-blue-90" }
+        ]
+      },
+      {
+        "component": "multiselect",
+        "name": "style",
+        "label": "Variant Style",
+        "valueType": "string",
+        "required": true,
+        "maxSize": 5,
+        "options": [
+          {
+            "name": "🎨Background",
+            "children": [
+              { "name": "Transparent / White / Default", "value": "bg-default" },
+              { "name": "Dark Background Container", "value": "bg-primary-blue" },
+              { "name": "Primary Blue 90", "value": "bg-primary-blue-90" },
+              { "name": "Primary Blue 70", "value": "bg-primary-blue-70" },
+              { "name": "Neutrals 10", "value": "bg-neutrals-10" },
+              { "name": "Neutrals 10 Gradient", "value": "bg-neutrals-10-gradient" },
+              { "name": "Neutrals 20", "value": "bg-neutrals-20" },
+              { "name": "Neutrals 05", "value": "bg-neutrals-05-gradient" },
+              { "name": "Neutrals 07", "value": "bg-neutrals-07-gradient" },
+              { "name": "Image", "value": "bg-image" }
+            ]
+          },
+          {
+            "name": "🧩Component",
+            "children": [
+              { "name": "Banner Container", "value": "full-banner-container" },
+              { "name": "Bottom Carousel", "value": "bottom-carousel" },
+              { "name": "Button Title Container", "value": "title-text-button-container" },
+              { "name": "Data Card Noborder", "value": "data-card-noborder" },
+              { "name": "Feature Banner Container", "value": "feature-banner-container" },
+              { "name": "List Container", "value": "countrylist-container" },
+              { "name": "List With Border Container", "value": "partnerlist-container" },
+              { "name": "Region Feature Card", "value": "region-feature-card" },
+              { "name": "Stay Connected", "value": "stay-connected" }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "sec-spacing",
+        "value": "",
+        "label": "Spacing Top (padding top)",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default spacing",
+            "value": "sec-spacing-default"
+          },
+          {
+            "name": "No space / padding",
+            "value": "section-none"
+          },
+          {
+            "name": "Spacing Between",
+            "value": "section-padding-between"
+          },
+          {
+            "name": "Spacing tiny",
+            "value": "section-tiny"
+          },
+          {
+            "name": "Spacing xxsmall",
+            "value": "section-xxsmall"
+          },
+          {
+            "name": "Spacing xsmall",
+            "value": "section-xsmall"
+          },
+          {
+            "name": "Spacing regular",
+            "value": "section-regular"
+          },
+          {
+            "name": "Spacing small",
+            "value": "section-small"
+          },
+          {
+            "name": "Spacing medium",
+            "value": "section-medium"
+          },
+          {
+            "name": "Spacing large",
+            "value": "section-large"
+          },
+          {
+            "name": "Spacing xlarge",
+            "value": "section-xlarge"
+          },
+          {
+            "name": "Spacing xxlarge",
+            "value": "section-xxlarge"
+          },
+          {
+            "name": "Spacing huge",
+            "value": "section-huge"
+          },
+          {
+            "name": "Spacing xhuge",
+            "value": "section-xhuge"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "sec-spacing-bottom",
+        "value": "",
+        "label": "Spacing Bottom (padding bottom)",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default spacing",
+            "value": "sec-spacing-default"
+          },
+          {
+            "name": "No space / padding",
+            "value": "section-none"
+          },
+           {
+            "name": "Spacing Between",
+            "value": "section-padding-between"
+          },
+          {
+            "name": "Spacing tiny",
+            "value": "section-tiny"
+          },
+          {
+            "name": "Spacing xxsmall",
+            "value": "section-xxsmall"
+          },
+          {
+            "name": "Spacing xsmall",
+            "value": "section-xsmall"
+          },
+          {
+            "name": "Spacing regular",
+            "value": "section-regular"
+          },
+          {
+            "name": "Spacing small",
+            "value": "section-small"
+          },
+          {
+            "name": "Spacing medium",
+            "value": "section-medium"
+          },
+          {
+            "name": "Spacing large",
+            "value": "section-large"
+          },
+          {
+            "name": "Spacing xlarge",
+            "value": "section-xlarge"
+          },
+          {
+            "name": "Spacing xxlarge",
+            "value": "section-xxlarge"
+          },
+          {
+            "name": "Spacing huge",
+            "value": "section-huge"
+          },
+          {
+            "name": "Spacing xhuge",
+            "value": "section-xhuge"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "sec-inside-container",
+        "label": "Show background color inside container.",
+        "condition": {
+          "!=": [
+            {
+              "var": "style"
+            },
+            "bg-image"
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "name": "col-ctrl",
+        "value": "",
+        "label": "Grids",
+        "description": "Select grid count",
+        "valueType": "string",
+        "options": [
+          { "name": "1", "value": "col-1" },
+          { "name": "2", "value": "col-2" },
+          { "name": "3", "value": "col-3" },
+          { "name": "4", "value": "col-4" },
+          { "name": "5", "value": "col-5" }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test1",
+        "label": "🧱 Grid 1",
+        "multi": false,
+        "collapsible": true,        
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col1-class",
+            "value": "",
+            "label": "Column 1 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col1-blocks",
+            "label": "Column 1 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              { "name": "Collapsible Text", "value": "collapsible-text" },
+              { "name": "Heading", "value": "heading" },
+              { "name": "Inline Search", "value": "inline-search"},
+              { "name": "Mini Cards", "value": "mini-cards" },
+              { "name": "News Banner", "value": "news-banner" },
+              { "name": "Research and Publications", "value": "research-publications-cards" },
+              { "name": "Stay Connected", "value": "stay-connected" },
+              { "name": "Signup", "value": "signup" },
+              { "name": "Text", "value": "text" },
+              { "name": "Video", "value": "video" },
+              { "name": "Image", "value": "image" },
+              { "name": "Custom Text", "value": "custom-text" }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test2",
+        "label": "🧱 Grid 2",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "or": [
+            { "==": [{ "var": "col-ctrl" }, "col-2"] },
+            { "==": [{ "var": "col-ctrl" }, "col-3"] },
+            { "==": [{ "var": "col-ctrl" }, "col-4"] },
+            { "==": [{ "var": "col-ctrl" }, "col-5"] }
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col2-class",
+            "value": "",
+            "label": "Column 2 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col2-blocks",
+            "label": "Column 2 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              { "name": "Collapsible Text", "value": "collapsible-text" },
+              { "name": "Heading", "value": "heading" },
+              { "name": "Inline Search", "value": "inline-search"},
+              { "name": "Mini Cards", "value": "mini-cards" },
+              { "name": "News Banner", "value": "news-banner" },
+              { "name": "Research and Publications", "value": "research-publications-cards" },
+              { "name": "Stay Connected", "value": "stay-connected" },
+              { "name": "Signup", "value": "signup" },
+              { "name": "Text", "value": "text" },
+              { "name": "Video", "value": "video" },
+              { "name": "Image", "value": "image" },
+              { "name": "Custom Text", "value": "custom-text" }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test3",
+        "label": "🧱 Grid 3",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "or": [
+            { "==": [{ "var": "col-ctrl" }, "col-3"] },
+            { "==": [{ "var": "col-ctrl" }, "col-4"] },
+            { "==": [{ "var": "col-ctrl" }, "col-5"] }
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col3-class",
+            "value": "",
+            "label": "Column 3 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col3-blocks",
+            "label": "Column 3 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              { "name": "Collapsible Text", "value": "collapsible-text" },
+              { "name": "Heading", "value": "heading" },
+              { "name": "Inline Search", "value": "inline-search"},
+              { "name": "Mini Cards", "value": "mini-cards" },
+              { "name": "News Banner", "value": "news-banner" },
+              { "name": "Research and Publications", "value": "research-publications-cards" },
+              { "name": "Stay Connected", "value": "stay-connected" },
+              { "name": "Signup", "value": "signup" },
+              { "name": "Text", "value": "text" },
+              { "name": "Video", "value": "video" },
+              { "name": "Image", "value": "image" },
+              { "name": "Custom Text", "value": "custom-text" }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test4",
+        "label": "🧱 Grid 4",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "or": [
+            { "==": [{ "var": "col-ctrl" }, "col-4"] },
+            { "==": [{ "var": "col-ctrl" }, "col-5"] }
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col4-class",
+            "value": "",
+            "label": "Column 4 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col4-blocks",
+            "label": "Column 4 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              { "name": "Collapsible Text", "value": "collapsible-text" },
+              { "name": "Heading", "value": "heading" },
+              { "name": "Inline Search", "value": "inline-search"},
+              { "name": "Mini Cards", "value": "mini-cards" },
+              { "name": "News Banner", "value": "news-banner" },
+              { "name": "Research and Publications", "value": "research-publications-cards" },
+              { "name": "Stay Connected", "value": "stay-connected" },
+              { "name": "Signup", "value": "signup" },
+              { "name": "Text", "value": "text" },
+              { "name": "Video", "value": "video" },
+              { "name": "Image", "value": "image" },
+              { "name": "Custom Text", "value": "custom-text" }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test5",
+        "label": "🧱 Grid 5",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "==": [{ "var": "col-ctrl" }, "col-5"] }
+        ,
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col5-class",
+            "value": "",
+            "label": "Column 5 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col5-blocks",
+            "label": "Column 5 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              { "name": "Collapsible Text", "value": "collapsible-text" },
+              { "name": "Heading", "value": "heading" },
+              { "name": "Inline Search", "value": "inline-search"},
+              { "name": "Mini Cards", "value": "mini-cards" },
+              { "name": "News Banner", "value": "news-banner" },
+              { "name": "Research and Publications", "value": "research-publications-cards" },
+              { "name": "Stay Connected", "value": "stay-connected" },
+              { "name": "Signup", "value": "signup" },
+              { "name": "Text", "value": "text" },
+              { "name": "Video", "value": "video" },
+              { "name": "Image", "value": "image" },
+              { "name": "Custom Text", "value": "custom-text" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   {
     "id": "section",
     "fields": [
@@ -1892,6 +2369,10 @@
           {
             "name": "No space / padding",
             "value": "section-none"
+          },
+          {
+            "name": "Spacing Between",
+            "value": "section-padding-between"
           },
           {
             "name": "Spacing tiny",
@@ -1955,6 +2436,10 @@
             "name": "No space / padding",
             "value": "section-none"
           },
+           {
+            "name": "Spacing Between",
+            "value": "section-padding-between"
+          },
           {
             "name": "Spacing tiny",
             "value": "section-tiny"
@@ -2013,24 +2498,40 @@
             "value": "sec-swoosh-none"
           },
           {
-            "name": "Left Center Swoosh",
+            "name": "Left Center Swoosh (1)",
             "value": "sec-swoosh-type1"
           },
           {
-            "name": "Left Top Swoosh",
-            "value": "sec-swoosh-type3"
-          },
-          {
-            "name": "Right Top Swoosh",
+            "name": "Right Top Swoosh (2)",
             "value": "sec-swoosh-type2"
           },
           {
-            "name": "Swoosh for BG inside container - Desktop",
+            "name": "Left Top Swoosh (3)",
+            "value": "sec-swoosh-type3"
+          },
+          {
+            "name": "Swoosh for BG inside container - Desktop (5)",
             "value": "sec-swoosh-type5"
           },
           {
-            "name": "Leaders profile swoosh",
+            "name": "Leaders profile swoosh (6)",
             "value": "sec-swoosh-type6"
+          },
+          {
+            "name": "Right Center Swoosh (7)",
+            "value": "sec-swoosh-type7"
+          },
+          {
+            "name": "Right Swoosh (8)",
+            "value": "sec-swoosh-type8"
+          },
+          {
+            "name": "Right Swoosh (9)",
+            "value": "sec-swoosh-type9"
+          },
+          {
+            "name": "Right Swoosh (10)",
+            "value": "sec-swoosh-type10"
           },
           {
             "name": "Primary Blue 90 theme Swoosh",
@@ -2039,43 +2540,104 @@
         ]
       },
       {
-        "component": "select",
+        "component": "multiselect",
         "name": "style",
-        "value": "",
-        "label": "Background style",
-        "valueType": "string",
+        "value": [],
+        "label": "Variant style",
+        "valueType": "array",
         "options": [
           {
-            "name": "Transparent / White / Default",
+            "name": "-- Backgrounds --",
+            "value": "",
+            "disabled": true
+          },
+          {
+            "name": "🎨[Background] Transparent / White / Default",
             "value": "bg-default"
           },
           {
-            "name": "Dark Background Container",
+            "name": "🎨[Background] Dark Background Container",
             "value": "bg-primary-blue"
           },
           {
-            "name": "Primary Blue 90",
+            "name": "🎨[Background] Primary Blue 90",
             "value": "bg-primary-blue-90"
           },
           {
-            "name": "Primary Blue 70",
+            "name": "🎨[Background] Primary Blue 70",
             "value": "bg-primary-blue-70"
           },
           {
-            "name": "Neutrals 10",
+            "name": "🎨[Background] Neutrals 10",
             "value": "bg-neutrals-10"
           },
           {
-            "name": "Neutrals 10 Gradient",
+            "name": "🎨[Background] Neutrals 10 Gradient",
             "value": "bg-neutrals-10-gradient"
           },
           {
-            "name": "Neutrals 20",
+            "name": "🎨[Background] Neutrals 20",
             "value": "bg-neutrals-20"
           },
           {
-            "name": "Background Image",
+            "name": "🎨[Background] Neutrals 05",
+            "value": "bg-neutrals-05-gradient"
+          },
+          {
+            "name": "🎨[Background] Neutrals 07",
+            "value": "bg-neutrals-07-gradient"
+          },
+          {
+            "name": "🎨[Background] Image",
             "value": "bg-image"
+          },
+          {
+            "name": "🧩[Component] Banner Container",
+            "value": "full-banner-container"
+          },
+          {
+            "name": "🧩[Component] Bottom Carousel",
+            "value": "bottom-carousel"
+          },
+          {
+            "name": "🧩[Component] Button Title Container",
+            "value": "title-text-button-container"
+          },
+          {
+            "name": "🧩[Component] Data Card Noborder",
+            "value": "data-card-noborder"
+          },
+          {
+            "name": "🧩[Component] Feature Banner Container",
+            "value": "feature-banner-container"
+          },
+          {
+            "name": "🧩[Component] List Container",
+            "value": "countrylist-container"
+          },
+          {
+            "name": "🧩[Component] List With Border Container",
+            "value": "partnerlist-container"
+          },
+          {
+            "name": "🧩[Component] Region Feature Card",
+            "value": "region-feature-card"
+          },
+          {
+            "name": "🧩[Component] Stay Connected",
+            "value": "stay-connected"
+          },
+          {
+            "name": "📐[Layout] Two Column Variation (50-50)",
+            "value": "two-col-variation-50-50"
+          },
+          {
+            "name": "📐[Layout] Two Column Variation (40-60)",
+            "value": "two-col-variation-40-60"
+          },
+          {
+            "name": "📐[Layout] Two Column Variation (75-25)",
+            "value": "two-col-variation-75-25"
           }
         ]
       },
@@ -2099,7 +2661,8 @@
             "valueType": "string",
             "name": "image",
             "label": "Background Image",
-            "multi": false
+            "multi": false,
+            "description": "Max 1 Item"
           },
           {
             "component": "reference",
@@ -2248,10 +2811,6 @@
           {
             "name": "Senior Leadership view",
             "value": "senior-leadership"
-          },
-          {
-            "name": "Sticky Card view",
-            "value": "sticky-card"
           }
         ]
       }
@@ -2265,7 +2824,8 @@
         "valueType": "string",
         "name": "image",
         "label": "Image",
-        "multi": false
+        "multi": false,
+        "description": "Max 1 Item"
       },
       {
         "component": "text",
@@ -2301,57 +2861,17 @@
         "valueType": "string"
       },
       {
-        "component": "reference",
-        "name": "button",
-        "value": "",
-        "label": "Additional Text",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
+        "component": "select",
         "valueType": "string",
-        "name": "card",
-        "value": ""
-      }
-    ]
-  },
-  {
-    "id": "collapsible-text",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
+        "name": "classes",
         "value": "",
-        "label": "Title"
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "collapse-text",
-        "value": "",
-        "label": "Collapse Text",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "read-more-label",
-        "value": "",
-        "label": "Read More Label",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "read-less-label",
-        "value": "",
-        "label": "Read Less Label",
-        "valueType": "string"
+        "label": "Classes",
+        "options": [
+          {
+            "name": "Carousel With Button",
+            "value": "carousel-with-button"
+          }
+        ]
       }
     ]
   },
@@ -2378,6 +2898,10 @@
                 "value": "columns-heading-with-description"
               },
               {
+                "name": "Banner Heading Variant",
+                "value": "columns-heading-banner-variant"
+              },
+              {
                 "name": "Divider Variant",
                 "value": "columns-divider-variant"
               },
@@ -2390,6 +2914,10 @@
                 "value": "columns-feature-card"
               },
               {
+                "name": "List Nav Variation",
+                "value": "knowledge-card"
+              },
+              {
                 "name": "Image Right Variation",
                 "value": "columns-image-right"
               },
@@ -2400,6 +2928,10 @@
               {
                 "name": "News Banner Bottom Variation",
                 "value": "columns-news-banner-bottom"
+              },
+              {
+                "name": "Collapsible List Variation",
+                "value": "collapsible-list-variation"
               }
             ]
           },
@@ -2459,6 +2991,14 @@
               {
                 "name": "75% - 25%",
                 "value": "column-layout-75-25"
+              },
+              {
+                "name": "50% - Auto",
+                "value": "column-layout-50-auto"
+              },
+              {
+                "name": "Auto - 50%",
+                "value": "column-layout-auto-50"
               }
             ]
           }
@@ -2498,6 +3038,2431 @@
       }
     ]
   },
+  {
+    "id": "curated-card",
+    "fields": [
+      {
+        "component": "boolean",
+        "label": "Use Dynamic Media Image",
+        "name": "useDM",
+        "value": "false",
+        "valueType": "boolean"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false,
+        "condition": {
+          "===": [
+            {
+              "var": "useDM"
+            },
+            false
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "useDM"
+            },
+            false
+          ]
+        }
+      },
+      {
+        "component": "custom-asset-namespace:custom-asset",
+        "configUrl": "https://raw.githubusercontent.com/aemsites/world-bank/refs/heads/main/tools/asset-selector/image.config.json",
+        "valueType": "string",
+        "name": "cc_image",
+        "label": "Dynamic Media Image",
+        "multi": false,
+        "condition": {
+          "===": [
+            {
+              "var": "useDM"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "cc_imageText",
+        "label": "Alt Text",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "useDM"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "boolean",
+        "label": "Auto Smart Crop",
+        "name": "cc_smartCrop",
+        "value": "false",
+        "valueType": "boolean",
+        "condition": {
+          "===": [
+            {
+              "var": "useDM"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "cc_queryparams",
+        "label": "Image Query Params",
+        "description": "Add custom query params to the image URL",
+        "condition": {
+          "===": [
+            {
+              "var": "useDM"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "aem-tag",
+        "name": "curated-card-tags",
+        "label": "Tags for Card",
+        "valueType": "string",
+        "rootPath": "/content/cq:tags/world-bank/content-type",
+        "description": "Tags for the curated card",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "curated-card-title",
+        "label": "Title",
+        "description": "Sets the title of the Card",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "curated-card-description",
+        "label": "Description",
+        "description": "Sets the description of the Card"
+      },
+      {
+        "component": "text",
+        "name": "curated-card-link",
+        "label": "Link",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "cc-read-more-btn",
+        "label": "Read More Label",
+        "description": "Sets read more button label on first card",
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "data-cards",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "additional-text",
+        "value": "",
+        "label": "Additional Text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "see-all-label",
+        "label": "See All Stories Button",
+        "description": "See All Stories Button"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Classes",
+        "options": [
+          {
+            "name": "Data Card",
+            "value": "data-card-variation"
+          },
+          {
+            "name": "News Card",
+            "value": "news-card-variation"
+          },
+          {
+            "name": "News Horizontal Card",
+            "value": "horizontal-card-variation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "data-card",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "name": "tags",
+        "label": "Tags for Card",
+        "valueType": "string",
+        "rootPath": "/content/cq:tags/world-bank/category",
+        "description": "Tags for data card"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "data-card-link",
+        "value": "",
+        "label": "Link",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "disclaimer",
+        "value": "",
+        "label": "Disclaimer Text"
+      }
+    ]
+  },
+  {
+    "id": "news-card",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "name": "news-card-tags",
+        "label": "Tags for Card",
+        "valueType": "string",
+        "rootPath": "/content/cq:tags/world-bank/category",
+        "description": "Tags for news card"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "news-card-title",
+        "value": "",
+        "label": "Title"
+      },
+      {
+        "component": "text",
+        "name": "news-card-link",
+        "value": "",
+        "label": "Link",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "news-card-image",
+        "label": "Image",
+        "multi": false,
+        "description": "Select an image for the news card"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "alt",
+        "value": "Default alt",
+        "label": "News Card Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "see-all-label",
+        "value": "",
+        "label": "See All Lable"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "see-all-link",
+        "value": "",
+        "label": "See All Link"
+      }
+    ]
+  },
+  {
+    "id": "dm-asset",
+    "fields": [
+      {
+        "component": "text",
+        "name": "dm_alttext",
+        "label": "Alt Text",
+        "valueType": "string"
+      },
+      {
+        "component": "custom-asset-namespace:custom-asset",
+        "name": "dm-image",
+        "label": "Image",
+        "configUrl": "https://raw.githubusercontent.com/aemsites/world-bank/refs/heads/main/tools/asset-selector/image.config.json",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "explore-cards",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Main heading",
+        "required": true
+      },
+
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "selectButton1",
+        "value": "",
+        "label": "Select Button1"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "selectButton2",
+        "value": "",
+        "label": "Select Button2"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Classes",
+        "options": [
+          {
+            "name": "Card With Button",
+            "value": "card-with-button"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "explore-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "fileReference",
+        "label": "Card Image",
+        "required": true,
+        "multi": false,
+        "description": "Select an image for the card",
+        "rootPath": "/content/dam/world-bank"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "alt",
+        "value": "Default alt",
+        "label": "Alt text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "required": true,
+        "label": "Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "link",
+        "value": "",
+        "label": "Link",
+        "required": true
+      },
+      {
+        "component": "aem-tag",
+        "name": "content-type",
+        "label": "Content Type",
+        "valueType": "string",
+        "required": true,
+        "rootPath": "/content/cq:tags/world-bank/content-type"
+      },
+      {
+        "component": "aem-tag",
+        "name": "story-type",
+        "label": "Story Type",
+        "valueType": "string",
+        "required": true,
+        "rootPath": "/content/cq:tags/world-bank/story-type"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "hammer",
+        "value": "",
+        "label": "Hammer"
+      }
+    ]
+  },
+  {
+    "id": "fragment",
+    "fields": [
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "fragmentPath",
+        "value": "",
+        "required": true,
+        "label": "Fragment Path"
+      }
+    ]
+  },
+  {
+    "id": "heading",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "eyebrowtext",
+        "value": "",
+        "label": "Eyebrow text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "prefix",
+        "value": "",
+        "label": "Prefix text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "headingtext",
+        "value": "",
+        "label": "Heading Text",
+        "required": true
+      },
+      {
+        "component": "select",
+        "name": "type",
+        "value": "h2",
+        "label": "Type",
+        "valueType": "string",
+        "required": true,
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          },
+          {
+            "name": "p",
+            "value": "p"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "suffix",
+        "value": "",
+        "label": "Suffix text"
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "show_borderline",
+        "label": "Show Borderline"
+      },
+      {
+        "component": "select",
+        "name": "heading-border-spacing",
+        "value": "",
+        "label": "Border Spacing Top (padding top)",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default spacing",
+            "value": "heading-border-spacing-default"
+          },
+          {
+            "name": "No space / padding",
+            "value": "heading-border-spacing-none"
+          },
+          {
+            "name": "Spacing tiny",
+            "value": "heading-border-spacing-tiny"
+          },
+          {
+            "name": "Spacing xxsmall",
+            "value": "heading-border-spacing-xxsmall"
+          },
+          {
+            "name": "Spacing xsmall",
+            "value": "heading-border-spacing-xsmall"
+          },
+          {
+            "name": "Spacing regular",
+            "value": "heading-border-spacing-regular"
+          },
+          {
+            "name": "Spacing small",
+            "value": "heading-border-spacing-small"
+          },
+          {
+            "name": "Spacing medium",
+            "value": "heading-border-spacing-medium"
+          },
+          {
+            "name": "Spacing large",
+            "value": "heading-border-spacing-large"
+          },
+          {
+            "name": "Spacing xlarge",
+            "value": "heading-border-spacing-xlarge"
+          },
+          {
+            "name": "Spacing xxlarge",
+            "value": "heading-border-spacing-xxlarge"
+          },
+          {
+            "name": "Spacing huge",
+            "value": "heading-border-spacing-huge"
+          },
+          {
+            "name": "Spacing xhuge",
+            "value": "heading-border-spacing-xhuge"
+          }
+        ],
+        "condition": {
+          "==": [
+            {
+              "var": "show_borderline"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "name": "heading-top-spacing",
+        "value": "",
+        "label": "Heading Spacing Top (padding top)",
+        "description": "Heading top spacing",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default spacing",
+            "value": "heading-top-spacing-default"
+          },
+          {
+            "name": "No space / padding",
+            "value": "heading-top-none"
+          },
+          {
+            "name": "Spacing tiny",
+            "value": "heading-top-tiny"
+          },
+          {
+            "name": "Spacing xxsmall",
+            "value": "heading-top-xxsmall"
+          },
+          {
+            "name": "Spacing xsmall",
+            "value": "heading-top-xsmall"
+          },
+          {
+            "name": "Spacing regular",
+            "value": "heading-top-regular"
+          },
+          {
+            "name": "Spacing small",
+            "value": "heading-top-small"
+          },
+          {
+            "name": "Spacing medium",
+            "value": "heading-top-medium"
+          },
+          {
+            "name": "Spacing large",
+            "value": "heading-top-large"
+          },
+          {
+            "name": "Spacing xlarge",
+            "value": "heading-top-xlarge"
+          },
+          {
+            "name": "Spacing xxlarge",
+            "value": "heading-top-xxlarge"
+          },
+          {
+            "name": "Spacing huge",
+            "value": "heading-top-huge"
+          },
+          {
+            "name": "Spacing xhuge",
+            "value": "heading-top-xhuge"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "heading-bottom-spacing",
+        "value": "",
+        "label": "Heading Spacing Bottom (padding bottom)",
+        "description": "Heading bottom spacing",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default spacing",
+            "value": "heading-bottom-default"
+          },
+          {
+            "name": "No space / padding",
+            "value": "heading-bottom-none"
+          },
+          {
+            "name": "Spacing tiny",
+            "value": "heading-bottom-tiny"
+          },
+          {
+            "name": "Spacing xxsmall",
+            "value": "heading-bottom-xxsmall"
+          },
+          {
+            "name": "Spacing xsmall",
+            "value": "heading-bottom-xsmall"
+          },
+          {
+            "name": "Spacing regular",
+            "value": "heading-bottom-regular"
+          },
+          {
+            "name": "Spacing small",
+            "value": "heading-bottom-small"
+          },
+          {
+            "name": "Spacing medium",
+            "value": "heading-bottom-medium"
+          },
+          {
+            "name": "Spacing large",
+            "value": "heading-bottom-large"
+          },
+          {
+            "name": "Spacing xlarge",
+            "value": "heading-bottom-xlarge"
+          },
+          {
+            "name": "Spacing xxlarge",
+            "value": "heading-bottom-xxlarge"
+          },
+          {
+            "name": "Spacing huge",
+            "value": "heading-bottom-huge"
+          },
+          {
+            "name": "Spacing xhuge",
+            "value": "heading-bottom-xhuge"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonlink",
+        "label": "Button Link",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "desc",
+        "label": "Description Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "iframe",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "iframeUrl",
+        "value": "",
+        "label": "iFrame URL",
+        "description": "Please provide a URL to an iFrame app."
+      }
+    ]
+  },
+  {
+    "id": "leaders-list",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "leadership-group-name",
+        "label": "Leadership Group",
+        "description": "Select the Leadership Group",
+        "value": "",
+        "required": true,
+        "options": [
+          {
+            "name": "The World Bank (IBRD & IDA)",
+            "value": "ibrd"
+          },
+          {
+            "name": "International Finance Corporation (IFC)",
+            "value": "ifc"
+          },
+          {
+            "name": "Multilateral Investent Guarantee Agency (MIGA)",
+            "value": "miga"
+          },
+          {
+            "name": "International Center For Settlement Of Investment Disputes (ICSID)",
+            "value": "icsid"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "live-now",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Mode",
+        "description": "Normal mode or test mode. Test mode bypasses the 'current event' time check.",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Test",
+            "value": "test-mode"
+          },
+          {
+            "name": "Normal",
+            "value": "normal-mode"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "impact-card",
+    "fields": [
+      {
+        "component": "select",
+        "name": "indicator",
+        "value": "",
+        "label": "Indicator Tag",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Protection for the Poorest ",
+            "value": "protectionForThePoorest-people"
+          },
+          {
+            "name": "No Learning Poverty",
+            "value": "noLeavingPoverty-people"
+          },
+          {
+            "name": "Healthier Lives",
+            "value": "healthierLives-people"
+          },
+          {
+            "name": "Effective Macroeconomic & Fiscal Management",
+            "value": "effectiveMacroEconomicNFiscalManagement-prosperity"
+          },
+          {
+            "name": "Green and Blue Planet & Resilient Populations",
+            "value": "greenNBluePlanetNResilientPopulations-planet"
+          },
+          {
+            "name": "Inclusive and Equitable Water and Sanitation Services",
+            "value": "inclusiveNEquitableWaterNSanitationServices-planet"
+          },
+          {
+            "name": "Sustainable Food Systems",
+            "value": "sustainableFoodSystems-planet"
+          },
+          {
+            "name": "Connected Communities",
+            "value": "connectedCommunities-infrastructure"
+          },
+          {
+            "name": "Affordable, Reliable & Sustainable Energy For All",
+            "value": "affordableNReliableEnergyForAll-infrastructure"
+          },
+          {
+            "name": "Digital Connectivity",
+            "value": "digitalConnectivity-digital"
+          },
+          {
+            "name": "Digital Services",
+            "value": "digitalServices-digital"
+          },
+          {
+            "name": "Gender Equality and Youth Inclusion",
+            "value": "genderEqualityNYouthInclusion-crossCuttingThemes"
+          },
+          {
+            "name": "More and Better Jobs",
+            "value": "moreNBetterJobs-crossCuttingThemes"
+          },
+          {
+            "name": "Better Lives for People in Fragility, Conflict & Violence",
+            "value": "betterLivesForPeopleInFCV-crossCuttingThemes"
+          },
+          {
+            "name": "More Private Investment ",
+            "value": "morePrivateInvestment-crossCuttingThemes"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Icon",
+        "multi": false,
+        "description": "Select an icon for the impact card"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "",
+        "label": "Icon Alternate Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "value": "",
+        "label": "Impact Link",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "border-color",
+        "value": "",
+        "label": "Border Color",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "People",
+            "value": "people"
+          },
+          {
+            "name": "Prosperity",
+            "value": "prosperity"
+          },
+          {
+            "name": "Planet",
+            "value": "planet"
+          },
+          {
+            "name": "Infrastructure",
+            "value": "infrastructure"
+          },
+          {
+            "name": "Digital",
+            "value": "digital"
+          },
+          {
+            "name": "Cross Cutting Areas",
+            "value": "cross-cutting-areas"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mini-cards",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "mini-cards-heading",
+        "value": "",
+        "label": "Mini Cards Heading",
+        "valueType": "string",
+        "required": false
+      },
+      {
+        "component": "richtext",
+        "name": "mini-cards-select-all-button",
+        "value": "",
+        "label": "Mini Cards Select Button",
+        "valueType": "string"
+      },
+
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Classes",
+        "options": [
+          {
+            "name": "Mini Card",
+            "value": "mini-card-variation"
+          },
+          {
+            "name": "Image List",
+            "value": "image-list-variation"
+          },
+          {
+            "name": "Mini Cards With Mobile SLider",
+            "value": "mini-card-with-slider"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mini-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mini-card-image",
+        "label": "Image",
+        "multi": false,
+        "description": "Max 1 Item"
+      },
+      {
+        "component": "aem-tag",
+        "name": "mini-card-tag",
+        "label": "Card Type",
+        "valueType": "string",
+        "required": false,
+        "rootPath": "/content/cq:tags/world-bank/content-type",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mini-card-title",
+        "value": "",
+        "label": "Title",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mini-card-date",
+        "value": "",
+        "label": "Date"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mini-card-time",
+        "value": "",
+        "label": "Time"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mini-card-location",
+        "value": "",
+        "label": "Location"
+      },
+      {
+        "component": "text",
+        "name": "mini-card-link",
+        "value": "",
+        "label": "Link",
+        "valueType": "string",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "alt",
+        "value": "",
+        "label": "Mini Card Alt Text"
+      },
+      {
+        "component": "richtext",
+        "name": "mini-cards-desc",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "eyebrowtext",
+        "value": "",
+        "label": "Eyebrow Text"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Classes",
+        "options": [
+          {
+            "name": "Vertical Image",
+            "value": "small-v-img"
+          },
+          {
+            "name": "Horizontal Image",
+            "value": "small-h-img"
+          },
+          {
+            "name": "Square Image",
+            "value": "small-s-img"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "organizational-cards",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Background Image",
+        "multi": false,
+        "description": "Select an image for the background of the organizational cards"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "",
+        "label": "Background Alternate Text"
+      }
+    ]
+  },
+  {
+    "id": "organizational-card",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "acronym",
+        "label": "Acronym",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mission",
+        "label": "Mission",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkText",
+        "label": "Link Text",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "priority-list",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "subtitle",
+        "value": "",
+        "label": "Subtitle"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linktext",
+        "label": "Link Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkhref",
+        "label": "Link Href",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "priority-item",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "name": "tags",
+        "label": "Tags for Priority Card",
+        "valueType": "string",
+        "rootPath": "/content/cq:tags/world-bank/category",
+        "description": "Tags for priority card"
+      },
+      {
+        "component": "richtext",
+        "name": "cardbodytext",
+        "value": "",
+        "label": "Card Body Text",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false,
+        "description": "Select an image for the priority item"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "research-publications-cards",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Heading",
+        "required": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button Text",
+        "value": "",
+        "required": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonlink",
+        "label": "Button Link",
+        "value": "",
+        "required": false
+      },
+      {
+        "component": "select",
+        "name": "tab-variant",
+        "label": "Tab Variant",
+        "valueType": "string",
+        "value": "default",
+        "options": [
+          {
+            "name": "2 Cards View (Default)",
+            "value": "default"
+          },
+          {
+            "name": "Single Card View",
+            "value": "single-card-view"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "research-publications-card",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "eyebrowtext",
+        "value": "",
+        "label": "Eyebrow Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false,
+        "description": "Select an image for the research publication card",
+        "required": true
+      },      
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "alt",
+        "value": "Default alt",
+        "label": "Thumbnail Alt Text",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "href",
+        "value": "",
+        "label": "Title Link",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button Text",
+        "value": "",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonlink",
+        "label": "Button Link",
+        "value": "",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "tab",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Tab Name",
+        "required": true
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "tab-type",
+        "label": "Type of Tab",
+        "description": "Select the Type of Tab",
+        "value": "",
+        "required": true,
+        "options": [
+          {
+            "name": "All Tab",
+            "value": "all"
+          },
+          {
+            "name": "Publication",
+            "value": "publication"
+          },
+          {
+            "name": "Project",
+            "value": "project"
+          },
+          {
+            "name": "Blogs",
+            "value": "blogs"
+          },
+          {
+            "name": "News",
+            "value": "news"
+          },
+          {
+            "name": "Events",
+            "value": "events"
+          },
+          {
+            "name": "Author Manually",
+            "value": "manual"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "url",
+        "value": "",
+        "label": "URL",
+        "condition": {
+          "and": [
+            {
+              "!=": [
+                {
+                  "var": "tab-type"
+                },
+                "manual"
+              ]
+            },
+            {
+              "!=": [
+                {
+                  "var": "tab-type"
+                },
+                "text-image"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "component": "boolean",
+        "label": "POST",
+        "name": "post",
+        "value": "false",
+        "valueType": "boolean",
+        "condition": {
+          "or": [
+            {
+              "==": [
+                {
+                  "var": "tab-type"
+                },
+                "blogs"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "tab-type"
+                },
+                "events"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "body",
+        "value": "",
+        "label": "Body",
+        "condition": {
+          "==": [
+            {
+              "var": "post"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "fragmentPath",
+        "value": "",
+        "label": "Fragment Path",
+        "rootPath":"/content/worldbank/corporate/ext/en/fragments/country",
+        "condition": {
+          "==": [
+            {
+              "var": "tab-type"
+            },
+            "manual"
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "name": "tab-variant",
+        "label": "Tab Variant",
+        "valueType": "string",
+        "value": "",
+        "options": [
+          {
+            "name": "Default View",
+            "value": ""
+          },
+          {
+            "name": "2 Column View",
+            "value": "two-column-view"
+          }
+        ],
+        "condition": {
+          "!=": [
+            {
+              "var": "tab-type"
+            },
+            "manual"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "display-items",
+        "value": "",
+        "label": "Display Items",
+        "description": "Number of items to display in this tab",
+        "condition": {
+          "!=": [
+            {
+              "var": "tab-type"
+            },
+            "manual"
+          ]
+        }
+      },
+      {
+        "component": "boolean",
+        "label": "Disable Load More",
+        "description": "Disable Load More button for this tab",
+        "name": "disable-load-more",
+        "value": "false",
+        "valueType": "boolean",
+        "condition": {
+          "!=": [
+            {
+              "var": "tab-type"
+            },
+            "manual"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "see-all-button-label",
+        "value": "",
+        "label": "See All Button Label",
+        "valueType": "string",
+        "condition": {
+          "==": [
+            {
+              "var": "disable-load-more"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "see-all-button-link",
+        "value": "",
+        "label": "See All Button Link",
+        "valueType": "string",
+        "condition": {
+          "==": [
+            {
+              "var": "disable-load-more"
+            },
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "teaser",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "value": "Your text will show here.",
+        "name": "teaserBlurb",
+        "label": "Title"
+      },
+      {
+        "component": "select",
+        "name": "teaserStyle",
+        "value": "image",
+        "label": "Style",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Video",
+            "value": "video"
+          },
+          {
+            "name": "Image",
+            "value": "image"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "label": "Video Properties",
+        "name": "videoProperties",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "teaserStyle"
+            },
+            "video"
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "videoReference",
+            "label": "Video Reference",
+            "multi": false,
+            "description": "Provide a URL for the video background."
+          },
+          {
+            "component": "select",
+            "name": "videoBehavior",
+            "value": "autoplay",
+            "label": "Video Behavior (on load)",
+            "valueType": "string",
+            "options": [
+              {
+                "name": "Autoplay",
+                "value": "autoplay"
+              },
+              {
+                "name": "Pause",
+                "value": "pause"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "label": "Image Properties",
+        "name": "imageProperties",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "teaserStyle"
+            },
+            "image"
+          ]
+        },
+        "fields": [
+          {
+            "component": "reference",
+            "valueType": "string",
+            "name": "imageRef",
+            "label": "Image",
+            "multi": false,
+            "description": "Select an image for the teaser"
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "alt",
+            "value": "Default alt",
+            "label": "Alt Text"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "label": "Button Properties",
+        "name": "buttonProperties",
+        "valueType": "string",
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "btn-text",
+            "value": "Button",
+            "label": "Button Text"
+          },
+          {
+            "component": "aem-content",
+            "name": "btn-link",
+            "label": "Button Link",
+            "valueType": "string",
+            "rootPath": "",
+            "description": "Path to linked AEM content"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "video",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "videoType",
+        "value": "",
+        "label": "Video Type",
+        "options": [
+          {
+            "name": "You Tube",
+            "value": "you-tube"
+          },
+          {
+            "name": "Embed Code",
+            "value": "embed-code"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "videoUrl",
+        "value": "",
+        "label": "Video URL",
+        "condition": {
+          "==": [
+            {
+              "var": "videoType"
+            },
+            "you-tube"
+          ]
+        }
+      },
+      {
+        "component": "text-area",
+        "valueType": "string",
+        "name": "embedCode",
+        "value": "",
+        "label": "Embed Code",
+        "condition": {
+          "==": [
+            {
+              "var": "videoType"
+            },
+            "embed-code"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "dropdown-list",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "subtitle",
+        "value": "",
+        "label": "Title"
+      }
+    ]
+  },
+  {
+    "id": "dropdown-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Select Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "cardbodytext",
+        "value": "",
+        "label": "Card Body Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "dropdown",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ddlabel",
+        "label": "Select Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "ddbodytext",
+        "value": "",
+        "label": "Card Body Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "country-list",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "allText",
+        "value": "",
+        "label": "All Text"
+      }
+    ]
+  },
+  {
+    "id": "dropdown-with-description",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "desc",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ddtitle",
+        "label": "Dropdown Title",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ddplaceholder",
+        "label": "Dropdown Placeholder",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "ddbodytext",
+        "value": "",
+        "label": "Card Body Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "search-in-site",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "prefix",
+        "label": "Prefix Heading",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Heading Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "desc",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formheader",
+        "label": "Form Header",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "formdesc",
+        "value": "",
+        "label": "Form Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formplaceholder",
+        "label": "Placeholder Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "targeturl",
+        "label": "Target URL",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "formlinks",
+        "value": "",
+        "label": "Form Links",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Variations",
+        "options": [
+          {
+            "name": "Default (Text - Search)",
+            "value": "default-variation"
+          },
+          {
+            "name": "Signup (Search - Text)",
+            "value": "signup-variation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feature-cards",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Feature Card View Layout",
+        "valueType": "string",
+        "value": "",
+        "options": [
+          {
+            "name": "Default View",
+            "value": ""
+          },
+          {
+            "name": "Products and Services View",
+            "value": "products-and-services"
+          },
+          {
+            "name": "Knowledge Data View",
+            "value": "knowledge-data"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feature-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false,
+        "description": "Select an image for the feature card"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "",
+        "label": "Alternate Text"
+      },
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "link",
+        "value": "",
+        "label": "Link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "custom-image",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageDefault",
+        "label": "Image (Default)",
+        "multi": false,
+        "description": "Max 1 Item"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageTablet",
+        "label": "Image (Tablet)",
+        "multi": false,
+        "description": "Max 1 Item"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageMobile",
+        "label": "Image (Mobile)",
+        "multi": false,
+        "description": "Max 1 Item"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "alt",
+        "value": "Default alt",
+        "label": "Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "news-banner",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false,
+        "required": true,
+        "description": "Select an image for the news banner"
+      },
+      {
+        "component": "text",
+        "name": "altText",
+        "value": "World Bank Group Default Image",
+        "label": "Image Alternate Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "hammer",
+        "value": "",
+        "label": "Hammer",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "title-link",
+        "value": "",
+        "label": "Title Link",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "add-play-icon",
+        "label": "Show play icon"
+      }
+    ]
+  },
+  {
+    "id": "collapsible-text",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "collapse-text",
+        "value": "",
+        "label": "Collapse Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "read-more-label",
+        "value": "",
+        "label": "Read More Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "read-less-label",
+        "value": "",
+        "label": "Read Less Label",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+  "id": "indicator-charts",
+  "fields": [
+    {
+      "component": "select",
+      "valueType": "string",
+      "name": "pageType",
+      "value": "",
+      "label": "Page Type",
+      "options": [
+        {
+          "name": "Region",
+          "value": "region"
+        },
+        {
+          "name": "Topic",
+          "value": "topic"
+        }
+      ]
+    },
+    {
+     "component": "select",
+      "name": "selector",
+      "value": "",
+      "label": "Selector",
+      "valueType": "string",
+      "required": true,
+      "options": [
+        {
+          "name": "Africa",
+          "value": "AFR"
+        },
+        {
+          "name": "West Africa",
+          "value": "AFW"
+        },
+        {
+          "name": "East Africa",
+          "value": "AFE"
+        },
+        {
+          "name": "East Asia & Pacific",
+          "value": "EAS"
+        },
+        {
+          "name": "Europe & Central Asia",
+          "value": "ECS"
+        },
+        {
+          "name": "Latin America & Caribbean",
+          "value": "LCN"
+        },
+        {
+          "name": "Middle East and North Africa",
+          "value": "MEA"
+        },
+        {
+          "name": "South Asia",
+          "value": "SAS"
+        }
+      ],
+      "condition": {
+          "==": [
+            {
+              "var": "pageType"
+            },
+            "region"
+          ]
+      }
+    },
+    {
+      "component": "richtext",
+      "valueType": "string",
+      "name": "title",
+      "value": "",
+      "label": "Heading",
+      "required": true
+    },
+    {
+      "component": "text",
+      "valueType": "string",
+      "name": "buttontext",
+      "label": "Button Text",
+      "value": "",
+      "required": true
+    },
+    {
+      "component": "text",
+      "valueType": "string",
+      "name": "buttonlink",
+      "label": "Button Link",
+      "value": "",
+      "required": true
+    },
+    {
+      "component": "text",
+      "name": "CategoryName",
+      "value": "MIDDLE EAST AND NORTH AFRICA",
+      "label": "Category Name",
+      "valueType": "string"
+    },
+    {
+      "component": "text",
+      "name": "sourceLabel",
+      "value": "Source",
+      "label": "Source Label",
+      "valueType": "string"
+    },
+    {
+      "component": "text",
+      "name": "datasetLabel",
+      "value": "Dataset",
+      "label": "Dataset Label",
+      "valueType": "string"
+    },
+    {
+      "component": "text",
+      "name": "data360ButtonText",
+      "value": "Go to Data 360",
+      "label": "Data 360 Button Text",
+      "valueType": "string"
+    }
+  ]
+  },
+  {
+    "id": "inline-search",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "search-type",
+        "label": "Search Type",
+        "description": "Select the Type of Search",
+        "value": "",
+        "required": true,
+        "options": [
+          {
+            "name": "Events",
+            "value": "events"
+          },
+          {
+            "name": "Blogs",
+            "value": "blogs"
+          },
+          {
+            "name": "News",
+            "value": "news"
+          },
+          {
+            "name": "Projects",
+            "value": "projects"
+          },
+          {
+            "name": "Results",
+            "value": "results"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "url",
+        "value": "",
+        "label": "URL"
+      },
+      {
+        "component": "boolean",
+        "label": "POST",
+        "name": "post",
+        "value": "false",
+        "valueType": "boolean"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "body",
+        "value": "",
+        "label": "Body",
+        "condition": {
+          "==": [
+            {
+              "var": "post"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "display-items",
+        "value": "",
+        "label": "Display Items",
+        "description": "Number of items to display."
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "label": "View Type",
+        "value": "",
+        "options": [
+          {
+            "name": "Horizontal View",
+            "value": "horizontal"
+          },
+          {
+            "name": "Vertical View",
+            "value": "vertical"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "heading",
+        "value": "",
+        "label": "Heading",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "see-all-button-label",
+        "value": "",
+        "label": "See All Button Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "see-all-button-link",
+        "value": "",
+        "label": "See All Button Link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "social-media",
+    "fields":[
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "value": "",
+          "label": "Title"              
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "link-url",
+          "value": "",
+          "label": "URL",
+          "multi": true,
+          "required": true             
+        },
+        { 
+        "component": "multiselect",
+        "name": "class",
+        "label": "Class",
+        "value": [],
+        "valueType": "array",
+        "options": [
+          { "name": "Facebook", "value": "lp-fb" },
+          { "name": "LinkedIn", "value": "lp-linkln" },
+          { "name": "X", "value": "lp-x" },
+          { "name": "Flickr", "value": "lp-flickr-solid" },
+          {  "name": "Youtube", "value": "lp-youtube-solid"}
+        ]
+        }
+    ]
+  },
+  {
+    "id": "stay-connected",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Title"
+      }
+    ]
+  },
+  {
+    "id": "icon-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "label",
+        "label": "Label"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Icon",
+        "value": "",
+        "options": [
+          { "name": "Facebook", "value": "lp-fb" },
+          { "name": "LinkedIn", "value": "lp-linkln" },
+          { "name": "X", "value": "lp-x" },
+          { "name": "Flickr", "value": "lp-flickr-solid" },
+          { "name": "Youtube", "value": "lp-youtube-solid" },
+          { "name": "Blogs", "value": "lp-blogs-solid" },
+          { "name": "Podcasts", "value": "lp-Podcasts" },
+          { "name": "RSS", "value": "lp-rss-solid" },
+          { "name": "Email/Alerts", "value": "lp-email" }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "link",
+        "label": "Link",
+        "valueType": "string"
+      }
+    ]
+  },
+
   {
     "id": "country-charts",
     "fields": [
@@ -3468,189 +6433,456 @@
     ]
   },
   {
-    "id": "country-list",
+    "id": "indicator-list",
     "fields": [
       {
         "component": "text",
-        "valueType": "string",
-        "name": "allText",
-        "value": "",
-        "label": "All Text"
-      }
-    ]
-  },
-  {
-    "id": "curated-card",
-    "fields": [
-      {
-        "component": "boolean",
-        "label": "Use Dynamic Media Image",
-        "name": "useDM",
-        "value": "false",
-        "valueType": "boolean"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false,
-        "condition": {
-          "===": [
-            {
-              "var": "useDM"
-            },
-            false
-          ]
-        }
-      },
-      {
-        "component": "text",
-        "name": "imageAlt",
-        "label": "Alt Text",
-        "valueType": "string",
-        "condition": {
-          "===": [
-            {
-              "var": "useDM"
-            },
-            false
-          ]
-        }
-      },
-      {
-        "component": "custom-asset-namespace:custom-asset",
-        "configUrl": "https://raw.githubusercontent.com/aemsites/world-bank/refs/heads/main/tools/asset-selector/image.config.json",
-        "valueType": "string",
-        "name": "cc_image",
-        "label": "Dynamic Media Image",
-        "multi": false,
-        "condition": {
-          "===": [
-            {
-              "var": "useDM"
-            },
-            true
-          ]
-        }
-      },
-      {
-        "component": "text",
-        "name": "cc_imageText",
-        "label": "Alt Text",
-        "valueType": "string",
-        "condition": {
-          "===": [
-            {
-              "var": "useDM"
-            },
-            true
-          ]
-        }
-      },
-      {
-        "component": "boolean",
-        "label": "Auto Smart Crop",
-        "name": "cc_smartCrop",
-        "value": "false",
-        "valueType": "boolean",
-        "condition": {
-          "===": [
-            {
-              "var": "useDM"
-            },
-            true
-          ]
-        }
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "cc_queryparams",
-        "label": "Image Query Params",
-        "description": "Add custom query params to the image URL",
-        "condition": {
-          "===": [
-            {
-              "var": "useDM"
-            },
-            true
-          ]
-        }
-      },
-      {
-        "component": "aem-tag",
-        "name": "curated-card-tags",
-        "label": "Tags for Card",
-        "valueType": "string",
-        "rootPath": "/content/cq:tags/world-bank/content-type",
-        "description": "Tags for the curated card",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "curated-card-title",
-        "label": "Title",
-        "description": "Sets the title of the Card",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "curated-card-description",
-        "label": "Description",
-        "description": "Sets the description of the Card"
-      },
-      {
-        "component": "text",
-        "name": "curated-card-link",
-        "label": "Link",
+        "name": "indicatorID",
+        "label": "Indicator ID",
         "valueType": "string"
       },
       {
         "component": "text",
+        "name": "indicatorName",
+        "label": "Indicator Name",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "unitMeasure",
+        "label": "Unit Measure",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "chartType",
+        "value": "",
+        "label": "Chart Type Selector",
         "valueType": "string",
-        "name": "cc-read-more-btn",
-        "label": "Read More Label",
-        "description": "Sets read more button label on first card",
-        "required": false
+        "required": true,
+        "options": [
+          {
+            "name": "Line Chart",
+            "value": "line"
+          },
+          {
+            "name": "Pie Chart",
+            "value": "pie"
+          }
+        ]
       }
     ]
   },
   {
-    "id": "custom-image",
+    "id": "signup",
     "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "imageDefault",
-        "label": "Image (Default)",
-        "multi": false,
-        "description": "Max 1 Item"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "imageTablet",
-        "label": "Image (Tablet)",
-        "multi": false,
-        "description": "Max 1 Item"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "imageMobile",
-        "label": "Image (Mobile)",
-        "multi": false,
-        "description": "Max 1 Item"
-      },
       {
         "component": "text",
         "valueType": "string",
-        "name": "alt",
-        "value": "Default alt",
-        "label": "Alt Text"
+        "name": "country-news-checkbox-label",
+        "value": "",
+        "label": "Email Alerts on country news, projects, and research label"
+      },
+      {
+        "component": "select",
+        "name": "newsletter",
+        "label": "Newsletter",
+        "valueType": "string",
+        "value": "",
+        "options": [
+          { "name": "Select Service Key", "value": "" }, 
+          { "name": "Accountability Matters", "value": "Accountability Matters|SVC368" }, 
+          { "name": "Africa East-French", "value": "Africa East-French|SVC206" }, 
+          { "name": "Africa KITS Monthly Newsletter", "value": "Africa KITS Monthly Newsletter|SVC134" }, 
+          { "name": "Africa West-English", "value": "Africa West-English|SVC204" }, 
+          { "name": "Africa West-French", "value": "Africa West-French|SVC203" }, 
+          { "name": "Boletín de América Latina y el Caribe", "value": "Boletín de América Latina y el Caribe|SVC305" }, 
+          { "name": "Business Environment Explorer - External Newsletter", "value": "Business Environment Explorer - External Newsletter|SVC207" }, 
+          { "name": "Cambodia e-Newsletter", "value": "Cambodia e-Newsletter|SVC96" }, 
+          { "name": "CAWEP Newsletter (English)", "value": "CAWEP Newsletter (English)|SVC220" }, 
+          { "name": "CAWEP Newsletter External Russian", "value": "CAWEP Newsletter External Russian|SVC221" }, 
+          { "name": "CFRR Program Newsletter", "value": "CFRR Program Newsletter|SVC72" }, 
+          { "name": "Civil Society Newsletter", "value": "Civil Society Newsletter|wbg-svc-cso-nl" }, 
+          { "name": "DE4A External Newsletter Service", "value": "DE4A External Newsletter Service|SVC186" }, 
+          { "name": "DEC Research Newsletter", "value": "DEC Research Newsletter|wbg-svc-dec-rsrch-nl" }, 
+          { "name": "EAP China Chinese", "value": "EAP China Chinese|wbg-svc-eap-china-chinese" }, 
+          { "name": "EAP China English", "value": "EAP China English|wbg-svc-eap-china-eng" }, 
+          { "name": "EAP Indonesia Bahasa Newsletter", "value": "EAP Indonesia Bahasa Newsletter|wbg-svc-eap-indo-bah-nl" }, 
+          { "name": "EAP Indonesia English Newsletter", "value": "EAP Indonesia English Newsletter|wbg-svc-eap-indo-eng-nl" }, 
+          { "name": "EAP Korea Newsletter", "value": "EAP Korea Newsletter|wbg-svc-eap-kor-nl" }, 
+          { "name": "EAP Laos Newsletter", "value": "EAP Laos Newsletter|wbg-svc-eap-laos-nl" }, 
+          { "name": "EAP Malaysia Newsletter ", "value": "EAP Malaysia Newsletter |wbg-svc-eap-malaysia" }, 
+          { "name": "EAP Mongolia English Newsletter", "value": "EAP Mongolia English Newsletter|wbg-svc-mongo-eng-nl" }, 
+          { "name": "EAP Mongolia Mongolian Newsletter", "value": "EAP Mongolia Mongolian Newsletter|wbg-svc-eap-mongo-mongolian-nl" }, 
+          { "name": "EAP Philippines Newsletter ", "value": "EAP Philippines Newsletter |wbg-svc-eap-phili-nl" }, 
+          { "name": "EAP Singapore", "value": "EAP Singapore|wbg-svc-singapore" }, 
+          { "name": "EAP Thailand Newsletter ", "value": "EAP Thailand Newsletter |wbg-svc-eap-thai-nl" }, 
+          { "name": "EAP Vietnam with English", "value": "EAP Vietnam with English|SVC80" }, 
+          { "name": "EAP Vietnam with Vietnamese", "value": "EAP Vietnam with Vietnamese|SVC81" }, 
+          { "name": "ECACE Newsletter", "value": "ECACE Newsletter|wbg-svc-ecace" }, 
+          { "name": "ECA Turkey Newsletter in English", "value": "ECA Turkey Newsletter in English|SVC78" }, 
+          { "name": "ECA Turkey Newsletter in Turkey", "value": "ECA Turkey Newsletter in Turkey|SVC79" }, 
+          { "name": "ESMAP Event Announcement Newsletter", "value": "ESMAP Event Announcement Newsletter|wbg-svc-esmap-evnt" }, 
+          { "name": "ESMAP Monthly Newsletter", "value": "ESMAP Monthly Newsletter|SVC280" }, 
+          { "name": "ESMAP Newsletter | May 2023", "value": "ESMAP Newsletter | May 2023|wbg-svc-esmap-ebltn" }, 
+          { "name": "ESMAP Publication Announcement Newsletter", "value": "ESMAP Publication Announcement Newsletter|wbg-svc-esmap-pub" }, 
+          { "name": "Forced Displacement Research Updates", "value": "Forced Displacement Research Updates|SVC228" }, 
+          { "name": "Friends of IDA Newsletter", "value": "Friends of IDA Newsletter|SVC99" }, 
+          { "name": "Getting Infrastructure Finance Right", "value": "Getting Infrastructure Finance Right|SVC120" }, 
+          { "name": "Global Findex Findings Newsletter", "value": "Global Findex Findings Newsletter|SVC385" }, 
+          { "name": "Governance Update", "value": "Governance Update|SVC123" }, 
+          { "name": "GPSA Newsletters", "value": "GPSA Newsletters|wbg-svc-gpsa" }, 
+          { "name": "GTP Newsletter Service", "value": "GTP Newsletter Service|SVC213" }, 
+          { "name": "GWSP Bi Monthly Newsletter", "value": "GWSP Bi Monthly Newsletter|SVC275" }, 
+          { "name": "Human Capital Projects Public Newsletter", "value": "Human Capital Projects Public Newsletter|SVC65" }, 
+          { "name": "IBN Newsletter", "value": "IBN Newsletter|wbg-svc-ibn" }, 
+          { "name": "Ideas for Impact - Institute for Economic Development", "value": "Ideas for Impact - Institute for Economic Development|SVC346" }, 
+          { "name": "IEG Insights", "value": "IEG Insights|SVC260" }, 
+          { "name": "IFC Education Newsletter Service", "value": "IFC Education Newsletter Service|SVC181" }, 
+          { "name": "IFC Health Newsletter Service", "value": "IFC Health Newsletter Service|SVC180" }, 
+          { "name": "Joint Data Center Monthly Newsletter ", "value": "Joint Data Center Monthly Newsletter |SVC115" }, 
+          { "name": "Knowledge4Jobs", "value": "Knowledge4Jobs|SVC155" }, 
+          { "name": "KWPF Newsletter Service", "value": "KWPF Newsletter Service|SVC401" }, 
+          { "name": "LAC Spanish - External Newsletter ", "value": "LAC Spanish - External Newsletter |SVC303" }, 
+          { "name": "Latin America & the Caribbean at Glance", "value": "Latin America & the Caribbean at Glance|SVC304" }, 
+          { "name": "Law, Justice & Development Newsletter", "value": "Law, Justice & Development Newsletter|wbg-svc-ljd" }, 
+          { "name": "LC6 Newsletter - Bolivia", "value": "LC6 Newsletter - Bolivia|SVC290" }, 
+          { "name": "LC6 Newsletter  - Chile", "value": "LC6 Newsletter  - Chile|SVC292" }, 
+          { "name": "LC6 Newsletter - Ecuador", "value": "LC6 Newsletter - Ecuador|SVC291" }, 
+          { "name": "LC6 Newsletter - Peru", "value": "LC6 Newsletter - Peru|SVC293" }, 
+          { "name": "Leaders in Urban Transport Planning Program", "value": "Leaders in Urban Transport Planning Program|SVC237" }, 
+          { "name": "LSMS Highlights", "value": "LSMS Highlights|SVC210" }, 
+          { "name": "MIGA Monthly Newsletter", "value": "MIGA Monthly Newsletter|SVC200" }, 
+          { "name": "Monthly newsletter PPIAF & GIH ", "value": "Monthly newsletter PPIAF & GIH |SVC311" }, 
+          { "name": "OneSouthAsia Internal Newsletter", "value": "OneSouthAsia Internal Newsletter|SVC244" }, 
+          { "name": "Opening the World Bank Group to Parliamentarians", "value": "Opening the World Bank Group to Parliamentarians|SVC234" }, 
+          { "name": "Partnership for Market Implementation (PMI) Service", "value": "Partnership for Market Implementation (PMI) Service|SVC408" }, 
+          { "name": "Partnership for Market Implementation Service", "value": "Partnership for Market Implementation Service|SVC400" }, 
+          { "name": "PEI", "value": "PEI|SVC127" }, 
+          { "name": "Platform for Collaboration on Tax(PCT)", "value": "Platform for Collaboration on Tax(PCT)|SVC129" }, 
+          { "name": "Poverty and Inequality Newsletter", "value": "Poverty and Inequality Newsletter|SVC301" }, 
+          { "name": "PPP Newsletter", "value": "PPP Newsletter|wbg-svc-ppp-nl" }, 
+          { "name": "PRWP Monthly Newsletter", "value": "PRWP Monthly Newsletter|SVC298" }, 
+          { "name": "S4YE", "value": "S4YE|SVC125" }, 
+          { "name": "Sahel Adaptive Social Protection Program Quarterly Digest - French Newsletter Service", "value": "Sahel Adaptive Social Protection Program Quarterly Digest - French Newsletter Service|SVC274" }, 
+          { "name": "Sahel Adaptive Social Protection Program Quarterly Digest Newsletter Service", "value": "Sahel Adaptive Social Protection Program Quarterly Digest Newsletter Service|SVC272" }, 
+          { "name": "Sanctions Board Insights Service", "value": "Sanctions Board Insights Service|SVC190" }, 
+          { "name": "SIEF Newsletter", "value": "SIEF Newsletter|wbg-svc-sief-nl" }, 
+          { "name": "Skills4Dev External Newsletter", "value": "Skills4Dev External Newsletter|SVC227" }, 
+          { "name": "Small States Newsletter", "value": "Small States Newsletter|SVC405" }, 
+          { "name": "Social Protection and Jobs", "value": "Social Protection and Jobs|SVC222" }, 
+          { "name": "TERI's Tunisian insights", "value": "TERI's Tunisian insights|SVC255" }, 
+          { "name": "The World Bank Geneva Service", "value": "The World Bank Geneva Service|SVC132" }, 
+          { "name": "The World Bank in Poland - newsletter", "value": "The World Bank in Poland - newsletter|SVC105" }, 
+          { "name": "Think Africa Partnership", "value": "Think Africa Partnership|SVC331" }, 
+          { "name": "Trade Matters Newsletter", "value": "Trade Matters Newsletter|SVC171" }, 
+          { "name": "Umbrella Facility for Gender Equalty Newsletters", "value": "Umbrella Facility for Gender Equalty Newsletters|wbg-svc-ufge-nl" }, 
+          { "name": "WB Education e-Newsletter", "value": "WB Education e-Newsletter|SVC187" }, 
+          { "name": "WBG External Corporate Arabic Newsletter", "value": "WBG External Corporate Arabic Newsletter|wbg-svc-ext-corp-arb-nl" }, 
+          { "name": "WBG External Corporate English Newsletter", "value": "WBG External Corporate English Newsletter|wbg-svc-ext-corp-eng-nl" }, 
+          { "name": "WBG External Corporate French Newsletter", "value": "WBG External Corporate French Newsletter|wbg-svc-ext-frc-corp-nl" }, 
+          { "name": "WBG External Corporate Spanish Newsletter", "value": "WBG External Corporate Spanish Newsletter|wbg-svc-ext-corp-spn-nl" }, 
+          { "name": "WBL Newsletter", "value": "WBL Newsletter|SVC126" }, 
+          { "name": "WB Tokyo Office - eNews Newsletter", "value": "WB Tokyo Office - eNews Newsletter|SVC86" }, 
+          { "name": "WB Tokyo Office - English Newsletter", "value": "WB Tokyo Office - English Newsletter|SVC84" }, 
+          { "name": "WEESA CoP – Members List", "value": "WEESA CoP – Members List|SVC278" }, 
+          { "name": "What Have We Learned? The Evaluation Podcast", "value": "What Have We Learned? The Evaluation Podcast|SVC289" }, 
+          { "name": "World Bank East Asia & Pacific Newsletter Service", "value": "World Bank East Asia & Pacific Newsletter Service|SVC268" }, 
+          { "name": "World Bank India External Newsletter Service Template", "value": "World Bank India External Newsletter Service Template|SVC104" }, 
+          { "name": "Worldbank Live Upcoming Events Service", "value": "Worldbank Live Upcoming Events Service|worldbanklive-upcoming-events-service" }, 
+          { "name": "Worldbank Live Upcoming Events Service Arabic", "value": "Worldbank Live Upcoming Events Service Arabic|worldbanklive-upcoming-events-service-arabic" }, 
+          { "name": "Worldbank Live Upcoming Events Service French", "value": "Worldbank Live Upcoming Events Service French|worldbanklive-upcoming-events-service-french" }, 
+          { "name": "Worldbank Live Upcoming Events Service Spanish", "value": "Worldbank Live Upcoming Events Service Spanish|worldbanklive-upcoming-events-service-spanish" }, 
+          { "name": "World Bank Publications Newsletter", "value": "World Bank Publications Newsletter|wbg-svc-pub-nl" }, 
+          { "name": "World Bank Trust Funds and Partnerships in Action", "value": "World Bank Trust Funds and Partnerships in Action|SVC316" }
+        ]
+      },
+      {
+        "component": "multiselect",
+        "name": "country",
+        "label": "Country",
+        "valueType": "array",
+        "value": [],
+        "options": [
+          { "name": "Afghanistan", "value": "24^AF" },
+          { "name": "Africa", "value": "15^" },
+          { "name": "Albania", "value": "25^AL" },
+          { "name": "Algeria", "value": "26^DZ" },
+          { "name": "American Samoa", "value": "27^AS" },
+          { "name": "Andorra", "value": "28^AD" },
+          { "name": "Angola", "value": "29^AO" },
+          { "name": "Anguilla", "value": "30^AI" },
+          { "name": "Antarctica", "value": "31^AQ" },
+          { "name": "Antigua and Barbuda", "value": "32^AG" },
+          { "name": "Argentina", "value": "33^AR" },
+          { "name": "Armenia", "value": "34^AM" },
+          { "name": "Aruba", "value": "35^AW" },
+          { "name": "Australia", "value": "36^AU" },
+          { "name": "Austria", "value": "37^AT" },
+          { "name": "Azerbaijan", "value": "38^AZ" },
+          { "name": "Bahamas, The", "value": "39^BS" },
+          { "name": "Bahrain", "value": "40^BH" },
+          { "name": "Bangladesh", "value": "41^BD" },
+          { "name": "Barbados", "value": "42^BB" },
+          { "name": "Belarus", "value": "43^BY" },
+          { "name": "Belgium", "value": "44^BE" },
+          { "name": "Belize", "value": "45^BZ" },
+          { "name": "Benin", "value": "46^BJ" },
+          { "name": "Bermuda", "value": "47^BM" },
+          { "name": "Bhutan", "value": "48^BT" },
+          { "name": "Bolivia", "value": "49^BO" },
+          { "name": "Bosnia and Herzegovina", "value": "50^BA" },
+          { "name": "Botswana", "value": "51^BW" },
+          { "name": "Bouvet Island", "value": "52^BV" },
+          { "name": "Brazil", "value": "53^BR" },
+          { "name": "British Indian Ocean Territory", "value": "54^IO" },
+          { "name": "Brunei Darussalam", "value": "55^BN" },
+          { "name": "Bulgaria", "value": "56^BG" },
+          { "name": "Burkina Faso", "value": "57^BF" },
+          { "name": "Burundi", "value": "58^BI" },
+          { "name": "Cabo Verde", "value": "59^CV" },
+          { "name": "Cambodia", "value": "60^KH" },
+          { "name": "Cameroon", "value": "61^CM" },
+          { "name": "Canada", "value": "62^CA" },
+          { "name": "Cayman Islands", "value": "63^KY" },
+          { "name": "Central African Republic", "value": "64^CF" },
+          { "name": "Chad", "value": "65^TD" },
+          { "name": "Chile", "value": "66^CL" },
+          { "name": "China", "value": "67^CN" },
+          { "name": "Christmas Island", "value": "68^CX" },
+          { "name": "Cocos (Keeling) Islands", "value": "69^CC" },
+          { "name": "Colombia", "value": "70^CO" },
+          { "name": "Commonwealth of Independent States", "value": "71^SU" },
+          { "name": "Comoros", "value": "72^KM" },
+          { "name": "Congo, Democratic Republic of", "value": "73^ZR" },
+          { "name": "Congo, Republic of", "value": "74^CG" },
+          { "name": "Cook Islands", "value": "75^CK" },
+          { "name": "Costa Rica", "value": "76^CR" },
+          { "name": "Cote d'Ivoire", "value": "77^CI" },
+          { "name": "Croatia", "value": "78^HR" },
+          { "name": "Cuba", "value": "79^CU" },
+          { "name": "Curacao", "value": "22^CW" },
+          { "name": "Cyprus", "value": "80^CY" },
+          { "name": "Czech Republic", "value": "81^CZ" },
+          { "name": "Denmark", "value": "82^DK" },
+          { "name": "Djibouti", "value": "83^DJ" },
+          { "name": "Dominica", "value": "84^DM" },
+          { "name": "Dominican Republic", "value": "85^DO" },
+          { "name": "East Asia and Pacific", "value": "16^" },
+          { "name": "Ecuador", "value": "86^EC" },
+          { "name": "Egypt, Arab Republic of", "value": "87^EG" },
+          { "name": "El Salvador", "value": "88^SV" },
+          { "name": "Equatorial Guinea", "value": "89^GQ" },
+          { "name": "Eritrea", "value": "90^ER" },
+          { "name": "Estonia", "value": "91^EE" },
+          { "name": "Eswatini", "value": "234^SZ" },
+          { "name": "Ethiopia", "value": "92^ET" },
+          { "name": "Europe and Central Asia", "value": "17^" },
+          { "name": "Falkland Islands (Malvinas)", "value": "93^FK" },
+          { "name": "Faroe Islands", "value": "94^FO" },
+          { "name": "Fiji", "value": "95^FJ" },
+          { "name": "Finland", "value": "96^FI" },
+          { "name": "France", "value": "97^FR" },
+          { "name": "French Guiana", "value": "98^GF" },
+          { "name": "French Polynesia", "value": "99^PF" },
+          { "name": "French Southern Territories", "value": "100^TF" },
+          { "name": "Gabon", "value": "101^GA" },
+          { "name": "Gambia, The", "value": "102^GM" },
+          { "name": "Georgia", "value": "103^GE" },
+          { "name": "Germany", "value": "104^DE" },
+          { "name": "Ghana", "value": "105^GH" },
+          { "name": "Gibraltar", "value": "106^GI" },
+          { "name": "Greece", "value": "107^GR" },
+          { "name": "Greenland", "value": "108^GL" },
+          { "name": "Grenada", "value": "109^GD" },
+          { "name": "Guadeloupe", "value": "110^GP" },
+          { "name": "Guam", "value": "111^GU" },
+          { "name": "Guatemala", "value": "112^GT" },
+          { "name": "Guernsey, C.I.", "value": "113^GG" },
+          { "name": "Guinea", "value": "114^GN" },
+          { "name": "Guinea-Bissau", "value": "115^GW" },
+          { "name": "Guyana", "value": "116^GY" },
+          { "name": "Haiti", "value": "117^HT" },
+          { "name": "Heard and McDonald Islands", "value": "118^HM" },
+          { "name": "Holy See (Vatican City State)", "value": "119^VA" },
+          { "name": "Honduras", "value": "120^HN" },
+          { "name": "Hong Kong SAR, China", "value": "121^HK" },
+          { "name": "Hungary", "value": "122^HU" },
+          { "name": "Iceland", "value": "123^IS" },
+          { "name": "India", "value": "124^IN" },
+          { "name": "Indonesia", "value": "125^ID" },
+          { "name": "Iran, Islamic Republic of", "value": "126^IR" },
+          { "name": "Iraq", "value": "127^IQ" },
+          { "name": "Ireland", "value": "128^IE" },
+          { "name": "Isle of Man", "value": "129^IM" },
+          { "name": "Israel", "value": "130^IL" },
+          { "name": "Italy", "value": "131^IT" },
+          { "name": "Jamaica", "value": "132^JM" },
+          { "name": "Japan", "value": "133^JP" },
+          { "name": "Jersey, C.I.", "value": "134^JE" },
+          { "name": "Jordan", "value": "135^JO" },
+          { "name": "Kazakhstan", "value": "136^KZ" },
+          { "name": "Kenya", "value": "137^KE" },
+          { "name": "Kiribati", "value": "138^KI" },
+          { "name": "Korea, Democratic People's Republic of", "value": "139^KP" },
+          { "name": "Korea, Republic of", "value": "140^KR" },
+          { "name": "Kosovo", "value": "141^XK" },
+          { "name": "Kuwait", "value": "142^KW" },
+          { "name": "Kyrgyz Republic", "value": "143^KG" },
+          { "name": "Lao People's Democratic Republic", "value": "144^LA" },
+          { "name": "Latin America and Caribbean", "value": "18^" },
+          { "name": "Latvia", "value": "145^LV" },
+          { "name": "Lebanon", "value": "146^LB" },
+          { "name": "Lesotho", "value": "147^LS" },
+          { "name": "Liberia", "value": "148^LR" },
+          { "name": "Libya", "value": "149^LY" },
+          { "name": "Liechtenstein", "value": "150^LI" },
+          { "name": "Lithuania", "value": "151^LT" },
+          { "name": "Luxembourg", "value": "152^LU" },
+          { "name": "Macao SAR, China", "value": "153^MO" },
+          { "name": "Macedonia, former Yugoslav Republic of", "value": "154^MK" },
+          { "name": "Madagascar", "value": "155^MG" },
+          { "name": "Malawi", "value": "156^MW" },
+          { "name": "Malaysia", "value": "157^MY" },
+          { "name": "Maldives", "value": "158^MV" },
+          { "name": "Mali", "value": "159^ML" },
+          { "name": "Malta", "value": "160^MT" },
+          { "name": "Marshall Islands", "value": "161^MH" },
+          { "name": "Martinique", "value": "162^MQ" },
+          { "name": "Mauritania", "value": "163^MR" },
+          { "name": "Mauritius", "value": "164^MU" },
+          { "name": "Mayotte", "value": "165^YT" },
+          { "name": "Mexico", "value": "166^MX" },
+          { "name": "Micronesia, Federated States of", "value": "167^FM" },
+          { "name": "Middle East and North Africa", "value": "19^" },
+          { "name": "Moldova", "value": "169^MD" },
+          { "name": "Monaco", "value": "170^MC" },
+          { "name": "Mongolia", "value": "171^MN" },
+          { "name": "Montenegro", "value": "172^ME" },
+          { "name": "Montserrat", "value": "173^MS" },
+          { "name": "Morocco", "value": "174^MA" },
+          { "name": "Mozambique", "value": "175^MZ" },
+          { "name": "Myanmar", "value": "176^MM" },
+          { "name": "Namibia", "value": "177^NA" },
+          { "name": "Nauru", "value": "178^NR" },
+          { "name": "Nepal", "value": "179^NP" },
+          { "name": "Netherlands", "value": "180^NL" },
+          { "name": "Netherlands Antilles", "value": "181^AN" },
+          { "name": "New Caledonia", "value": "182^NC" },
+          { "name": "New Zealand", "value": "183^NZ" },
+          { "name": "Nicaragua", "value": "184^NI" },
+          { "name": "Niger", "value": "185^NE" },
+          { "name": "Nigeria", "value": "186^NG" },
+          { "name": "Niue", "value": "187^NU" },
+          { "name": "Norfolk Island", "value": "188^NF" },
+          { "name": "Northern Mariana Islands", "value": "189^MP" },
+          { "name": "Norway", "value": "190^NO" },
+          { "name": "Oman", "value": "191^OM" },
+          { "name": "Pakistan", "value": "192^PK" },
+          { "name": "Palau", "value": "193^PW" },
+          { "name": "Panama", "value": "194^PA" },
+          { "name": "Papua New Guinea", "value": "195^PG" },
+          { "name": "Paraguay", "value": "196^PY" },
+          { "name": "Peru", "value": "197^PE" },
+          { "name": "Philippines", "value": "198^PH" },
+          { "name": "Pitcairn", "value": "199^PN" },
+          { "name": "Poland", "value": "200^PL" },
+          { "name": "Portugal", "value": "201^PT" },
+          { "name": "Puerto Rico", "value": "202^PR" },
+          { "name": "Qatar", "value": "203^QA" },
+          { "name": "Rest Of The World", "value": "20^" },
+          { "name": "Reunion", "value": "204^RE" },
+          { "name": "Romania", "value": "205^RO" },
+          { "name": "Russian Federation", "value": "206^RU" },
+          { "name": "Rwanda", "value": "207^RW" },
+          { "name": "S. Georgia and S. Sandwich Islands", "value": "227^GS" },
+          { "name": "Samoa", "value": "213^WS" },
+          { "name": "San Marino", "value": "214^SM" },
+          { "name": "Sao Tome and Principe", "value": "215^ST" },
+          { "name": "Saudi Arabia", "value": "216^SA" },
+          { "name": "Senegal", "value": "217^SN" },
+          { "name": "Serbia", "value": "218^YF" },
+          { "name": "Seychelles", "value": "219^SC" },
+          { "name": "Sierra Leone", "value": "220^SL" },
+          { "name": "Singapore", "value": "221^SG" },
+          { "name": "Slovak Republic", "value": "222^SK" },
+          { "name": "Slovenia", "value": "223^SI" },
+          { "name": "Solomon Islands", "value": "224^SB" },
+          { "name": "Somalia", "value": "225^SO" },
+          { "name": "South Africa", "value": "226^ZA" },
+          { "name": "South Asia", "value": "21^" },
+          { "name": "South Sudan", "value": "23^SS" },
+          { "name": "Spain", "value": "228^ES" },
+          { "name": "Sri Lanka", "value": "229^LK" },
+          { "name": "St. Helena", "value": "208^SH" },
+          { "name": "St. Kitts and Nevis", "value": "209^KN" },
+          { "name": "St. Lucia", "value": "210^LC" },
+          { "name": "St. Pierre and Miquelon", "value": "211^PM" },
+          { "name": "St. Vincent and the Grenadines", "value": "212^VC" },
+          { "name": "Stateless", "value": "230^XB" },
+          { "name": "Sudan", "value": "231^SD" },
+          { "name": "Suriname", "value": "232^SR" },
+          { "name": "Svalbard and Jan Mayen Islands", "value": "233^SJ" },
+          { "name": "Sweden", "value": "235^SE" },
+          { "name": "Switzerland", "value": "236^CH" },
+          { "name": "Syrian Arab Republic", "value": "237^SY" },
+          { "name": "Taiwan, China", "value": "238^TW" },
+          { "name": "Tajikistan", "value": "239^TJ" },
+          { "name": "Tanzania", "value": "240^TZ" },
+          { "name": "Thailand", "value": "241^TH" },
+          { "name": "Timor-Leste", "value": "242^TP" },
+          { "name": "Togo", "value": "243^TG" },
+          { "name": "Tokelau", "value": "244^TK" },
+          { "name": "Tonga", "value": "245^TO" },
+          { "name": "Trinidad and Tobago", "value": "246^TT" },
+          { "name": "Tunisia", "value": "247^TN" },
+          { "name": "Turkey", "value": "248^TR" },
+          { "name": "Turkmenistan", "value": "249^TM" },
+          { "name": "Turks and Caicos Islands", "value": "250^TC" },
+          { "name": "Tuvalu", "value": "251^TV" },
+          { "name": "Uganda", "value": "252^UG" },
+          { "name": "Ukraine", "value": "253^UA" },
+          { "name": "United Arab Emirates", "value": "254^AE" },
+          { "name": "United Kingdom", "value": "255^GB" },
+          { "name": "United States", "value": "256^US" },
+          { "name": "United States Minor Outlying Islands", "value": "168^UM" },
+          { "name": "Uruguay", "value": "257^UY" },
+          { "name": "Uzbekistan", "value": "258^UZ" },
+          { "name": "Vanuatu", "value": "259^VU" },
+          { "name": "Venezuela, Republica Bolivariana de", "value": "260^VE" },
+          { "name": "Vietnam", "value": "261^VN" },
+          { "name": "Virgin Islands, British", "value": "262^VG" },
+          { "name": "Virgin Islands, US", "value": "263^VI" },
+          { "name": "Wallis and Futuna Islands", "value": "264^WF" },
+          { "name": "West Bank and Gaza", "value": "265^GZ" },
+          { "name": "Western Sahara", "value": "266^EH" },
+          { "name": "Yemen, Republic of", "value": "267^RY" },
+          { "name": "Zambia", "value": "268^ZM" },
+          { "name": "Zimbabwe", "value": "269^ZW" }
+        ]
+      },
+      {
+        "component": "multiselect",
+        "name": "resources",
+        "label": "Resources",
+        "value": [],
+        "valueType": "array",
+        "options": [
+          { "name": "All", "value": "all" },
+          { "name": "Blogs12", "value": "270" },
+          { "name": "Board Documents", "value": "280" },
+          { "name": "Country Engagement Documents", "value": "281" },
+          { "name": "Environmental and Social Policy Documents", "value": "282" },
+          { "name": "Evaluation and Inspection Reports", "value": "283" },
+          { "name": "Events", "value": "2" },
+          { "name": "Microdata", "value": "324" },
+          { "name": "News", "value": "1" },
+          { "name": "Procurement Plans", "value": "323" },
+          { "name": "Project Documents", "value": "4" },
+          { "name": "Project Status", "value": "279" },
+          { "name": "Research, Papers and Publications", "value": "284" },
+          { "name": "Simultaneous Disclosure", "value": "318" }
+        ]
       }
     ]
   },
@@ -3673,2852 +6905,8 @@
         "valueType": "string",
         "config": {
           "multiline": true,
-          "allowedFormats": [
-            "bold",
-            "italic",
-            "link",
-            "list"
-          ]
+          "allowedFormats": ["bold", "italic", "link", "list"]
         }
-      }
-    ]
-  },
-  {
-    "id": "data-cards",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "title",
-        "value": "",
-        "label": "Title",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "value": "",
-        "label": "Description",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "additional-text",
-        "value": "",
-        "label": "Additional Text",
-        "valueType": "string"
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "classes",
-        "value": "",
-        "label": "Classes",
-        "options": [
-          {
-            "name": "Data Card",
-            "value": "data-card-variation"
-          },
-          {
-            "name": "News Card",
-            "value": "news-card-variation"
-          },
-          {
-            "name": "Horizontal Card",
-            "value": "horizontal-card-variation"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "data-card",
-    "fields": [
-      {
-        "component": "aem-tag",
-        "name": "tags",
-        "label": "Tags for Card",
-        "valueType": "string",
-        "rootPath": "/content/cq:tags/world-bank/category",
-        "description": "Tags for data card"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
-        "label": "Title"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "value": "",
-        "label": "Description",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "data-card-link",
-        "value": "",
-        "label": "Link",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "disclaimer",
-        "value": "",
-        "label": "Disclaimer Text"
-      }
-    ]
-  },
-  {
-    "id": "news-card",
-    "fields": [
-      {
-        "component": "aem-tag",
-        "name": "news-card-tags",
-        "label": "Tags for Card",
-        "valueType": "string",
-        "rootPath": "/content/cq:tags/world-bank/category",
-        "description": "Tags for news card"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "news-card-title",
-        "value": "",
-        "label": "Title"
-      },
-      {
-        "component": "text",
-        "name": "news-card-link",
-        "value": "",
-        "label": "Link",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "news-card-image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "alt",
-        "value": "Default alt",
-        "label": "News Card Alt Text"
-      }
-    ]
-  },
-  {
-    "id": "dropdown-list",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "subtitle",
-        "value": "",
-        "label": "Subtitle"
-      },
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "title",
-        "label": "Title",
-        "value": "",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "linktext",
-        "label": "Link Text",
-        "value": "",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "linkhref",
-        "label": "Link Href",
-        "value": "",
-        "required": true
-      }
-    ]
-  },
-  {
-    "id": "dropdown-item",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "cardbodytext",
-        "value": "",
-        "label": "Card Body Text",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt Text",
-        "value": ""
-      }
-    ]
-  },
-  {
-    "id": "dropdown-with-description",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Title",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "desc",
-        "value": "",
-        "label": "Description",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "ddtitle",
-        "label": "Dropdown Title",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "ddplaceholder",
-        "label": "Dropdown Placeholder",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "ddbodytext",
-        "value": "",
-        "label": "Card Body Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "dropdown",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "ddlabel",
-        "label": "Select Text",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "ddbodytext",
-        "value": "",
-        "label": "Card Body Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "dm-asset",
-    "fields": [
-      {
-        "component": "text",
-        "name": "dm_alttext",
-        "label": "Alt Text",
-        "valueType": "string"
-      },
-      {
-        "component": "custom-asset-namespace:custom-asset",
-        "name": "dm-image",
-        "label": "Image",
-        "configUrl": "https://raw.githubusercontent.com/aemsites/world-bank/refs/heads/main/tools/asset-selector/image.config.json",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "explore-cards",
-    "fields": [
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
-        "label": "Main heading",
-        "required": true
-      }
-    ]
-  },
-  {
-    "id": "explore-card",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "fileReference",
-        "label": "Card Image",
-        "required": true,
-        "multi": false,
-        "rootPath": "/content/dam/world-bank"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "alt",
-        "value": "Default alt",
-        "label": "Alt text"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
-        "required": true,
-        "label": "Title"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "link",
-        "value": "",
-        "label": "Link",
-        "required": true
-      },
-      {
-        "component": "aem-tag",
-        "name": "content-type",
-        "label": "Content Type",
-        "valueType": "string",
-        "required": false,
-        "rootPath": "/content/cq:tags/world-bank/content-type"
-      },
-      {
-        "component": "aem-tag",
-        "name": "story-type",
-        "label": "Story Type",
-        "valueType": "string",
-        "required": false,
-        "rootPath": "/content/cq:tags/world-bank/story-type"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "hammer",
-        "value": "",
-        "label": "Hammer"
-      }
-    ]
-  },
-  {
-    "id": "feature-cards",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "title",
-        "value": "",
-        "label": "Title",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "value": "",
-        "label": "Description",
-        "valueType": "string"
-      },
-      {
-        "component": "select",
-        "name": "classes",
-        "label": "Feature Card View Layout",
-        "valueType": "string",
-        "value": "",
-        "options": [
-          {
-            "name": "Default View",
-            "value": ""
-          },
-          {
-            "name": "Products and Services View",
-            "value": "products-and-services"
-          },
-          {
-            "name": "Knowledge Data View",
-            "value": "knowledge-data"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "feature-card",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "value": "",
-        "label": "Alternate Text"
-      },
-      {
-        "component": "richtext",
-        "name": "title",
-        "value": "",
-        "label": "Title",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "value": "",
-        "label": "Description",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "link",
-        "value": "",
-        "label": "Link",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "fragment",
-    "fields": [
-      {
-        "component": "aem-content",
-        "valueType": "string",
-        "name": "fragmentPath",
-        "value": "",
-        "required": true,
-        "label": "Fragment Path"
-      }
-    ]
-  },
-  {
-    "id": "grid",
-    "fields": [
-      {
-        "component": "select",
-        "name": "sec-swoosh",
-        "value": "",
-        "label": "Swoosh",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "No Swoosh",
-            "value": "sec-swoosh-none"
-          },
-          {
-            "name": "Left Center Swoosh (1)",
-            "value": "sec-swoosh-type1"
-          },
-          {
-            "name": "Right Top Swoosh (2)",
-            "value": "sec-swoosh-type2"
-          },
-          {
-            "name": "Left Top Swoosh (3)",
-            "value": "sec-swoosh-type3"
-          },
-          {
-            "name": "Swoosh for BG inside container - Desktop (5)",
-            "value": "sec-swoosh-type5"
-          },
-          {
-            "name": "Leaders profile swoosh (6)",
-            "value": "sec-swoosh-type6"
-          },
-          {
-            "name": "Right Center Swoosh (7)",
-            "value": "sec-swoosh-type7"
-          },
-          {
-            "name": "Right Swoosh (8)",
-            "value": "sec-swoosh-type8"
-          },
-          {
-            "name": "Right Swoosh (9)",
-            "value": "sec-swoosh-type9"
-          },
-          {
-            "name": "Right Swoosh (10)",
-            "value": "sec-swoosh-type10"
-          },
-          {
-            "name": "Right Swoosh (11)",
-            "value": "sec-swoosh-type11"
-          },
-          {
-            "name": "Primary Blue 90 theme Swoosh",
-            "value": "sec-swoosh-primary-blue-90"
-          }
-        ]
-      },
-      {
-        "component": "multiselect",
-        "name": "style",
-        "label": "Variant Style",
-        "valueType": "string",
-        "required": true,
-        "maxSize": 5,
-        "options": [
-          {
-            "name": "🎨Background",
-            "children": [
-              {
-                "name": "Transparent / White / Default",
-                "value": "bg-default"
-              },
-              {
-                "name": "Dark Background Container",
-                "value": "bg-primary-blue"
-              },
-              {
-                "name": "Primary Blue 90",
-                "value": "bg-primary-blue-90"
-              },
-              {
-                "name": "Primary Blue 70",
-                "value": "bg-primary-blue-70"
-              },
-              {
-                "name": "Neutrals 10",
-                "value": "bg-neutrals-10"
-              },
-              {
-                "name": "Neutrals 10 Gradient",
-                "value": "bg-neutrals-10-gradient"
-              },
-              {
-                "name": "Neutrals 20",
-                "value": "bg-neutrals-20"
-              },
-              {
-                "name": "Neutrals 05",
-                "value": "bg-neutrals-05-gradient"
-              },
-              {
-                "name": "Neutrals 07",
-                "value": "bg-neutrals-07-gradient"
-              },
-              {
-                "name": "Image",
-                "value": "bg-image"
-              }
-            ]
-          },
-          {
-            "name": "🧩Component",
-            "children": [
-              {
-                "name": "Banner Container",
-                "value": "full-banner-container"
-              },
-              {
-                "name": "Bottom Carousel",
-                "value": "bottom-carousel"
-              },
-              {
-                "name": "Button Title Container",
-                "value": "title-text-button-container"
-              },
-              {
-                "name": "Data Card Noborder",
-                "value": "data-card-noborder"
-              },
-              {
-                "name": "Feature Banner Container",
-                "value": "feature-banner-container"
-              },
-              {
-                "name": "List Container",
-                "value": "countrylist-container"
-              },
-              {
-                "name": "List With Border Container",
-                "value": "partnerlist-container"
-              },
-              {
-                "name": "Region Feature Card",
-                "value": "region-feature-card"
-              },
-              {
-                "name": "Stay Connected",
-                "value": "stay-connected"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "sec-spacing",
-        "value": "",
-        "label": "Spacing Top (padding top)",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Default spacing",
-            "value": "sec-spacing-default"
-          },
-          {
-            "name": "No space / padding",
-            "value": "section-none"
-          },
-          {
-            "name": "Spacing Between",
-            "value": "section-padding-between"
-          },
-          {
-            "name": "Spacing tiny",
-            "value": "section-tiny"
-          },
-          {
-            "name": "Spacing xxsmall",
-            "value": "section-xxsmall"
-          },
-          {
-            "name": "Spacing xsmall",
-            "value": "section-xsmall"
-          },
-          {
-            "name": "Spacing regular",
-            "value": "section-regular"
-          },
-          {
-            "name": "Spacing small",
-            "value": "section-small"
-          },
-          {
-            "name": "Spacing medium",
-            "value": "section-medium"
-          },
-          {
-            "name": "Spacing large",
-            "value": "section-large"
-          },
-          {
-            "name": "Spacing xlarge",
-            "value": "section-xlarge"
-          },
-          {
-            "name": "Spacing xxlarge",
-            "value": "section-xxlarge"
-          },
-          {
-            "name": "Spacing huge",
-            "value": "section-huge"
-          },
-          {
-            "name": "Spacing xhuge",
-            "value": "section-xhuge"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "sec-spacing-bottom",
-        "value": "",
-        "label": "Spacing Bottom (padding bottom)",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Default spacing",
-            "value": "sec-spacing-default"
-          },
-          {
-            "name": "No space / padding",
-            "value": "section-none"
-          },
-          {
-            "name": "Spacing Between",
-            "value": "section-padding-between"
-          },
-          {
-            "name": "Spacing tiny",
-            "value": "section-tiny"
-          },
-          {
-            "name": "Spacing xxsmall",
-            "value": "section-xxsmall"
-          },
-          {
-            "name": "Spacing xsmall",
-            "value": "section-xsmall"
-          },
-          {
-            "name": "Spacing regular",
-            "value": "section-regular"
-          },
-          {
-            "name": "Spacing small",
-            "value": "section-small"
-          },
-          {
-            "name": "Spacing medium",
-            "value": "section-medium"
-          },
-          {
-            "name": "Spacing large",
-            "value": "section-large"
-          },
-          {
-            "name": "Spacing xlarge",
-            "value": "section-xlarge"
-          },
-          {
-            "name": "Spacing xxlarge",
-            "value": "section-xxlarge"
-          },
-          {
-            "name": "Spacing huge",
-            "value": "section-huge"
-          },
-          {
-            "name": "Spacing xhuge",
-            "value": "section-xhuge"
-          }
-        ]
-      },
-      {
-        "component": "boolean",
-        "valueType": "boolean",
-        "name": "sec-inside-container",
-        "label": "Show background color inside container.",
-        "condition": {
-          "!=": [
-            {
-              "var": "style"
-            },
-            "bg-image"
-          ]
-        }
-      },
-      {
-        "component": "select",
-        "name": "col-ctrl",
-        "value": "",
-        "label": "Grids",
-        "description": "Select grid count",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "1",
-            "value": "col-1"
-          },
-          {
-            "name": "2",
-            "value": "col-2"
-          },
-          {
-            "name": "3",
-            "value": "col-3"
-          },
-          {
-            "name": "4",
-            "value": "col-4"
-          },
-          {
-            "name": "5",
-            "value": "col-5"
-          }
-        ]
-      },
-      {
-        "component": "container",
-        "name": "test1",
-        "label": "🧱 Grid 1",
-        "multi": false,
-        "collapsible": true,
-        "fields": [
-          {
-            "component": "text",
-            "valueType": "string",
-            "name": "col1-class",
-            "value": "",
-            "label": "Column 1 Class"
-          },
-          {
-            "component": "multiselect",
-            "name": "col1-blocks",
-            "label": "Column 1 Blocks",
-            "value": [],
-            "valueType": "array",
-            "options": [
-              {
-                "name": "Collapsible Text",
-                "value": "collapsible-text"
-              },
-              {
-                "name": "Heading",
-                "value": "heading"
-              },
-              {
-                "name": "Inline Search",
-                "value": "inline-search"
-              },
-              {
-                "name": "Mini Cards",
-                "value": "mini-cards"
-              },
-              {
-                "name": "News Banner",
-                "value": "news-banner"
-              },
-              {
-                "name": "Research and Publications",
-                "value": "research-publications-cards"
-              },
-              {
-                "name": "Stay Connected",
-                "value": "stay-connected"
-              },
-              {
-                "name": "Signup",
-                "value": "signup"
-              },
-              {
-                "name": "Text",
-                "value": "text"
-              },
-              {
-                "name": "Video",
-                "value": "video"
-              },
-              {
-                "name": "Image",
-                "value": "image"
-              },
-              {
-                "name": "Custom Text",
-                "value": "custom-text"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "container",
-        "name": "test2",
-        "label": "🧱 Grid 2",
-        "multi": false,
-        "collapsible": true,
-        "condition": {
-          "or": [
-            {
-              "==": [
-                {
-                  "var": "col-ctrl"
-                },
-                "col-2"
-              ]
-            },
-            {
-              "==": [
-                {
-                  "var": "col-ctrl"
-                },
-                "col-3"
-              ]
-            },
-            {
-              "==": [
-                {
-                  "var": "col-ctrl"
-                },
-                "col-4"
-              ]
-            },
-            {
-              "==": [
-                {
-                  "var": "col-ctrl"
-                },
-                "col-5"
-              ]
-            }
-          ]
-        },
-        "fields": [
-          {
-            "component": "text",
-            "valueType": "string",
-            "name": "col2-class",
-            "value": "",
-            "label": "Column 2 Class"
-          },
-          {
-            "component": "multiselect",
-            "name": "col2-blocks",
-            "label": "Column 2 Blocks",
-            "value": [],
-            "valueType": "array",
-            "options": [
-              {
-                "name": "Collapsible Text",
-                "value": "collapsible-text"
-              },
-              {
-                "name": "Heading",
-                "value": "heading"
-              },
-              {
-                "name": "Inline Search",
-                "value": "inline-search"
-              },
-              {
-                "name": "Mini Cards",
-                "value": "mini-cards"
-              },
-              {
-                "name": "News Banner",
-                "value": "news-banner"
-              },
-              {
-                "name": "Research and Publications",
-                "value": "research-publications-cards"
-              },
-              {
-                "name": "Stay Connected",
-                "value": "stay-connected"
-              },
-              {
-                "name": "Signup",
-                "value": "signup"
-              },
-              {
-                "name": "Text",
-                "value": "text"
-              },
-              {
-                "name": "Video",
-                "value": "video"
-              },
-              {
-                "name": "Image",
-                "value": "image"
-              },
-              {
-                "name": "Custom Text",
-                "value": "custom-text"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "container",
-        "name": "test3",
-        "label": "🧱 Grid 3",
-        "multi": false,
-        "collapsible": true,
-        "condition": {
-          "or": [
-            {
-              "==": [
-                {
-                  "var": "col-ctrl"
-                },
-                "col-3"
-              ]
-            },
-            {
-              "==": [
-                {
-                  "var": "col-ctrl"
-                },
-                "col-4"
-              ]
-            },
-            {
-              "==": [
-                {
-                  "var": "col-ctrl"
-                },
-                "col-5"
-              ]
-            }
-          ]
-        },
-        "fields": [
-          {
-            "component": "text",
-            "valueType": "string",
-            "name": "col3-class",
-            "value": "",
-            "label": "Column 3 Class"
-          },
-          {
-            "component": "multiselect",
-            "name": "col3-blocks",
-            "label": "Column 3 Blocks",
-            "value": [],
-            "valueType": "array",
-            "options": [
-              {
-                "name": "Collapsible Text",
-                "value": "collapsible-text"
-              },
-              {
-                "name": "Heading",
-                "value": "heading"
-              },
-              {
-                "name": "Inline Search",
-                "value": "inline-search"
-              },
-              {
-                "name": "Mini Cards",
-                "value": "mini-cards"
-              },
-              {
-                "name": "News Banner",
-                "value": "news-banner"
-              },
-              {
-                "name": "Research and Publications",
-                "value": "research-publications-cards"
-              },
-              {
-                "name": "Stay Connected",
-                "value": "stay-connected"
-              },
-              {
-                "name": "Signup",
-                "value": "signup"
-              },
-              {
-                "name": "Text",
-                "value": "text"
-              },
-              {
-                "name": "Video",
-                "value": "video"
-              },
-              {
-                "name": "Image",
-                "value": "image"
-              },
-              {
-                "name": "Custom Text",
-                "value": "custom-text"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "container",
-        "name": "test4",
-        "label": "🧱 Grid 4",
-        "multi": false,
-        "collapsible": true,
-        "condition": {
-          "or": [
-            {
-              "==": [
-                {
-                  "var": "col-ctrl"
-                },
-                "col-4"
-              ]
-            },
-            {
-              "==": [
-                {
-                  "var": "col-ctrl"
-                },
-                "col-5"
-              ]
-            }
-          ]
-        },
-        "fields": [
-          {
-            "component": "text",
-            "valueType": "string",
-            "name": "col4-class",
-            "value": "",
-            "label": "Column 4 Class"
-          },
-          {
-            "component": "multiselect",
-            "name": "col4-blocks",
-            "label": "Column 4 Blocks",
-            "value": [],
-            "valueType": "array",
-            "options": [
-              {
-                "name": "Collapsible Text",
-                "value": "collapsible-text"
-              },
-              {
-                "name": "Heading",
-                "value": "heading"
-              },
-              {
-                "name": "Inline Search",
-                "value": "inline-search"
-              },
-              {
-                "name": "Mini Cards",
-                "value": "mini-cards"
-              },
-              {
-                "name": "News Banner",
-                "value": "news-banner"
-              },
-              {
-                "name": "Research and Publications",
-                "value": "research-publications-cards"
-              },
-              {
-                "name": "Stay Connected",
-                "value": "stay-connected"
-              },
-              {
-                "name": "Signup",
-                "value": "signup"
-              },
-              {
-                "name": "Text",
-                "value": "text"
-              },
-              {
-                "name": "Video",
-                "value": "video"
-              },
-              {
-                "name": "Image",
-                "value": "image"
-              },
-              {
-                "name": "Custom Text",
-                "value": "custom-text"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "container",
-        "name": "test5",
-        "label": "🧱 Grid 5",
-        "multi": false,
-        "collapsible": true,
-        "condition": {
-          "==": [
-            {
-              "var": "col-ctrl"
-            },
-            "col-5"
-          ]
-        },
-        "fields": [
-          {
-            "component": "text",
-            "valueType": "string",
-            "name": "col5-class",
-            "value": "",
-            "label": "Column 5 Class"
-          },
-          {
-            "component": "multiselect",
-            "name": "col5-blocks",
-            "label": "Column 5 Blocks",
-            "value": [],
-            "valueType": "array",
-            "options": [
-              {
-                "name": "Collapsible Text",
-                "value": "collapsible-text"
-              },
-              {
-                "name": "Heading",
-                "value": "heading"
-              },
-              {
-                "name": "Inline Search",
-                "value": "inline-search"
-              },
-              {
-                "name": "Mini Cards",
-                "value": "mini-cards"
-              },
-              {
-                "name": "News Banner",
-                "value": "news-banner"
-              },
-              {
-                "name": "Research and Publications",
-                "value": "research-publications-cards"
-              },
-              {
-                "name": "Stay Connected",
-                "value": "stay-connected"
-              },
-              {
-                "name": "Signup",
-                "value": "signup"
-              },
-              {
-                "name": "Text",
-                "value": "text"
-              },
-              {
-                "name": "Video",
-                "value": "video"
-              },
-              {
-                "name": "Image",
-                "value": "image"
-              },
-              {
-                "name": "Custom Text",
-                "value": "custom-text"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "heading",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "eyebrowtext",
-        "value": "",
-        "label": "Eyebrow text"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "prefix",
-        "value": "",
-        "label": "Prefix text"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "headingtext",
-        "value": "",
-        "label": "Heading Text",
-        "required": true
-      },
-      {
-        "component": "select",
-        "name": "type",
-        "value": "h2",
-        "label": "Type",
-        "valueType": "string",
-        "required": true,
-        "options": [
-          {
-            "name": "h1",
-            "value": "h1"
-          },
-          {
-            "name": "h2",
-            "value": "h2"
-          },
-          {
-            "name": "h3",
-            "value": "h3"
-          },
-          {
-            "name": "h4",
-            "value": "h4"
-          },
-          {
-            "name": "h5",
-            "value": "h5"
-          },
-          {
-            "name": "h6",
-            "value": "h6"
-          },
-          {
-            "name": "p",
-            "value": "p"
-          }
-        ]
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "suffix",
-        "value": "",
-        "label": "Suffix text"
-      },
-      {
-        "component": "boolean",
-        "valueType": "boolean",
-        "name": "show_borderline",
-        "label": "Show Borderline"
-      },
-      {
-        "component": "select",
-        "name": "heading-border-spacing",
-        "value": "",
-        "label": "Border Spacing Top (padding top)",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Default spacing",
-            "value": "heading-border-spacing-default"
-          },
-          {
-            "name": "No space / padding",
-            "value": "heading-border-spacing-none"
-          },
-          {
-            "name": "Spacing tiny",
-            "value": "heading-border-spacing-tiny"
-          },
-          {
-            "name": "Spacing xxsmall",
-            "value": "heading-border-spacing-xxsmall"
-          },
-          {
-            "name": "Spacing xsmall",
-            "value": "heading-border-spacing-xsmall"
-          },
-          {
-            "name": "Spacing regular",
-            "value": "heading-border-spacing-regular"
-          },
-          {
-            "name": "Spacing small",
-            "value": "heading-border-spacing-small"
-          },
-          {
-            "name": "Spacing medium",
-            "value": "heading-border-spacing-medium"
-          },
-          {
-            "name": "Spacing large",
-            "value": "heading-border-spacing-large"
-          },
-          {
-            "name": "Spacing xlarge",
-            "value": "heading-border-spacing-xlarge"
-          },
-          {
-            "name": "Spacing xxlarge",
-            "value": "heading-border-spacing-xxlarge"
-          },
-          {
-            "name": "Spacing huge",
-            "value": "heading-border-spacing-huge"
-          },
-          {
-            "name": "Spacing xhuge",
-            "value": "heading-border-spacing-xhuge"
-          }
-        ],
-        "condition": {
-          "==": [
-            {
-              "var": "show_borderline"
-            },
-            true
-          ]
-        }
-      },
-      {
-        "component": "select",
-        "name": "heading-top-spacing",
-        "value": "",
-        "label": "Heading Spacing Top (padding top)",
-        "description": "Heading top spacing",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Default spacing",
-            "value": "heading-top-spacing-default"
-          },
-          {
-            "name": "No space / padding",
-            "value": "heading-top-none"
-          },
-          {
-            "name": "Spacing tiny",
-            "value": "heading-top-tiny"
-          },
-          {
-            "name": "Spacing xxsmall",
-            "value": "heading-top-xxsmall"
-          },
-          {
-            "name": "Spacing xsmall",
-            "value": "heading-top-xsmall"
-          },
-          {
-            "name": "Spacing regular",
-            "value": "heading-top-regular"
-          },
-          {
-            "name": "Spacing small",
-            "value": "heading-top-small"
-          },
-          {
-            "name": "Spacing medium",
-            "value": "heading-top-medium"
-          },
-          {
-            "name": "Spacing large",
-            "value": "heading-top-large"
-          },
-          {
-            "name": "Spacing xlarge",
-            "value": "heading-top-xlarge"
-          },
-          {
-            "name": "Spacing xxlarge",
-            "value": "heading-top-xxlarge"
-          },
-          {
-            "name": "Spacing huge",
-            "value": "heading-top-huge"
-          },
-          {
-            "name": "Spacing xhuge",
-            "value": "heading-top-xhuge"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "heading-bottom-spacing",
-        "value": "",
-        "label": "Heading Spacing Bottom (padding bottom)",
-        "description": "Heading bottom spacing",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Default spacing",
-            "value": "heading-bottom-default"
-          },
-          {
-            "name": "No space / padding",
-            "value": "heading-bottom-none"
-          },
-          {
-            "name": "Spacing tiny",
-            "value": "heading-bottom-tiny"
-          },
-          {
-            "name": "Spacing xxsmall",
-            "value": "heading-bottom-xxsmall"
-          },
-          {
-            "name": "Spacing xsmall",
-            "value": "heading-bottom-xsmall"
-          },
-          {
-            "name": "Spacing regular",
-            "value": "heading-bottom-regular"
-          },
-          {
-            "name": "Spacing small",
-            "value": "heading-bottom-small"
-          },
-          {
-            "name": "Spacing medium",
-            "value": "heading-bottom-medium"
-          },
-          {
-            "name": "Spacing large",
-            "value": "heading-bottom-large"
-          },
-          {
-            "name": "Spacing xlarge",
-            "value": "heading-bottom-xlarge"
-          },
-          {
-            "name": "Spacing xxlarge",
-            "value": "heading-bottom-xxlarge"
-          },
-          {
-            "name": "Spacing huge",
-            "value": "heading-bottom-huge"
-          },
-          {
-            "name": "Spacing xhuge",
-            "value": "heading-bottom-xhuge"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "iframe",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "iframeUrl",
-        "value": "",
-        "label": "iFrame URL",
-        "description": "Please provide a URL to an iFrame app."
-      }
-    ]
-  },
-  {
-    "id": "indicator-charts",
-    "fields": [
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "pageType",
-        "value": "",
-        "label": "Page Type",
-        "options": [
-          {
-            "name": "Region",
-            "value": "region"
-          },
-          {
-            "name": "Topic",
-            "value": "topic"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "selector",
-        "value": "",
-        "label": "Selector",
-        "valueType": "string",
-        "required": true,
-        "options": [
-          {
-            "name": "Africa",
-            "value": "AFR"
-          },
-          {
-            "name": "West Africa",
-            "value": "AFW"
-          },
-          {
-            "name": "East Africa",
-            "value": "AFE"
-          },
-          {
-            "name": "East Asia & Pacific",
-            "value": "EAS"
-          },
-          {
-            "name": "Europe & Central Asia",
-            "value": "ECS"
-          },
-          {
-            "name": "Latin America & Caribbean",
-            "value": "LCN"
-          },
-          {
-            "name": "Middle East and North Africa",
-            "value": "MEA"
-          },
-          {
-            "name": "South Asia",
-            "value": "SAS"
-          }
-        ],
-        "condition": {
-          "==": [
-            {
-              "var": "pageType"
-            },
-            "region"
-          ]
-        }
-      },
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
-        "label": "Heading",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttontext",
-        "label": "Button Text",
-        "value": "",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttonlink",
-        "label": "Button Link",
-        "value": "",
-        "required": true
-      },
-      {
-        "component": "text",
-        "name": "CategoryName",
-        "value": "MIDDLE EAST AND NORTH AFRICA",
-        "label": "Category Name",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "sourceLabel",
-        "value": "Source",
-        "label": "Source Label",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "datasetLabel",
-        "value": "Dataset",
-        "label": "Dataset Label",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "data360ButtonText",
-        "value": "Go to Data 360",
-        "label": "Data 360 Button Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "indicator-item",
-    "fields": [
-      {
-        "component": "text",
-        "name": "indicatorID",
-        "label": "Indicator ID",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "indicatorName",
-        "label": "Indicator Name",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "unitMeasure",
-        "label": "Unit Measure",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "inline-search",
-    "fields": [
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "search-type",
-        "label": "Search Type",
-        "description": "Select the Type of Search",
-        "value": "",
-        "required": true,
-        "options": [
-          {
-            "name": "Events",
-            "value": "events"
-          },
-          {
-            "name": "Blogs",
-            "value": "blogs"
-          },
-          {
-            "name": "News",
-            "value": "news"
-          },
-          {
-            "name": "Projects",
-            "value": "projects"
-          },
-          {
-            "name": "Results",
-            "value": "results"
-          }
-        ]
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "url",
-        "value": "",
-        "label": "URL"
-      },
-      {
-        "component": "boolean",
-        "label": "POST",
-        "name": "post",
-        "value": "false",
-        "valueType": "boolean"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "body",
-        "value": "",
-        "label": "Body",
-        "condition": {
-          "==": [
-            {
-              "var": "post"
-            },
-            true
-          ]
-        }
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "display-items",
-        "value": "",
-        "label": "Display Items",
-        "description": "Number of items to display."
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "classes",
-        "label": "View Type",
-        "value": "",
-        "options": [
-          {
-            "name": "Horizontal View",
-            "value": "horizontal"
-          },
-          {
-            "name": "Vertical View",
-            "value": "vertical"
-          }
-        ]
-      },
-      {
-        "component": "richtext",
-        "name": "heading",
-        "value": "",
-        "label": "Heading",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "see-all-button-label",
-        "value": "",
-        "label": "See All Button Label",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "see-all-button-link",
-        "value": "",
-        "label": "See All Button Link",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "leaders-list",
-    "fields": [
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "leadership-group-name",
-        "label": "Leadership Group",
-        "description": "Select the Leadership Group",
-        "value": "",
-        "required": true,
-        "options": [
-          {
-            "name": "The World Bank (IBRD & IDA)",
-            "value": "ibrd"
-          },
-          {
-            "name": "International Finance Corporation (IFC)",
-            "value": "ifc"
-          },
-          {
-            "name": "Multilateral Investent Guarantee Agency (MIGA)",
-            "value": "miga"
-          },
-          {
-            "name": "International Center For Settlement Of Investment Disputes (ICSID)",
-            "value": "icsid"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "live-now",
-    "fields": [
-      {
-        "component": "select",
-        "name": "classes",
-        "value": "",
-        "label": "Mode",
-        "description": "Normal mode or test mode. Test mode bypasses the 'current event' time check.",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Test",
-            "value": "test-mode"
-          },
-          {
-            "name": "Normal",
-            "value": "normal-mode"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "impact-card",
-    "fields": [
-      {
-        "component": "select",
-        "name": "indicator",
-        "value": "",
-        "label": "Indicator Tag",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Protection for the Poorest ",
-            "value": "protectionForThePoorest-people"
-          },
-          {
-            "name": "No Learning Poverty",
-            "value": "noLeavingPoverty-people"
-          },
-          {
-            "name": "Healthier Lives",
-            "value": "healthierLives-people"
-          },
-          {
-            "name": "Effective Macroeconomic & Fiscal Management",
-            "value": "effectiveMacroEconomicNFiscalManagement-prosperity"
-          },
-          {
-            "name": "Green and Blue Planet & Resilient Populations",
-            "value": "greenNBluePlanetNResilientPopulations-planet"
-          },
-          {
-            "name": "Inclusive and Equitable Water and Sanitation Services",
-            "value": "inclusiveNEquitableWaterNSanitationServices-planet"
-          },
-          {
-            "name": "Sustainable Food Systems",
-            "value": "sustainableFoodSystems-planet"
-          },
-          {
-            "name": "Connected Communities",
-            "value": "connectedCommunities-infrastructure"
-          },
-          {
-            "name": "Affordable, Reliable & Sustainable Energy For All",
-            "value": "affordableNReliableEnergyForAll-infrastructure"
-          },
-          {
-            "name": "Digital Connectivity",
-            "value": "digitalConnectivity-digital"
-          },
-          {
-            "name": "Digital Services",
-            "value": "digitalServices-digital"
-          },
-          {
-            "name": "Gender Equality and Youth Inclusion",
-            "value": "genderEqualityNYouthInclusion-crossCuttingThemes"
-          },
-          {
-            "name": "More and Better Jobs",
-            "value": "moreNBetterJobs-crossCuttingThemes"
-          },
-          {
-            "name": "Better Lives for People in Fragility, Conflict & Violence",
-            "value": "betterLivesForPeopleInFCV-crossCuttingThemes"
-          },
-          {
-            "name": "More Private Investment ",
-            "value": "morePrivateInvestment-crossCuttingThemes"
-          }
-        ]
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Icon",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "value": "",
-        "label": "Icon Alternate Text"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
-        "label": "Title"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "value": "",
-        "label": "Description",
-        "valueType": "string"
-      },
-      {
-        "component": "aem-content",
-        "name": "link",
-        "value": "",
-        "label": "Impact Link",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "mini-cards",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "mini-cards-heading",
-        "value": "",
-        "label": "Mini Cards Heading",
-        "valueType": "string",
-        "required": true
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "classes",
-        "value": "",
-        "label": "Classes",
-        "options": [
-          {
-            "name": "Mini Card",
-            "value": "mini-card-variation"
-          },
-          {
-            "name": "Image List",
-            "value": "image-list-variation"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "mini-card",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "mini-card-image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "aem-tag",
-        "name": "mini-card-tag",
-        "label": "Card Type",
-        "valueType": "string",
-        "required": true,
-        "rootPath": "/content/cq:tags/world-bank/content-type",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "mini-card-title",
-        "value": "",
-        "label": "Title",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "mini-card-date",
-        "value": "",
-        "label": "Date"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "mini-card-time",
-        "value": "",
-        "label": "Time"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "mini-card-location",
-        "value": "",
-        "label": "Location"
-      },
-      {
-        "component": "text",
-        "name": "mini-card-link",
-        "value": "",
-        "label": "Link",
-        "valueType": "string",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "alt",
-        "value": "",
-        "label": "Mini Card Alt Text"
-      }
-    ]
-  },
-  {
-    "id": "news-banner",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false,
-        "required": true,
-        "description": "Select an image for the news banner"
-      },
-      {
-        "component": "text",
-        "name": "altText",
-        "value": "World Bank Group Default Image",
-        "label": "Image Alternate Text",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "hammer",
-        "value": "",
-        "label": "Hammer",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "title",
-        "value": "",
-        "label": "Title",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "title-link",
-        "value": "",
-        "label": "Title Link",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "value": "",
-        "label": "Description",
-        "valueType": "string"
-      },
-      {
-        "component": "boolean",
-        "valueType": "boolean",
-        "name": "add-play-icon",
-        "label": "Show play icon"
-      }
-    ]
-  },
-  {
-    "id": "organizational-cards",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Background Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "value": "",
-        "label": "Background Alternate Text"
-      }
-    ]
-  },
-  {
-    "id": "organizational-card",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "acronym",
-        "label": "Acronym",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Title",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "mission",
-        "label": "Mission",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "link",
-        "label": "Link",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "linkText",
-        "label": "Link Text",
-        "multi": false
-      }
-    ]
-  },
-  {
-    "id": "priority-list",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "subtitle",
-        "value": "",
-        "label": "Subtitle"
-      },
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "title",
-        "label": "Title",
-        "value": "",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "linktext",
-        "label": "Link Text",
-        "value": "",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "linkhref",
-        "label": "Link Href",
-        "value": "",
-        "required": true
-      }
-    ]
-  },
-  {
-    "id": "priority-item",
-    "fields": [
-      {
-        "component": "aem-tag",
-        "name": "tags",
-        "label": "Tags for Priority Card",
-        "valueType": "string",
-        "rootPath": "/content/cq:tags/world-bank/category",
-        "description": "Tags for priority card"
-      },
-      {
-        "component": "richtext",
-        "name": "cardbodytext",
-        "value": "",
-        "label": "Card Body Text",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt Text",
-        "value": ""
-      }
-    ]
-  },
-  {
-    "id": "research-publications-cards",
-    "fields": [
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
-        "label": "Heading",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttontext",
-        "label": "Button Text",
-        "value": "",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttonlink",
-        "label": "Button Link",
-        "value": "",
-        "required": true
-      }
-    ]
-  },
-  {
-    "id": "research-publications-card",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false,
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "alt",
-        "value": "Default alt",
-        "label": "Thumbnail Alt Text",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
-        "label": "Title",
-        "required": true
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "value": "",
-        "label": "Description",
-        "valueType": "string",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "href",
-        "value": "",
-        "label": "Title Link",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttontext",
-        "label": "Button Text",
-        "value": "",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttonlink",
-        "label": "Button Link",
-        "value": "",
-        "required": true
-      }
-    ]
-  },
-  {
-    "id": "search-in-site",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "prefix",
-        "label": "Prefix Heading",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Heading Text",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "desc",
-        "value": "",
-        "label": "Description",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "formheader",
-        "label": "Form Header",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "formdesc",
-        "value": "",
-        "label": "Form Description",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "formplaceholder",
-        "label": "Placeholder Text",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "targeturl",
-        "label": "Target URL",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "formlinks",
-        "value": "",
-        "label": "Form Links",
-        "valueType": "string"
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "classes",
-        "value": "",
-        "label": "Variations",
-        "options": [
-          {
-            "name": "Default (Text - Search)",
-            "value": "default-variation"
-          },
-          {
-            "name": "Signup (Search - Text)",
-            "value": "signup-variation"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "signup",
-    "fields": [
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "classes",
-        "label": "Sign Up Variation",
-        "value": "",
-        "options": [
-          {
-            "name": "Default View",
-            "value": ""
-          },
-          {
-            "name": "Region / Country View",
-            "value": "region-country-view"
-          }
-        ]
-      },
-      {
-        "component": "boolean",
-        "label": "Is this country page?",
-        "name": "is-country-page",
-        "value": "false",
-        "valueType": "boolean"
-      }
-    ]
-  },
-  {
-    "id": "social-media",
-    "fields": [
-      {
-        "component": "text",
-        "name": "social-media-title",
-        "label": "Section Title",
-        "value": "STAY CONNECTED",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "social-media-links",
-    "fields": [
-      {
-        "component": "text",
-        "name": "social-media-links-title",
-        "value": "",
-        "label": "Title",
-        "valueType": "string",
-        "required": true
-      },
-      {
-        "component": "text",
-        "name": "social-media-links-url",
-        "value": "",
-        "label": "URL",
-        "valueType": "string"
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "social-media-links-type",
-        "value": "",
-        "label": "Type",
-        "options": [
-          {
-            "name": "Facebook",
-            "value": "lp-fb"
-          },
-          {
-            "name": "LinkedIn",
-            "value": "lp-linkln"
-          },
-          {
-            "name": "X",
-            "value": "lp-x"
-          },
-          {
-            "name": "Flickr",
-            "value": "lp-flickr-solid"
-          },
-          {
-            "name": "Youtube",
-            "value": "lp-youtube-solid"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "stay-connected",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
-        "label": "Title"
-      }
-    ]
-  },
-  {
-    "id": "icon-item",
-    "fields": [
-      {
-        "component": "text",
-        "name": "label",
-        "label": "Label"
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "icon",
-        "label": "Icon",
-        "value": "",
-        "options": [
-          {
-            "name": "Facebook",
-            "value": "lp-fb"
-          },
-          {
-            "name": "LinkedIn",
-            "value": "lp-linkln"
-          },
-          {
-            "name": "X",
-            "value": "lp-x"
-          },
-          {
-            "name": "Flickr",
-            "value": "lp-flickr-solid"
-          },
-          {
-            "name": "Youtube",
-            "value": "lp-youtube-solid"
-          }
-        ]
-      },
-      {
-        "component": "text",
-        "name": "link",
-        "label": "Link",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "tab",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
-        "label": "Tab Name",
-        "required": true
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "tab-type",
-        "label": "Type of Tab",
-        "description": "Select the Type of Tab",
-        "value": "",
-        "required": true,
-        "options": [
-          {
-            "name": "All Tab",
-            "value": "all"
-          },
-          {
-            "name": "Publication",
-            "value": "publication"
-          },
-          {
-            "name": "Project",
-            "value": "project"
-          },
-          {
-            "name": "Blogs",
-            "value": "blogs"
-          },
-          {
-            "name": "News",
-            "value": "news"
-          },
-          {
-            "name": "Events",
-            "value": "events"
-          },
-          {
-            "name": "Author Manually",
-            "value": "manual"
-          }
-        ]
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "url",
-        "value": "",
-        "label": "URL",
-        "condition": {
-          "!=": [
-            {
-              "var": "tab-type"
-            },
-            "manual"
-          ]
-        }
-      },
-      {
-        "component": "boolean",
-        "label": "POST",
-        "name": "post",
-        "value": "false",
-        "valueType": "boolean",
-        "condition": {
-          "or": [
-            {
-              "==": [
-                {
-                  "var": "tab-type"
-                },
-                "blogs"
-              ]
-            },
-            {
-              "==": [
-                {
-                  "var": "tab-type"
-                },
-                "events"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "body",
-        "value": "",
-        "label": "Body",
-        "condition": {
-          "===": [
-            {
-              "var": "post"
-            },
-            true
-          ]
-        }
-      },
-      {
-        "component": "aem-content",
-        "valueType": "string",
-        "name": "fragmentPath",
-        "value": "",
-        "label": "Fragment Path",
-        "condition": {
-          "==": [
-            {
-              "var": "tab-type"
-            },
-            "manual"
-          ]
-        }
-      },
-      {
-        "component": "select",
-        "name": "tab-variant",
-        "label": "Tab Variant",
-        "valueType": "string",
-        "value": "",
-        "options": [
-          {
-            "name": "Default View",
-            "value": ""
-          },
-          {
-            "name": "2 Column View",
-            "value": "two-column-view"
-          }
-        ]
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "display-items",
-        "value": "",
-        "label": "Display Items",
-        "description": "Number of items to display in this tab"
-      },
-      {
-        "component": "boolean",
-        "label": "Disable Load More",
-        "description": "Disable Load More button for this tab",
-        "name": "disable-load-more",
-        "value": "false",
-        "valueType": "boolean"
-      },
-      {
-        "component": "text",
-        "name": "see-all-button-label",
-        "value": "",
-        "label": "See All Button Label",
-        "valueType": "string",
-        "condition": {
-          "==": [
-            {
-              "var": "disable-load-more"
-            },
-            true
-          ]
-        }
-      },
-      {
-        "component": "text",
-        "name": "see-all-button-link",
-        "value": "",
-        "label": "See All Button Link",
-        "valueType": "string",
-        "condition": {
-          "==": [
-            {
-              "var": "disable-load-more"
-            },
-            true
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "id": "teaser",
-    "fields": [
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "value": "Your text will show here.",
-        "name": "teaserBlurb",
-        "label": "Title"
-      },
-      {
-        "component": "select",
-        "name": "teaserStyle",
-        "value": "image",
-        "label": "Style",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Video",
-            "value": "video"
-          },
-          {
-            "name": "Image",
-            "value": "image"
-          }
-        ]
-      },
-      {
-        "component": "container",
-        "label": "Video Properties",
-        "name": "videoProperties",
-        "valueType": "string",
-        "condition": {
-          "===": [
-            {
-              "var": "teaserStyle"
-            },
-            "video"
-          ]
-        },
-        "fields": [
-          {
-            "component": "text",
-            "valueType": "string",
-            "name": "videoReference",
-            "label": "Video Reference",
-            "multi": false,
-            "description": "Provide a URL for the video background."
-          },
-          {
-            "component": "select",
-            "name": "videoBehavior",
-            "value": "autoplay",
-            "label": "Video Behavior (on load)",
-            "valueType": "string",
-            "options": [
-              {
-                "name": "Autoplay",
-                "value": "autoplay"
-              },
-              {
-                "name": "Pause",
-                "value": "pause"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "container",
-        "label": "Image Properties",
-        "name": "imageProperties",
-        "valueType": "string",
-        "condition": {
-          "===": [
-            {
-              "var": "teaserStyle"
-            },
-            "image"
-          ]
-        },
-        "fields": [
-          {
-            "component": "reference",
-            "valueType": "string",
-            "name": "imageRef",
-            "label": "Image",
-            "multi": false
-          },
-          {
-            "component": "text",
-            "valueType": "string",
-            "name": "alt",
-            "value": "Default alt",
-            "label": "Alt Text"
-          }
-        ]
-      },
-      {
-        "component": "container",
-        "label": "Button Properties",
-        "name": "buttonProperties",
-        "valueType": "string",
-        "fields": [
-          {
-            "component": "text",
-            "valueType": "string",
-            "name": "btn-text",
-            "value": "Button",
-            "label": "Button Text"
-          },
-          {
-            "component": "aem-content",
-            "name": "btn-link",
-            "label": "Button Link",
-            "valueType": "string",
-            "rootPath": "",
-            "description": "Path to linked AEM content"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "video",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "videoUrl",
-        "value": "",
-        "label": "Video URL",
-        "required": true
       }
     ]
   }
