@@ -184,7 +184,16 @@
   "filters": [
     { 
       "id": "columns",
-      "components": []
+      "components": [
+        "text",
+        "image",
+        "button",
+        "title",
+        "dm-asset",
+        "heading",
+        "teaser",
+        "dropdown"
+    ]
     }
   ]
 }

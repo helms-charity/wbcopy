@@ -35,7 +35,21 @@
       "dm-asset",
       "fragment",
       "video",
-      "iframe"
+      "iframe",
+      "dropdown-list",
+      "country-list",
+      "dropdown-with-description",
+      "search-in-site",
+      "feature-cards",
+      "custom-image",
+      "news-banner",
+      "collapsible-text",
+      "indicator-charts",
+      "inline-search",
+      "social-media",
+      "country-charts",
+      "stay-connected",
+      "custom-text"
     ]
   },
   {
@@ -52,13 +66,26 @@
   },
   {
     "id": "columns",
-    "components": []
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title",
+      "dm-asset",
+      "heading",
+      "teaser",
+      "dropdown"
+    ]
   },
   {
     "id": "country-charts",
     "components": [
       "indicator-list"
     ]
+  },
+  {
+    "id": "country-list",
+    "components": []
   },
   {
     "id": "curated-cards",

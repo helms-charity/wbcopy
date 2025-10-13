@@ -15,6 +15,21 @@
                   }
               }
           }
+      },
+      {
+        "title": "Indicator List",
+        "id": "indicator-list",
+        "plugins": {
+          "xwalk": {
+            "page": {
+              "resourceType": "core/franklin/components/block/v1/block/item",
+              "template": {
+                "name": "Indicator List",
+                "model": "indicator-list"
+              }
+            }
+          }
+        }
       }
   ],
   "models": [

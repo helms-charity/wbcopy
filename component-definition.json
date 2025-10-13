@@ -246,6 +246,21 @@
           }
         },
         {
+          "title": "Indicator List",
+          "id": "indicator-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Indicator List",
+                  "model": "indicator-list"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Country List",
           "id": "country-list",
           "plugins": {
@@ -659,6 +674,21 @@
                   "name": "Indicator Charts",
                   "model": "indicator-charts",
                   "filter": "indicator-charts"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Indicator Item",
+          "id": "indicator-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Indicator Item",
+                  "model": "indicator-item"
                 }
               }
             }
