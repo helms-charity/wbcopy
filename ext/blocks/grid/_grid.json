@@ -438,7 +438,7 @@
                 "name": "col5-blocks",
                 "label": "Column 5 Blocks",
                 "value": [],
-                "valueType": "array",
+                "valueType": "array", 
                 "options": [
                   { "name": "Collapsible Text", "value": "collapsible-text" },
                   { "name": "Heading", "value": "heading" },

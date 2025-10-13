@@ -82,7 +82,7 @@
           "component": "text",
           "valueType": "string",
           "name": "imageAlt",
-          "value": "",
+          "value": "", 
           "label": "Alternate Text"
         },
         {

@@ -194,7 +194,7 @@
         {
           "component": "text",
           "name": "curated-card-link",
-          "label": "Link",
+          "label": "Link", 
           "valueType": "string"
         },
         {

@@ -42,7 +42,7 @@
           "label": "Heading Text",
           "required": true
         },
-        {
+        { 
           "component": "select",
           "name": "type",
           "value": "h2",

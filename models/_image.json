@@ -1,37 +1,38 @@
 {
   "definitions": [
-    {
-      "title": "Image",
-      "id": "image",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/image/v1/image",
-            "template": {}
+      {
+          "title": "Image",
+          "id": "image",
+          "plugins": {
+              "xwalk": {
+                  "page": {
+                      "resourceType": "core/franklin/components/image/v1/image",
+                      "template": {}
+                  }
+              }
           }
-        }
       }
-    }
   ],
   "models": [
-    {
-      "id": "image",
-      "fields": [
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "fileReference",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "alt",
-        "value": "Default alt",
-        "label": "Alt Text"
+          "id": "image",
+          "fields": [
+              {
+                  "component": "reference",
+                  "description": "Select an image",
+                  "label": "Image",
+                  "multi": false,
+                  "name": "fileReference",
+                  "valueType": "string"
+              },
+              {
+                  "component": "text",
+                  "label": "Alt Text",
+                  "name": "alt",
+                  "value": "Default alt",
+                  "valueType": "string"
+              }
+          ]
       }
-    ]
-    }
   ]
 }

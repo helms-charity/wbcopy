@@ -10,7 +10,7 @@
             "template": {
               "name": "Breadcrumb",
               "model": "breadcrumb"
-            }
+            } 
           }
         }
       }

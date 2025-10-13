@@ -9,52 +9,57 @@
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "jcr:title",
         "label": "Title",
-        "required": true
+        "name": "jcr:title",
+        "required": true,
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "pageTitle",
         "label": "Page Title",
-        "required": true
+        "name": "pageTitle",
+        "required": false,
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "jcr:description",
+        "label": "Navigation Title",
+        "name": "navTitle",
+        "required": false,
+        "valueType": "string"
+      },
+      {
+        "component": "text",
         "label": "Description",
-        "required": true
+        "name": "jcr:description",
+        "required": true,
+        "valueType": "string"
       },
       {
         "component": "aem-tag",
-        "name": "cq:tags",
         "label": "Tags",
-        "valueType": "string",
-        "rootPath": "/content/cq:tags/world-bank"
+        "name": "cq:tags",
+        "rootPath": "/content/cq:tags/world-bank",
+        "valueType": "string"
       },
       {
         "component": "date-time",
-        "valueType": "date",
-        "value": "2024-09-23T00:00:00.000Z",
+        "label": "Content Date",
         "name": "content_date",
         "required": true,
-        "label": "Date Of Content creation"
+        "value": "2024-09-23T00:00:00.000Z",
+        "valueType": "datetime"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Author",
         "name": "author",
-        "label": "Author"
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "page-swoosh",
-        "value": "",
         "label": "Page Swoosh",
-        "valueType": "string",
+        "name": "page-swoosh",
         "options": [
           {
             "name": "No Swoosh",
@@ -68,16 +73,18 @@
             "name": "Half Curve Swoosh",
             "value": "page-swoosh-half-curve"
           }
-        ]
+        ],
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "alternate-url",
-        "multi": true,
-        "value": "",
+        "description": "List of other language urls of current page (provide absolute url). Use pattern 'es|https://www.worldbank.com/es'",
         "label": "Language URL(s)",
-        "description": "List of other language urls of current page (provide absolute url). Use pattern 'es|https://www.worldbank.com/es'"
+        "multi": true,
+        "name": "alternate-url",
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "tab",
@@ -86,39 +93,36 @@
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "pageUid",
         "label": "Page Uid",
-        "required": true
+        "name": "pageUid",
+        "required": true,
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "pageName",
         "label": "Page Name",
-        "required": true
+        "name": "pageName",
+        "required": true,
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "pageCategory",
         "label": "Page Category",
-        "required": true
+        "name": "pageCategory",
+        "required": true,
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "channel",
         "label": "Channel",
-        "required": true
+        "name": "channel",
+        "required": true,
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "content_type",
-        "value": "",
         "label": "Content Type",
-        "required": true,
-        "valueType": "string",
+        "name": "content_type",
         "options": [
           {
             "name": "Brief",
@@ -212,15 +216,15 @@
             "name": "Video",
             "value": "Video"
           }
-        ]
+        ],
+        "required": true,
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "languages",
-        "value": "",
         "label": "Language",
-        "required": true,
-        "valueType": "string",
+        "name": "languages",
         "options": [
           {
             "name": "Afrikaans, AFR1",
@@ -942,15 +946,15 @@
             "name": "Zande, ZAN",
             "value": "Zande, ZAN"
           }
-        ]
+        ],
+        "required": true,
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "originating_unit",
-        "value": "",
         "label": "Unit",
-        "required": true,
-        "valueType": "string",
+        "name": "originating_unit",
         "options": [
           {
             "name": "Accountability Mechanism (AMIPN)",
@@ -1156,15 +1160,51 @@
             "name": "Water",
             "value": "Water, WAT"
           }
-        ]
+        ],
+        "required": true,
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "WebPackage ID",
+        "name": "webpackage_id",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Business Unit",
+        "name": "buss_unit",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Site Section",
+        "name": "site_section",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Site Sub Section 1",
+        "name": "subsectionp2",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Site Sub Section 2",
+        "name": "subsectionp3",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Site Sub Section 3",
+        "name": "subsectionp4",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "information_classification",
-        "value": "",
         "label": "Information Classification",
-        "required": true,
-        "valueType": "string",
+        "name": "information_classification",
         "options": [
           {
             "name": "Confidential",
@@ -1182,7 +1222,10 @@
             "name": "Strictly Confidential",
             "value": "STC_AI"
           }
-        ]
+        ],
+        "required": true,
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "tab",
@@ -1191,59 +1234,57 @@
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Surname",
         "name": "surname",
         "value": "",
-        "label": "Surname"
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "First Name",
         "name": "first_name",
         "value": "",
-        "label": "First Name"
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Display Name",
         "name": "display_name",
         "value": "",
-        "label": "Display Name"
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Job Title",
         "name": "job_title",
         "value": "",
-        "label": "Job Title"
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "UPID",
         "name": "upi",
         "value": "",
-        "label": "UPID"
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Email",
         "name": "email",
         "value": "",
-        "label": "Email"
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Phone",
         "name": "phone",
         "value": "",
-        "label": "Phone"
+        "valueType": "string"
       },
       {
         "component": "multiselect",
-        "name": "topic_exp",
-        "value": "",
         "label": "Topics of Expertise",
-        "valueType": "string",
+        "name": "topic_exp",
         "options": [
           {
             "name": "Agribusiness",
@@ -1745,25 +1786,27 @@
             "name": "Water Resources Management",
             "value": "Water Resources Management, T120"
           }
-        ]
+        ],
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "boolean",
-        "valueType": "boolean",
+        "label": "Is Leader",
         "name": "is_leader",
-        "label": "Is Leader"
+        "valueType": "boolean"
       },
       {
         "component": "boolean",
-        "valueType": "boolean",
+        "label": "Expert",
         "name": "expert_indicator",
-        "label": "Expert"
+        "valueType": "boolean"
       },
       {
         "component": "boolean",
-        "valueType": "boolean",
+        "label": "Sr. Manager",
         "name": "sr_manager",
-        "label": "Sr. Manager"
+        "valueType": "boolean"
       }
     ]
   },
@@ -1772,17 +1815,18 @@
     "fields": [
       {
         "component": "reference",
-        "valueType": "string",
-        "name": "fileReference",
+        "description": "Select an image",
         "label": "Image",
-        "multi": false
+        "multi": false,
+        "name": "fileReference",
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Alt Text",
         "name": "alt",
         "value": "Default alt",
-        "label": "Alt Text"
+        "valueType": "string"
       }
     ]
   },
@@ -1879,11 +1923,9 @@
     "fields": [
       {
         "component": "select",
-        "name": "sec-spacing",
-        "value": "",
-        "label": "Spacing Top (padding top)",
         "description": "Section top spacing, default is 32px.",
-        "valueType": "string",
+        "label": "Spacing Top (padding top)",
+        "name": "sec-spacing",
         "options": [
           {
             "name": "Default spacing",
@@ -1892,6 +1934,10 @@
           {
             "name": "No space / padding",
             "value": "section-none"
+          },
+          {
+            "name": "Spacing Between",
+            "value": "section-padding-between"
           },
           {
             "name": "Spacing tiny",
@@ -1937,15 +1983,15 @@
             "name": "Spacing xhuge",
             "value": "section-xhuge"
           }
-        ]
+        ],
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "sec-spacing-bottom",
-        "value": "",
-        "label": "Spacing Bottom (padding bottom)",
         "description": "Section bottom spacing, default is 32px.",
-        "valueType": "string",
+        "label": "Spacing Bottom (padding bottom)",
+        "name": "sec-spacing-bottom",
         "options": [
           {
             "name": "Default spacing",
@@ -1954,6 +2000,10 @@
           {
             "name": "No space / padding",
             "value": "section-none"
+          },
+          {
+            "name": "Spacing Between",
+            "value": "section-padding-between"
           },
           {
             "name": "Spacing tiny",
@@ -1999,92 +2049,168 @@
             "name": "Spacing xhuge",
             "value": "section-xhuge"
           }
-        ]
+        ],
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "sec-swoosh",
-        "value": "",
         "label": "Swoosh",
-        "valueType": "string",
+        "name": "sec-swoosh",
         "options": [
           {
             "name": "No Swoosh",
             "value": "sec-swoosh-none"
           },
           {
-            "name": "Left Center Swoosh",
+            "name": "Left Center Swoosh (1)",
             "value": "sec-swoosh-type1"
           },
           {
-            "name": "Left Top Swoosh",
-            "value": "sec-swoosh-type3"
-          },
-          {
-            "name": "Right Top Swoosh",
+            "name": "Right Top Swoosh (2)",
             "value": "sec-swoosh-type2"
           },
           {
-            "name": "Swoosh for BG inside container - Desktop",
+            "name": "Left Top Swoosh (3)",
+            "value": "sec-swoosh-type3"
+          },
+          {
+            "name": "Swoosh for BG inside container - Desktop (5)",
             "value": "sec-swoosh-type5"
           },
           {
-            "name": "Leaders profile swoosh",
+            "name": "Leaders profile swoosh (6)",
             "value": "sec-swoosh-type6"
+          },
+          {
+            "name": "Right Center Swoosh (7)",
+            "value": "sec-swoosh-type7"
+          },
+          {
+            "name": "Right Swoosh (8)",
+            "value": "sec-swoosh-type8"
+          },
+          {
+            "name": "Right Swoosh (9)",
+            "value": "sec-swoosh-type9"
+          },
+          {
+            "name": "Right Swoosh (10)",
+            "value": "sec-swoosh-type10"
           },
           {
             "name": "Primary Blue 90 theme Swoosh",
             "value": "sec-swoosh-primary-blue-90"
           }
-        ]
+        ],
+        "value": "",
+        "valueType": "string"
       },
       {
-        "component": "select",
+        "component": "multiselect",
+        "label": "Variant style",
         "name": "style",
-        "value": "",
-        "label": "Background style",
-        "valueType": "string",
         "options": [
           {
-            "name": "Transparent / White / Default",
+            "disabled": true,
+            "name": "-- Backgrounds --",
+            "value": ""
+          },
+          {
+            "name": "🎨[Background] Transparent / White / Default",
             "value": "bg-default"
           },
           {
-            "name": "Dark Background Container",
+            "name": "🎨[Background] Dark Background Container",
             "value": "bg-primary-blue"
           },
           {
-            "name": "Primary Blue 90",
+            "name": "🎨[Background] Primary Blue 90",
             "value": "bg-primary-blue-90"
           },
           {
-            "name": "Primary Blue 70",
+            "name": "🎨[Background] Primary Blue 70",
             "value": "bg-primary-blue-70"
           },
           {
-            "name": "Neutrals 10",
+            "name": "🎨[Background] Neutrals 10",
             "value": "bg-neutrals-10"
           },
           {
-            "name": "Neutrals 10 Gradient",
+            "name": "🎨[Background] Neutrals 10 Gradient",
             "value": "bg-neutrals-10-gradient"
           },
           {
-            "name": "Neutrals 20",
+            "name": "🎨[Background] Neutrals 20",
             "value": "bg-neutrals-20"
           },
           {
-            "name": "Background Image",
+            "name": "🎨[Background] Neutrals 05",
+            "value": "bg-neutrals-05-gradient"
+          },
+          {
+            "name": "🎨[Background] Neutrals 07",
+            "value": "bg-neutrals-07-gradient"
+          },
+          {
+            "name": "🎨[Background] Image",
             "value": "bg-image"
+          },
+          {
+            "name": "🧩[Component] Banner Container",
+            "value": "full-banner-container"
+          },
+          {
+            "name": "🧩[Component] Bottom Carousel",
+            "value": "bottom-carousel"
+          },
+          {
+            "name": "🧩[Component] Button Title Container",
+            "value": "title-text-button-container"
+          },
+          {
+            "name": "🧩[Component] Data Card Noborder",
+            "value": "data-card-noborder"
+          },
+          {
+            "name": "🧩[Component] Feature Banner Container",
+            "value": "feature-banner-container"
+          },
+          {
+            "name": "🧩[Component] List Container",
+            "value": "countrylist-container"
+          },
+          {
+            "name": "🧩[Component] List With Border Container",
+            "value": "partnerlist-container"
+          },
+          {
+            "name": "🧩[Component] Region Feature Card",
+            "value": "region-feature-card"
+          },
+          {
+            "name": "🧩[Component] Stay Connected",
+            "value": "stay-connected"
+          },
+          {
+            "name": "📐[Layout] Two Column Variation (50-50)",
+            "value": "two-col-variation-50-50"
+          },
+          {
+            "name": "📐[Layout] Two Column Variation (40-60)",
+            "value": "two-col-variation-40-60"
+          },
+          {
+            "name": "📐[Layout] Two Column Variation (75-25)",
+            "value": "two-col-variation-75-25"
           }
-        ]
+        ],
+        "value": [],
+        "valueType": "array"
       },
       {
-        "component": "container",
-        "label": "Background Image",
-        "name": "container",
-        "valueType": "string",
         "collapsible": true,
+        "component": "container",
         "condition": {
           "==": [
             {
@@ -2096,48 +2222,49 @@
         "fields": [
           {
             "component": "reference",
-            "valueType": "string",
-            "name": "image",
+            "description": "Max 1 Item",
             "label": "Background Image",
-            "multi": false
+            "multi": false,
+            "name": "image",
+            "valueType": "string"
           },
           {
             "component": "reference",
-            "valueType": "string",
-            "name": "tab-image",
-            "label": "Tablet Image",
             "description": "Background image will be used on tablet by default.",
-            "multi": false
+            "label": "Tablet Image",
+            "multi": false,
+            "name": "tab-image",
+            "valueType": "string"
           },
           {
             "component": "reference",
-            "valueType": "string",
-            "name": "mob-image",
-            "label": "Mobile Image",
             "description": "Background / Tablet image will be used on mobile by default.",
-            "multi": false
+            "label": "Mobile Image",
+            "multi": false,
+            "name": "mob-image",
+            "valueType": "string"
           }
-        ]
+        ],
+        "label": "Background Image",
+        "name": "container",
+        "valueType": "string"
       },
       {
         "component": "boolean",
-        "valueType": "boolean",
-        "name": "sec-inside-container",
+        "condition": {
+          "!=": [
+            {
+              "var": "style"
+            },
+            "bg-image"
+          ]
+        },
         "label": "Show background color inside container.",
-        "condition": {
-          "!=": [
-            {
-              "var": "style"
-            },
-            "bg-image"
-          ]
-        }
+        "name": "sec-inside-container",
+        "valueType": "boolean"
       },
       {
         "component": "boolean",
-        "valueType": "boolean",
-        "name": "sec-width",
-        "label": "Reduce section width.",
         "condition": {
           "!=": [
             {
@@ -2145,7 +2272,10 @@
             },
             "bg-image"
           ]
-        }
+        },
+        "label": "Reduce section width.",
+        "name": "sec-width",
+        "valueType": "boolean"
       }
     ]
   },
@@ -3466,29 +3596,26 @@
     "fields": [
       {
         "component": "text",
-        "name": "indicatorID",
         "label": "Indicator ID",
+        "name": "indicatorID",
         "valueType": "string"
       },
       {
         "component": "text",
-        "name": "indicatorName",
         "label": "Indicator Name",
+        "name": "indicatorName",
         "valueType": "string"
       },
       {
         "component": "text",
-        "name": "unitMeasure",
         "label": "Unit Measure",
+        "name": "unitMeasure",
         "valueType": "string"
       },
       {
         "component": "select",
-        "name": "chartType",
-        "value": "",
         "label": "Chart Type Selector",
-        "valueType": "string",
-        "required": true,
+        "name": "chartType",
         "options": [
           {
             "name": "Line Chart",
@@ -3498,7 +3625,10 @@
             "name": "Pie Chart",
             "value": "pie"
           }
-        ]
+        ],
+        "required": true,
+        "value": "",
+        "valueType": "string"
       }
     ]
   },
@@ -3874,10 +4004,10 @@
     "fields": [
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Title",
         "name": "subtitle",
         "value": "",
-        "label": "Title"
+        "valueType": "string"
       }
     ]
   },
@@ -7907,20 +8037,17 @@
     "fields": [
       {
         "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
         "label": "Tab Name",
-        "required": true
+        "name": "title",
+        "required": true,
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "valueType": "string",
-        "name": "tab-type",
-        "label": "Type of Tab",
         "description": "Select the Type of Tab",
-        "value": "",
-        "required": true,
+        "label": "Type of Tab",
+        "name": "tab-type",
         "options": [
           {
             "name": "All Tab",
@@ -7950,14 +8077,13 @@
             "name": "Author Manually",
             "value": "manual"
           }
-        ]
+        ],
+        "required": true,
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "url",
-        "value": "",
-        "label": "URL",
         "condition": {
           "and": [
             {
@@ -7977,14 +8103,14 @@
               ]
             }
           ]
-        }
+        },
+        "label": "URL",
+        "name": "url",
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "boolean",
-        "label": "POST",
-        "name": "post",
-        "value": "false",
-        "valueType": "boolean",
         "condition": {
           "or": [
             {
@@ -8004,14 +8130,14 @@
               ]
             }
           ]
-        }
+        },
+        "label": "POST",
+        "name": "post",
+        "value": "false",
+        "valueType": "boolean"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "body",
-        "value": "",
-        "label": "Body",
         "condition": {
           "==": [
             {
@@ -8019,15 +8145,14 @@
             },
             true
           ]
-        }
+        },
+        "label": "Body",
+        "name": "body",
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "aem-content",
-        "valueType": "string",
-        "name": "fragmentPath",
-        "value": "",
-        "label": "Fragment Path",
-        "rootPath": "/content/worldbank/corporate/ext/en/fragments/country",
         "condition": {
           "==": [
             {
@@ -8035,14 +8160,25 @@
             },
             "manual"
           ]
-        }
+        },
+        "label": "Fragment Path",
+        "name": "fragmentPath",
+        "rootPath": "/content/worldbank/corporate/ext/en/fragments/country",
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "tab-variant",
+        "condition": {
+          "!=": [
+            {
+              "var": "tab-type"
+            },
+            "manual"
+          ]
+        },
         "label": "Tab Variant",
-        "valueType": "string",
-        "value": "",
+        "name": "tab-variant",
         "options": [
           {
             "name": "Default View",
@@ -8053,22 +8189,11 @@
             "value": "two-column-view"
           }
         ],
-        "condition": {
-          "!=": [
-            {
-              "var": "tab-type"
-            },
-            "manual"
-          ]
-        }
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "display-items",
-        "value": "",
-        "label": "Display Items",
-        "description": "Number of items to display in this tab",
         "condition": {
           "!=": [
             {
@@ -8076,15 +8201,15 @@
             },
             "manual"
           ]
-        }
+        },
+        "description": "Number of items to display in this tab",
+        "label": "Display Items",
+        "name": "display-items",
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "boolean",
-        "label": "Disable Load More",
-        "description": "Disable Load More button for this tab",
-        "name": "disable-load-more",
-        "value": "false",
-        "valueType": "boolean",
         "condition": {
           "!=": [
             {
@@ -8092,29 +8217,30 @@
             },
             "manual"
           ]
-        }
+        },
+        "description": "Disable Load More button for this tab",
+        "label": "Disable Load More",
+        "name": "disable-load-more",
+        "value": "false",
+        "valueType": "boolean"
       },
       {
         "component": "text",
+        "condition": {
+          "==": [
+            {
+              "var": "disable-load-more"
+            },
+            true
+          ]
+        },
+        "label": "See All Button Label",
         "name": "see-all-button-label",
         "value": "",
-        "label": "See All Button Label",
-        "valueType": "string",
-        "condition": {
-          "==": [
-            {
-              "var": "disable-load-more"
-            },
-            true
-          ]
-        }
+        "valueType": "string"
       },
       {
         "component": "text",
-        "name": "see-all-button-link",
-        "value": "",
-        "label": "See All Button Link",
-        "valueType": "string",
         "condition": {
           "==": [
             {
@@ -8122,7 +8248,11 @@
             },
             true
           ]
-        }
+        },
+        "label": "See All Button Link",
+        "name": "see-all-button-link",
+        "value": "",
+        "valueType": "string"
       }
     ]
   },

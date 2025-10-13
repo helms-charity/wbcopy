@@ -182,7 +182,7 @@
     }
   ],
   "filters": [
-    {
+    { 
       "id": "columns",
       "components": []
     }

@@ -1,6 +1,6 @@
 {
   "definitions": [
-    {
+    { 
       "title": "Bio Detail",
       "id": "bio-detail",
       "plugins": {
