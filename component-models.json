@@ -2117,6 +2117,10 @@
             "value": ""
           },
           {
+            "name": "Hero Video Section",
+            "value": "hero-video-section"
+          },
+          {
             "name": "🎨[Background] Transparent / White / Default",
             "value": "bg-default"
           },
@@ -2276,12 +2280,6 @@
         "label": "Reduce section width.",
         "name": "sec-width",
         "valueType": "boolean"
-      },
-      {
-        "component": "text",
-        "name": "style",
-        "label": "Custom Style",
-        "valueType": "string"
       }
     ]
   },
