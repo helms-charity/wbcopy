@@ -378,7 +378,7 @@
                   "name": "sec-width",
                   "valueType": "boolean"
               },
-              {
+              { 
                 "component": "text",
                 "name": "style",
                 "label": "Custom Style",
