@@ -2276,6 +2276,12 @@
         "label": "Reduce section width.",
         "name": "sec-width",
         "valueType": "boolean"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "classes",
+        "label": "Custom Style"
       }
     ]
   },
@@ -5380,6 +5386,38 @@
         "name": "desc",
         "label": "Description Text",
         "value": ""
+      }
+    ]
+  },
+  {
+    "id": "hero",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "classes",
+        "label": "Style"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
       }
     ]
   },

@@ -377,6 +377,12 @@
                   "label": "Reduce section width.",
                   "name": "sec-width",
                   "valueType": "boolean"
+              },
+              {
+                "component": "text",
+                "valueType": "string",
+                "name": "classes",
+                "label": "Custom Style"
               }
           ]
       }
@@ -426,7 +432,8 @@
             "social-media",
             "country-charts",
             "stay-connected",
-            "custom-text"
+            "custom-text",
+            "hero"
         ]
       }
   ]
