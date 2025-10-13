@@ -651,8 +651,8 @@ html[dir="rtl"] {
   --section-reduced-space: 320px;
 
   /* Screen variables */
-  --nav-height: 44px;
-  --nav-padding: 35px;
+  --nav-height: 40px;
+  --nav-padding: 32px;
 
   /* main-heading styles */
   --main-heading-font-size: 40px;
@@ -662,7 +662,7 @@ html[dir="rtl"] {
   --signup-padding: 52px;
 
   /* numbers */
---border-radius-none: 0rem;
+  --border-radius-none: 0rem;
   --border-radius-small: 0.125rem;
   --border-radius-base: 0.25rem;
   --border-radius-medium: 0.5rem;
@@ -671,10 +671,10 @@ html[dir="rtl"] {
   --global-gutter: 1.5rem;
   --global-section-padding: 5rem;
   --grid-margin: 4.5rem;
-   --grid-gutter: 2rem;
+  --grid-gutter: 2rem;
   --grid-margin-12-col: 4.5rem;
   --grid-margin-10-col: 20rem;
-    --padding-breadcrumb-to-title: var(--spacing-xxlarge);
+  --padding-breadcrumb-to-title: var(--spacing-xxlarge);
   --padding-between-sections: var(--spacing-huge);
   --spacing-none: 0rem;
   --spacing-xtiny: 0.125rem;
@@ -696,7 +696,7 @@ html[dir="rtl"] {
 
   /* Typography */
   --font-size-100: 0.75rem;
-   --font-size-150: 0.8125rem;
+  --font-size-150: 0.8125rem;
   --font-size-200: 0.875rem;
   --font-size-300: 1rem;
   --font-size-400: 1.125rem;
@@ -1626,7 +1626,6 @@ main img {
 /* sections */
 main .section {
  margin: 0;
- padding: var(--spacing-medium) 0;
  position: relative;
 
 /* z-index: 0; */

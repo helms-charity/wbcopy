@@ -1,10 +1,16 @@
 main .hero-container > div {
   max-width: unset;
+  padding: unset;
 }
 
 main .hero-container {
   padding: 0;
 }
+
+main .hero-container .video-wrapper {
+height: 100vh;
+}
+
 
 .hero {
   position: relative;
