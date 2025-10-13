@@ -15,73 +15,77 @@
           }
         }
       }
-    },
+    }, 
     {
-          "title": "Icon Item",
-          "id": "icon-item",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "Icon Item",
-                  "model": "icon-item"
-                }
-              }
+      "title": "Icon Item",
+      "id": "icon-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Icon Item",
+              "model": "icon-item"
             }
           }
         }
+      }
+    }
   ],
   "models": [
-   {
-    "id": "stay-connected",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
-        "label": "Title"
-      }
-    ]
-  },
-  {
-    "id": "icon-item",
-    "fields": [
-      {
-        "component": "text",
-        "name": "label",
-        "label": "Label"
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "icon",
-        "label": "Icon",
-        "value": "",
-        "options": [
-          { "name": "Facebook", "value": "lp-fb" },
-          { "name": "LinkedIn", "value": "lp-linkln" },
-          { "name": "X", "value": "lp-x" },
-          { "name": "Flickr", "value": "lp-flickr-solid" },
-          { "name": "Youtube", "value": "lp-youtube-solid" }
-        ]
-      },
-      {
-        "component": "text",
-        "name": "link",
-        "label": "Link",
-        "valueType": "string"
-      }
-    ]
-  }
+    {
+      "id": "stay-connected",
+      "fields": [
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "title",
+          "value": "",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "id": "icon-item",
+      "fields": [
+        {
+          "component": "text",
+          "name": "label",
+          "label": "Label"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "icon",
+          "label": "Icon",
+          "value": "",
+          "options": [
+            { "name": "Facebook", "value": "lp-fb" },
+            { "name": "LinkedIn", "value": "lp-linkln" },
+            { "name": "X", "value": "lp-x" },
+            { "name": "Flickr", "value": "lp-flickr-solid" },
+            { "name": "Youtube", "value": "lp-youtube-solid" },
+            { "name": "Blogs", "value": "lp-blogs-solid" },
+            { "name": "Podcasts", "value": "lp-Podcasts" },
+            { "name": "RSS", "value": "lp-rss-solid" },
+            { "name": "Email/Alerts", "value": "lp-email" }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "link",
+          "label": "Link",
+          "valueType": "string"
+        }
+      ]
+    }
   ],
   "filters": [
     {
-    "id": "stay-connected",
-    "components": [
-      "icon-item"
-    ]
-  }
+      "id": "stay-connected",
+      "components": [
+        "icon-item"
+      ]
+    }
   ]
-}
+} 

@@ -15,7 +15,7 @@
         }
       }
     }
-  ],
+  ], 
   "models": [
     {
       "id": "heading",
@@ -42,7 +42,7 @@
           "label": "Heading Text",
           "required": true
         },
-        {
+        { 
           "component": "select",
           "name": "type",
           "value": "h2",
@@ -100,22 +100,66 @@
           "label": "Border Spacing Top (padding top)",
           "valueType": "string",
           "options": [
-            { "name": "Default spacing", "value": "heading-border-spacing-default" },
-            { "name": "No space / padding", "value": "heading-border-spacing-none" },
-            { "name": "Spacing tiny", "value": "heading-border-spacing-tiny" },
-            { "name": "Spacing xxsmall", "value": "heading-border-spacing-xxsmall" },
-            { "name": "Spacing xsmall", "value": "heading-border-spacing-xsmall" },
-            { "name": "Spacing regular", "value": "heading-border-spacing-regular" },
-            { "name": "Spacing small", "value": "heading-border-spacing-small" },
-            { "name": "Spacing medium", "value": "heading-border-spacing-medium" },
-            { "name": "Spacing large", "value": "heading-border-spacing-large" },
-            { "name": "Spacing xlarge", "value": "heading-border-spacing-xlarge" },
-            { "name": "Spacing xxlarge", "value": "heading-border-spacing-xxlarge" },
-            { "name": "Spacing huge", "value": "heading-border-spacing-huge" },
-            { "name": "Spacing xhuge", "value": "heading-border-spacing-xhuge" }
+            {
+              "name": "Default spacing",
+              "value": "heading-border-spacing-default"
+            },
+            {
+              "name": "No space / padding",
+              "value": "heading-border-spacing-none"
+            },
+            {
+              "name": "Spacing tiny",
+              "value": "heading-border-spacing-tiny"
+            },
+            {
+              "name": "Spacing xxsmall",
+              "value": "heading-border-spacing-xxsmall"
+            },
+            {
+              "name": "Spacing xsmall",
+              "value": "heading-border-spacing-xsmall"
+            },
+            {
+              "name": "Spacing regular",
+              "value": "heading-border-spacing-regular"
+            },
+            {
+              "name": "Spacing small",
+              "value": "heading-border-spacing-small"
+            },
+            {
+              "name": "Spacing medium",
+              "value": "heading-border-spacing-medium"
+            },
+            {
+              "name": "Spacing large",
+              "value": "heading-border-spacing-large"
+            },
+            {
+              "name": "Spacing xlarge",
+              "value": "heading-border-spacing-xlarge"
+            },
+            {
+              "name": "Spacing xxlarge",
+              "value": "heading-border-spacing-xxlarge"
+            },
+            {
+              "name": "Spacing huge",
+              "value": "heading-border-spacing-huge"
+            },
+            {
+              "name": "Spacing xhuge",
+              "value": "heading-border-spacing-xhuge"
+            }
           ],
           "condition": {
-            "==": [{ "var": "show_borderline" }, true]
+            "==": [
+              {
+                "var": "show_borderline"
+              },
+              true
+            ]
           }
         },
         {
@@ -126,19 +170,58 @@
           "description": "Heading top spacing",
           "valueType": "string",
           "options": [
-            { "name": "Default spacing", "value": "heading-top-spacing-default" },
-            { "name": "No space / padding", "value": "heading-top-none" },
-            { "name": "Spacing tiny", "value": "heading-top-tiny" },
-            { "name": "Spacing xxsmall", "value": "heading-top-xxsmall" },
-            { "name": "Spacing xsmall", "value": "heading-top-xsmall" },
-            { "name": "Spacing regular", "value": "heading-top-regular" },
-            { "name": "Spacing small", "value": "heading-top-small" },
-            { "name": "Spacing medium", "value": "heading-top-medium" },
-            { "name": "Spacing large", "value": "heading-top-large" },
-            { "name": "Spacing xlarge", "value": "heading-top-xlarge" },
-            { "name": "Spacing xxlarge", "value": "heading-top-xxlarge" },
-            { "name": "Spacing huge", "value": "heading-top-huge" },
-            { "name": "Spacing xhuge", "value": "heading-top-xhuge" }
+            {
+              "name": "Default spacing",
+              "value": "heading-top-spacing-default"
+            },
+            {
+              "name": "No space / padding",
+              "value": "heading-top-none"
+            },
+            {
+              "name": "Spacing tiny",
+              "value": "heading-top-tiny"
+            },
+            {
+              "name": "Spacing xxsmall",
+              "value": "heading-top-xxsmall"
+            },
+            {
+              "name": "Spacing xsmall",
+              "value": "heading-top-xsmall"
+            },
+            {
+              "name": "Spacing regular",
+              "value": "heading-top-regular"
+            },
+            {
+              "name": "Spacing small",
+              "value": "heading-top-small"
+            },
+            {
+              "name": "Spacing medium",
+              "value": "heading-top-medium"
+            },
+            {
+              "name": "Spacing large",
+              "value": "heading-top-large"
+            },
+            {
+              "name": "Spacing xlarge",
+              "value": "heading-top-xlarge"
+            },
+            {
+              "name": "Spacing xxlarge",
+              "value": "heading-top-xxlarge"
+            },
+            {
+              "name": "Spacing huge",
+              "value": "heading-top-huge"
+            },
+            {
+              "name": "Spacing xhuge",
+              "value": "heading-top-xhuge"
+            }
           ]
         },
         {
@@ -149,20 +232,80 @@
           "description": "Heading bottom spacing",
           "valueType": "string",
           "options": [
-            { "name": "Default spacing", "value": "heading-bottom-default" },
-            { "name": "No space / padding", "value": "heading-bottom-none" },
-            { "name": "Spacing tiny", "value": "heading-bottom-tiny" },
-            { "name": "Spacing xxsmall", "value": "heading-bottom-xxsmall" },
-            { "name": "Spacing xsmall", "value": "heading-bottom-xsmall" },
-            { "name": "Spacing regular", "value": "heading-bottom-regular" },
-            { "name": "Spacing small", "value": "heading-bottom-small" },
-            { "name": "Spacing medium", "value": "heading-bottom-medium" },
-            { "name": "Spacing large", "value": "heading-bottom-large" },
-            { "name": "Spacing xlarge", "value": "heading-bottom-xlarge" },
-            { "name": "Spacing xxlarge", "value": "heading-bottom-xxlarge" },
-            { "name": "Spacing huge", "value": "heading-bottom-huge" },
-            { "name": "Spacing xhuge", "value": "heading-bottom-xhuge" }
+            {
+              "name": "Default spacing",
+              "value": "heading-bottom-default"
+            },
+            {
+              "name": "No space / padding",
+              "value": "heading-bottom-none"
+            },
+            {
+              "name": "Spacing tiny",
+              "value": "heading-bottom-tiny"
+            },
+            {
+              "name": "Spacing xxsmall",
+              "value": "heading-bottom-xxsmall"
+            },
+            {
+              "name": "Spacing xsmall",
+              "value": "heading-bottom-xsmall"
+            },
+            {
+              "name": "Spacing regular",
+              "value": "heading-bottom-regular"
+            },
+            {
+              "name": "Spacing small",
+              "value": "heading-bottom-small"
+            },
+            {
+              "name": "Spacing medium",
+              "value": "heading-bottom-medium"
+            },
+            {
+              "name": "Spacing large",
+              "value": "heading-bottom-large"
+            },
+            {
+              "name": "Spacing xlarge",
+              "value": "heading-bottom-xlarge"
+            },
+            {
+              "name": "Spacing xxlarge",
+              "value": "heading-bottom-xxlarge"
+            },
+            {
+              "name": "Spacing huge",
+              "value": "heading-bottom-huge"
+            },
+            {
+              "name": "Spacing xhuge",
+              "value": "heading-bottom-xhuge"
+            }
           ]
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "buttontext",
+          "label": "Button Text",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "buttonlink",
+          "label": "Button Link",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "desc",
+          "label": "Description Text",
+          "value": ""
         }
       ]
     }

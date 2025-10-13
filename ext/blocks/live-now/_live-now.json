@@ -16,7 +16,7 @@
         }
       }
     }
-  ],
+  ], 
   "models": [
     {
       "id": "live-now",
@@ -33,7 +33,7 @@
               "name": "Test",
               "value": "test-mode"
             },
-            {
+            { 
               "name": "Normal",
               "value": "normal-mode"
             }
@@ -45,4 +45,4 @@
   "filters": [
 
   ]
-}
+} 

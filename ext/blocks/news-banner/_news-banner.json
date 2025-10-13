@@ -15,7 +15,7 @@
         }
       }
     }
-  ],
+  ],  
   "models": [
     {
       "id": "news-banner",
@@ -59,7 +59,7 @@
         },
         {
           "component": "richtext",
-          "name": "description",
+          "name": "description", 
           "value": "",
           "label": "Description",
           "valueType": "string"

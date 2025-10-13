@@ -23,7 +23,7 @@
         }
       }
     }
-  ],
+  ], 
   "models": [
     {
       "id": "carousel",
@@ -43,19 +43,19 @@
           "valueType": "string"
         },
         {
-          "component": "reference",
-          "name": "button",
-          "value": "",
-          "label": "Additional Text",
-          "valueType": "string"
-        },
-        {
-          "component": "reference",
+          "component": "select",
           "valueType": "string",
-          "name": "card",
-          "value": ""
+          "name": "classes",
+          "value": "",
+          "label": "Classes",
+          "options": [
+            {
+              "name": "Carousel With Button",
+              "value": "carousel-with-button"
+            }
+          ]
         }
-      ]
+      ] 
     }
   ],
   "filters": [

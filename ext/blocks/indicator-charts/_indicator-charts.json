@@ -15,8 +15,23 @@
           }
         }
       }
+    },
+    {
+      "title": "Indicator Item",
+      "id": "indicator-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Indicator Item",
+              "model": "indicator-item"
+            }
+          }
+        }
+      }
     }
-  ],
+  ], 
   "models": [
     {
       "id": "indicator-charts",
@@ -39,7 +54,7 @@
           ]
         },
         {
-          "component": "select",
+         "component": "select",
           "name": "selector",
           "value": "",
           "label": "Selector",
@@ -80,12 +95,12 @@
             }
           ],
           "condition": {
-            "==": [
-              {
-                "var": "pageType"
-              },
-              "region"
-            ]
+              "==": [
+                {
+                  "var": "pageType"
+                },
+                "region"
+              ]
           }
         },
         {
@@ -141,7 +156,7 @@
           "valueType": "string"
         }
       ]
-    },
+      },
     {
       "id": "indicator-item",
       "fields": [
@@ -175,3 +190,4 @@
     }
   ]
 }
+ 

@@ -15,12 +15,12 @@
         }
       }
     }
-  ],
+  ], 
   "models": [
     {
       "id": "dropdown-with-description",
       "fields": [
-        {
+        { 
           "component": "text",
           "valueType": "string",
           "name": "title",
@@ -49,7 +49,7 @@
           "value": ""
         },
         {
-          "component": "richtext",
+          "component": "richtext", 
           "name": "ddbodytext",
           "value": "",
           "label": "Card Body Text",

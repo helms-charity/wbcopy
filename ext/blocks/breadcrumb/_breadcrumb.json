@@ -10,12 +10,12 @@
             "template": {
               "name": "Breadcrumb",
               "model": "breadcrumb"
-            }
+            } 
           }
         }
       }
     }
-  ],
+  ], 
   "models": [],
   "filters": []
-}
+} 

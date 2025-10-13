@@ -16,7 +16,7 @@
         }
       }
     }
-  ],
+  ], 
   "models": [
     {
       "id": "teaser",
@@ -35,8 +35,14 @@
           "label": "Style",
           "valueType": "string",
           "options": [
-            { "name": "Video", "value": "video" },
-            { "name": "Image", "value": "image" }
+            {
+              "name": "Video",
+              "value": "video"
+            },
+            {
+              "name": "Image",
+              "value": "image"
+            }
           ]
         },
         {
@@ -44,7 +50,14 @@
           "label": "Video Properties",
           "name": "videoProperties",
           "valueType": "string",
-          "condition": { "===": [{ "var": "teaserStyle" }, "video"] },
+          "condition": {
+            "===": [
+              {
+                "var": "teaserStyle"
+              },
+              "video"
+            ]
+          }, 
           "fields": [
             {
               "component": "text",
@@ -61,8 +74,14 @@
               "label": "Video Behavior (on load)",
               "valueType": "string",
               "options": [
-                { "name": "Autoplay", "value": "autoplay" },
-                { "name": "Pause", "value": "pause" }
+                {
+                  "name": "Autoplay",
+                  "value": "autoplay"
+                },
+                {
+                  "name": "Pause",
+                  "value": "pause"
+                }
               ]
             }
           ]
@@ -72,14 +91,22 @@
           "label": "Image Properties",
           "name": "imageProperties",
           "valueType": "string",
-          "condition": { "===": [{ "var": "teaserStyle" }, "image"] },
+          "condition": {
+            "===": [
+              {
+                "var": "teaserStyle"
+              },
+              "image"
+            ]
+          },
           "fields": [
             {
               "component": "reference",
               "valueType": "string",
               "name": "imageRef",
               "label": "Image",
-              "multi": false
+              "multi": false,
+              "description": "Select an image for the teaser"
             },
             {
               "component": "text",

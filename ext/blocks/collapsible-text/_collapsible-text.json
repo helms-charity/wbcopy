@@ -15,7 +15,7 @@
         }
       }
     }
-  ],
+  ], 
   "models": [
     {
       "id": "collapsible-text",
@@ -56,7 +56,7 @@
           "valueType": "string"
         }
       ]
-    }
+    } 
   ],
   "filters": []
-}
+} 

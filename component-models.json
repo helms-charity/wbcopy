@@ -9,52 +9,57 @@
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "jcr:title",
         "label": "Title",
-        "required": true
+        "name": "jcr:title",
+        "required": true,
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "pageTitle",
         "label": "Page Title",
-        "required": true
+        "name": "pageTitle",
+        "required": false,
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "jcr:description",
+        "label": "Navigation Title",
+        "name": "navTitle",
+        "required": false,
+        "valueType": "string"
+      },
+      {
+        "component": "text",
         "label": "Description",
-        "required": true
+        "name": "jcr:description",
+        "required": true,
+        "valueType": "string"
       },
       {
         "component": "aem-tag",
-        "name": "cq:tags",
         "label": "Tags",
-        "valueType": "string",
-        "rootPath": "/content/cq:tags/world-bank"
+        "name": "cq:tags",
+        "rootPath": "/content/cq:tags/world-bank",
+        "valueType": "string"
       },
       {
         "component": "date-time",
-        "valueType": "date",
-        "value": "2024-09-23T00:00:00.000Z",
+        "label": "Content Date",
         "name": "content_date",
         "required": true,
-        "label": "Date Of Content creation"
+        "value": "2024-09-23T00:00:00.000Z",
+        "valueType": "datetime"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Author",
         "name": "author",
-        "label": "Author"
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "page-swoosh",
-        "value": "",
         "label": "Page Swoosh",
-        "valueType": "string",
+        "name": "page-swoosh",
         "options": [
           {
             "name": "No Swoosh",
@@ -68,16 +73,18 @@
             "name": "Half Curve Swoosh",
             "value": "page-swoosh-half-curve"
           }
-        ]
+        ],
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "alternate-url",
-        "multi": true,
-        "value": "",
+        "description": "List of other language urls of current page (provide absolute url). Use pattern 'es|https://www.worldbank.com/es'",
         "label": "Language URL(s)",
-        "description": "List of other language urls of current page (provide absolute url). Use pattern 'es|https://www.worldbank.com/es'"
+        "multi": true,
+        "name": "alternate-url",
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "tab",
@@ -86,39 +93,36 @@
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "pageUid",
         "label": "Page Uid",
-        "required": true
+        "name": "pageUid",
+        "required": true,
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "pageName",
         "label": "Page Name",
-        "required": true
+        "name": "pageName",
+        "required": true,
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "pageCategory",
         "label": "Page Category",
-        "required": true
+        "name": "pageCategory",
+        "required": true,
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "channel",
         "label": "Channel",
-        "required": true
+        "name": "channel",
+        "required": true,
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "content_type",
-        "value": "",
         "label": "Content Type",
-        "required": true,
-        "valueType": "string",
+        "name": "content_type",
         "options": [
           {
             "name": "Brief",
@@ -212,15 +216,15 @@
             "name": "Video",
             "value": "Video"
           }
-        ]
+        ],
+        "required": true,
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "languages",
-        "value": "",
         "label": "Language",
-        "required": true,
-        "valueType": "string",
+        "name": "languages",
         "options": [
           {
             "name": "Afrikaans, AFR1",
@@ -942,15 +946,15 @@
             "name": "Zande, ZAN",
             "value": "Zande, ZAN"
           }
-        ]
+        ],
+        "required": true,
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "originating_unit",
-        "value": "",
         "label": "Unit",
-        "required": true,
-        "valueType": "string",
+        "name": "originating_unit",
         "options": [
           {
             "name": "Accountability Mechanism (AMIPN)",
@@ -1156,15 +1160,51 @@
             "name": "Water",
             "value": "Water, WAT"
           }
-        ]
+        ],
+        "required": true,
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "WebPackage ID",
+        "name": "webpackage_id",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Business Unit",
+        "name": "buss_unit",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Site Section",
+        "name": "site_section",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Site Sub Section 1",
+        "name": "subsectionp2",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Site Sub Section 2",
+        "name": "subsectionp3",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "label": "Site Sub Section 3",
+        "name": "subsectionp4",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "information_classification",
-        "value": "",
         "label": "Information Classification",
-        "required": true,
-        "valueType": "string",
+        "name": "information_classification",
         "options": [
           {
             "name": "Confidential",
@@ -1182,7 +1222,10 @@
             "name": "Strictly Confidential",
             "value": "STC_AI"
           }
-        ]
+        ],
+        "required": true,
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "tab",
@@ -1191,59 +1234,57 @@
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Surname",
         "name": "surname",
         "value": "",
-        "label": "Surname"
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "First Name",
         "name": "first_name",
         "value": "",
-        "label": "First Name"
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Display Name",
         "name": "display_name",
         "value": "",
-        "label": "Display Name"
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Job Title",
         "name": "job_title",
         "value": "",
-        "label": "Job Title"
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "UPID",
         "name": "upi",
         "value": "",
-        "label": "UPID"
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Email",
         "name": "email",
         "value": "",
-        "label": "Email"
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Phone",
         "name": "phone",
         "value": "",
-        "label": "Phone"
+        "valueType": "string"
       },
       {
         "component": "multiselect",
-        "name": "topic_exp",
-        "value": "",
         "label": "Topics of Expertise",
-        "valueType": "string",
+        "name": "topic_exp",
         "options": [
           {
             "name": "Agribusiness",
@@ -1745,25 +1786,27 @@
             "name": "Water Resources Management",
             "value": "Water Resources Management, T120"
           }
-        ]
+        ],
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "boolean",
-        "valueType": "boolean",
+        "label": "Is Leader",
         "name": "is_leader",
-        "label": "Is Leader"
+        "valueType": "boolean"
       },
       {
         "component": "boolean",
-        "valueType": "boolean",
+        "label": "Expert",
         "name": "expert_indicator",
-        "label": "Expert"
+        "valueType": "boolean"
       },
       {
         "component": "boolean",
-        "valueType": "boolean",
+        "label": "Sr. Manager",
         "name": "sr_manager",
-        "label": "Sr. Manager"
+        "valueType": "boolean"
       }
     ]
   },
@@ -1772,17 +1815,18 @@
     "fields": [
       {
         "component": "reference",
-        "valueType": "string",
-        "name": "fileReference",
+        "description": "Select an image",
         "label": "Image",
-        "multi": false
+        "multi": false,
+        "name": "fileReference",
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Alt Text",
         "name": "alt",
         "value": "Default alt",
-        "label": "Alt Text"
+        "valueType": "string"
       }
     ]
   },
@@ -1879,11 +1923,9 @@
     "fields": [
       {
         "component": "select",
-        "name": "sec-spacing",
-        "value": "",
-        "label": "Spacing Top (padding top)",
         "description": "Section top spacing, default is 32px.",
-        "valueType": "string",
+        "label": "Spacing Top (padding top)",
+        "name": "sec-spacing",
         "options": [
           {
             "name": "Default spacing",
@@ -1892,6 +1934,10 @@
           {
             "name": "No space / padding",
             "value": "section-none"
+          },
+          {
+            "name": "Spacing Between",
+            "value": "section-padding-between"
           },
           {
             "name": "Spacing tiny",
@@ -1937,15 +1983,15 @@
             "name": "Spacing xhuge",
             "value": "section-xhuge"
           }
-        ]
+        ],
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "sec-spacing-bottom",
-        "value": "",
-        "label": "Spacing Bottom (padding bottom)",
         "description": "Section bottom spacing, default is 32px.",
-        "valueType": "string",
+        "label": "Spacing Bottom (padding bottom)",
+        "name": "sec-spacing-bottom",
         "options": [
           {
             "name": "Default spacing",
@@ -1954,6 +2000,10 @@
           {
             "name": "No space / padding",
             "value": "section-none"
+          },
+          {
+            "name": "Spacing Between",
+            "value": "section-padding-between"
           },
           {
             "name": "Spacing tiny",
@@ -1999,92 +2049,168 @@
             "name": "Spacing xhuge",
             "value": "section-xhuge"
           }
-        ]
+        ],
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "sec-swoosh",
-        "value": "",
         "label": "Swoosh",
-        "valueType": "string",
+        "name": "sec-swoosh",
         "options": [
           {
             "name": "No Swoosh",
             "value": "sec-swoosh-none"
           },
           {
-            "name": "Left Center Swoosh",
+            "name": "Left Center Swoosh (1)",
             "value": "sec-swoosh-type1"
           },
           {
-            "name": "Left Top Swoosh",
-            "value": "sec-swoosh-type3"
-          },
-          {
-            "name": "Right Top Swoosh",
+            "name": "Right Top Swoosh (2)",
             "value": "sec-swoosh-type2"
           },
           {
-            "name": "Swoosh for BG inside container - Desktop",
+            "name": "Left Top Swoosh (3)",
+            "value": "sec-swoosh-type3"
+          },
+          {
+            "name": "Swoosh for BG inside container - Desktop (5)",
             "value": "sec-swoosh-type5"
           },
           {
-            "name": "Leaders profile swoosh",
+            "name": "Leaders profile swoosh (6)",
             "value": "sec-swoosh-type6"
+          },
+          {
+            "name": "Right Center Swoosh (7)",
+            "value": "sec-swoosh-type7"
+          },
+          {
+            "name": "Right Swoosh (8)",
+            "value": "sec-swoosh-type8"
+          },
+          {
+            "name": "Right Swoosh (9)",
+            "value": "sec-swoosh-type9"
+          },
+          {
+            "name": "Right Swoosh (10)",
+            "value": "sec-swoosh-type10"
           },
           {
             "name": "Primary Blue 90 theme Swoosh",
             "value": "sec-swoosh-primary-blue-90"
           }
-        ]
+        ],
+        "value": "",
+        "valueType": "string"
       },
       {
-        "component": "select",
+        "component": "multiselect",
+        "label": "Variant style",
         "name": "style",
-        "value": "",
-        "label": "Background style",
-        "valueType": "string",
         "options": [
           {
-            "name": "Transparent / White / Default",
+            "disabled": true,
+            "name": "-- Backgrounds --",
+            "value": ""
+          },
+          {
+            "name": "🎨[Background] Transparent / White / Default",
             "value": "bg-default"
           },
           {
-            "name": "Dark Background Container",
+            "name": "🎨[Background] Dark Background Container",
             "value": "bg-primary-blue"
           },
           {
-            "name": "Primary Blue 90",
+            "name": "🎨[Background] Primary Blue 90",
             "value": "bg-primary-blue-90"
           },
           {
-            "name": "Primary Blue 70",
+            "name": "🎨[Background] Primary Blue 70",
             "value": "bg-primary-blue-70"
           },
           {
-            "name": "Neutrals 10",
+            "name": "🎨[Background] Neutrals 10",
             "value": "bg-neutrals-10"
           },
           {
-            "name": "Neutrals 10 Gradient",
+            "name": "🎨[Background] Neutrals 10 Gradient",
             "value": "bg-neutrals-10-gradient"
           },
           {
-            "name": "Neutrals 20",
+            "name": "🎨[Background] Neutrals 20",
             "value": "bg-neutrals-20"
           },
           {
-            "name": "Background Image",
+            "name": "🎨[Background] Neutrals 05",
+            "value": "bg-neutrals-05-gradient"
+          },
+          {
+            "name": "🎨[Background] Neutrals 07",
+            "value": "bg-neutrals-07-gradient"
+          },
+          {
+            "name": "🎨[Background] Image",
             "value": "bg-image"
+          },
+          {
+            "name": "🧩[Component] Banner Container",
+            "value": "full-banner-container"
+          },
+          {
+            "name": "🧩[Component] Bottom Carousel",
+            "value": "bottom-carousel"
+          },
+          {
+            "name": "🧩[Component] Button Title Container",
+            "value": "title-text-button-container"
+          },
+          {
+            "name": "🧩[Component] Data Card Noborder",
+            "value": "data-card-noborder"
+          },
+          {
+            "name": "🧩[Component] Feature Banner Container",
+            "value": "feature-banner-container"
+          },
+          {
+            "name": "🧩[Component] List Container",
+            "value": "countrylist-container"
+          },
+          {
+            "name": "🧩[Component] List With Border Container",
+            "value": "partnerlist-container"
+          },
+          {
+            "name": "🧩[Component] Region Feature Card",
+            "value": "region-feature-card"
+          },
+          {
+            "name": "🧩[Component] Stay Connected",
+            "value": "stay-connected"
+          },
+          {
+            "name": "📐[Layout] Two Column Variation (50-50)",
+            "value": "two-col-variation-50-50"
+          },
+          {
+            "name": "📐[Layout] Two Column Variation (40-60)",
+            "value": "two-col-variation-40-60"
+          },
+          {
+            "name": "📐[Layout] Two Column Variation (75-25)",
+            "value": "two-col-variation-75-25"
           }
-        ]
+        ],
+        "value": [],
+        "valueType": "array"
       },
       {
-        "component": "container",
-        "label": "Background Image",
-        "name": "container",
-        "valueType": "string",
         "collapsible": true,
+        "component": "container",
         "condition": {
           "==": [
             {
@@ -2096,48 +2222,49 @@
         "fields": [
           {
             "component": "reference",
-            "valueType": "string",
-            "name": "image",
+            "description": "Max 1 Item",
             "label": "Background Image",
-            "multi": false
+            "multi": false,
+            "name": "image",
+            "valueType": "string"
           },
           {
             "component": "reference",
-            "valueType": "string",
-            "name": "tab-image",
-            "label": "Tablet Image",
             "description": "Background image will be used on tablet by default.",
-            "multi": false
+            "label": "Tablet Image",
+            "multi": false,
+            "name": "tab-image",
+            "valueType": "string"
           },
           {
             "component": "reference",
-            "valueType": "string",
-            "name": "mob-image",
-            "label": "Mobile Image",
             "description": "Background / Tablet image will be used on mobile by default.",
-            "multi": false
+            "label": "Mobile Image",
+            "multi": false,
+            "name": "mob-image",
+            "valueType": "string"
           }
-        ]
+        ],
+        "label": "Background Image",
+        "name": "container",
+        "valueType": "string"
       },
       {
         "component": "boolean",
-        "valueType": "boolean",
-        "name": "sec-inside-container",
+        "condition": {
+          "!=": [
+            {
+              "var": "style"
+            },
+            "bg-image"
+          ]
+        },
         "label": "Show background color inside container.",
-        "condition": {
-          "!=": [
-            {
-              "var": "style"
-            },
-            "bg-image"
-          ]
-        }
+        "name": "sec-inside-container",
+        "valueType": "boolean"
       },
       {
         "component": "boolean",
-        "valueType": "boolean",
-        "name": "sec-width",
-        "label": "Reduce section width.",
         "condition": {
           "!=": [
             {
@@ -2145,7 +2272,10 @@
             },
             "bg-image"
           ]
-        }
+        },
+        "label": "Reduce section width.",
+        "name": "sec-width",
+        "valueType": "boolean"
       }
     ]
   },
@@ -2248,10 +2378,6 @@
           {
             "name": "Senior Leadership view",
             "value": "senior-leadership"
-          },
-          {
-            "name": "Sticky Card view",
-            "value": "sticky-card"
           }
         ]
       }
@@ -2265,7 +2391,8 @@
         "valueType": "string",
         "name": "image",
         "label": "Image",
-        "multi": false
+        "multi": false,
+        "description": "Max 1 Item"
       },
       {
         "component": "text",
@@ -2301,17 +2428,17 @@
         "valueType": "string"
       },
       {
-        "component": "reference",
-        "name": "button",
-        "value": "",
-        "label": "Additional Text",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
+        "component": "select",
         "valueType": "string",
-        "name": "card",
-        "value": ""
+        "name": "classes",
+        "value": "",
+        "label": "Classes",
+        "options": [
+          {
+            "name": "Carousel With Button",
+            "value": "carousel-with-button"
+          }
+        ]
       }
     ]
   },
@@ -2378,6 +2505,10 @@
                 "value": "columns-heading-with-description"
               },
               {
+                "name": "Banner Heading Variant",
+                "value": "columns-heading-banner-variant"
+              },
+              {
                 "name": "Divider Variant",
                 "value": "columns-divider-variant"
               },
@@ -2390,6 +2521,10 @@
                 "value": "columns-feature-card"
               },
               {
+                "name": "List Nav Variation",
+                "value": "knowledge-card"
+              },
+              {
                 "name": "Image Right Variation",
                 "value": "columns-image-right"
               },
@@ -2400,6 +2535,10 @@
               {
                 "name": "News Banner Bottom Variation",
                 "value": "columns-news-banner-bottom"
+              },
+              {
+                "name": "Collapsible List Variation",
+                "value": "collapsible-list-variation"
               }
             ]
           },
@@ -2459,6 +2598,14 @@
               {
                 "name": "75% - 25%",
                 "value": "column-layout-75-25"
+              },
+              {
+                "name": "50% - Auto",
+                "value": "column-layout-50-auto"
+              },
+              {
+                "name": "Auto - 50%",
+                "value": "column-layout-auto-50"
               }
             ]
           }
@@ -3445,24 +3592,42 @@
     ]
   },
   {
-    "id": "indicator-item",
+    "id": "indicator-list",
     "fields": [
       {
         "component": "text",
-        "name": "indicatorID",
         "label": "Indicator ID",
+        "name": "indicatorID",
         "valueType": "string"
       },
       {
         "component": "text",
-        "name": "indicatorName",
         "label": "Indicator Name",
+        "name": "indicatorName",
         "valueType": "string"
       },
       {
         "component": "text",
-        "name": "unitMeasure",
         "label": "Unit Measure",
+        "name": "unitMeasure",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "label": "Chart Type Selector",
+        "name": "chartType",
+        "options": [
+          {
+            "name": "Line Chart",
+            "value": "line"
+          },
+          {
+            "name": "Pie Chart",
+            "value": "pie"
+          }
+        ],
+        "required": true,
+        "value": "",
         "valueType": "string"
       }
     ]
@@ -3708,6 +3873,13 @@
         "valueType": "string"
       },
       {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "see-all-label",
+        "label": "See All Stories Button",
+        "description": "See All Stories Button"
+      },
+      {
         "component": "select",
         "valueType": "string",
         "name": "classes",
@@ -3723,7 +3895,7 @@
             "value": "news-card-variation"
           },
           {
-            "name": "Horizontal Card",
+            "name": "News Horizontal Card",
             "value": "horizontal-card-variation"
           }
         ]
@@ -3801,7 +3973,8 @@
         "valueType": "string",
         "name": "news-card-image",
         "label": "Image",
-        "multi": false
+        "multi": false,
+        "description": "Select an image for the news card"
       },
       {
         "component": "text",
@@ -3809,6 +3982,20 @@
         "name": "alt",
         "value": "Default alt",
         "label": "News Card Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "see-all-label",
+        "value": "",
+        "label": "See All Lable"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "see-all-link",
+        "value": "",
+        "label": "See All Link"
       }
     ]
   },
@@ -3817,34 +4004,10 @@
     "fields": [
       {
         "component": "text",
-        "valueType": "string",
+        "label": "Title",
         "name": "subtitle",
         "value": "",
-        "label": "Subtitle"
-      },
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "title",
-        "label": "Title",
-        "value": "",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "linktext",
-        "label": "Link Text",
-        "value": "",
-        "required": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "linkhref",
-        "label": "Link Href",
-        "value": "",
-        "required": true
+        "valueType": "string"
       }
     ]
   },
@@ -3852,18 +4015,18 @@
     "id": "dropdown-item",
     "fields": [
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Select Text",
+        "value": ""
+      },
+      {
         "component": "richtext",
         "name": "cardbodytext",
         "value": "",
         "label": "Card Body Text",
         "valueType": "string"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt Text",
-        "value": ""
       }
     ]
   },
@@ -3954,6 +4117,33 @@
         "value": "",
         "label": "Main heading",
         "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "selectButton1",
+        "value": "",
+        "label": "Select Button1"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "selectButton2",
+        "value": "",
+        "label": "Select Button2"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Classes",
+        "options": [
+          {
+            "name": "Card With Button",
+            "value": "card-with-button"
+          }
+        ]
       }
     ]
   },
@@ -3967,6 +4157,7 @@
         "label": "Card Image",
         "required": true,
         "multi": false,
+        "description": "Select an image for the card",
         "rootPath": "/content/dam/world-bank"
       },
       {
@@ -4065,7 +4256,8 @@
         "valueType": "string",
         "name": "image",
         "label": "Image",
-        "multi": false
+        "multi": false,
+        "description": "Select an image for the feature card"
       },
       {
         "component": "text",
@@ -5167,6 +5359,27 @@
             "value": "heading-bottom-xhuge"
           }
         ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonlink",
+        "label": "Button Link",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "desc",
+        "label": "Description Text",
+        "value": ""
       }
     ]
   },
@@ -5573,7 +5786,8 @@
         "valueType": "string",
         "name": "image",
         "label": "Icon",
-        "multi": false
+        "multi": false,
+        "description": "Select an icon for the impact card"
       },
       {
         "component": "text",
@@ -5602,6 +5816,43 @@
         "value": "",
         "label": "Impact Link",
         "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "border-color",
+        "value": "",
+        "label": "Border Color",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "People",
+            "value": "people"
+          },
+          {
+            "name": "Prosperity",
+            "value": "prosperity"
+          },
+          {
+            "name": "Planet",
+            "value": "planet"
+          },
+          {
+            "name": "Infrastructure",
+            "value": "infrastructure"
+          },
+          {
+            "name": "Digital",
+            "value": "digital"
+          },
+          {
+            "name": "Cross Cutting Areas",
+            "value": "cross-cutting-areas"
+          }
+        ]
       }
     ]
   },
@@ -5614,7 +5865,14 @@
         "value": "",
         "label": "Mini Cards Heading",
         "valueType": "string",
-        "required": true
+        "required": false
+      },
+      {
+        "component": "richtext",
+        "name": "mini-cards-select-all-button",
+        "value": "",
+        "label": "Mini Cards Select Button",
+        "valueType": "string"
       },
       {
         "component": "select",
@@ -5630,6 +5888,10 @@
           {
             "name": "Image List",
             "value": "image-list-variation"
+          },
+          {
+            "name": "Mini Cards With Mobile SLider",
+            "value": "mini-card-with-slider"
           }
         ]
       }
@@ -5643,14 +5905,15 @@
         "valueType": "string",
         "name": "mini-card-image",
         "label": "Image",
-        "multi": false
+        "multi": false,
+        "description": "Max 1 Item"
       },
       {
         "component": "aem-tag",
         "name": "mini-card-tag",
         "label": "Card Type",
         "valueType": "string",
-        "required": true,
+        "required": false,
         "rootPath": "/content/cq:tags/world-bank/content-type",
         "multi": false
       },
@@ -5697,6 +5960,41 @@
         "name": "alt",
         "value": "",
         "label": "Mini Card Alt Text"
+      },
+      {
+        "component": "richtext",
+        "name": "mini-cards-desc",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "eyebrowtext",
+        "value": "",
+        "label": "Eyebrow Text"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Classes",
+        "options": [
+          {
+            "name": "Vertical Image",
+            "value": "small-v-img"
+          },
+          {
+            "name": "Horizontal Image",
+            "value": "small-h-img"
+          },
+          {
+            "name": "Square Image",
+            "value": "small-s-img"
+          }
+        ]
       }
     ]
   },
@@ -5763,7 +6061,8 @@
         "valueType": "string",
         "name": "image",
         "label": "Background Image",
-        "multi": false
+        "multi": false,
+        "description": "Select an image for the background of the organizational cards"
       },
       {
         "component": "text",
@@ -5829,24 +6128,21 @@
         "valueType": "string",
         "name": "title",
         "label": "Title",
-        "value": "",
-        "required": true
+        "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "linktext",
         "label": "Link Text",
-        "value": "",
-        "required": true
+        "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "linkhref",
         "label": "Link Href",
-        "value": "",
-        "required": true
+        "value": ""
       }
     ]
   },
@@ -5873,7 +6169,8 @@
         "valueType": "string",
         "name": "image",
         "label": "Image",
-        "multi": false
+        "multi": false,
+        "description": "Select an image for the priority item"
       },
       {
         "component": "text",
@@ -5893,7 +6190,7 @@
         "name": "title",
         "value": "",
         "label": "Heading",
-        "required": true
+        "required": false
       },
       {
         "component": "text",
@@ -5901,7 +6198,7 @@
         "name": "buttontext",
         "label": "Button Text",
         "value": "",
-        "required": true
+        "required": false
       },
       {
         "component": "text",
@@ -5909,7 +6206,24 @@
         "name": "buttonlink",
         "label": "Button Link",
         "value": "",
-        "required": true
+        "required": false
+      },
+      {
+        "component": "select",
+        "name": "tab-variant",
+        "label": "Tab Variant",
+        "valueType": "string",
+        "value": "default",
+        "options": [
+          {
+            "name": "2 Cards View (Default)",
+            "value": "default"
+          },
+          {
+            "name": "Single Card View",
+            "value": "single-card-view"
+          }
+        ]
       }
     ]
   },
@@ -5917,11 +6231,19 @@
     "id": "research-publications-card",
     "fields": [
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "eyebrowtext",
+        "value": "",
+        "label": "Eyebrow Text"
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
         "label": "Image",
         "multi": false,
+        "description": "Select an image for the research publication card",
         "required": true
       },
       {
@@ -6056,28 +6378,1534 @@
     "id": "signup",
     "fields": [
       {
-        "component": "select",
+        "component": "text",
         "valueType": "string",
-        "name": "classes",
-        "label": "Sign Up Variation",
+        "name": "country-news-checkbox-label",
+        "value": "",
+        "label": "Email Alerts on country news, projects, and research label"
+      },
+      {
+        "component": "select",
+        "name": "newsletter",
+        "label": "Newsletter",
+        "valueType": "string",
         "value": "",
         "options": [
           {
-            "name": "Default View",
+            "name": "Select Service Key",
             "value": ""
           },
           {
-            "name": "Region / Country View",
-            "value": "region-country-view"
+            "name": "Accountability Matters",
+            "value": "Accountability Matters|SVC368"
+          },
+          {
+            "name": "Africa East-French",
+            "value": "Africa East-French|SVC206"
+          },
+          {
+            "name": "Africa KITS Monthly Newsletter",
+            "value": "Africa KITS Monthly Newsletter|SVC134"
+          },
+          {
+            "name": "Africa West-English",
+            "value": "Africa West-English|SVC204"
+          },
+          {
+            "name": "Africa West-French",
+            "value": "Africa West-French|SVC203"
+          },
+          {
+            "name": "Boletín de América Latina y el Caribe",
+            "value": "Boletín de América Latina y el Caribe|SVC305"
+          },
+          {
+            "name": "Business Environment Explorer - External Newsletter",
+            "value": "Business Environment Explorer - External Newsletter|SVC207"
+          },
+          {
+            "name": "Cambodia e-Newsletter",
+            "value": "Cambodia e-Newsletter|SVC96"
+          },
+          {
+            "name": "CAWEP Newsletter (English)",
+            "value": "CAWEP Newsletter (English)|SVC220"
+          },
+          {
+            "name": "CAWEP Newsletter External Russian",
+            "value": "CAWEP Newsletter External Russian|SVC221"
+          },
+          {
+            "name": "CFRR Program Newsletter",
+            "value": "CFRR Program Newsletter|SVC72"
+          },
+          {
+            "name": "Civil Society Newsletter",
+            "value": "Civil Society Newsletter|wbg-svc-cso-nl"
+          },
+          {
+            "name": "DE4A External Newsletter Service",
+            "value": "DE4A External Newsletter Service|SVC186"
+          },
+          {
+            "name": "DEC Research Newsletter",
+            "value": "DEC Research Newsletter|wbg-svc-dec-rsrch-nl"
+          },
+          {
+            "name": "EAP China Chinese",
+            "value": "EAP China Chinese|wbg-svc-eap-china-chinese"
+          },
+          {
+            "name": "EAP China English",
+            "value": "EAP China English|wbg-svc-eap-china-eng"
+          },
+          {
+            "name": "EAP Indonesia Bahasa Newsletter",
+            "value": "EAP Indonesia Bahasa Newsletter|wbg-svc-eap-indo-bah-nl"
+          },
+          {
+            "name": "EAP Indonesia English Newsletter",
+            "value": "EAP Indonesia English Newsletter|wbg-svc-eap-indo-eng-nl"
+          },
+          {
+            "name": "EAP Korea Newsletter",
+            "value": "EAP Korea Newsletter|wbg-svc-eap-kor-nl"
+          },
+          {
+            "name": "EAP Laos Newsletter",
+            "value": "EAP Laos Newsletter|wbg-svc-eap-laos-nl"
+          },
+          {
+            "name": "EAP Malaysia Newsletter ",
+            "value": "EAP Malaysia Newsletter |wbg-svc-eap-malaysia"
+          },
+          {
+            "name": "EAP Mongolia English Newsletter",
+            "value": "EAP Mongolia English Newsletter|wbg-svc-mongo-eng-nl"
+          },
+          {
+            "name": "EAP Mongolia Mongolian Newsletter",
+            "value": "EAP Mongolia Mongolian Newsletter|wbg-svc-eap-mongo-mongolian-nl"
+          },
+          {
+            "name": "EAP Philippines Newsletter ",
+            "value": "EAP Philippines Newsletter |wbg-svc-eap-phili-nl"
+          },
+          {
+            "name": "EAP Singapore",
+            "value": "EAP Singapore|wbg-svc-singapore"
+          },
+          {
+            "name": "EAP Thailand Newsletter ",
+            "value": "EAP Thailand Newsletter |wbg-svc-eap-thai-nl"
+          },
+          {
+            "name": "EAP Vietnam with English",
+            "value": "EAP Vietnam with English|SVC80"
+          },
+          {
+            "name": "EAP Vietnam with Vietnamese",
+            "value": "EAP Vietnam with Vietnamese|SVC81"
+          },
+          {
+            "name": "ECACE Newsletter",
+            "value": "ECACE Newsletter|wbg-svc-ecace"
+          },
+          {
+            "name": "ECA Turkey Newsletter in English",
+            "value": "ECA Turkey Newsletter in English|SVC78"
+          },
+          {
+            "name": "ECA Turkey Newsletter in Turkey",
+            "value": "ECA Turkey Newsletter in Turkey|SVC79"
+          },
+          {
+            "name": "ESMAP Event Announcement Newsletter",
+            "value": "ESMAP Event Announcement Newsletter|wbg-svc-esmap-evnt"
+          },
+          {
+            "name": "ESMAP Monthly Newsletter",
+            "value": "ESMAP Monthly Newsletter|SVC280"
+          },
+          {
+            "name": "ESMAP Newsletter | May 2023",
+            "value": "ESMAP Newsletter | May 2023|wbg-svc-esmap-ebltn"
+          },
+          {
+            "name": "ESMAP Publication Announcement Newsletter",
+            "value": "ESMAP Publication Announcement Newsletter|wbg-svc-esmap-pub"
+          },
+          {
+            "name": "Forced Displacement Research Updates",
+            "value": "Forced Displacement Research Updates|SVC228"
+          },
+          {
+            "name": "Friends of IDA Newsletter",
+            "value": "Friends of IDA Newsletter|SVC99"
+          },
+          {
+            "name": "Getting Infrastructure Finance Right",
+            "value": "Getting Infrastructure Finance Right|SVC120"
+          },
+          {
+            "name": "Global Findex Findings Newsletter",
+            "value": "Global Findex Findings Newsletter|SVC385"
+          },
+          {
+            "name": "Governance Update",
+            "value": "Governance Update|SVC123"
+          },
+          {
+            "name": "GPSA Newsletters",
+            "value": "GPSA Newsletters|wbg-svc-gpsa"
+          },
+          {
+            "name": "GTP Newsletter Service",
+            "value": "GTP Newsletter Service|SVC213"
+          },
+          {
+            "name": "GWSP Bi Monthly Newsletter",
+            "value": "GWSP Bi Monthly Newsletter|SVC275"
+          },
+          {
+            "name": "Human Capital Projects Public Newsletter",
+            "value": "Human Capital Projects Public Newsletter|SVC65"
+          },
+          {
+            "name": "IBN Newsletter",
+            "value": "IBN Newsletter|wbg-svc-ibn"
+          },
+          {
+            "name": "Ideas for Impact - Institute for Economic Development",
+            "value": "Ideas for Impact - Institute for Economic Development|SVC346"
+          },
+          {
+            "name": "IEG Insights",
+            "value": "IEG Insights|SVC260"
+          },
+          {
+            "name": "IFC Education Newsletter Service",
+            "value": "IFC Education Newsletter Service|SVC181"
+          },
+          {
+            "name": "IFC Health Newsletter Service",
+            "value": "IFC Health Newsletter Service|SVC180"
+          },
+          {
+            "name": "Joint Data Center Monthly Newsletter ",
+            "value": "Joint Data Center Monthly Newsletter |SVC115"
+          },
+          {
+            "name": "Knowledge4Jobs",
+            "value": "Knowledge4Jobs|SVC155"
+          },
+          {
+            "name": "KWPF Newsletter Service",
+            "value": "KWPF Newsletter Service|SVC401"
+          },
+          {
+            "name": "LAC Spanish - External Newsletter ",
+            "value": "LAC Spanish - External Newsletter |SVC303"
+          },
+          {
+            "name": "Latin America & the Caribbean at Glance",
+            "value": "Latin America & the Caribbean at Glance|SVC304"
+          },
+          {
+            "name": "Law, Justice & Development Newsletter",
+            "value": "Law, Justice & Development Newsletter|wbg-svc-ljd"
+          },
+          {
+            "name": "LC6 Newsletter - Bolivia",
+            "value": "LC6 Newsletter - Bolivia|SVC290"
+          },
+          {
+            "name": "LC6 Newsletter  - Chile",
+            "value": "LC6 Newsletter  - Chile|SVC292"
+          },
+          {
+            "name": "LC6 Newsletter - Ecuador",
+            "value": "LC6 Newsletter - Ecuador|SVC291"
+          },
+          {
+            "name": "LC6 Newsletter - Peru",
+            "value": "LC6 Newsletter - Peru|SVC293"
+          },
+          {
+            "name": "Leaders in Urban Transport Planning Program",
+            "value": "Leaders in Urban Transport Planning Program|SVC237"
+          },
+          {
+            "name": "LSMS Highlights",
+            "value": "LSMS Highlights|SVC210"
+          },
+          {
+            "name": "MIGA Monthly Newsletter",
+            "value": "MIGA Monthly Newsletter|SVC200"
+          },
+          {
+            "name": "Monthly newsletter PPIAF & GIH ",
+            "value": "Monthly newsletter PPIAF & GIH |SVC311"
+          },
+          {
+            "name": "OneSouthAsia Internal Newsletter",
+            "value": "OneSouthAsia Internal Newsletter|SVC244"
+          },
+          {
+            "name": "Opening the World Bank Group to Parliamentarians",
+            "value": "Opening the World Bank Group to Parliamentarians|SVC234"
+          },
+          {
+            "name": "Partnership for Market Implementation (PMI) Service",
+            "value": "Partnership for Market Implementation (PMI) Service|SVC408"
+          },
+          {
+            "name": "Partnership for Market Implementation Service",
+            "value": "Partnership for Market Implementation Service|SVC400"
+          },
+          {
+            "name": "PEI",
+            "value": "PEI|SVC127"
+          },
+          {
+            "name": "Platform for Collaboration on Tax(PCT)",
+            "value": "Platform for Collaboration on Tax(PCT)|SVC129"
+          },
+          {
+            "name": "Poverty and Inequality Newsletter",
+            "value": "Poverty and Inequality Newsletter|SVC301"
+          },
+          {
+            "name": "PPP Newsletter",
+            "value": "PPP Newsletter|wbg-svc-ppp-nl"
+          },
+          {
+            "name": "PRWP Monthly Newsletter",
+            "value": "PRWP Monthly Newsletter|SVC298"
+          },
+          {
+            "name": "S4YE",
+            "value": "S4YE|SVC125"
+          },
+          {
+            "name": "Sahel Adaptive Social Protection Program Quarterly Digest - French Newsletter Service",
+            "value": "Sahel Adaptive Social Protection Program Quarterly Digest - French Newsletter Service|SVC274"
+          },
+          {
+            "name": "Sahel Adaptive Social Protection Program Quarterly Digest Newsletter Service",
+            "value": "Sahel Adaptive Social Protection Program Quarterly Digest Newsletter Service|SVC272"
+          },
+          {
+            "name": "Sanctions Board Insights Service",
+            "value": "Sanctions Board Insights Service|SVC190"
+          },
+          {
+            "name": "SIEF Newsletter",
+            "value": "SIEF Newsletter|wbg-svc-sief-nl"
+          },
+          {
+            "name": "Skills4Dev External Newsletter",
+            "value": "Skills4Dev External Newsletter|SVC227"
+          },
+          {
+            "name": "Small States Newsletter",
+            "value": "Small States Newsletter|SVC405"
+          },
+          {
+            "name": "Social Protection and Jobs",
+            "value": "Social Protection and Jobs|SVC222"
+          },
+          {
+            "name": "TERI's Tunisian insights",
+            "value": "TERI's Tunisian insights|SVC255"
+          },
+          {
+            "name": "The World Bank Geneva Service",
+            "value": "The World Bank Geneva Service|SVC132"
+          },
+          {
+            "name": "The World Bank in Poland - newsletter",
+            "value": "The World Bank in Poland - newsletter|SVC105"
+          },
+          {
+            "name": "Think Africa Partnership",
+            "value": "Think Africa Partnership|SVC331"
+          },
+          {
+            "name": "Trade Matters Newsletter",
+            "value": "Trade Matters Newsletter|SVC171"
+          },
+          {
+            "name": "Umbrella Facility for Gender Equalty Newsletters",
+            "value": "Umbrella Facility for Gender Equalty Newsletters|wbg-svc-ufge-nl"
+          },
+          {
+            "name": "WB Education e-Newsletter",
+            "value": "WB Education e-Newsletter|SVC187"
+          },
+          {
+            "name": "WBG External Corporate Arabic Newsletter",
+            "value": "WBG External Corporate Arabic Newsletter|wbg-svc-ext-corp-arb-nl"
+          },
+          {
+            "name": "WBG External Corporate English Newsletter",
+            "value": "WBG External Corporate English Newsletter|wbg-svc-ext-corp-eng-nl"
+          },
+          {
+            "name": "WBG External Corporate French Newsletter",
+            "value": "WBG External Corporate French Newsletter|wbg-svc-ext-frc-corp-nl"
+          },
+          {
+            "name": "WBG External Corporate Spanish Newsletter",
+            "value": "WBG External Corporate Spanish Newsletter|wbg-svc-ext-corp-spn-nl"
+          },
+          {
+            "name": "WBL Newsletter",
+            "value": "WBL Newsletter|SVC126"
+          },
+          {
+            "name": "WB Tokyo Office - eNews Newsletter",
+            "value": "WB Tokyo Office - eNews Newsletter|SVC86"
+          },
+          {
+            "name": "WB Tokyo Office - English Newsletter",
+            "value": "WB Tokyo Office - English Newsletter|SVC84"
+          },
+          {
+            "name": "WEESA CoP – Members List",
+            "value": "WEESA CoP – Members List|SVC278"
+          },
+          {
+            "name": "What Have We Learned? The Evaluation Podcast",
+            "value": "What Have We Learned? The Evaluation Podcast|SVC289"
+          },
+          {
+            "name": "World Bank East Asia & Pacific Newsletter Service",
+            "value": "World Bank East Asia & Pacific Newsletter Service|SVC268"
+          },
+          {
+            "name": "World Bank India External Newsletter Service Template",
+            "value": "World Bank India External Newsletter Service Template|SVC104"
+          },
+          {
+            "name": "Worldbank Live Upcoming Events Service",
+            "value": "Worldbank Live Upcoming Events Service|worldbanklive-upcoming-events-service"
+          },
+          {
+            "name": "Worldbank Live Upcoming Events Service Arabic",
+            "value": "Worldbank Live Upcoming Events Service Arabic|worldbanklive-upcoming-events-service-arabic"
+          },
+          {
+            "name": "Worldbank Live Upcoming Events Service French",
+            "value": "Worldbank Live Upcoming Events Service French|worldbanklive-upcoming-events-service-french"
+          },
+          {
+            "name": "Worldbank Live Upcoming Events Service Spanish",
+            "value": "Worldbank Live Upcoming Events Service Spanish|worldbanklive-upcoming-events-service-spanish"
+          },
+          {
+            "name": "World Bank Publications Newsletter",
+            "value": "World Bank Publications Newsletter|wbg-svc-pub-nl"
+          },
+          {
+            "name": "World Bank Trust Funds and Partnerships in Action",
+            "value": "World Bank Trust Funds and Partnerships in Action|SVC316"
           }
         ]
       },
       {
-        "component": "boolean",
-        "label": "Is this country page?",
-        "name": "is-country-page",
-        "value": "false",
-        "valueType": "boolean"
+        "component": "multiselect",
+        "name": "country",
+        "label": "Country",
+        "valueType": "array",
+        "value": [],
+        "options": [
+          {
+            "name": "Afghanistan",
+            "value": "24^AF"
+          },
+          {
+            "name": "Africa",
+            "value": "15^"
+          },
+          {
+            "name": "Albania",
+            "value": "25^AL"
+          },
+          {
+            "name": "Algeria",
+            "value": "26^DZ"
+          },
+          {
+            "name": "American Samoa",
+            "value": "27^AS"
+          },
+          {
+            "name": "Andorra",
+            "value": "28^AD"
+          },
+          {
+            "name": "Angola",
+            "value": "29^AO"
+          },
+          {
+            "name": "Anguilla",
+            "value": "30^AI"
+          },
+          {
+            "name": "Antarctica",
+            "value": "31^AQ"
+          },
+          {
+            "name": "Antigua and Barbuda",
+            "value": "32^AG"
+          },
+          {
+            "name": "Argentina",
+            "value": "33^AR"
+          },
+          {
+            "name": "Armenia",
+            "value": "34^AM"
+          },
+          {
+            "name": "Aruba",
+            "value": "35^AW"
+          },
+          {
+            "name": "Australia",
+            "value": "36^AU"
+          },
+          {
+            "name": "Austria",
+            "value": "37^AT"
+          },
+          {
+            "name": "Azerbaijan",
+            "value": "38^AZ"
+          },
+          {
+            "name": "Bahamas, The",
+            "value": "39^BS"
+          },
+          {
+            "name": "Bahrain",
+            "value": "40^BH"
+          },
+          {
+            "name": "Bangladesh",
+            "value": "41^BD"
+          },
+          {
+            "name": "Barbados",
+            "value": "42^BB"
+          },
+          {
+            "name": "Belarus",
+            "value": "43^BY"
+          },
+          {
+            "name": "Belgium",
+            "value": "44^BE"
+          },
+          {
+            "name": "Belize",
+            "value": "45^BZ"
+          },
+          {
+            "name": "Benin",
+            "value": "46^BJ"
+          },
+          {
+            "name": "Bermuda",
+            "value": "47^BM"
+          },
+          {
+            "name": "Bhutan",
+            "value": "48^BT"
+          },
+          {
+            "name": "Bolivia",
+            "value": "49^BO"
+          },
+          {
+            "name": "Bosnia and Herzegovina",
+            "value": "50^BA"
+          },
+          {
+            "name": "Botswana",
+            "value": "51^BW"
+          },
+          {
+            "name": "Bouvet Island",
+            "value": "52^BV"
+          },
+          {
+            "name": "Brazil",
+            "value": "53^BR"
+          },
+          {
+            "name": "British Indian Ocean Territory",
+            "value": "54^IO"
+          },
+          {
+            "name": "Brunei Darussalam",
+            "value": "55^BN"
+          },
+          {
+            "name": "Bulgaria",
+            "value": "56^BG"
+          },
+          {
+            "name": "Burkina Faso",
+            "value": "57^BF"
+          },
+          {
+            "name": "Burundi",
+            "value": "58^BI"
+          },
+          {
+            "name": "Cabo Verde",
+            "value": "59^CV"
+          },
+          {
+            "name": "Cambodia",
+            "value": "60^KH"
+          },
+          {
+            "name": "Cameroon",
+            "value": "61^CM"
+          },
+          {
+            "name": "Canada",
+            "value": "62^CA"
+          },
+          {
+            "name": "Cayman Islands",
+            "value": "63^KY"
+          },
+          {
+            "name": "Central African Republic",
+            "value": "64^CF"
+          },
+          {
+            "name": "Chad",
+            "value": "65^TD"
+          },
+          {
+            "name": "Chile",
+            "value": "66^CL"
+          },
+          {
+            "name": "China",
+            "value": "67^CN"
+          },
+          {
+            "name": "Christmas Island",
+            "value": "68^CX"
+          },
+          {
+            "name": "Cocos (Keeling) Islands",
+            "value": "69^CC"
+          },
+          {
+            "name": "Colombia",
+            "value": "70^CO"
+          },
+          {
+            "name": "Commonwealth of Independent States",
+            "value": "71^SU"
+          },
+          {
+            "name": "Comoros",
+            "value": "72^KM"
+          },
+          {
+            "name": "Congo, Democratic Republic of",
+            "value": "73^ZR"
+          },
+          {
+            "name": "Congo, Republic of",
+            "value": "74^CG"
+          },
+          {
+            "name": "Cook Islands",
+            "value": "75^CK"
+          },
+          {
+            "name": "Costa Rica",
+            "value": "76^CR"
+          },
+          {
+            "name": "Cote d'Ivoire",
+            "value": "77^CI"
+          },
+          {
+            "name": "Croatia",
+            "value": "78^HR"
+          },
+          {
+            "name": "Cuba",
+            "value": "79^CU"
+          },
+          {
+            "name": "Curacao",
+            "value": "22^CW"
+          },
+          {
+            "name": "Cyprus",
+            "value": "80^CY"
+          },
+          {
+            "name": "Czech Republic",
+            "value": "81^CZ"
+          },
+          {
+            "name": "Denmark",
+            "value": "82^DK"
+          },
+          {
+            "name": "Djibouti",
+            "value": "83^DJ"
+          },
+          {
+            "name": "Dominica",
+            "value": "84^DM"
+          },
+          {
+            "name": "Dominican Republic",
+            "value": "85^DO"
+          },
+          {
+            "name": "East Asia and Pacific",
+            "value": "16^"
+          },
+          {
+            "name": "Ecuador",
+            "value": "86^EC"
+          },
+          {
+            "name": "Egypt, Arab Republic of",
+            "value": "87^EG"
+          },
+          {
+            "name": "El Salvador",
+            "value": "88^SV"
+          },
+          {
+            "name": "Equatorial Guinea",
+            "value": "89^GQ"
+          },
+          {
+            "name": "Eritrea",
+            "value": "90^ER"
+          },
+          {
+            "name": "Estonia",
+            "value": "91^EE"
+          },
+          {
+            "name": "Eswatini",
+            "value": "234^SZ"
+          },
+          {
+            "name": "Ethiopia",
+            "value": "92^ET"
+          },
+          {
+            "name": "Europe and Central Asia",
+            "value": "17^"
+          },
+          {
+            "name": "Falkland Islands (Malvinas)",
+            "value": "93^FK"
+          },
+          {
+            "name": "Faroe Islands",
+            "value": "94^FO"
+          },
+          {
+            "name": "Fiji",
+            "value": "95^FJ"
+          },
+          {
+            "name": "Finland",
+            "value": "96^FI"
+          },
+          {
+            "name": "France",
+            "value": "97^FR"
+          },
+          {
+            "name": "French Guiana",
+            "value": "98^GF"
+          },
+          {
+            "name": "French Polynesia",
+            "value": "99^PF"
+          },
+          {
+            "name": "French Southern Territories",
+            "value": "100^TF"
+          },
+          {
+            "name": "Gabon",
+            "value": "101^GA"
+          },
+          {
+            "name": "Gambia, The",
+            "value": "102^GM"
+          },
+          {
+            "name": "Georgia",
+            "value": "103^GE"
+          },
+          {
+            "name": "Germany",
+            "value": "104^DE"
+          },
+          {
+            "name": "Ghana",
+            "value": "105^GH"
+          },
+          {
+            "name": "Gibraltar",
+            "value": "106^GI"
+          },
+          {
+            "name": "Greece",
+            "value": "107^GR"
+          },
+          {
+            "name": "Greenland",
+            "value": "108^GL"
+          },
+          {
+            "name": "Grenada",
+            "value": "109^GD"
+          },
+          {
+            "name": "Guadeloupe",
+            "value": "110^GP"
+          },
+          {
+            "name": "Guam",
+            "value": "111^GU"
+          },
+          {
+            "name": "Guatemala",
+            "value": "112^GT"
+          },
+          {
+            "name": "Guernsey, C.I.",
+            "value": "113^GG"
+          },
+          {
+            "name": "Guinea",
+            "value": "114^GN"
+          },
+          {
+            "name": "Guinea-Bissau",
+            "value": "115^GW"
+          },
+          {
+            "name": "Guyana",
+            "value": "116^GY"
+          },
+          {
+            "name": "Haiti",
+            "value": "117^HT"
+          },
+          {
+            "name": "Heard and McDonald Islands",
+            "value": "118^HM"
+          },
+          {
+            "name": "Holy See (Vatican City State)",
+            "value": "119^VA"
+          },
+          {
+            "name": "Honduras",
+            "value": "120^HN"
+          },
+          {
+            "name": "Hong Kong SAR, China",
+            "value": "121^HK"
+          },
+          {
+            "name": "Hungary",
+            "value": "122^HU"
+          },
+          {
+            "name": "Iceland",
+            "value": "123^IS"
+          },
+          {
+            "name": "India",
+            "value": "124^IN"
+          },
+          {
+            "name": "Indonesia",
+            "value": "125^ID"
+          },
+          {
+            "name": "Iran, Islamic Republic of",
+            "value": "126^IR"
+          },
+          {
+            "name": "Iraq",
+            "value": "127^IQ"
+          },
+          {
+            "name": "Ireland",
+            "value": "128^IE"
+          },
+          {
+            "name": "Isle of Man",
+            "value": "129^IM"
+          },
+          {
+            "name": "Israel",
+            "value": "130^IL"
+          },
+          {
+            "name": "Italy",
+            "value": "131^IT"
+          },
+          {
+            "name": "Jamaica",
+            "value": "132^JM"
+          },
+          {
+            "name": "Japan",
+            "value": "133^JP"
+          },
+          {
+            "name": "Jersey, C.I.",
+            "value": "134^JE"
+          },
+          {
+            "name": "Jordan",
+            "value": "135^JO"
+          },
+          {
+            "name": "Kazakhstan",
+            "value": "136^KZ"
+          },
+          {
+            "name": "Kenya",
+            "value": "137^KE"
+          },
+          {
+            "name": "Kiribati",
+            "value": "138^KI"
+          },
+          {
+            "name": "Korea, Democratic People's Republic of",
+            "value": "139^KP"
+          },
+          {
+            "name": "Korea, Republic of",
+            "value": "140^KR"
+          },
+          {
+            "name": "Kosovo",
+            "value": "141^XK"
+          },
+          {
+            "name": "Kuwait",
+            "value": "142^KW"
+          },
+          {
+            "name": "Kyrgyz Republic",
+            "value": "143^KG"
+          },
+          {
+            "name": "Lao People's Democratic Republic",
+            "value": "144^LA"
+          },
+          {
+            "name": "Latin America and Caribbean",
+            "value": "18^"
+          },
+          {
+            "name": "Latvia",
+            "value": "145^LV"
+          },
+          {
+            "name": "Lebanon",
+            "value": "146^LB"
+          },
+          {
+            "name": "Lesotho",
+            "value": "147^LS"
+          },
+          {
+            "name": "Liberia",
+            "value": "148^LR"
+          },
+          {
+            "name": "Libya",
+            "value": "149^LY"
+          },
+          {
+            "name": "Liechtenstein",
+            "value": "150^LI"
+          },
+          {
+            "name": "Lithuania",
+            "value": "151^LT"
+          },
+          {
+            "name": "Luxembourg",
+            "value": "152^LU"
+          },
+          {
+            "name": "Macao SAR, China",
+            "value": "153^MO"
+          },
+          {
+            "name": "Macedonia, former Yugoslav Republic of",
+            "value": "154^MK"
+          },
+          {
+            "name": "Madagascar",
+            "value": "155^MG"
+          },
+          {
+            "name": "Malawi",
+            "value": "156^MW"
+          },
+          {
+            "name": "Malaysia",
+            "value": "157^MY"
+          },
+          {
+            "name": "Maldives",
+            "value": "158^MV"
+          },
+          {
+            "name": "Mali",
+            "value": "159^ML"
+          },
+          {
+            "name": "Malta",
+            "value": "160^MT"
+          },
+          {
+            "name": "Marshall Islands",
+            "value": "161^MH"
+          },
+          {
+            "name": "Martinique",
+            "value": "162^MQ"
+          },
+          {
+            "name": "Mauritania",
+            "value": "163^MR"
+          },
+          {
+            "name": "Mauritius",
+            "value": "164^MU"
+          },
+          {
+            "name": "Mayotte",
+            "value": "165^YT"
+          },
+          {
+            "name": "Mexico",
+            "value": "166^MX"
+          },
+          {
+            "name": "Micronesia, Federated States of",
+            "value": "167^FM"
+          },
+          {
+            "name": "Middle East and North Africa",
+            "value": "19^"
+          },
+          {
+            "name": "Moldova",
+            "value": "169^MD"
+          },
+          {
+            "name": "Monaco",
+            "value": "170^MC"
+          },
+          {
+            "name": "Mongolia",
+            "value": "171^MN"
+          },
+          {
+            "name": "Montenegro",
+            "value": "172^ME"
+          },
+          {
+            "name": "Montserrat",
+            "value": "173^MS"
+          },
+          {
+            "name": "Morocco",
+            "value": "174^MA"
+          },
+          {
+            "name": "Mozambique",
+            "value": "175^MZ"
+          },
+          {
+            "name": "Myanmar",
+            "value": "176^MM"
+          },
+          {
+            "name": "Namibia",
+            "value": "177^NA"
+          },
+          {
+            "name": "Nauru",
+            "value": "178^NR"
+          },
+          {
+            "name": "Nepal",
+            "value": "179^NP"
+          },
+          {
+            "name": "Netherlands",
+            "value": "180^NL"
+          },
+          {
+            "name": "Netherlands Antilles",
+            "value": "181^AN"
+          },
+          {
+            "name": "New Caledonia",
+            "value": "182^NC"
+          },
+          {
+            "name": "New Zealand",
+            "value": "183^NZ"
+          },
+          {
+            "name": "Nicaragua",
+            "value": "184^NI"
+          },
+          {
+            "name": "Niger",
+            "value": "185^NE"
+          },
+          {
+            "name": "Nigeria",
+            "value": "186^NG"
+          },
+          {
+            "name": "Niue",
+            "value": "187^NU"
+          },
+          {
+            "name": "Norfolk Island",
+            "value": "188^NF"
+          },
+          {
+            "name": "Northern Mariana Islands",
+            "value": "189^MP"
+          },
+          {
+            "name": "Norway",
+            "value": "190^NO"
+          },
+          {
+            "name": "Oman",
+            "value": "191^OM"
+          },
+          {
+            "name": "Pakistan",
+            "value": "192^PK"
+          },
+          {
+            "name": "Palau",
+            "value": "193^PW"
+          },
+          {
+            "name": "Panama",
+            "value": "194^PA"
+          },
+          {
+            "name": "Papua New Guinea",
+            "value": "195^PG"
+          },
+          {
+            "name": "Paraguay",
+            "value": "196^PY"
+          },
+          {
+            "name": "Peru",
+            "value": "197^PE"
+          },
+          {
+            "name": "Philippines",
+            "value": "198^PH"
+          },
+          {
+            "name": "Pitcairn",
+            "value": "199^PN"
+          },
+          {
+            "name": "Poland",
+            "value": "200^PL"
+          },
+          {
+            "name": "Portugal",
+            "value": "201^PT"
+          },
+          {
+            "name": "Puerto Rico",
+            "value": "202^PR"
+          },
+          {
+            "name": "Qatar",
+            "value": "203^QA"
+          },
+          {
+            "name": "Rest Of The World",
+            "value": "20^"
+          },
+          {
+            "name": "Reunion",
+            "value": "204^RE"
+          },
+          {
+            "name": "Romania",
+            "value": "205^RO"
+          },
+          {
+            "name": "Russian Federation",
+            "value": "206^RU"
+          },
+          {
+            "name": "Rwanda",
+            "value": "207^RW"
+          },
+          {
+            "name": "S. Georgia and S. Sandwich Islands",
+            "value": "227^GS"
+          },
+          {
+            "name": "Samoa",
+            "value": "213^WS"
+          },
+          {
+            "name": "San Marino",
+            "value": "214^SM"
+          },
+          {
+            "name": "Sao Tome and Principe",
+            "value": "215^ST"
+          },
+          {
+            "name": "Saudi Arabia",
+            "value": "216^SA"
+          },
+          {
+            "name": "Senegal",
+            "value": "217^SN"
+          },
+          {
+            "name": "Serbia",
+            "value": "218^YF"
+          },
+          {
+            "name": "Seychelles",
+            "value": "219^SC"
+          },
+          {
+            "name": "Sierra Leone",
+            "value": "220^SL"
+          },
+          {
+            "name": "Singapore",
+            "value": "221^SG"
+          },
+          {
+            "name": "Slovak Republic",
+            "value": "222^SK"
+          },
+          {
+            "name": "Slovenia",
+            "value": "223^SI"
+          },
+          {
+            "name": "Solomon Islands",
+            "value": "224^SB"
+          },
+          {
+            "name": "Somalia",
+            "value": "225^SO"
+          },
+          {
+            "name": "South Africa",
+            "value": "226^ZA"
+          },
+          {
+            "name": "South Asia",
+            "value": "21^"
+          },
+          {
+            "name": "South Sudan",
+            "value": "23^SS"
+          },
+          {
+            "name": "Spain",
+            "value": "228^ES"
+          },
+          {
+            "name": "Sri Lanka",
+            "value": "229^LK"
+          },
+          {
+            "name": "St. Helena",
+            "value": "208^SH"
+          },
+          {
+            "name": "St. Kitts and Nevis",
+            "value": "209^KN"
+          },
+          {
+            "name": "St. Lucia",
+            "value": "210^LC"
+          },
+          {
+            "name": "St. Pierre and Miquelon",
+            "value": "211^PM"
+          },
+          {
+            "name": "St. Vincent and the Grenadines",
+            "value": "212^VC"
+          },
+          {
+            "name": "Stateless",
+            "value": "230^XB"
+          },
+          {
+            "name": "Sudan",
+            "value": "231^SD"
+          },
+          {
+            "name": "Suriname",
+            "value": "232^SR"
+          },
+          {
+            "name": "Svalbard and Jan Mayen Islands",
+            "value": "233^SJ"
+          },
+          {
+            "name": "Sweden",
+            "value": "235^SE"
+          },
+          {
+            "name": "Switzerland",
+            "value": "236^CH"
+          },
+          {
+            "name": "Syrian Arab Republic",
+            "value": "237^SY"
+          },
+          {
+            "name": "Taiwan, China",
+            "value": "238^TW"
+          },
+          {
+            "name": "Tajikistan",
+            "value": "239^TJ"
+          },
+          {
+            "name": "Tanzania",
+            "value": "240^TZ"
+          },
+          {
+            "name": "Thailand",
+            "value": "241^TH"
+          },
+          {
+            "name": "Timor-Leste",
+            "value": "242^TP"
+          },
+          {
+            "name": "Togo",
+            "value": "243^TG"
+          },
+          {
+            "name": "Tokelau",
+            "value": "244^TK"
+          },
+          {
+            "name": "Tonga",
+            "value": "245^TO"
+          },
+          {
+            "name": "Trinidad and Tobago",
+            "value": "246^TT"
+          },
+          {
+            "name": "Tunisia",
+            "value": "247^TN"
+          },
+          {
+            "name": "Turkey",
+            "value": "248^TR"
+          },
+          {
+            "name": "Turkmenistan",
+            "value": "249^TM"
+          },
+          {
+            "name": "Turks and Caicos Islands",
+            "value": "250^TC"
+          },
+          {
+            "name": "Tuvalu",
+            "value": "251^TV"
+          },
+          {
+            "name": "Uganda",
+            "value": "252^UG"
+          },
+          {
+            "name": "Ukraine",
+            "value": "253^UA"
+          },
+          {
+            "name": "United Arab Emirates",
+            "value": "254^AE"
+          },
+          {
+            "name": "United Kingdom",
+            "value": "255^GB"
+          },
+          {
+            "name": "United States",
+            "value": "256^US"
+          },
+          {
+            "name": "United States Minor Outlying Islands",
+            "value": "168^UM"
+          },
+          {
+            "name": "Uruguay",
+            "value": "257^UY"
+          },
+          {
+            "name": "Uzbekistan",
+            "value": "258^UZ"
+          },
+          {
+            "name": "Vanuatu",
+            "value": "259^VU"
+          },
+          {
+            "name": "Venezuela, Republica Bolivariana de",
+            "value": "260^VE"
+          },
+          {
+            "name": "Vietnam",
+            "value": "261^VN"
+          },
+          {
+            "name": "Virgin Islands, British",
+            "value": "262^VG"
+          },
+          {
+            "name": "Virgin Islands, US",
+            "value": "263^VI"
+          },
+          {
+            "name": "Wallis and Futuna Islands",
+            "value": "264^WF"
+          },
+          {
+            "name": "West Bank and Gaza",
+            "value": "265^GZ"
+          },
+          {
+            "name": "Western Sahara",
+            "value": "266^EH"
+          },
+          {
+            "name": "Yemen, Republic of",
+            "value": "267^RY"
+          },
+          {
+            "name": "Zambia",
+            "value": "268^ZM"
+          },
+          {
+            "name": "Zimbabwe",
+            "value": "269^ZW"
+          }
+        ]
+      },
+      {
+        "component": "multiselect",
+        "name": "resources",
+        "label": "Resources",
+        "value": [],
+        "valueType": "array",
+        "options": [
+          {
+            "name": "All",
+            "value": "all"
+          },
+          {
+            "name": "Blogs12",
+            "value": "270"
+          },
+          {
+            "name": "Board Documents",
+            "value": "280"
+          },
+          {
+            "name": "Country Engagement Documents",
+            "value": "281"
+          },
+          {
+            "name": "Environmental and Social Policy Documents",
+            "value": "282"
+          },
+          {
+            "name": "Evaluation and Inspection Reports",
+            "value": "283"
+          },
+          {
+            "name": "Events",
+            "value": "2"
+          },
+          {
+            "name": "Microdata",
+            "value": "324"
+          },
+          {
+            "name": "News",
+            "value": "1"
+          },
+          {
+            "name": "Procurement Plans",
+            "value": "323"
+          },
+          {
+            "name": "Project Documents",
+            "value": "4"
+          },
+          {
+            "name": "Project Status",
+            "value": "279"
+          },
+          {
+            "name": "Research, Papers and Publications",
+            "value": "284"
+          },
+          {
+            "name": "Simultaneous Disclosure",
+            "value": "318"
+          }
+        ]
       }
     ]
   },
@@ -6086,37 +7914,26 @@
     "fields": [
       {
         "component": "text",
-        "name": "social-media-title",
-        "label": "Section Title",
-        "value": "STAY CONNECTED",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "social-media-links",
-    "fields": [
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Title"
+      },
       {
         "component": "text",
-        "name": "social-media-links-title",
-        "value": "",
-        "label": "Title",
         "valueType": "string",
+        "name": "link-url",
+        "value": "",
+        "label": "URL",
+        "multi": true,
         "required": true
       },
       {
-        "component": "text",
-        "name": "social-media-links-url",
-        "value": "",
-        "label": "URL",
-        "valueType": "string"
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "social-media-links-type",
-        "value": "",
-        "label": "Type",
+        "component": "multiselect",
+        "name": "class",
+        "label": "Class",
+        "value": [],
+        "valueType": "array",
         "options": [
           {
             "name": "Facebook",
@@ -6146,7 +7963,7 @@
     "id": "stay-connected",
     "fields": [
       {
-        "component": "text",
+        "component": "richtext",
         "valueType": "string",
         "name": "title",
         "value": "",
@@ -6188,6 +8005,22 @@
           {
             "name": "Youtube",
             "value": "lp-youtube-solid"
+          },
+          {
+            "name": "Blogs",
+            "value": "lp-blogs-solid"
+          },
+          {
+            "name": "Podcasts",
+            "value": "lp-Podcasts"
+          },
+          {
+            "name": "RSS",
+            "value": "lp-rss-solid"
+          },
+          {
+            "name": "Email/Alerts",
+            "value": "lp-email"
           }
         ]
       },
@@ -6204,20 +8037,17 @@
     "fields": [
       {
         "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
         "label": "Tab Name",
-        "required": true
+        "name": "title",
+        "required": true,
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "valueType": "string",
-        "name": "tab-type",
-        "label": "Type of Tab",
         "description": "Select the Type of Tab",
-        "value": "",
-        "required": true,
+        "label": "Type of Tab",
+        "name": "tab-type",
         "options": [
           {
             "name": "All Tab",
@@ -6247,29 +8077,40 @@
             "name": "Author Manually",
             "value": "manual"
           }
-        ]
+        ],
+        "required": true,
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "condition": {
+          "and": [
+            {
+              "!=": [
+                {
+                  "var": "tab-type"
+                },
+                "manual"
+              ]
+            },
+            {
+              "!=": [
+                {
+                  "var": "tab-type"
+                },
+                "text-image"
+              ]
+            }
+          ]
+        },
+        "label": "URL",
         "name": "url",
         "value": "",
-        "label": "URL",
-        "condition": {
-          "!=": [
-            {
-              "var": "tab-type"
-            },
-            "manual"
-          ]
-        }
+        "valueType": "string"
       },
       {
         "component": "boolean",
-        "label": "POST",
-        "name": "post",
-        "value": "false",
-        "valueType": "boolean",
         "condition": {
           "or": [
             {
@@ -6289,29 +8130,29 @@
               ]
             }
           ]
-        }
+        },
+        "label": "POST",
+        "name": "post",
+        "value": "false",
+        "valueType": "boolean"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "body",
-        "value": "",
-        "label": "Body",
         "condition": {
-          "===": [
+          "==": [
             {
               "var": "post"
             },
             true
           ]
-        }
+        },
+        "label": "Body",
+        "name": "body",
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "aem-content",
-        "valueType": "string",
-        "name": "fragmentPath",
-        "value": "",
-        "label": "Fragment Path",
         "condition": {
           "==": [
             {
@@ -6319,14 +8160,25 @@
             },
             "manual"
           ]
-        }
+        },
+        "label": "Fragment Path",
+        "name": "fragmentPath",
+        "rootPath": "/content/worldbank/corporate/ext/en/fragments/country",
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "tab-variant",
+        "condition": {
+          "!=": [
+            {
+              "var": "tab-type"
+            },
+            "manual"
+          ]
+        },
         "label": "Tab Variant",
-        "valueType": "string",
-        "value": "",
+        "name": "tab-variant",
         "options": [
           {
             "name": "Default View",
@@ -6336,30 +8188,44 @@
             "name": "2 Column View",
             "value": "two-column-view"
           }
-        ]
+        ],
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
+        "condition": {
+          "!=": [
+            {
+              "var": "tab-type"
+            },
+            "manual"
+          ]
+        },
+        "description": "Number of items to display in this tab",
+        "label": "Display Items",
         "name": "display-items",
         "value": "",
-        "label": "Display Items",
-        "description": "Number of items to display in this tab"
+        "valueType": "string"
       },
       {
         "component": "boolean",
-        "label": "Disable Load More",
+        "condition": {
+          "!=": [
+            {
+              "var": "tab-type"
+            },
+            "manual"
+          ]
+        },
         "description": "Disable Load More button for this tab",
+        "label": "Disable Load More",
         "name": "disable-load-more",
         "value": "false",
         "valueType": "boolean"
       },
       {
         "component": "text",
-        "name": "see-all-button-label",
-        "value": "",
-        "label": "See All Button Label",
-        "valueType": "string",
         "condition": {
           "==": [
             {
@@ -6367,14 +8233,14 @@
             },
             true
           ]
-        }
+        },
+        "label": "See All Button Label",
+        "name": "see-all-button-label",
+        "value": "",
+        "valueType": "string"
       },
       {
         "component": "text",
-        "name": "see-all-button-link",
-        "value": "",
-        "label": "See All Button Link",
-        "valueType": "string",
         "condition": {
           "==": [
             {
@@ -6382,7 +8248,11 @@
             },
             true
           ]
-        }
+        },
+        "label": "See All Button Link",
+        "name": "see-all-button-link",
+        "value": "",
+        "valueType": "string"
       }
     ]
   },
@@ -6473,7 +8343,8 @@
             "valueType": "string",
             "name": "imageRef",
             "label": "Image",
-            "multi": false
+            "multi": false,
+            "description": "Select an image for the teaser"
           },
           {
             "component": "text",
@@ -6513,12 +8384,51 @@
     "id": "video",
     "fields": [
       {
+        "component": "select",
+        "valueType": "string",
+        "name": "videoType",
+        "value": "",
+        "label": "Video Type",
+        "options": [
+          {
+            "name": "You Tube",
+            "value": "you-tube"
+          },
+          {
+            "name": "Embed Code",
+            "value": "embed-code"
+          }
+        ]
+      },
+      {
         "component": "text",
         "valueType": "string",
         "name": "videoUrl",
         "value": "",
         "label": "Video URL",
-        "required": true
+        "condition": {
+          "==": [
+            {
+              "var": "videoType"
+            },
+            "you-tube"
+          ]
+        }
+      },
+      {
+        "component": "text-area",
+        "valueType": "string",
+        "name": "embedCode",
+        "value": "",
+        "label": "Embed Code",
+        "condition": {
+          "==": [
+            {
+              "var": "videoType"
+            },
+            "embed-code"
+          ]
+        }
       }
     ]
   }

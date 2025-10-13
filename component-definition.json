@@ -246,6 +246,21 @@
           }
         },
         {
+          "title": "Indicator List",
+          "id": "indicator-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Indicator List",
+                  "model": "indicator-list"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Country List",
           "id": "country-list",
           "plugins": {
@@ -598,19 +613,25 @@
         {
           "title": "Grid",
           "id": "grid",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/section/v1/section",
-                "template": {
-                  "name": "Grid",
-                  "model": "grid",
-                  "style": "grid",
-                  "filter": "section"
+          "components": [
+            {
+              "title": "Grid",
+              "id": "grid",
+              "plugins": {
+                "xwalk": {
+                  "page": {
+                    "resourceType": "core/franklin/components/section/v1/section",
+                    "template": {
+                      "name": "Grid",
+                      "model": "grid",
+                      "style": "grid",
+                      "filter": "section"
+                    }
+                  }
                 }
               }
             }
-          }
+          ]
         },
         {
           "title": "Heading",
@@ -653,6 +674,21 @@
                   "name": "Indicator Charts",
                   "model": "indicator-charts",
                   "filter": "indicator-charts"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Indicator Item",
+          "id": "indicator-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Indicator Item",
+                  "model": "indicator-item"
                 }
               }
             }
@@ -997,64 +1033,7 @@
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Social Media",
-                  "filter": "social-media",
-                  "model": "social-media",
-                  "social-media-title": "<p>The Heading for <strongSocial Media Block</strong></p>",
-                  "item1": {
-                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
-                    "name": "Mini Card",
-                    "model": "social-media-links",
-                    "social-media-links-title": "Mini Card Title",
-                    "social-media-links-url": "",
-                    "social-media-links-type": ""
-                  },
-                  "item2": {
-                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
-                    "name": "Mini Card",
-                    "model": "social-media-links",
-                    "social-media-links-title": "Mini Card Title",
-                    "social-media-links-url": "",
-                    "social-media-links-type": ""
-                  },
-                  "item3": {
-                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
-                    "name": "Mini Card",
-                    "model": "social-media-links",
-                    "social-media-links-title": "Mini Card Title",
-                    "social-media-links-url": "",
-                    "social-media-links-type": ""
-                  },
-                  "item4": {
-                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
-                    "name": "Mini Card",
-                    "model": "social-media-links",
-                    "social-media-links-title": "Mini Card Title",
-                    "social-media-links-url": "",
-                    "social-media-links-type": ""
-                  },
-                  "item5": {
-                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
-                    "name": "Mini Card",
-                    "model": "social-media-links",
-                    "social-media-links-title": "Mini Card Title",
-                    "social-media-links-url": "",
-                    "social-media-links-type": ""
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Social Media Links",
-          "id": "social-media-links",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "Social Media Links",
-                  "model": "social-media-links"
+                  "model": "social-media"
                 }
               }
             }
@@ -1129,7 +1108,8 @@
                 "template": {
                   "name": "Tab",
                   "model": "tab",
-                  "title": "Tab"
+                  "title": "Tab",
+                  "filter": "tab"
                 }
               }
             }

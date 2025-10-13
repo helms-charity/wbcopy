@@ -1,195 +1,433 @@
 {
   "definitions": [
-    {
-      "title": "Section",
-      "id": "section",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/section/v1/section",
-            "template": {
-              "name": "Section",
-              "model": "section",
-              "style": "default",
-              "filter": "section"
-            }
+      {
+          "title": "Section",
+          "id": "section",
+          "plugins": {
+              "xwalk": {
+                  "page": {
+                      "resourceType": "core/franklin/components/section/v1/section",
+                      "template": {
+                          "name": "Section",
+                          "model": "section",
+                          "style": "default",
+                          "filter": "section"
+                      }
+                  }
+              }
           }
-        }
       }
-    }
   ],
   "models": [
-    {
-      "id": "section",
-      "fields": [
-        {
-          "component": "select",
-          "name": "sec-spacing",
-          "value": "",
-          "label": "Spacing Top (padding top)",
-          "description": "Section top spacing, default is 32px.",
-          "valueType": "string",
-          "options": [
-            { "name": "Default spacing", "value": "sec-spacing-default" },
-            { "name": "No space / padding", "value": "section-none" },
-            { "name": "Spacing tiny", "value": "section-tiny" },
-            { "name": "Spacing xxsmall", "value": "section-xxsmall" },
-            { "name": "Spacing xsmall", "value": "section-xsmall" },
-            { "name": "Spacing regular", "value": "section-regular" },
-            { "name": "Spacing small", "value": "section-small" },
-            { "name": "Spacing medium", "value": "section-medium" },
-            { "name": "Spacing large", "value": "section-large" },
-            { "name": "Spacing xlarge", "value": "section-xlarge" },
-            { "name": "Spacing xxlarge", "value": "section-xxlarge" },
-            { "name": "Spacing huge", "value": "section-huge" },
-            { "name": "Spacing xhuge", "value": "section-xhuge" }
-          ]
-        },
-        {
-          "component": "select",
-          "name": "sec-spacing-bottom",
-          "value": "",
-          "label": "Spacing Bottom (padding bottom)",
-          "description": "Section bottom spacing, default is 32px.",
-          "valueType": "string",
-          "options": [
-            { "name": "Default spacing", "value": "sec-spacing-default" },
-            { "name": "No space / padding", "value": "section-none" },
-            { "name": "Spacing tiny", "value": "section-tiny" },
-            { "name": "Spacing xxsmall", "value": "section-xxsmall" },
-            { "name": "Spacing xsmall", "value": "section-xsmall" },
-            { "name": "Spacing regular", "value": "section-regular" },
-            { "name": "Spacing small", "value": "section-small" },
-            { "name": "Spacing medium", "value": "section-medium" },
-            { "name": "Spacing large", "value": "section-large" },
-            { "name": "Spacing xlarge", "value": "section-xlarge" },
-            { "name": "Spacing xxlarge", "value": "section-xxlarge" },
-            { "name": "Spacing huge", "value": "section-huge" },
-            { "name": "Spacing xhuge", "value": "section-xhuge" }
-          ]
-        },
-        {
-          "component": "select",
-          "name": "sec-swoosh",
-          "value": "",
-          "label": "Swoosh",
-          "valueType": "string",
-          "options": [
-            { "name": "No Swoosh", "value": "sec-swoosh-none" },
-            { "name": "Left Center Swoosh", "value": "sec-swoosh-type1" },
-            { "name": "Left Top Swoosh", "value": "sec-swoosh-type3" },
-            { "name": "Right Top Swoosh", "value": "sec-swoosh-type2" },
-            { "name": "Swoosh for BG inside container - Desktop", "value": "sec-swoosh-type5" },
-            { "name": "Leaders profile swoosh", "value": "sec-swoosh-type6" },
-            { "name": "Primary Blue 90 theme Swoosh", "value": "sec-swoosh-primary-blue-90" }
-          ]
-        },
-        {
-          "component": "select",
-          "name": "style",
-          "value": "",
-          "label": "Background style",
-          "valueType": "string",
-          "options": [
-            { "name": "Transparent / White / Default", "value": "bg-default" },
-            { "name": "Dark Background Container", "value": "bg-primary-blue" },
-            { "name": "Primary Blue 90", "value": "bg-primary-blue-90" },
-            { "name": "Primary Blue 70", "value": "bg-primary-blue-70" },
-            { "name": "Neutrals 10", "value": "bg-neutrals-10" },
-            { "name": "Neutrals 10 Gradient", "value": "bg-neutrals-10-gradient" },
-            { "name": "Neutrals 20", "value": "bg-neutrals-20" },
-            { "name": "Background Image", "value": "bg-image" }
-          ]
-        },
-        {
-          "component": "container",
-          "label": "Background Image",
-          "name": "container",
-          "valueType": "string",
-          "collapsible": true,
-          "condition": {
-            "==": [{ "var": "style" }, "bg-image"]
-          },
+      {
+          "id": "section",
           "fields": [
-            {
-              "component": "reference",
-              "valueType": "string",
-              "name": "image",
-              "label": "Background Image",
-              "multi": false
-            },
-            {
-              "component": "reference",
-              "valueType": "string",
-              "name": "tab-image",
-              "label": "Tablet Image",
-              "description": "Background image will be used on tablet by default.",
-              "multi": false
-            },
-            {
-              "component": "reference",
-              "valueType": "string",
-              "name": "mob-image",
-              "label": "Mobile Image",
-              "description": "Background / Tablet image will be used on mobile by default.",
-              "multi": false
-            }
+              {
+                  "component": "select",
+                  "description": "Section top spacing, default is 32px.",
+                  "label": "Spacing Top (padding top)",
+                  "name": "sec-spacing",
+                  "options": [
+                      {
+                          "name": "Default spacing",
+                          "value": "sec-spacing-default"
+                      },
+                      {
+                          "name": "No space / padding",
+                          "value": "section-none"
+                      },
+                      {
+                          "name": "Spacing Between",
+                          "value": "section-padding-between"
+                      },
+                      {
+                          "name": "Spacing tiny",
+                          "value": "section-tiny"
+                      },
+                      {
+                          "name": "Spacing xxsmall",
+                          "value": "section-xxsmall"
+                      },
+                      {
+                          "name": "Spacing xsmall",
+                          "value": "section-xsmall"
+                      },
+                      {
+                          "name": "Spacing regular",
+                          "value": "section-regular"
+                      },
+                      {
+                          "name": "Spacing small",
+                          "value": "section-small"
+                      },
+                      {
+                          "name": "Spacing medium",
+                          "value": "section-medium"
+                      },
+                      {
+                          "name": "Spacing large",
+                          "value": "section-large"
+                      },
+                      {
+                          "name": "Spacing xlarge",
+                          "value": "section-xlarge"
+                      },
+                      {
+                          "name": "Spacing xxlarge",
+                          "value": "section-xxlarge"
+                      },
+                      {
+                          "name": "Spacing huge",
+                          "value": "section-huge"
+                      },
+                      {
+                          "name": "Spacing xhuge",
+                          "value": "section-xhuge"
+                      }
+                  ],
+                  "value": "",
+                  "valueType": "string"
+              },
+              {
+                  "component": "select",
+                  "description": "Section bottom spacing, default is 32px.",
+                  "label": "Spacing Bottom (padding bottom)",
+                  "name": "sec-spacing-bottom",
+                  "options": [
+                      {
+                          "name": "Default spacing",
+                          "value": "sec-spacing-default"
+                      },
+                      {
+                          "name": "No space / padding",
+                          "value": "section-none"
+                      },
+                      {
+                          "name": "Spacing Between",
+                          "value": "section-padding-between"
+                      },
+                      {
+                          "name": "Spacing tiny",
+                          "value": "section-tiny"
+                      },
+                      {
+                          "name": "Spacing xxsmall",
+                          "value": "section-xxsmall"
+                      },
+                      {
+                          "name": "Spacing xsmall",
+                          "value": "section-xsmall"
+                      },
+                      {
+                          "name": "Spacing regular",
+                          "value": "section-regular"
+                      },
+                      {
+                          "name": "Spacing small",
+                          "value": "section-small"
+                      },
+                      {
+                          "name": "Spacing medium",
+                          "value": "section-medium"
+                      },
+                      {
+                          "name": "Spacing large",
+                          "value": "section-large"
+                      },
+                      {
+                          "name": "Spacing xlarge",
+                          "value": "section-xlarge"
+                      },
+                      {
+                          "name": "Spacing xxlarge",
+                          "value": "section-xxlarge"
+                      },
+                      {
+                          "name": "Spacing huge",
+                          "value": "section-huge"
+                      },
+                      {
+                          "name": "Spacing xhuge",
+                          "value": "section-xhuge"
+                      }
+                  ],
+                  "value": "",
+                  "valueType": "string"
+              },
+              {
+                  "component": "select",
+                  "label": "Swoosh",
+                  "name": "sec-swoosh",
+                  "options": [
+                      {
+                          "name": "No Swoosh",
+                          "value": "sec-swoosh-none"
+                      },
+                      {
+                          "name": "Left Center Swoosh (1)",
+                          "value": "sec-swoosh-type1"
+                      },
+                      {
+                          "name": "Right Top Swoosh (2)",
+                          "value": "sec-swoosh-type2"
+                      },
+                      {
+                          "name": "Left Top Swoosh (3)",
+                          "value": "sec-swoosh-type3"
+                      },
+                      {
+                          "name": "Swoosh for BG inside container - Desktop (5)",
+                          "value": "sec-swoosh-type5"
+                      },
+                      {
+                          "name": "Leaders profile swoosh (6)",
+                          "value": "sec-swoosh-type6"
+                      },
+                      {
+                          "name": "Right Center Swoosh (7)",
+                          "value": "sec-swoosh-type7"
+                      },
+                      {
+                          "name": "Right Swoosh (8)",
+                          "value": "sec-swoosh-type8"
+                      },
+                      {
+                          "name": "Right Swoosh (9)",
+                          "value": "sec-swoosh-type9"
+                      },
+                      {
+                          "name": "Right Swoosh (10)",
+                          "value": "sec-swoosh-type10"
+                      },
+                      {
+                          "name": "Primary Blue 90 theme Swoosh",
+                          "value": "sec-swoosh-primary-blue-90"
+                      }
+                  ],
+                  "value": "",
+                  "valueType": "string"
+              },
+              {
+                  "component": "multiselect",
+                  "label": "Variant style",
+                  "name": "style",
+                  "options": [
+                      {
+                          "disabled": true,
+                          "name": "-- Backgrounds --",
+                          "value": ""
+                      },
+                      {
+                          "name": "🎨[Background] Transparent / White / Default",
+                          "value": "bg-default"
+                      },
+                      {
+                          "name": "🎨[Background] Dark Background Container",
+                          "value": "bg-primary-blue"
+                      },
+                      {
+                          "name": "🎨[Background] Primary Blue 90",
+                          "value": "bg-primary-blue-90"
+                      },
+                      {
+                          "name": "🎨[Background] Primary Blue 70",
+                          "value": "bg-primary-blue-70"
+                      },
+                      {
+                          "name": "🎨[Background] Neutrals 10",
+                          "value": "bg-neutrals-10"
+                      },
+                      {
+                          "name": "🎨[Background] Neutrals 10 Gradient",
+                          "value": "bg-neutrals-10-gradient"
+                      },
+                      {
+                          "name": "🎨[Background] Neutrals 20",
+                          "value": "bg-neutrals-20"
+                      },
+                      {
+                          "name": "🎨[Background] Neutrals 05",
+                          "value": "bg-neutrals-05-gradient"
+                      },
+                      {
+                          "name": "🎨[Background] Neutrals 07",
+                          "value": "bg-neutrals-07-gradient"
+                      },
+                      {
+                          "name": "🎨[Background] Image",
+                          "value": "bg-image"
+                      },
+                      {
+                          "name": "🧩[Component] Banner Container",
+                          "value": "full-banner-container"
+                      },
+                      {
+                          "name": "🧩[Component] Bottom Carousel",
+                          "value": "bottom-carousel"
+                      },
+                      {
+                          "name": "🧩[Component] Button Title Container",
+                          "value": "title-text-button-container"
+                      },
+                      {
+                          "name": "🧩[Component] Data Card Noborder",
+                          "value": "data-card-noborder"
+                      },
+                      {
+                          "name": "🧩[Component] Feature Banner Container",
+                          "value": "feature-banner-container"
+                      },
+                      {
+                          "name": "🧩[Component] List Container",
+                          "value": "countrylist-container"
+                      },
+                      {
+                          "name": "🧩[Component] List With Border Container",
+                          "value": "partnerlist-container"
+                      },
+                      {
+                          "name": "🧩[Component] Region Feature Card",
+                          "value": "region-feature-card"
+                      },
+                      {
+                          "name": "🧩[Component] Stay Connected",
+                          "value": "stay-connected"
+                      },
+                      {
+                          "name": "📐[Layout] Two Column Variation (50-50)",
+                          "value": "two-col-variation-50-50"
+                      },
+                      {
+                          "name": "📐[Layout] Two Column Variation (40-60)",
+                          "value": "two-col-variation-40-60"
+                      },
+                      {
+                          "name": "📐[Layout] Two Column Variation (75-25)",
+                          "value": "two-col-variation-75-25"
+                      }
+                  ],
+                  "value": [],
+                  "valueType": "array"
+              },
+              {
+                  "collapsible": true,
+                  "component": "container",
+                  "condition": {
+                      "==": [
+                          {
+                              "var": "style"
+                          },
+                          "bg-image"
+                      ]
+                  },
+                  "fields": [
+                      {
+                          "component": "reference",
+                          "description": "Max 1 Item",
+                          "label": "Background Image",
+                          "multi": false,
+                          "name": "image",
+                          "valueType": "string"
+                      },
+                      {
+                          "component": "reference",
+                          "description": "Background image will be used on tablet by default.",
+                          "label": "Tablet Image",
+                          "multi": false,
+                          "name": "tab-image",
+                          "valueType": "string"
+                      },
+                      {
+                          "component": "reference",
+                          "description": "Background / Tablet image will be used on mobile by default.",
+                          "label": "Mobile Image",
+                          "multi": false,
+                          "name": "mob-image",
+                          "valueType": "string"
+                      }
+                  ],
+                  "label": "Background Image",
+                  "name": "container",
+                  "valueType": "string"
+              },
+              {
+                  "component": "boolean",
+                  "condition": {
+                      "!=": [
+                          {
+                              "var": "style"
+                          },
+                          "bg-image"
+                      ]
+                  },
+                  "label": "Show background color inside container.",
+                  "name": "sec-inside-container",
+                  "valueType": "boolean"
+              },
+              {
+                  "component": "boolean",
+                  "condition": {
+                      "!=": [
+                          {
+                              "var": "style"
+                          },
+                          "bg-image"
+                      ]
+                  },
+                  "label": "Reduce section width.",
+                  "name": "sec-width",
+                  "valueType": "boolean"
+              }
           ]
-        },
-        {
-          "component": "boolean",
-          "valueType": "boolean",
-          "name": "sec-inside-container",
-          "label": "Show background color inside container.",
-          "condition": {
-            "!=": [{ "var": "style" }, "bg-image"]
-          }
-        },
-        {
-          "component": "boolean",
-          "valueType": "boolean",
-          "name": "sec-width",
-          "label": "Reduce section width.",
-          "condition": {
-            "!=": [{ "var": "style" }, "bg-image"]
-          }
-        }
-      ]
-    }
+      }
   ],
   "filters": [
-    {
-      "id": "section",
-      "components": [
-        "text",
-        "image",
-        "button",
-        "title",
-        "cards",
-        "columns",
-        "data-cards",
-        "curated-cards",
-        "explore-cards",
-        "mini-cards",
-        "research-publications-cards",
-        "live-now",
-        "signup",
-        "teaser",
-        "tabs",
-        "priority-list",
-        "leaders-list",
-        "bio-detail",
-        "carousel",
-        "organizational-cards",
-        "breadcrumb",
-        "block-quote",
-        "impact-cards",
-        "heading",
-        "dm-asset",
-        "fragment",
-        "video",
-        "iframe"
-      ]
-    }
+      {
+          "id": "section",
+          "components": [
+            "text",
+            "image",
+            "button",
+            "title",
+            "cards",
+            "columns",
+            "data-cards",
+            "curated-cards",
+            "explore-cards",
+            "mini-cards",
+            "research-publications-cards",
+            "live-now",
+            "signup",
+            "teaser",
+            "tabs",
+            "priority-list",
+            "leaders-list",
+            "bio-detail",
+            "carousel",
+            "organizational-cards",
+            "breadcrumb",
+            "block-quote",
+            "impact-cards",
+            "heading",
+            "dm-asset",
+            "fragment",
+            "video",
+            "iframe",
+            "dropdown-list",
+            "country-list",
+            "dropdown-with-description",
+            "search-in-site",
+            "feature-cards",
+            "custom-image",
+            "news-banner",
+            "collapsible-text",
+            "indicator-charts",
+            "inline-search",
+            "social-media",
+            "country-charts",
+            "stay-connected",
+            "custom-text"
+        ]
+      }
   ]
 }

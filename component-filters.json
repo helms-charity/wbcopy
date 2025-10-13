@@ -35,7 +35,21 @@
       "dm-asset",
       "fragment",
       "video",
-      "iframe"
+      "iframe",
+      "dropdown-list",
+      "country-list",
+      "dropdown-with-description",
+      "search-in-site",
+      "feature-cards",
+      "custom-image",
+      "news-banner",
+      "collapsible-text",
+      "indicator-charts",
+      "inline-search",
+      "social-media",
+      "country-charts",
+      "stay-connected",
+      "custom-text"
     ]
   },
   {
@@ -52,16 +66,15 @@
   },
   {
     "id": "columns",
-    "components": []
-  },
-  {
-    "id": "column",
     "components": [
       "text",
       "image",
       "button",
       "title",
-      "dm-asset"
+      "dm-asset",
+      "heading",
+      "teaser",
+      "dropdown"
     ]
   },
   {
@@ -69,6 +82,10 @@
     "components": [
       "indicator-list"
     ]
+  },
+  {
+    "id": "country-list",
+    "components": []
   },
   {
     "id": "curated-cards",
@@ -135,12 +152,6 @@
     "id": "research-publications-cards",
     "components": [
       "research-publications-card"
-    ]
-  },
-  {
-    "id": "social-media",
-    "components": [
-      "social-media-links"
     ]
   },
   {

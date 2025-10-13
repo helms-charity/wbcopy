@@ -1,149 +1,57 @@
 {
   "definitions": [
     {
-          "title": "Social Media",
-          "id": "social-media",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "Social Media",
-                  "filter": "social-media",
-                  "model": "social-media",
-                  "social-media-title": "<p>The Heading for <strongSocial Media Block</strong></p>",
-                  "item1": {
-                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
-                    "name": "Mini Card",
-                    "model": "social-media-links",
-                    "social-media-links-title": "Mini Card Title",
-                    "social-media-links-url": "",
-                    "social-media-links-type": ""
-                  },
-                  "item2": {
-                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
-                    "name": "Mini Card",
-                    "model": "social-media-links",
-                    "social-media-links-title": "Mini Card Title",
-                    "social-media-links-url": "",
-                    "social-media-links-type": ""
-                  },
-                  "item3": {
-                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
-                    "name": "Mini Card",
-                    "model": "social-media-links",
-                    "social-media-links-title": "Mini Card Title",
-                    "social-media-links-url": "",
-                    "social-media-links-type": ""
-                  }
-                  ,
-                  "item4": {
-                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
-                    "name": "Mini Card",
-                    "model": "social-media-links",
-                    "social-media-links-title": "Mini Card Title",
-                    "social-media-links-url": "",
-                    "social-media-links-type": ""
-                  }
-                  ,
-                  "item5": {
-                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
-                    "name": "Mini Card",
-                    "model": "social-media-links",
-                    "social-media-links-title": "Mini Card Title",
-                    "social-media-links-url": "",
-                    "social-media-links-type": ""
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Social Media Links",
-          "id": "social-media-links",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "Social Media Links",
-                  "model": "social-media-links"
-                }
-              }
+      "title": "Social Media",
+      "id": "social-media",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Social Media",
+              "model": "social-media"
             }
           }
         }
-  ],
-  "models": [
-   {
-  "id": "social-media",
-  "fields": [
-    {
-      "component": "text",
-      "name": "social-media-title",
-      "label": "Section Title",
-      "value": "STAY CONNECTED",
-      "valueType": "string"
-    }
-  ]
-},
-{
-    "id": "social-media-links",
-    "fields": [
-      {
-        "component": "text",
-        "name": "social-media-links-title",
-        "value": "",
-        "label": "Title",
-        "valueType": "string",
-        "required": true
-      },
-      {
-        "component": "text",
-        "name": "social-media-links-url",
-        "value": "",
-        "label": "URL",
-        "valueType": "string"
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "social-media-links-type",
-        "value": "",
-        "label": "Type",
-        "options": [
-          {
-            "name": "Facebook",
-            "value": "lp-fb"
-          },
-          {
-            "name": "LinkedIn",
-            "value": "lp-linkln"
-          },
-          {
-            "name": "X",
-            "value": "lp-x"
-          },
-          {
-            "name": "Flickr",
-            "value": "lp-flickr-solid"
-          },
-          {
-            "name": "Youtube",
-            "value": "lp-youtube-solid"
-          }
-        ]
       }
-    ]
-  }
-  ],
-  "filters": [
-{
+    }
+  ], 
+  "models": [
+    {
       "id": "social-media",
-      "components": [
-        "social-media-links"
+      "fields":[
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "title",
+            "value": "",
+            "label": "Title"              
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "link-url",
+            "value": "",
+            "label": "URL",
+            "multi": true,
+            "required": true             
+          },
+          { 
+          "component": "multiselect",
+          "name": "class",
+          "label": "Class",
+          "value": [],
+          "valueType": "array",
+          "options": [
+            { "name": "Facebook", "value": "lp-fb" },
+            { "name": "LinkedIn", "value": "lp-linkln" },
+            { "name": "X", "value": "lp-x" },
+            { "name": "Flickr", "value": "lp-flickr-solid" },
+            {  "name": "Youtube", "value": "lp-youtube-solid"}
+          ]
+          }
       ]
     }
-  ]
-}
+  ],
+  "filters": []
+} 

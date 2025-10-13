@@ -15,7 +15,7 @@
         }
       }
     }
-  ],
+  ], 
   "models": [
     {
       "id": "inline-search",
@@ -112,7 +112,7 @@
           "label": "Heading",
           "valueType": "string"
         },
-        {
+        { 
           "component": "text",
           "name": "see-all-button-label",
           "value": "",
@@ -128,6 +128,6 @@
         }
       ]
     }
-  ],
+  ], 
   "filters": []
 }

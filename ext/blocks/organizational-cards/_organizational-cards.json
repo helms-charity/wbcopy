@@ -3,7 +3,7 @@
     {
       "title": "Organizational Cards",
       "id": "organizational-cards",
-        "plugins": {
+      "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
@@ -66,7 +66,7 @@
         }
       }
     }
-  ],
+  ], 
   "models": [
     {
       "id": "organizational-cards",
@@ -76,7 +76,8 @@
           "valueType": "string",
           "name": "image",
           "label": "Background Image",
-          "multi": false
+          "multi": false,
+          "description": "Select an image for the background of the organizational cards"
         },
         {
           "component": "text",
@@ -86,7 +87,7 @@
           "label": "Background Alternate Text"
         }
       ]
-    },
+    }, 
     {
       "id": "organizational-card",
       "fields":[

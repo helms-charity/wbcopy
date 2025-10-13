@@ -15,7 +15,7 @@
         }
       }
     }
-  ],
+  ], 
   "models": [
     {
       "id": "columns",
@@ -40,6 +40,10 @@
                   "value": "columns-heading-with-description"
                 },
                 {
+                  "name": "Banner Heading Variant",
+                  "value": "columns-heading-banner-variant"
+                },
+                {
                   "name": "Divider Variant",
                   "value": "columns-divider-variant"
                 },
@@ -52,6 +56,10 @@
                   "value": "columns-feature-card"
                 },
                 {
+                  "name": "List Nav Variation",
+                  "value": "knowledge-card"
+                },
+                {
                   "name": "Image Right Variation",
                   "value": "columns-image-right"
                 },
@@ -62,6 +70,10 @@
                 {
                   "name": "News Banner Bottom Variation",
                   "value": "columns-news-banner-bottom"
+                },
+                {
+                  "name": "Collapsible List Variation",
+                  "value": "collapsible-list-variation"
                 }
               ]
             },
@@ -121,6 +133,14 @@
                 {
                   "name": "75% - 25%",
                   "value": "column-layout-75-25"
+                },
+                {
+                  "name": "50% - Auto",
+                  "value": "column-layout-50-auto"
+                },
+                {
+                  "name": "Auto - 50%",
+                  "value": "column-layout-auto-50"
                 }
               ]
             }
@@ -162,13 +182,18 @@
     }
   ],
   "filters": [
-    {
+    { 
       "id": "columns",
-      "components": []
-    },
-    {
-      "id": "column",
-      "components": ["text", "image", "button", "title", "dm-asset"]
+      "components": [
+        "text",
+        "image",
+        "button",
+        "title",
+        "dm-asset",
+        "heading",
+        "teaser",
+        "dropdown"
+    ]
     }
   ]
 }
