@@ -2279,9 +2279,9 @@
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "classes",
-        "label": "Custom Style"
+        "name": "style",
+        "label": "Custom Style",
+        "valueType": "string"
       }
     ]
   },
