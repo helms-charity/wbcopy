@@ -218,10 +218,6 @@
                           "value": ""
                       },
                       {
-                          "name": "Hero Video Section",
-                          "value": "hero-video-section"
-                      },
-                      {
                           "name": "🎨[Background] Transparent / White / Default",
                           "value": "bg-default"
                       },
@@ -308,6 +304,10 @@
                       {
                           "name": "📐[Layout] Two Column Variation (75-25)",
                           "value": "two-col-variation-75-25"
+                      },
+                      {
+                          "name": "Hero Video Section",
+                          "value": "hero-video-section"
                       }
                   ],
                   "value": [],
