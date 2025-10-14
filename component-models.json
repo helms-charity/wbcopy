@@ -2382,6 +2382,14 @@
           {
             "name": "Senior Leadership view",
             "value": "senior-leadership"
+          },
+          {
+            "name": "Sticky Card",
+            "value": "sticky-card"
+          },
+          {
+            "name": "Sticky Columns Card",
+            "value": "sticky-columns-card"
           }
         ]
       }
