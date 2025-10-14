@@ -50,7 +50,8 @@
       "country-charts",
       "stay-connected",
       "custom-text",
-      "hero"
+      "hero",
+      "library-metadata"
     ]
   },
   {
@@ -124,6 +125,10 @@
     "components": [
       "indicator-item"
     ]
+  },
+  {
+    "id": "library-metadata",
+    "components": []
   },
   {
     "id": "impact-cards",
