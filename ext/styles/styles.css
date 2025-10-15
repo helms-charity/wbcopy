@@ -1979,7 +1979,7 @@ body.no-scroll {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   z-index: -1;
   max-width: unset;
@@ -2108,8 +2108,12 @@ body.no-scroll {
 html.adobe-ue-preview,
 html.adobe-ue-edit {
   height: unset;
-  
-  .hero {
+
+  .section.hero-video-section > .default-content-wrapper {
+    height: 600px;
+  }
+
+  .section.hero-video-section > .video-wrapper {
     height: 600px;
   }
 }
