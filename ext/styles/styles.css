@@ -2102,3 +2102,14 @@ body.no-scroll {
   letter-spacing: -1.8px;
   margin: 0;
 }
+
+/* Universal Editor workaround - Add any CSS rules above this line */
+
+html.adobe-ue-preview,
+html.adobe-ue-edit {
+  height: unset;
+  
+  .hero {
+    height: 600px;
+  }
+}
