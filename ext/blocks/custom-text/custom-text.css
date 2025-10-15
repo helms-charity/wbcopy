@@ -8,7 +8,7 @@
     height: 100%;
     z-index: 0;
     background-color: transparent;
-    padding: var(--spacing-large);
+    padding: 0;
 }
 
 .section.sticky-section > .custom-text-wrapper > .custom-text.block {
@@ -21,7 +21,6 @@
     background-color: transparent;
     border-radius: var(--border-radius-large);
     box-shadow: var(--box-shadow-medium);
-    margin-bottom: var(--spacing-large);
     max-width: 100%;
     width: 50%;
     padding: 320px 0;

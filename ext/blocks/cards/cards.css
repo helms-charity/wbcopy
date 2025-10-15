@@ -289,7 +289,6 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 }
 
 .cards.sticky-card.block {
-  background-color: #bdf1ff;
   padding: 0;
 }
 
@@ -302,6 +301,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   position: relative;
   flex-direction: column;
   justify-content: flex-end;
+  box-shadow: 0 0 204px 0 #E7EDF3;
 }
 
 .cards.sticky-card.block > ul > li:nth-child(1) {
@@ -345,4 +345,8 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 .cards.sticky-card.block .cards-card-image img {
   height: 100%;
   width: 100%;
+}
+
+.cards.sticky-card.block .cards-card-body {
+  background: linear-gradient(to bottom, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 100%) 80%);
 }
