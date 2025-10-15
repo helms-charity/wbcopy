@@ -2,9 +2,8 @@
     display: flex;
     flex-direction: column;
     justify-self: anchor-center;
-    position: absolute;
+    position: sticky;
     top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     z-index: 0;
@@ -13,12 +12,11 @@
 }
 
 .section.sticky-section > .custom-text-wrapper > .custom-text.block {
-    position: sticky;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-self: center;
     text-align: center;
-    top: 0;
     z-index: 100;
     background-color: transparent;
     border-radius: var(--border-radius-large);

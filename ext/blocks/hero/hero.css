@@ -3,11 +3,6 @@
   padding: 0;
 }
 
-main .hero-container .video-wrapper {
-height: 100vh;
-}
-
-
 .hero {
   position: relative;
   padding: 40px 24px;
