@@ -30,20 +30,81 @@ function arrow(props) {
 export default async function createSlider(block) {
   const nextBtn = 'next';
   const prevBtn = 'prev';
-  block.append(arrow(`${nextBtn}`));
-  block.append(arrow(`${prevBtn}`));
+  const wrapper = block.parentElement;
+
+  // Create a container for both buttons
+  const buttonContainer = document.createElement('div');
+  buttonContainer.className = 'carousel-navigation-buttons';
+  buttonContainer.append(arrow(`${prevBtn}`));
+  buttonContainer.append(arrow(`${nextBtn}`));
+
+  // Append button container to wrapper
+  wrapper.append(buttonContainer);
 
   // Call function after page load
   const moveRightBtn = document.querySelector(`.${nextBtn}`);
   const moveLeftBtn = document.querySelector(`.${prevBtn}`);
   const itemList = [...document.querySelectorAll('.carousel > ul > li')];
+  const carouselItems = document.querySelector('.carousel > ul');
+
+  // Add drag-to-scroll functionality
+  let isDown = false;
+  let startX;
+  let scrollLeftStart;
+  let hasMoved = false;
+
+  // Prevent default drag behavior on images and links
+  carouselItems.querySelectorAll('img, a').forEach((element) => {
+    element.addEventListener('dragstart', (e) => e.preventDefault());
+  });
+
+  carouselItems.addEventListener('mousedown', (e) => {
+    // Don't interfere with button clicks or links
+    if (e.target.closest('button') || e.target.closest('a')) return;
+
+    isDown = true;
+    hasMoved = false;
+    carouselItems.classList.add('is-dragging');
+    startX = e.pageX - carouselItems.offsetLeft;
+    scrollLeftStart = carouselItems.scrollLeft;
+    e.preventDefault();
+  });
+
+  // Use document-level listeners to handle mouse events outside carousel
+  document.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    hasMoved = true;
+    const x = e.pageX - carouselItems.offsetLeft;
+    const walk = x - startX; // 1:1 movement ratio with mouse
+    carouselItems.scrollLeft = scrollLeftStart - walk;
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (isDown) {
+      isDown = false;
+      carouselItems.classList.remove('is-dragging');
+
+      // Reset hasMoved after a short delay to allow click prevention
+      setTimeout(() => {
+        hasMoved = false;
+      }, 10);
+    }
+  });
+
+  // Prevent click events when dragging
+  carouselItems.addEventListener('click', (e) => {
+    if (hasMoved) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
   const observerOptions = {
     rootMargin: '0px',
     threshold: 0.25,
   };
 
   function moveDirection(itemWidth, option) {
-    const carouselItems = document.querySelector('.carousel > ul');
     if (option === '+') {
       carouselItems.scrollLeft += itemWidth;
     } else {
@@ -53,14 +114,12 @@ export default async function createSlider(block) {
 
   // Button Event Handler
   moveLeftBtn.addEventListener('click', () => {
-    const carouselItems = document.querySelector('.carousel > ul');
     const totalItems = carouselItems.children.length || 1;
     const itemWidth = parseInt(carouselItems.scrollWidth / totalItems, 10);
     moveDirection(itemWidth, '-');
   }, true);
 
   moveRightBtn.addEventListener('click', () => {
-    const carouselItems = document.querySelector('.carousel > ul');
     const totalItems = carouselItems.children.length || 1;
     const itemWidth = parseInt(carouselItems.scrollWidth / totalItems, 10);
     moveDirection(itemWidth, '+');
