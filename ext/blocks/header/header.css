@@ -315,6 +315,10 @@ header .nav-menu-overlay .nav-menu .nav-menu-column.right .browse-country a:hove
   .search-input-container .search-icon {
     width: 24px;
   }
+
+  header nav .nav-tools .inline-search-wrapper {
+    display: none !important;
+  }
 }
 
 /* End of language selector styles */
@@ -910,8 +914,87 @@ header nav .nav-brand a:focus-visible img {
   outline: 2px solid var(--links-focus-color);
 }
 
-.nav-tools .default-content-wrapper {
-  gap: 25px;
+/* Inline Search Styling */
+header nav .nav-tools .inline-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+header nav .nav-tools .inline-search-input {
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 10px 50px 10px 20px !important;
+  font-size: 14px !important;
+  font-family: var(--body-font-family) !important;
+  color: #666 !important;
+  background-color: #e8eef2 !important;
+  outline: none !important;
+  width: 200px !important;
+  height: 44px !important;
+  transition: all 0.2s ease !important;
+  flex-shrink: 0;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+header nav .nav-tools .inline-search-input::placeholder {
+  color: #999 !important;
+  font-size: 14px !important;
+  opacity: 1;
+}
+
+header nav .nav-tools .inline-search-input:focus {
+  background-color: #dce6ec !important;
+  box-shadow: 0 0 0 2px rgb(0 113 188 / 15%) !important;
+  border: none !important;
+}
+
+header nav .nav-tools .inline-search-input::-webkit-search-cancel-button {
+  appearance: none;
+  display: none;
+}
+
+header nav .nav-tools .inline-search-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #004370;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+header nav .nav-tools .inline-search-icon:hover {
+  background-color: #004a6e;
+}
+
+header nav .nav-tools .inline-search-icon:focus {
+  outline: 2px solid var(--links-focus-color, #0071bc);
+  outline-offset: 2px;
+}
+
+header nav .nav-tools .inline-search-icon img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
+
+/* RTL support for inline search */
+html[dir="rtl"] header nav .nav-tools .inline-search-input {
+  padding: 10px 20px 10px 50px !important;
+}
+
+html[dir="rtl"] header nav .nav-tools .inline-search-icon {
+  right: auto;
+  left: 4px;
 }
 
 /* sections */
@@ -920,6 +1003,31 @@ header nav .nav-brand a:focus-visible img {
   display: flex;
   gap: 20px;
   justify-content: center;
+}
+
+/* Override for nav-tools with search input */
+header nav .nav-tools .default-content-wrapper {
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header nav .nav-tools .default-content-wrapper > p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+header nav .nav-tools .icon-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+header nav .nav-tools .icon-search img {
+  width: 24px;
+  height: 24px;
 }
 
 header nav .nav-sections .default-content-wrapper {
@@ -1310,7 +1418,38 @@ html[dir="rtl"] .nav-menu-overlay .nav-menu-column.right .browse-country ul li u
   }
 }
 
+@media (width >= 768px) and (width < 1024px) {
+  header nav .nav-tools .inline-search-wrapper {
+    display: flex;
+  }
+
+  header nav .nav-tools .inline-search-input {
+    width: 180px !important;
+    font-size: 13px !important;
+    padding: 9px 48px 9px 18px !important;
+    height: 40px !important;
+  }
+
+  header nav .nav-tools .inline-search-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  header nav .nav-tools .inline-search-icon img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
 @media (width >= 1024px) {
+  header nav .nav-tools .inline-search-wrapper {
+    display: flex;
+  }
+
+  header nav .nav-tools .inline-search-input {
+    width: 220px !important;
+  }
+
   header nav {
     display: flex;
     justify-content: space-between;
