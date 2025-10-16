@@ -37,3 +37,8 @@
   letter-spacing: -1.8px;
   margin-bottom: var(--spacing-large);
 }
+
+.section.sticky-section > .custom-text-wrapper > .custom-text.block > div:last-child p {
+    margin-bottom: 0;
+    height: 58px;
+}
