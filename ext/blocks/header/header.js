@@ -1,6 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
-import getLanguageSelector from './language-selector.js';
+// import getLanguageSelector from './language-selector.js';
 import {
   getNavigationMenu, formatNavigationJsonData, closesideMenu, closesearchbar,
 } from './navigation.js';
@@ -436,7 +436,7 @@ export default async function decorate(block) {
     nav.append(fragment.firstElementChild);
   }
 
-  const classes = ['brand', 'sections', 'tools'];
+  const classes = ['brand', 'sections', 'tools', 'links'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
@@ -447,6 +447,14 @@ export default async function decorate(block) {
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
+  }
+
+  const navLinks = nav.querySelector('.nav-links');
+  if (navLinks) {
+    navLinks.querySelectorAll('.button').forEach((link) => {
+      link.className = '';
+      link.closest('.button-container').className = '';
+    });
   }
 
   const navSections = nav.querySelector('.nav-sections');
@@ -472,8 +480,8 @@ export default async function decorate(block) {
   if (navTools) {
     const contentWrapper = nav.querySelector('.nav-tools > div[class = "default-content-wrapper"]');
     setAccessibilityAttrForSearchIcon(contentWrapper);
-    const languageSelector = getLanguageSelector(placeholdersData, langCode);
-    contentWrapper.prepend(languageSelector);
+    // const languageSelector = getLanguageSelector(placeholdersData, langCode);
+    // contentWrapper.prepend(languageSelector);
 
     // Close Search Container on Focus out
     document.addEventListener('click', (e) => {

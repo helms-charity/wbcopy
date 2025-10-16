@@ -1874,3 +1874,50 @@ input::-webkit-clear-button {
             max-height: 550px;
   }
 }
+
+/* nav-links styles */
+header nav .nav-links {
+  display: none;
+}
+
+@media (width >= 1024px) {
+  header nav .nav-links {
+    display: flex;
+    align-items: center;
+  }
+
+  header nav .nav-links .default-content-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  header nav .nav-links .default-content-wrapper p {
+    margin: 0;
+    padding: 0;
+  }
+
+  header nav .nav-links a {
+    background-color: transparent;
+    color: var(--text-on-light-link-primary-enabled);
+    border: none;
+    padding: 0;
+    font-family: var(--body-font-family);
+    font-size: var(--font-size-300);
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 0;
+  }
+
+  header nav .nav-links a:hover {
+    text-decoration: none;
+    background-color: transparent;
+    color: var(--text-on-light-link-primary-enabled);
+  }
+
+  header nav .nav-links a:focus {
+    outline: 2px solid var(--links-focus-color);
+    background-color: transparent;
+  }
+}
