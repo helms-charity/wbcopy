@@ -1,12 +1,6 @@
 .carousel > ul {
   list-style: none;
   margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 4px;
-  overflow: auto hidden;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 }
 
 .carousel > ul > li {
@@ -18,10 +12,10 @@
   overflow: hidden;
   background-color: var(--white);
   box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
-  flex: 0 0 260px;
-  min-width: 260px;
-  max-width: 260px;
-  height: 360px;
+  flex: 0 0 360px;
+  min-width: 360px;
+  max-width: 360px;
+  height: 430px;
   display: flex;
   flex-direction: column;
 }
@@ -30,7 +24,7 @@
   line-height: 0;
   position: relative;
   flex-shrink: 0;
-  height: 150px;
+  height: 203px;
 }
 
 .carousel > ul > li img {
@@ -45,7 +39,7 @@
 /* Card body - stacked below image */
 .carousel .cards-card-body {
   position: relative;
-  background: rgb(26 68 89);
+  background: var(--blue-120);
   padding: 24px;
   margin: 0;
   flex: 1;
@@ -53,17 +47,20 @@
   flex-direction: column;
   border-radius: 0 0 10px 10px;
   transition: background-color 0.3s ease;
-  min-height: 210px;
+  text-align: left;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 /* Hover effect - lighter blue */
 .carousel > ul > li:hover .cards-card-body {
-  background: rgb(4 125 149);
+  /* background: rgb(4 125 149); */
+  background: var(--blue-80);
 }
 
 /* Disable hover effect when dragging */
 .carousel > ul.is-dragging > li:hover .cards-card-body {
-  background: rgb(26 68 89);
+  background: var(--blue-120);
 }
 
 /* Card link styling */
@@ -86,12 +83,15 @@
   line-height: 125%;
   letter-spacing: -0.3px;
   margin-bottom: 12px;
+  text-align: left;
+  width: 100%;
 }
 
 .carousel .cards-card-body > *:first-child a {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+  text-align: left;
 }
 
 .carousel .cards-card-body > *:first-child a:hover {
@@ -106,6 +106,8 @@
   line-height: 145%;
   letter-spacing: -0.15px;
   margin-bottom: 0;
+  text-align: left;
+  width: 100%;
 }
 
 /* Badge/Tag styling at the top of cards */
@@ -127,6 +129,8 @@
 /* Remove default paragraph margins in carousel cards */
 .carousel .cards-card-body p {
   margin: 0;
+  text-align: left;
+  width: 100%;
 }
 
 .carousel .cards-card-body p + p {
@@ -140,19 +144,18 @@
   }
 
   .carousel > ul > li {
-    flex: 0 0 340px;
-    min-width: 340px;
-    max-width: 340px;
-    height: 400px;
+    flex: 0 0 430px;
+    min-width: 430px;
+    max-width: 430px;
+    height: 480px;
   }
 
   .carousel .cards-card-image {
-    height: 180px;
+    height: 242px;
   }
 
   .carousel .cards-card-body {
     padding: 28px;
-    min-height: 220px;
   }
 
   .carousel .cards-card-body > *:first-child {
@@ -171,19 +174,18 @@
   }
 
   .carousel > ul > li {
-    flex: 0 0 360px;
-    min-width: 360px;
-    max-width: 360px;
-    height: 450px;
+    flex: 0 0 455px;
+    min-width: 455px;
+    max-width: 455px;
+    height: 508px;
   }
 
   .carousel .cards-card-image {
-    height: 200px;
+    height: 256px;
   }
 
   .carousel .cards-card-body {
     padding: 32px;
-    min-height: 250px;
   }
 
   .carousel .cards-card-body > *:first-child {
@@ -196,4 +198,23 @@
     font-size: 16px;
     line-height: 150%;
   }
+}
+
+.carousel-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 115%;
+  letter-spacing: -0.6px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.carousel-container p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.25px;
+  color: #000d1ab2;
+  text-align:center;
+  text-transform: none;
 }
