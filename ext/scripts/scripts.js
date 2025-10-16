@@ -15,6 +15,7 @@ import {
 } from './aem.js';
 import { picture, source, img } from './dom-helpers.js';
 
+// eslint-disable-next-line import/no-cycle
 import {
   getLanguage,
   createSource,
@@ -27,6 +28,54 @@ import {
 const LCP_BLOCKS = ['bio-detail']; // add your LCP blocks to the list
 export const CLASS_MAIN_HEADING = 'main-heading';
 export const LANGUAGE_ROOT = `/ext/${getLanguage()}`;
+
+/**
+ * Function to add a div as the first child of the main element with the class 'color-wrapper',
+ * and within that div add two div sibling divs with classes 'gradient-left-side'
+ * and 'gradient-right-side', and add the class 'color-animation' to both these divs
+ */
+function addColorWrapper() {
+  const main = document.querySelector('main');
+  // Check if color-wrapper already exists
+  if (main.querySelector('.color-wrapper')) {
+    return;
+  }
+  const colorWrapper = document.createElement('div');
+  colorWrapper.classList.add('color-wrapper');
+  main.insertBefore(colorWrapper, main.firstChild);
+  const gradientLeftSide = document.createElement('div');
+  gradientLeftSide.classList.add('gradient-left-side');
+  gradientLeftSide.classList.add('color-animation');
+  colorWrapper.appendChild(gradientLeftSide);
+  const gradientRightSide = document.createElement('div');
+  gradientRightSide.classList.add('gradient-right-side');
+  gradientRightSide.classList.add('color-animation');
+  colorWrapper.appendChild(gradientRightSide);
+
+  // Add event listener to the color wrapper to add the class 'centered' when section is in view
+  document.addEventListener('DOMContentLoaded', () => {
+    const wrapper = document.querySelector('.color-wrapper');
+
+    // Select all sections whose ID ends in '-center'
+    const centerSections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const anyInView = entries.some((entry) => entry.isIntersecting);
+        if (anyInView) {
+          wrapper.classList.add('centered');
+        } else {
+          wrapper.classList.remove('centered');
+        }
+      },
+      {
+        threshold: 0.2, // Trigger when 60% of the section is visible
+      },
+    );
+
+    centerSections.forEach((section) => observer.observe(section));
+  });
+}
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
@@ -161,6 +210,7 @@ export function decorateMain(main) {
   decorateBlocks(main);
   decorateGrid(main);
   decorateDMImages(main);
+  addColorWrapper();
 }
 
 /**
