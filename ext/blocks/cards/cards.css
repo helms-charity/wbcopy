@@ -9,7 +9,6 @@
 }
 
 .cards:not(.profile-summary) > ul > li {
-  border: 1px solid var(--dark-color);
   background-color: var(--white);
 }
 
