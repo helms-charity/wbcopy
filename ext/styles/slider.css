@@ -98,7 +98,8 @@ button {
   overflow: visible;
   position: relative;
   padding-right: 0;
-  padding-left: 108px;
+
+  /* padding-left: 108px; */
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -116,9 +117,9 @@ html[dir="rtl"] .section > div.carousel-wrapper {
 .carousel>ul {
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(7, 360px);
-  grid-template-rows: 450px;
-  gap: 0 20px;
+  grid-template-columns: repeat(7, 455px);
+  grid-template-rows: 508px;
+  gap: 0 30px;
   overflow: scroll hidden;
   scroll-snap-type: both mandatory;
   scroll-padding: 0;
@@ -158,10 +159,7 @@ html[dir="rtl"] .section > div.carousel-wrapper {
 
 .carousel>ul>li {
   scroll-snap-align: start;
-  display: inline-block;
   border: 0;
-  width: auto;
-  height: auto;
 }
 
 .carousel>ul>li>.cards-card-image {
@@ -176,7 +174,7 @@ html[dir="rtl"] .section > div.carousel-wrapper {
 .carousel-wrapper > .button-container,
 .carousel-wrapper > .carousel-navigation-buttons {
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   gap: 12px;
   order: 2;
@@ -216,7 +214,7 @@ html[dir="rtl"] .section > div.carousel-wrapper {
   line-height: 17px;
   font-weight: 400;
   color: var(--neutral-alpha-95-a);
-  padding: 24px 0 0;
+  padding: 48px 48px 0;
   margin: 0;
 }
 
@@ -300,8 +298,8 @@ html[dir="rtl"] .section > div.carousel-wrapper {
   }
 
   .carousel>ul {
-    grid-template-columns: repeat(7, 340px);
-    grid-template-rows: 400px;
+    grid-template-columns: repeat(7, 430px);
+    grid-template-rows: 480px;
     gap: 0 8px;
   }
 
@@ -415,8 +413,8 @@ html[dir="rtl"] .section > div.carousel-wrapper {
   }
 
   .carousel>ul {
-    grid-template-columns: repeat(7, 300px);
-    grid-template-rows: 360px;
+    grid-template-columns: repeat(7, 360px);
+    grid-template-rows: 430px;
     gap: 0 4px;
   }
 }
