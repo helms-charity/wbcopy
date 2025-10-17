@@ -1,6 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
-import getLanguageSelector from './language-selector.js';
+// import getLanguageSelector from './language-selector.js';
 import {
   getNavigationMenu, formatNavigationJsonData, closesideMenu, closesearchbar,
 } from './navigation.js';
@@ -335,12 +335,88 @@ async function changeTrendingData(navSections, placeholderData) {
   trendingDataWrapper.append(trendingDataDiv);
 }
 
+function createInlineSearchBox(navTools) {
+  const contentWrapper = navTools.querySelector('.default-content-wrapper');
+  const searchIconParagraph = contentWrapper.querySelector('p');
+
+  // Create wrapper for search box
+  const searchWrapper = div({ class: 'inline-search-wrapper' });
+
+  // Create search input
+  const searchInputBox = document.createElement('input');
+  Object.assign(searchInputBox, {
+    type: 'search',
+    id: 'inline-search-input',
+    name: 'search',
+    placeholder: listOfAllPlaceholdersData.searchVariable || 'Search Academy',
+    value: '',
+    autocomplete: 'off',
+    className: 'inline-search-input',
+  });
+
+  searchInputBox.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const inputValue = searchInputBox.value.trim();
+      if (inputValue) {
+        const url = (listOfAllPlaceholdersData.searchRedirectUrl || 'https://www.worldbank.org/en/search?q=') + encodeURIComponent(inputValue);
+        window.location.href = url;
+      }
+    }
+  });
+
+  // Create search icon button
+  const searchIconButton = div({
+    class: 'inline-search-icon',
+    role: 'button',
+    tabindex: '0',
+    'aria-label': 'Search',
+  });
+  const searchIconImg = img({ class: 'search-icon-img' });
+  searchIconImg.src = `${window.hlx.codeBasePath}/icons/search.svg`;
+  searchIconImg.alt = 'Search';
+
+  const performSearch = () => {
+    const inputValue = searchInputBox.value.trim();
+    if (inputValue) {
+      const url = (listOfAllPlaceholdersData.searchRedirectUrl || 'https://www.worldbank.org/en/search?q=') + encodeURIComponent(inputValue);
+      window.location.href = url;
+    } else {
+      searchInputBox.focus();
+    }
+  };
+
+  searchIconButton.addEventListener('click', performSearch);
+  searchIconButton.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      performSearch();
+    }
+  });
+
+  searchIconButton.appendChild(searchIconImg);
+  searchWrapper.append(searchInputBox, searchIconButton);
+
+  // Insert before the existing search icon paragraph or at the beginning
+  if (searchIconParagraph) {
+    contentWrapper.insertBefore(searchWrapper, searchIconParagraph);
+    // Hide the old search icon
+    searchIconParagraph.style.display = 'none';
+  } else {
+    contentWrapper.insertBefore(searchWrapper, contentWrapper.firstElementChild);
+  }
+}
+
 const setAccessibilityAttrForSearchIcon = (contentWrapper) => {
-  const [iconTag] = [...contentWrapper.children];
-  const iconSpan = iconTag.querySelector('span');
-  iconSpan.setAttribute('role', 'button');
-  iconSpan.setAttribute('aria-label', 'Perform a search query');
-  iconSpan.setAttribute('tabindex', 0);
+  // Find the icon element (not the input)
+  const iconTag = [...contentWrapper.children].find((child) => child.classList.contains('icon') || child.querySelector('.icon'));
+  if (iconTag) {
+    const iconSpan = iconTag.querySelector('span');
+    if (iconSpan) {
+      iconSpan.setAttribute('role', 'button');
+      iconSpan.setAttribute('aria-label', 'Perform a search query');
+      iconSpan.setAttribute('tabindex', 0);
+    }
+  }
 };
 
 const closeSearchOnFocusOut = (e, navTools) => {
@@ -436,7 +512,7 @@ export default async function decorate(block) {
     nav.append(fragment.firstElementChild);
   }
 
-  const classes = ['brand', 'sections', 'tools'];
+  const classes = ['brand', 'sections', 'tools', 'links'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
@@ -447,6 +523,14 @@ export default async function decorate(block) {
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
+  }
+
+  const navLinks = nav.querySelector('.nav-links');
+  if (navLinks) {
+    navLinks.querySelectorAll('.button').forEach((link) => {
+      link.className = '';
+      link.closest('.button-container').className = '';
+    });
   }
 
   const navSections = nav.querySelector('.nav-sections');
@@ -471,9 +555,13 @@ export default async function decorate(block) {
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
     const contentWrapper = nav.querySelector('.nav-tools > div[class = "default-content-wrapper"]');
+
+    // Add inline search box
+    createInlineSearchBox(navTools);
+
     setAccessibilityAttrForSearchIcon(contentWrapper);
-    const languageSelector = getLanguageSelector(placeholdersData, langCode);
-    contentWrapper.prepend(languageSelector);
+    // const languageSelector = getLanguageSelector(placeholdersData, langCode);
+    // contentWrapper.prepend(languageSelector);
 
     // Close Search Container on Focus out
     document.addEventListener('click', (e) => {
