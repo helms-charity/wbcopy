@@ -40,6 +40,10 @@ function addColorWrapper() {
   if (main.querySelector('.color-wrapper')) {
     return;
   }
+  //check that the currently loaded page is the home page, by checking that .hero-video-section exists
+  if (!document.querySelector('.hero-video-section')) {
+    return;
+  }
   const colorWrapper = document.createElement('div');
   colorWrapper.classList.add('color-wrapper');
   main.insertBefore(colorWrapper, main.firstChild);
