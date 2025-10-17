@@ -1923,9 +1923,11 @@
     "fields": [
       {
         "component": "select",
-        "description": "Section top spacing, default is 32px.",
-        "label": "Spacing Top (padding top)",
         "name": "sec-spacing",
+        "value": "",
+        "label": "Spacing Top (padding top)",
+        "description": "Section top spacing, default is 32px.",
+        "valueType": "string",
         "options": [
           {
             "name": "Default spacing",
@@ -1982,16 +1984,20 @@
           {
             "name": "Spacing xhuge",
             "value": "section-xhuge"
+          },
+          {
+            "name": "Spacing xxhuge",
+            "value": "section-xxhuge"
           }
-        ],
-        "value": "",
-        "valueType": "string"
+        ]
       },
       {
         "component": "select",
-        "description": "Section bottom spacing, default is 32px.",
-        "label": "Spacing Bottom (padding bottom)",
         "name": "sec-spacing-bottom",
+        "value": "",
+        "label": "Spacing Bottom (padding bottom)",
+        "description": "Section bottom spacing, default is 32px.",
+        "valueType": "string",
         "options": [
           {
             "name": "Default spacing",
@@ -2048,15 +2054,19 @@
           {
             "name": "Spacing xhuge",
             "value": "section-xhuge"
+          },
+          {
+            "name": "Spacing xxhuge",
+            "value": "section-xxhuge"
           }
-        ],
-        "value": "",
-        "valueType": "string"
+        ]
       },
       {
         "component": "select",
-        "label": "Swoosh",
         "name": "sec-swoosh",
+        "value": "",
+        "label": "Swoosh",
+        "valueType": "string",
         "options": [
           {
             "name": "No Swoosh",
@@ -2101,120 +2111,456 @@
           {
             "name": "Primary Blue 90 theme Swoosh",
             "value": "sec-swoosh-primary-blue-90"
+          },
+          {
+            "name": "Right Swoosh (12)",
+            "value": "sec-swoosh-type12"
+          },
+          {
+            "name": "Right Swoosh (13)",
+            "value": "sec-swoosh-type13"
+          },
+          {
+            "name": "Right Swoosh (14)",
+            "value": "sec-swoosh-type14"
+          },
+          {
+            "name": "Right Swoosh (15)",
+            "value": "sec-swoosh-type15"
           }
-        ],
-        "value": "",
-        "valueType": "string"
+        ]
       },
       {
         "component": "multiselect",
-        "label": "Variant style",
         "name": "style",
+        "value": [],
+        "label": "Variant style",
+        "valueType": "array",
         "options": [
           {
-            "disabled": true,
-            "name": "-- Backgrounds --",
-            "value": ""
+            "name": "🎨Background",
+            "children": [
+              {
+                "name": "Transparent / White / Default",
+                "value": "bg-default"
+              },
+              {
+                "name": "Dark Background Container",
+                "value": "bg-primary-blue"
+              },
+              {
+                "name": "Primary Blue 90",
+                "value": "bg-primary-blue-90"
+              },
+              {
+                "name": "Primary Blue 80",
+                "value": "bg-primary-blue-80"
+              },
+              {
+                "name": "Primary Blue 70",
+                "value": "bg-primary-blue-70"
+              },
+              {
+                "name": "Primary Blue 50",
+                "value": "bg-primary-blue-50-base"
+              },
+              {
+                "name": "Neutrals 10",
+                "value": "bg-neutrals-10"
+              },
+              {
+                "name": "Neutrals 10 Gradient",
+                "value": "bg-neutrals-10-gradient"
+              },
+              {
+                "name": "Neutrals 16 Gradient",
+                "value": "bg-neutrals-16-gradient"
+              },
+              {
+                "name": "Neutrals 20",
+                "value": "bg-neutrals-20"
+              },
+              {
+                "name": "Neutrals 05",
+                "value": "bg-neutrals-05-gradient"
+              },
+              {
+                "name": "Neutrals 07",
+                "value": "bg-neutrals-07-gradient"
+              },
+              {
+                "name": "Neutrals 100",
+                "value": "bg-white"
+              },
+              {
+                "name": "Image",
+                "value": "bg-image"
+              },
+              {
+                "name": "Hero Background (Blue)",
+                "value": "section-hero-bg-blue"
+              },
+              {
+                "name": "Hero Background (Green)",
+                "value": "section-hero-bg-green"
+              }
+            ]
           },
           {
-            "name": "🎨[Background] Transparent / White / Default",
-            "value": "bg-default"
+            "name": "🧩Component",
+            "children": [
+              {
+                "name": "1 Card Banner Container",
+                "value": "full-banner-container"
+              },
+              {
+                "name": "3 Card Banner Container",
+                "value": "feature-banner-container"
+              },
+              {
+                "name": "Bottom Carousel",
+                "value": "bottom-carousel"
+              },
+              {
+                "name": "Button Title Container",
+                "value": "title-text-button-container"
+              },
+              {
+                "name": "Border Radius Medium",
+                "value": "border-radius-medium"
+              },
+              {
+                "name": "Border Overlay Container",
+                "value": "lp-border-overlay-container"
+              },
+              {
+                "name": "Blue Vertical Border",
+                "value": "blue-vertical-border"
+              },
+              {
+                "name": "LP Blue Card Container",
+                "value": "lp-blue-card-container"
+              },
+              {
+                "name": "Carousel Container",
+                "value": "generic-carousel-container"
+              },
+              {
+                "name": "Center Align Text",
+                "value": "center-align-text"
+              },
+              {
+                "name": "Circle Container",
+                "value": "lp-circle-container"
+              },
+              {
+                "name": "Clone Button For Mobile/Tablet",
+                "value": "clone-button-bottom"
+              },
+              {
+                "name": "Common Card Container",
+                "value": "lp-common-card-container"
+              },
+              {
+                "name": "Columns Multi Depth Container",
+                "value": "columns-multiindepth-container"
+              },
+              {
+                "name": "Contacts Tabs Container",
+                "value": "mediacontacts-tabs-container"
+              },
+              {
+                "name": "Data Card Noborder",
+                "value": "data-card-noborder"
+              },
+              {
+                "name": "Data List Container",
+                "value": "data-list-container"
+              },
+              {
+                "name": "Data Topic Result Container",
+                "value": "data-topic-result-container"
+              },
+              {
+                "name": "Expert Media Container",
+                "value": "expert-mediacard-container"
+              },
+              {
+                "name": "Experts Quote Vertical",
+                "value": "experts-quote-vertical"
+              },
+              {
+                "name": "Experts Quote Horizontal",
+                "value": "experts-quote-horizontal"
+              },
+              {
+                "name": "Focus Card Container",
+                "value": "hero-focusarea-container"
+              },
+              {
+                "name": "Heading v1",
+                "value": "heading-v1"
+              },
+              {
+                "name": "Heading (Vertical)",
+                "value": "heading-vertical"
+              },
+              {
+                "name": "Hero Container",
+                "value": "lp-hero-container"
+              },
+              {
+                "name": "Horizontal Expand",
+                "value": "horizontal-expand"
+              },
+              {
+                "name": "Horizontal Button Container",
+                "value": "lp-horizontal-button-container"
+              },
+              {
+                "name": "Jump to Navigation",
+                "value": "jump-to-navigation"
+              },
+              {
+                "name": "List Container",
+                "value": "countrylist-container"
+              },
+              {
+                "name": "List With Border Container",
+                "value": "partnerlist-container"
+              },
+              {
+                "name": "LP Blue Outline Button",
+                "value": "lp-blue-outline-btn"
+              },
+              {
+                "name": "LP Download button",
+                "value": "lp-download-btn"
+              },
+              {
+                "name": "LP Edit button",
+                "value": "lp-edit-btn"
+              },
+              {
+                "name": "Measuring Impact Primary Card",
+                "value": "measuring-impact-primary-card-container"
+              },
+              {
+                "name": "Measuring Impact Primary Card (Vertical)",
+                "value": "measuring-impact-primary-card-vertical"
+              },
+              {
+                "name": "Organizational Full Image Cards Container",
+                "value": "organizational-fullimage-cards-container"
+              },
+              {
+                "name": "Organizational Flagship Card",
+                "value": "organizational-flagship-cards-container"
+              },
+              {
+                "name": "Organizational Home Card",
+                "value": "organizational-homecards-container"
+              },
+              {
+                "name": "Overlay Cards Container",
+                "value": "overlay-cards-container"
+              },
+              {
+                "name": "Overlay Carousel Card Container",
+                "value": "overlay-carousel-card-container"
+              },
+              {
+                "name": "Overlay Collapse Container",
+                "value": "lp-overlay-collapse-container"
+              },
+              {
+                "name": "Overlay Breadcrumb Container",
+                "value": "lp-overlay-breadcrumb-container"
+              },
+              {
+                "name": "Overlay Button Container",
+                "value": "lp-overlay-button-container"
+              },
+              {
+                "name": "Overlay Header Wrapper",
+                "value": "lp-overlay-header-wrapper"
+              },
+              {
+                "name": "Priority list v1",
+                "value": "priority-list-v1-container"
+              },
+              {
+                "name": "Popup Overlay Carousel Card Container",
+                "value": "popupoverlay-carousel-card-container"
+              },
+              {
+                "name": "Progress Container",
+                "value": "lp-progress-container"
+              },
+              {
+                "name": "Quote Container",
+                "value": "lp-quote-container"
+              },
+              {
+                "name": "Region Card Container",
+                "value": "region-card-container"
+              },
+              {
+                "name": "Region Feature Card",
+                "value": "region-feature-card"
+              },
+              {
+                "name": "Relate One Column",
+                "value": "related-1-cols"
+              },
+              {
+                "name": "Relate Two Column",
+                "value": "related-2-cols"
+              },
+              {
+                "name": "Relate Three Column",
+                "value": "related-3-cols"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              },
+              {
+                "name": "Stay Connected List Container",
+                "value": "stay-connectedlist-container"
+              },
+              {
+                "name": "Signup Container",
+                "value": "signup-container"
+              },
+              {
+                "name": "Signup Container v1",
+                "value": "signup-container-v1"
+              },
+              {
+                "name": "Space Bottom Medium",
+                "value": "space-bottom-medium"
+              },
+              {
+                "name": "Square Card Container",
+                "value": "lp-square-card-container"
+              },
+              {
+                "name": "Sticky section",
+                "value": "lp-sticky-section"
+              },
+              {
+                "name": "Sticky Card Container",
+                "value": "lp-sticky-card-container"
+              },
+              {
+                "name": "Transform Teaser Container",
+                "value": "transform-teaser-container"
+              },
+              {
+                "name": "Video Banner",
+                "value": "lp-video-banner"
+              },
+              {
+                "name": "Wrap Body Text",
+                "value": "wrap-body-text"
+              },
+              {
+                "name": "Wrap Media Banner",
+                "value": "wrap__media_banner"
+              },
+              {
+                "name": "Wrap Leadership Container",
+                "value": "wrap-leadership-card-container"
+              },
+              {
+                "name": "image 1 by 1",
+                "value": "image-1by1"
+              },
+              {
+                "name": "image 3 by 2",
+                "value": "image-3by2"
+              },
+              {
+                "name": "image 16 by 9",
+                "value": "image-16by9"
+              }
+            ]
           },
           {
-            "name": "🎨[Background] Dark Background Container",
-            "value": "bg-primary-blue"
+            "name": "📐[Layout]",
+            "children": [
+              {
+                "name": "Three Column Variation",
+                "value": "lp-3column-card"
+              },
+              {
+                "name": "Two Column Variation (30-70)",
+                "value": "two-col-variation-30-70"
+              },
+              {
+                "name": "Two Column Variation (50-50)",
+                "value": "two-col-variation-50-50"
+              },
+              {
+                "name": "Two Column Variation (75-25)",
+                "value": "two-col-variation-75-25"
+              },
+              {
+                "name": "Two Column Variation (40-60)",
+                "value": "two-col-variation-40-60"
+              }
+            ]
           },
           {
-            "name": "🎨[Background] Primary Blue 90",
-            "value": "bg-primary-blue-90"
-          },
-          {
-            "name": "🎨[Background] Primary Blue 70",
-            "value": "bg-primary-blue-70"
-          },
-          {
-            "name": "🎨[Background] Neutrals 10",
-            "value": "bg-neutrals-10"
-          },
-          {
-            "name": "🎨[Background] Neutrals 10 Gradient",
-            "value": "bg-neutrals-10-gradient"
-          },
-          {
-            "name": "🎨[Background] Neutrals 20",
-            "value": "bg-neutrals-20"
-          },
-          {
-            "name": "🎨[Background] Neutrals 05",
-            "value": "bg-neutrals-05-gradient"
-          },
-          {
-            "name": "🎨[Background] Neutrals 07",
-            "value": "bg-neutrals-07-gradient"
-          },
-          {
-            "name": "🎨[Background] Image",
-            "value": "bg-image"
-          },
-          {
-            "name": "🧩[Component] Banner Container",
-            "value": "full-banner-container"
-          },
-          {
-            "name": "🧩[Component] Bottom Carousel",
-            "value": "bottom-carousel"
-          },
-          {
-            "name": "🧩[Component] Button Title Container",
-            "value": "title-text-button-container"
-          },
-          {
-            "name": "🧩[Component] Data Card Noborder",
-            "value": "data-card-noborder"
-          },
-          {
-            "name": "🧩[Component] Feature Banner Container",
-            "value": "feature-banner-container"
-          },
-          {
-            "name": "🧩[Component] List Container",
-            "value": "countrylist-container"
-          },
-          {
-            "name": "🧩[Component] List With Border Container",
-            "value": "partnerlist-container"
-          },
-          {
-            "name": "🧩[Component] Region Feature Card",
-            "value": "region-feature-card"
-          },
-          {
-            "name": "🧩[Component] Stay Connected",
-            "value": "stay-connected"
-          },
-          {
-            "name": "📐[Layout] Two Column Variation (50-50)",
-            "value": "two-col-variation-50-50"
-          },
-          {
-            "name": "📐[Layout] Two Column Variation (40-60)",
-            "value": "two-col-variation-40-60"
-          },
-          {
-            "name": "📐[Layout] Two Column Variation (75-25)",
-            "value": "two-col-variation-75-25"
-          },
-          {
-            "name": "Hero Video Section",
-            "value": "hero-video-section"
+            "name": "Formatting",
+            "children": [
+              {
+                "name": "Column Space",
+                "value": "grid-column-space"
+              },
+              {
+                "name": "Column Space 2",
+                "value": "grid-2column-space"
+              },
+              {
+                "name": "Hide Button",
+                "value": "hide-button"
+              },
+              {
+                "name": "Image Caption",
+                "value": "image-caption"
+              },
+              {
+                "name": "Image Left",
+                "value": "image-left"
+              },
+              {
+                "name": "Remove Border",
+                "value": "remove-border"
+              },
+              {
+                "name": "Text Align Center",
+                "value": "text-align-center"
+              },
+              {
+                "name": "Text List Blue Border",
+                "value": "text-list-blueborder"
+              },
+              {
+                "name": "Text Regular Medium",
+                "value": "tui_body_text_md_regular"
+              }
+            ]
           }
-        ],
-        "value": [],
-        "valueType": "array"
+        ]
       },
       {
-        "collapsible": true,
         "component": "container",
+        "label": "Background Image",
+        "name": "container",
+        "valueType": "string",
+        "collapsible": true,
         "condition": {
           "==": [
             {
@@ -2226,49 +2572,35 @@
         "fields": [
           {
             "component": "reference",
-            "description": "Max 1 Item",
+            "valueType": "string",
+            "name": "image",
             "label": "Background Image",
             "multi": false,
-            "name": "image",
-            "valueType": "string"
+            "description": "Max 1 Item"
           },
           {
             "component": "reference",
-            "description": "Background image will be used on tablet by default.",
-            "label": "Tablet Image",
-            "multi": false,
+            "valueType": "string",
             "name": "tab-image",
-            "valueType": "string"
+            "label": "Tablet Image",
+            "description": "Background image will be used on tablet by default.",
+            "multi": false
           },
           {
             "component": "reference",
-            "description": "Background / Tablet image will be used on mobile by default.",
-            "label": "Mobile Image",
-            "multi": false,
+            "valueType": "string",
             "name": "mob-image",
-            "valueType": "string"
+            "label": "Mobile Image",
+            "description": "Background / Tablet image will be used on mobile by default.",
+            "multi": false
           }
-        ],
-        "label": "Background Image",
-        "name": "container",
-        "valueType": "string"
+        ]
       },
       {
         "component": "boolean",
-        "condition": {
-          "!=": [
-            {
-              "var": "style"
-            },
-            "bg-image"
-          ]
-        },
-        "label": "Show background color inside container.",
+        "valueType": "boolean",
         "name": "sec-inside-container",
-        "valueType": "boolean"
-      },
-      {
-        "component": "boolean",
+        "label": "Show background color inside container.",
         "condition": {
           "!=": [
             {
@@ -2276,10 +2608,21 @@
             },
             "bg-image"
           ]
-        },
-        "label": "Reduce section width.",
+        }
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
         "name": "sec-width",
-        "valueType": "boolean"
+        "label": "Reduce section width.",
+        "condition": {
+          "!=": [
+            {
+              "var": "style"
+            },
+            "bg-image"
+          ]
+        }
       }
     ]
   },
@@ -4369,6 +4712,22 @@
             "value": "sec-swoosh-type11"
           },
           {
+            "name": "Right Swoosh (12)",
+            "value": "sec-swoosh-type12"
+          },
+          {
+            "name": "Right Swoosh (13)",
+            "value": "sec-swoosh-type13"
+          },
+          {
+            "name": "Right Swoosh (14)",
+            "value": "sec-swoosh-type14"
+          },
+          {
+            "name": "Right Swoosh (15)",
+            "value": "sec-swoosh-type15"
+          },
+          {
             "name": "Primary Blue 90 theme Swoosh",
             "value": "sec-swoosh-primary-blue-90"
           }
@@ -4380,7 +4739,7 @@
         "label": "Variant Style",
         "valueType": "string",
         "required": true,
-        "maxSize": 5,
+        "maxSize": 8,
         "options": [
           {
             "name": "🎨Background",
@@ -4398,8 +4757,16 @@
                 "value": "bg-primary-blue-90"
               },
               {
+                "name": "Primary Blue 80",
+                "value": "bg-primary-blue-80"
+              },
+              {
                 "name": "Primary Blue 70",
                 "value": "bg-primary-blue-70"
+              },
+              {
+                "name": "Primary Blue 50",
+                "value": "bg-primary-blue-50-base"
               },
               {
                 "name": "Neutrals 10",
@@ -4408,6 +4775,10 @@
               {
                 "name": "Neutrals 10 Gradient",
                 "value": "bg-neutrals-10-gradient"
+              },
+              {
+                "name": "Neutrals 16 Gradient",
+                "value": "bg-neutrals-16-gradient"
               },
               {
                 "name": "Neutrals 20",
@@ -4422,8 +4793,20 @@
                 "value": "bg-neutrals-07-gradient"
               },
               {
+                "name": "Neutrals 100",
+                "value": "bg-white"
+              },
+              {
                 "name": "Image",
                 "value": "bg-image"
+              },
+              {
+                "name": "Hero Background (Blue)",
+                "value": "section-hero-bg-blue"
+              },
+              {
+                "name": "Hero Background (Green)",
+                "value": "section-hero-bg-green"
               }
             ]
           },
@@ -4431,8 +4814,12 @@
             "name": "🧩Component",
             "children": [
               {
-                "name": "Banner Container",
+                "name": "1 Card Banner Container",
                 "value": "full-banner-container"
+              },
+              {
+                "name": "3 Card Banner Container",
+                "value": "feature-banner-container"
               },
               {
                 "name": "Bottom Carousel",
@@ -4443,12 +4830,100 @@
                 "value": "title-text-button-container"
               },
               {
+                "name": "Border Radius Medium",
+                "value": "border-radius-medium"
+              },
+              {
+                "name": "Border Overlay Container",
+                "value": "lp-border-overlay-container"
+              },
+              {
+                "name": "Blue Vertical Border",
+                "value": "blue-vertical-border"
+              },
+              {
+                "name": "LP Blue Card Container",
+                "value": "lp-blue-card-container"
+              },
+              {
+                "name": "Carousel Container",
+                "value": "generic-carousel-container"
+              },
+              {
+                "name": "Center Align Text",
+                "value": "center-align-text"
+              },
+              {
+                "name": "Circle Container",
+                "value": "lp-circle-container"
+              },
+              {
+                "name": "Clone Button For Mobile/Tablet",
+                "value": "clone-button-bottom"
+              },
+              {
+                "name": "Common Card Container",
+                "value": "lp-common-card-container"
+              },
+              {
+                "name": "Columns Multi Depth Container",
+                "value": "columns-multiindepth-container"
+              },
+              {
+                "name": "Contacts Tabs Container",
+                "value": "mediacontacts-tabs-container"
+              },
+              {
                 "name": "Data Card Noborder",
                 "value": "data-card-noborder"
               },
               {
-                "name": "Feature Banner Container",
-                "value": "feature-banner-container"
+                "name": "Data List Container",
+                "value": "data-list-container"
+              },
+              {
+                "name": "Data Topic Result Container",
+                "value": "data-topic-result-container"
+              },
+              {
+                "name": "Expert Media Container",
+                "value": "expert-mediacard-container"
+              },
+              {
+                "name": "Experts Quote Vertical",
+                "value": "experts-quote-vertical"
+              },
+              {
+                "name": "Experts Quote Horizontal",
+                "value": "experts-quote-horizontal"
+              },
+              {
+                "name": "Focus Card Container",
+                "value": "hero-focusarea-container"
+              },
+              {
+                "name": "Heading v1",
+                "value": "heading-v1"
+              },
+              {
+                "name": "Heading (Vertical)",
+                "value": "heading-vertical"
+              },
+              {
+                "name": "Hero Container",
+                "value": "lp-hero-container"
+              },
+              {
+                "name": "Horizontal Expand",
+                "value": "horizontal-expand"
+              },
+              {
+                "name": "Horizontal Button Container",
+                "value": "lp-horizontal-button-container"
+              },
+              {
+                "name": "Jump to Navigation",
+                "value": "jump-to-navigation"
               },
               {
                 "name": "List Container",
@@ -4459,12 +4934,226 @@
                 "value": "partnerlist-container"
               },
               {
+                "name": "LP Blue Outline Button",
+                "value": "lp-blue-outline-btn"
+              },
+              {
+                "name": "LP Download button",
+                "value": "lp-download-btn"
+              },
+              {
+                "name": "LP Edit button",
+                "value": "lp-edit-btn"
+              },
+              {
+                "name": "Measuring Impact Primary Card",
+                "value": "measuring-impact-primary-card-container"
+              },
+              {
+                "name": "Measuring Impact Primary Card (Vertical)",
+                "value": "measuring-impact-primary-card-vertical"
+              },
+              {
+                "name": "Organizational Full Image Cards Container",
+                "value": "organizational-fullimage-cards-container"
+              },
+              {
+                "name": "Organizational Flagship Card",
+                "value": "organizational-flagship-cards-container"
+              },
+              {
+                "name": "Organizational Home Card",
+                "value": "organizational-homecards-container"
+              },
+              {
+                "name": "Overlay Cards Container",
+                "value": "overlay-cards-container"
+              },
+              {
+                "name": "Overlay Carousel Card Container",
+                "value": "overlay-carousel-card-container"
+              },
+              {
+                "name": "Overlay Collapse Container",
+                "value": "lp-overlay-collapse-container"
+              },
+              {
+                "name": "Overlay Breadcrumb Container",
+                "value": "lp-overlay-breadcrumb-container"
+              },
+              {
+                "name": "Overlay Button Container",
+                "value": "lp-overlay-button-container"
+              },
+              {
+                "name": "Overlay Header Wrapper",
+                "value": "lp-overlay-header-wrapper"
+              },
+              {
+                "name": "Priority list v1",
+                "value": "priority-list-v1-container"
+              },
+              {
+                "name": "Popup Overlay Carousel Card Container",
+                "value": "popupoverlay-carousel-card-container"
+              },
+              {
+                "name": "Progress Container",
+                "value": "lp-progress-container"
+              },
+              {
+                "name": "Quote Container",
+                "value": "lp-quote-container"
+              },
+              {
+                "name": "Region Card Container",
+                "value": "region-card-container"
+              },
+              {
                 "name": "Region Feature Card",
                 "value": "region-feature-card"
               },
               {
+                "name": "Relate One Column",
+                "value": "related-1-cols"
+              },
+              {
+                "name": "Relate Two Column",
+                "value": "related-2-cols"
+              },
+              {
+                "name": "Relate Three Column",
+                "value": "related-3-cols"
+              },
+              {
                 "name": "Stay Connected",
                 "value": "stay-connected"
+              },
+              {
+                "name": "Stay Connected List Container",
+                "value": "stay-connectedlist-container"
+              },
+              {
+                "name": "Signup Container",
+                "value": "signup-container"
+              },
+              {
+                "name": "Signup Container v1",
+                "value": "signup-container-v1"
+              },
+              {
+                "name": "Space Bottom Medium",
+                "value": "space-bottom-medium"
+              },
+              {
+                "name": "Square Card Container",
+                "value": "lp-square-card-container"
+              },
+              {
+                "name": "Sticky section",
+                "value": "lp-sticky-section"
+              },
+              {
+                "name": "Sticky Card Container",
+                "value": "lp-sticky-card-container"
+              },
+              {
+                "name": "Transform Teaser Container",
+                "value": "transform-teaser-container"
+              },
+              {
+                "name": "Video Banner",
+                "value": "lp-video-banner"
+              },
+              {
+                "name": "Wrap Body Text",
+                "value": "wrap-body-text"
+              },
+              {
+                "name": "Wrap Media Banner",
+                "value": "wrap__media_banner"
+              },
+              {
+                "name": "Wrap Leadership Container",
+                "value": "wrap-leadership-card-container"
+              },
+              {
+                "name": "image 1 by 1",
+                "value": "image-1by1"
+              },
+              {
+                "name": "image 3 by 2",
+                "value": "image-3by2"
+              },
+              {
+                "name": "image 16 by 9",
+                "value": "image-16by9"
+              }
+            ]
+          },
+          {
+            "name": "📐[Layout]",
+            "children": [
+              {
+                "name": "Three Column Variation",
+                "value": "lp-3column-card"
+              },
+              {
+                "name": "Two Column Variation (30-70)",
+                "value": "two-col-variation-30-70"
+              },
+              {
+                "name": "Two Column Variation (50-50)",
+                "value": "two-col-variation-50-50"
+              },
+              {
+                "name": "Two Column Variation (75-25)",
+                "value": "two-col-variation-75-25"
+              },
+              {
+                "name": "Two Column Variation (40-60)",
+                "value": "two-col-variation-40-60"
+              }
+            ]
+          },
+          {
+            "name": "Formatting",
+            "children": [
+              {
+                "name": "Column Space",
+                "value": "grid-column-space"
+              },
+              {
+                "name": "Column Space 2",
+                "value": "grid-2column-space"
+              },
+              {
+                "name": "Hide Button",
+                "value": "hide-button"
+              },
+              {
+                "name": "Image Caption",
+                "value": "image-caption"
+              },
+              {
+                "name": "Image Left",
+                "value": "image-left"
+              },
+              {
+                "name": "Remove Border",
+                "value": "remove-border"
+              },
+              {
+                "name": "Text Align Center",
+                "value": "text-align-center"
+              },
+              {
+                "name": "Text List Blue Border",
+                "value": "text-list-blueborder"
+              },
+              {
+                "name": "Text Regular Medium",
+                "value": "tui_body_text_md_regular"
               }
             ]
           }
@@ -4532,6 +5221,10 @@
           {
             "name": "Spacing xhuge",
             "value": "section-xhuge"
+          },
+          {
+            "name": "Spacing xxhuge",
+            "value": "section-xxhuge"
           }
         ]
       },
@@ -4597,6 +5290,10 @@
           {
             "name": "Spacing xhuge",
             "value": "section-xhuge"
+          },
+          {
+            "name": "Spacing xxhuge",
+            "value": "section-xxhuge"
           }
         ]
       },
@@ -4605,6 +5302,20 @@
         "valueType": "boolean",
         "name": "sec-inside-container",
         "label": "Show background color inside container.",
+        "condition": {
+          "!=": [
+            {
+              "var": "style"
+            },
+            "bg-image"
+          ]
+        }
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "sec-width",
+        "label": "Reduce section width.",
         "condition": {
           "!=": [
             {
@@ -4641,6 +5352,10 @@
           {
             "name": "5",
             "value": "col-5"
+          },
+          {
+            "name": "6",
+            "value": "col-6"
           }
         ]
       },
@@ -4666,16 +5381,44 @@
             "valueType": "array",
             "options": [
               {
+                "name": "Accordion",
+                "value": "accordion"
+              },
+              {
+                "name": "Button",
+                "value": "button"
+              },
+              {
                 "name": "Collapsible Text",
                 "value": "collapsible-text"
               },
               {
-                "name": "Heading",
-                "value": "heading"
+                "name": "Column",
+                "value": "column"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              },
+              {
+                "name": "Custom Image",
+                "value": "custom-image"
+              },
+              {
+                "name": "LP Heading",
+                "value": "lp-heading"
+              },
+              {
+                "name": "Image",
+                "value": "image"
               },
               {
                 "name": "Inline Search",
                 "value": "inline-search"
+              },
+              {
+                "name": "Measuring Impact Cards",
+                "value": "measuring-impact-cards"
               },
               {
                 "name": "Mini Cards",
@@ -4684,6 +5427,10 @@
               {
                 "name": "News Banner",
                 "value": "news-banner"
+              },
+              {
+                "name": "Popup Card",
+                "value": "popup-card"
               },
               {
                 "name": "Research and Publications",
@@ -4698,20 +5445,32 @@
                 "value": "signup"
               },
               {
-                "name": "Text",
-                "value": "text"
+                "name": "Tabs",
+                "value": "tabs"
               },
               {
                 "name": "Video",
                 "value": "video"
               },
               {
-                "name": "Image",
-                "value": "image"
+                "name": "Block Quote",
+                "value": "block-quote"
               },
               {
-                "name": "Custom Text",
-                "value": "custom-text"
+                "name": "Organizational Cards",
+                "value": "organizational-cards"
+              },
+              {
+                "name": "Expert Quotes",
+                "value": "expert-quotes"
+              },
+              {
+                "name": "Related List",
+                "value": "related-list"
+              },
+              {
+                "name": "Text",
+                "value": "text"
               }
             ]
           }
@@ -4756,6 +5515,14 @@
                 },
                 "col-5"
               ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-6"
+              ]
             }
           ]
         },
@@ -4775,16 +5542,44 @@
             "valueType": "array",
             "options": [
               {
+                "name": "Accordion",
+                "value": "accordion"
+              },
+              {
+                "name": "Button",
+                "value": "button"
+              },
+              {
                 "name": "Collapsible Text",
                 "value": "collapsible-text"
               },
               {
-                "name": "Heading",
-                "value": "heading"
+                "name": "Column",
+                "value": "column"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              },
+              {
+                "name": "Custom Image",
+                "value": "custom-image"
+              },
+              {
+                "name": "LP Heading",
+                "value": "lp-heading"
+              },
+              {
+                "name": "Image",
+                "value": "image"
               },
               {
                 "name": "Inline Search",
                 "value": "inline-search"
+              },
+              {
+                "name": "Measuring Impact Cards",
+                "value": "measuring-impact-cards"
               },
               {
                 "name": "Mini Cards",
@@ -4793,6 +5588,10 @@
               {
                 "name": "News Banner",
                 "value": "news-banner"
+              },
+              {
+                "name": "Popup Card",
+                "value": "popup-card"
               },
               {
                 "name": "Research and Publications",
@@ -4807,20 +5606,32 @@
                 "value": "signup"
               },
               {
-                "name": "Text",
-                "value": "text"
+                "name": "Tabs",
+                "value": "tabs"
               },
               {
                 "name": "Video",
                 "value": "video"
               },
               {
-                "name": "Image",
-                "value": "image"
+                "name": "Block Quote",
+                "value": "block-quote"
               },
               {
-                "name": "Custom Text",
-                "value": "custom-text"
+                "name": "Organizational Cards",
+                "value": "organizational-cards"
+              },
+              {
+                "name": "Expert Quotes",
+                "value": "expert-quotes"
+              },
+              {
+                "name": "Related Links",
+                "value": "related-links"
+              },
+              {
+                "name": "Text",
+                "value": "text"
               }
             ]
           }
@@ -4857,6 +5668,14 @@
                 },
                 "col-5"
               ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-6"
+              ]
             }
           ]
         },
@@ -4876,16 +5695,44 @@
             "valueType": "array",
             "options": [
               {
+                "name": "Accordion",
+                "value": "accordion"
+              },
+              {
+                "name": "Button",
+                "value": "button"
+              },
+              {
                 "name": "Collapsible Text",
                 "value": "collapsible-text"
               },
               {
-                "name": "Heading",
-                "value": "heading"
+                "name": "Column",
+                "value": "column"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              },
+              {
+                "name": "Custom Image",
+                "value": "custom-image"
+              },
+              {
+                "name": "LP Heading",
+                "value": "lp-heading"
+              },
+              {
+                "name": "Image",
+                "value": "image"
               },
               {
                 "name": "Inline Search",
                 "value": "inline-search"
+              },
+              {
+                "name": "Measuring Impact Cards",
+                "value": "measuring-impact-cards"
               },
               {
                 "name": "Mini Cards",
@@ -4894,6 +5741,10 @@
               {
                 "name": "News Banner",
                 "value": "news-banner"
+              },
+              {
+                "name": "Popup Card",
+                "value": "popup-card"
               },
               {
                 "name": "Research and Publications",
@@ -4908,20 +5759,28 @@
                 "value": "signup"
               },
               {
-                "name": "Text",
-                "value": "text"
+                "name": "Tabs",
+                "value": "tabs"
               },
               {
                 "name": "Video",
                 "value": "video"
               },
               {
-                "name": "Image",
-                "value": "image"
+                "name": "Block Quote",
+                "value": "block-quote"
               },
               {
-                "name": "Custom Text",
-                "value": "custom-text"
+                "name": "Organizational Cards",
+                "value": "organizational-cards"
+              },
+              {
+                "name": "Related Links",
+                "value": "related-links"
+              },
+              {
+                "name": "Text",
+                "value": "text"
               }
             ]
           }
@@ -4950,6 +5809,14 @@
                 },
                 "col-5"
               ]
+            },
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-6"
+              ]
             }
           ]
         },
@@ -4969,16 +5836,44 @@
             "valueType": "array",
             "options": [
               {
+                "name": "Accordion",
+                "value": "accordion"
+              },
+              {
+                "name": "Button",
+                "value": "button"
+              },
+              {
                 "name": "Collapsible Text",
                 "value": "collapsible-text"
               },
               {
-                "name": "Heading",
-                "value": "heading"
+                "name": "Column",
+                "value": "column"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              },
+              {
+                "name": "Custom Image",
+                "value": "custom-image"
+              },
+              {
+                "name": "LP Heading",
+                "value": "lp-heading"
+              },
+              {
+                "name": "Image",
+                "value": "image"
               },
               {
                 "name": "Inline Search",
                 "value": "inline-search"
+              },
+              {
+                "name": "Measuring Impact Cards",
+                "value": "measuring-impact-cards"
               },
               {
                 "name": "Mini Cards",
@@ -4987,6 +5882,10 @@
               {
                 "name": "News Banner",
                 "value": "news-banner"
+              },
+              {
+                "name": "Popup Card",
+                "value": "popup-card"
               },
               {
                 "name": "Research and Publications",
@@ -5001,20 +5900,28 @@
                 "value": "signup"
               },
               {
-                "name": "Text",
-                "value": "text"
+                "name": "Tabs",
+                "value": "tabs"
               },
               {
                 "name": "Video",
                 "value": "video"
               },
               {
-                "name": "Image",
-                "value": "image"
+                "name": "Block Quote",
+                "value": "block-quote"
               },
               {
-                "name": "Custom Text",
-                "value": "custom-text"
+                "name": "Organizational Cards",
+                "value": "organizational-cards"
+              },
+              {
+                "name": "Related Links",
+                "value": "related-links"
+              },
+              {
+                "name": "Text",
+                "value": "text"
               }
             ]
           }
@@ -5027,11 +5934,23 @@
         "multi": false,
         "collapsible": true,
         "condition": {
-          "==": [
+          "or": [
             {
-              "var": "col-ctrl"
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-5"
+              ]
             },
-            "col-5"
+            {
+              "==": [
+                {
+                  "var": "col-ctrl"
+                },
+                "col-6"
+              ]
+            }
           ]
         },
         "fields": [
@@ -5050,16 +5969,44 @@
             "valueType": "array",
             "options": [
               {
+                "name": "Accordion",
+                "value": "accordion"
+              },
+              {
+                "name": "Button",
+                "value": "button"
+              },
+              {
                 "name": "Collapsible Text",
                 "value": "collapsible-text"
               },
               {
-                "name": "Heading",
-                "value": "heading"
+                "name": "Column",
+                "value": "column"
+              },
+              {
+                "name": "Custom Text",
+                "value": "custom-text"
+              },
+              {
+                "name": "Custom Image",
+                "value": "custom-image"
+              },
+              {
+                "name": "LP Heading",
+                "value": "lp-heading"
+              },
+              {
+                "name": "Image",
+                "value": "image"
               },
               {
                 "name": "Inline Search",
                 "value": "inline-search"
+              },
+              {
+                "name": "Measuring Impact Cards",
+                "value": "measuring-impact-cards"
               },
               {
                 "name": "Mini Cards",
@@ -5068,6 +6015,10 @@
               {
                 "name": "News Banner",
                 "value": "news-banner"
+              },
+              {
+                "name": "Popup Card",
+                "value": "popup-card"
               },
               {
                 "name": "Research and Publications",
@@ -5082,20 +6033,149 @@
                 "value": "signup"
               },
               {
-                "name": "Text",
-                "value": "text"
+                "name": "Tabs",
+                "value": "tabs"
               },
               {
                 "name": "Video",
                 "value": "video"
               },
               {
-                "name": "Image",
-                "value": "image"
+                "name": "Block Quote",
+                "value": "block-quote"
+              },
+              {
+                "name": "Organizational Cards",
+                "value": "organizational-cards"
+              },
+              {
+                "name": "Related Links",
+                "value": "related-links"
+              },
+              {
+                "name": "Text",
+                "value": "text"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "test6",
+        "label": "🧱 Grid 6",
+        "multi": false,
+        "collapsible": true,
+        "condition": {
+          "==": [
+            {
+              "var": "col-ctrl"
+            },
+            "col-6"
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "col6-class",
+            "value": "",
+            "label": "Column 6 Class"
+          },
+          {
+            "component": "multiselect",
+            "name": "col6-blocks",
+            "label": "Column 6 Blocks",
+            "value": [],
+            "valueType": "array",
+            "options": [
+              {
+                "name": "Accordion",
+                "value": "accordion"
+              },
+              {
+                "name": "Button",
+                "value": "button"
+              },
+              {
+                "name": "Collapsible Text",
+                "value": "collapsible-text"
+              },
+              {
+                "name": "Column",
+                "value": "column"
               },
               {
                 "name": "Custom Text",
                 "value": "custom-text"
+              },
+              {
+                "name": "Custom Image",
+                "value": "custom-image"
+              },
+              {
+                "name": "LP Heading",
+                "value": "lp-heading"
+              },
+              {
+                "name": "Image",
+                "value": "image"
+              },
+              {
+                "name": "Inline Search",
+                "value": "inline-search"
+              },
+              {
+                "name": "Measuring Impact Cards",
+                "value": "measuring-impact-cards"
+              },
+              {
+                "name": "Mini Cards",
+                "value": "mini-cards"
+              },
+              {
+                "name": "News Banner",
+                "value": "news-banner"
+              },
+              {
+                "name": "Popup Card",
+                "value": "popup-card"
+              },
+              {
+                "name": "Research and Publications",
+                "value": "research-publications-cards"
+              },
+              {
+                "name": "Stay Connected",
+                "value": "stay-connected"
+              },
+              {
+                "name": "Signup",
+                "value": "signup"
+              },
+              {
+                "name": "Tabs",
+                "value": "tabs"
+              },
+              {
+                "name": "Video",
+                "value": "video"
+              },
+              {
+                "name": "Block Quote",
+                "value": "block-quote"
+              },
+              {
+                "name": "Organizational Cards",
+                "value": "organizational-cards"
+              },
+              {
+                "name": "Related Links",
+                "value": "related-links"
+              },
+              {
+                "name": "Text",
+                "value": "text"
               }
             ]
           }
