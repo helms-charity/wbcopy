@@ -451,6 +451,13 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   margin-bottom: 1.5rem;
 }
 
+.cards.sticky-columns-card .cards-card-body p:nth-of-type(2) a {
+  color: #fff !important; /* Same color for description paragraphs */
+  font-size: var(--font-size-300);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
 .cards.sticky-columns-card .cards-card-body .button-container {
   display: inline-block;
   margin: 0;
