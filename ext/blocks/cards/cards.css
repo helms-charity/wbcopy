@@ -8,7 +8,8 @@
   justify-content: flex-start;
 }
 
-.cards:not(.profile-summary) > ul > li {
+.cards:not(.profile-summary, .sticky-columns-card) > ul > li {
+  border: 1px solid var(--dark-color);
   background-color: var(--white);
 }
 
@@ -27,7 +28,7 @@
   display: block;
 }
 
-.cards:not(.profile-summary) .cards-card-body > *:first-child {
+.cards:not(.profile-summary, .sticky-columns-card) .cards-card-body > *:first-child {
   margin: 0;
   color: var(--text-on-dark-emphasys, rgb(255 255 255 / 90%));
   font-feature-settings: "liga" off, "clig" off;
@@ -40,7 +41,7 @@
 }
 
 
-.cards:not(.profile-summary) .cards-card-body > *:last-child {
+.cards:not(.profile-summary, .sticky-columns-card) .cards-card-body > *:last-child {
     color: var(--text-on-dark-default, rgb(255 255 255 / 75%));
     font-size: var(--font-size-500);
     font-style: normal;
@@ -59,6 +60,16 @@
 .cards-wrapper {
   padding: 0;
 }
+
+/* Apply consistent styling to all cards links */
+.cards a[href] {
+  text-underline-offset: 14px !important; /* Lower underlines for all cards */
+  font-size: var(--font-size-300) !important; /* Consistent size for all card links */
+  font-weight: var(--font-weight-700) !important; /* Bold text for all card links */
+  text-decoration-color: #fff !important; /* White underlines for all card links */
+}
+
+/* Removed specific styling - using global styling for all cards links */
 
 .cards:not(.profile-summary) {
   padding: var(--spacing-large) var(--spacing-xlarge) 0;
@@ -288,6 +299,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 }
 
 .cards.sticky-card.block {
+  background-color: #bdf1ff;
   padding: 0;
 }
 
@@ -300,7 +312,6 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   position: relative;
   flex-direction: column;
   justify-content: flex-end;
-  box-shadow: 0 0 204px 0 #E7EDF3;
 }
 
 .cards.sticky-card.block > ul > li:nth-child(1) {
@@ -346,6 +357,190 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   width: 100%;
 }
 
-.cards.sticky-card.block .cards-card-body {
-  background: linear-gradient(to bottom, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 100%) 80%);
+/* Sticky Columns Cards Implementation */
+.cards.sticky-columns-card {
+  padding: 0;
+  position: relative;
+}
+
+.cards.sticky-columns-card > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  align-items: start;
+}
+
+/* Left column - sticky behavior */
+.cards.sticky-columns-card > ul > li:first-child {
+  grid-column: 1;
+  grid-row: 1 / -1; /* Span all rows */
+  position: sticky;
+  top: 2rem;
+  bottom: 2rem; /* Natural sticky stop */
+  height: fit-content;
+  align-self: start;
+}
+
+/* Second image - right column, top */
+.cards.sticky-columns-card > ul > li:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Third image - right column, bottom */
+.cards.sticky-columns-card > ul > li:nth-child(3) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* Remove borders from sticky columns cards - flexible World Bank Academy proportions */
+.cards.sticky-columns-card > ul > li {
+  border: none;
+  background: transparent;
+  overflow: visible; /* Allow content to flow naturally */
+  border-radius: 8px;
+  min-height: 350px; /* Minimum height like World Bank Academy */
+  max-width: 100%; /* Responsive width */
+}
+
+/* Card styling */
+.cards.sticky-columns-card .cards-card-image {
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: 0;
+}
+
+.cards.sticky-columns-card .cards-card-image img {
+  width: 100%;
+  height: 250px; /* Proportional to World Bank Academy */
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  display: block;
+}
+
+.cards.sticky-columns-card .cards-card-body {
+  background: #012740; /* Exact World Bank Academy dark blue */
+  padding: 48px; /* World Bank Academy padding from your DevTools */
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  margin: 0; /* World Bank Academy margin structure */
+  transition: background-color 0.3s ease;
+}
+
+/* Text styling */
+.cards.sticky-columns-card .cards-card-body p {
+  color: var(--text-on-dark-subdued) !important; /* Color from screenshot */
+  font-size: var(--font-size-300);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.cards.sticky-columns-card .cards-card-body p:not(.button-container) {
+  margin-bottom: 1.5rem;
+}
+
+.cards.sticky-columns-card .cards-card-body p:nth-of-type(1):not(.button-container) {
+  color: var(--text-on-dark-subdued) !important; /* Same color for description paragraphs */
+  font-size: var(--font-size-300);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.cards.sticky-columns-card .cards-card-body .button-container {
+  display: inline-block;
+  margin: 0;
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+.cards.sticky-columns-card .cards-card-body .button-container:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.cards.sticky-columns-card .cards-card-body .button-container:not(:last-of-type) {
+  border-right: 1px solid var(--divider-on-dark-emphasis, rgb(255 255 255 / 30%));
+}
+
+/* Removed specific IBRD-IDA|MIGA|IFC styling - using global styling */
+
+/* Override button styling to appear as simple text links */
+.cards.sticky-columns-card .cards-card-body .button,
+.cards.sticky-columns-card .cards-card-body a.button {
+  background: transparent !important; /* Remove button background */
+  color: #fff !important; /* White text like other links */
+  text-decoration: underline !important; /* Add underline */
+  text-decoration-thickness: 2px;
+  padding: 0 !important; /* Remove button padding */
+  border: none !important; /* Remove button border */
+  border-radius: 0 !important; /* Remove button rounded corners */
+  box-shadow: none !important; /* Remove button shadow */
+  font-weight: var(--font-weight-600);
+  display: inline !important;
+}
+
+/* H3 headers */
+.cards.sticky-columns-card .cards-card-body h3,
+.cards.sticky-columns-card .cards-card-body h3 a {
+  color: #fff !important;
+  font-size: var(--font-size-500);
+  font-weight: var(--font-weight-700);
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+  text-decoration: none !important;
+}
+
+/* Hover effects */
+.cards.sticky-columns-card > ul > li:hover .cards-card-body {
+  background: #1e3a5f;
+}
+
+/* Change underline colors when hovering over the card */
+.cards.sticky-columns-card > ul > li:hover .cards-card-body a[href] {
+  text-decoration-color: var(--text-on-light-link-hover) !important;
+}
+
+/* Responsive design */
+@media (width >= 768px) {
+  .cards.sticky-columns-card > ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 3rem;
+  }
+}
+
+@media (width >= 1024px) {
+  .cards.sticky-columns-card > ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 4rem;
+  }
+}
+
+@media (width <= 768px) {
+  .cards.sticky-columns-card > ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 1rem;
+  }
+  
+  .cards.sticky-columns-card > ul > li:first-child {
+    grid-column: 1;
+    grid-row: 1;
+    position: static;
+  }
+  
+  .cards.sticky-columns-card > ul > li:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .cards.sticky-columns-card > ul > li:nth-child(3) {
+    grid-column: 1;
+    grid-row: 3;
+  }
 }
