@@ -19,8 +19,8 @@
           "fields": [
               {
                   "component": "reference",
-                  "description": "Select an image",
                   "label": "Image",
+                  "description": "Select an image<br><strong><u>Note:</u> only jpg, svg, and png formats are allowed. Anything else chosen will block the replication queue.</strong>",
                   "multi": false,
                   "name": "fileReference",
                   "valueType": "string"
