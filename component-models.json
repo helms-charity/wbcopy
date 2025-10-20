@@ -1815,7 +1815,7 @@
     "fields": [
       {
         "component": "reference",
-        "description": "Select an image.\n\nNOTE: Only jpg, svg, and png formats are allowed. Anything else chosen will block the replication queue.",
+        "description": "Select an image.\n\nNOTE: Only jpg, svg, and png formats are allowed.\n\nAnything else chosen will block the replication queue.",
         "label": "Image",
         "multi": false,
         "name": "fileReference",
