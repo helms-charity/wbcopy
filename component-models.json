@@ -1815,7 +1815,7 @@
     "fields": [
       {
         "component": "reference",
-        "description": "Select an image",
+        "description": "Select an image. Only jpg, svg, and png formats are allowed.",
         "label": "Image",
         "multi": false,
         "name": "fileReference",
