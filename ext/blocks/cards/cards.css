@@ -424,7 +424,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 }
 
 .cards.sticky-columns-card .cards-card-body {
-  background: #012740; /* Exact World Bank Academy dark blue */
+  background: #001c2d; /* Exact World Bank Academy dark blue */
   padding: 48px; /* World Bank Academy padding from your DevTools */
   border-radius: 0 0 8px 8px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
@@ -503,7 +503,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 
 /* Hover effects */
 .cards.sticky-columns-card > ul > li:hover .cards-card-body {
-  background: #1e3a5f;
+  background: #0a3548; /* Lighter shade of #001c2d for hover */
 }
 
 /* Change underline colors when hovering over the card */
