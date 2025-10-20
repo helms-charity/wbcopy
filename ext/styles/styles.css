@@ -1139,6 +1139,7 @@ body {
  color: var(--text-color);
  background: var(--neutral-solid-10-s);
  display: none;
+ overflow-x: hidden;
 }
 
 body.appear {

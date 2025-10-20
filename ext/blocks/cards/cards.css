@@ -51,7 +51,7 @@
 
 .cards:not(.profile-summary) > ul > li img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: top;
 }
@@ -287,13 +287,20 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   }
 }
 
+/* Sticky Card Styles */
+
 .cards.sticky-card.block {
   padding: 0;
 }
 
+.cards.sticky-card.block > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
 .cards.sticky-card.block > ul > li {
   display: flex;
-  height: 607px;
   width: auto;
   border-radius: 10px;
   overflow: hidden;
@@ -303,8 +310,112 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   box-shadow: 0 0 204px 0 #E7EDF3;
 }
 
+.cards.sticky-card.block > ul > li:nth-child(1), .cards.sticky-card.block > ul > li:nth-child(4) {
+  width: 83.3333%;
+}
+
+.cards.sticky-card.block > ul > li:nth-child(2), .cards.sticky-card.block > ul > li:nth-child(3) {
+  width: 75%;
+}
+
+.cards.sticky-card.block > ul > li:nth-child(1) {
+  display: flex;
+}
+
+.cards.sticky-card.block > ul > li:nth-child(2) {
+  margin-top: 10%;
+  right: -4rem;
+  position: relative;
+}
+
+.cards.sticky-card.block > ul > li:nth-child(3) {
+  margin-top: 10%;
+  left: 1rem;
+  position: relative;
+}
+
+.cards.sticky-card.block > ul > li:nth-child(4) {
+  margin-top: 10%;
+  right: -4rem;
+  position: relative;
+}
+
+.cards.sticky-card.block > ul > li:nth-child(1) img, .cards.sticky-card.block > ul > li:nth-child(4) img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: top;  
+}
+
+.cards.sticky-card.block > ul > li:nth-child(2) img, .cards.sticky-card.block > ul > li:nth-child(3) img {
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: top;  
+}
+
+.cards.sticky-card.block .cards-card-body {
+  background: linear-gradient(to bottom, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 100%) 80%);
+  position: absolute;
+}
+
+@media (width <=600px) {
+  .cards.sticky-card.block > ul > li:nth-child(1) img, .cards.sticky-card.block > ul > li:nth-child(4) img {
+    aspect-ratio: 4/5;
+  }
+}
+  
+@media (width >= 768px) {
+  .cards.sticky-card.block > ul > li:nth-child(2) {
+    margin-top: 10%;
+    right: -24rem;
+    position: relative;
+  }
+
+  .cards.sticky-card.block > ul > li:nth-child(1), .cards.sticky-card.block > ul > li:nth-child(4) {
+    width: 58.3333%;
+  }
+
+  .cards.sticky-card.block > ul > li:nth-child(2), .cards.sticky-card.block > ul > li:nth-child(3) {
+    width:  50%;
+  }
+
+  .cards.sticky-card.block > ul > li:nth-child(4) {
+    margin-top: 10%;
+    right: -20rem;
+    position: relative;
+  }
+
+  .cards.sticky-card.block > ul > li:nth-child(3) {
+    margin-top: 10%;
+    left: -2rem;
+    position: relative;
+  }
+}
+
+@media (width >= 992px) {
+  .cards.sticky-card.block > ul > li:nth-child(2) {
+    margin-top: 30%;
+    right: -10rem;
+  }
+
+  .cards.sticky-card.block > ul > li:nth-child(3) {
+    margin-top: -20%;
+    left: 5rem;
+  }
+
+  .cards.sticky-card.block > ul > li:nth-child(4) {
+    margin-top: 10%;
+    right: -14rem;
+  }
+}
+
+@media (width >= 1024px) {
 .cards.sticky-card.block > ul > li:nth-child(1) {
   width: 41.6667%;
+  height: 100%;
+}
+
+.cards.sticky-card.block > ul > li:nth-child(1) img {
+  aspect-ratio: 1 / 1;
 }
 
 .cards.sticky-card.block > ul > li:nth-child(2) {
@@ -318,10 +429,19 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   z-index: 9;
 }
 
+.cards.sticky-card.block > ul > li:nth-child(2) img {
+  aspect-ratio: 4 / 5;
+}
+
 .cards.sticky-card.block > ul > li:nth-child(3) {
-  margin-top: -20%;
   left: 5rem;
+  height: 100%;
   width: 33.3333%;
+  margin-top: -20%;
+}
+
+.cards.sticky-card.block > ul > li:nth-child(3) img {
+  aspect-ratio: 4 / 5;
 }
 
 .cards.sticky-card.block > ul > li:nth-child(4) {
@@ -330,11 +450,14 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   width: 41.6667%;
 }
 
+.cards.sticky-card.block > ul > li:nth-child(4) img {
+  aspect-ratio: 1 / 1;
+}
+
 .cards.sticky-card.block .cards-card-image {
   background-color: blue;
   width: auto;
-  height: 100%;
-  position: absolute;
+  position: relative;
 }
 
 .cards.sticky-card.block .cards-card-image picture {
@@ -342,10 +465,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 }
 
 .cards.sticky-card.block .cards-card-image img {
-  height: 100%;
   width: 100%;
 }
-
-.cards.sticky-card.block .cards-card-body {
-  background: linear-gradient(to bottom, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 100%) 80%);
 }
+
