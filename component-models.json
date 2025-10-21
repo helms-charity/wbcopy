@@ -2892,7 +2892,8 @@
         "component": "multiselect",
         "name": "classes",
         "value": "",
-        "label": "Column Styles (TEST: no valueType)",
+        "label": "Column Styles (TEST: string[])",
+        "valueType": "string[]",
         "maxSize": 4,
         "options": [
           {
