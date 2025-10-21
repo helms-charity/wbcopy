@@ -2742,13 +2742,6 @@
     "id": "card",
     "fields": [
       {
-        "component": "text",
-        "name": "eyebrow",
-        "value": "",
-        "label": "Eyebrow",
-        "valueType": "string"
-      },
-      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -2768,6 +2761,13 @@
         "name": "text",
         "value": "",
         "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "eyebrow",
+        "value": "",
+        "label": "Eyebrow",
         "valueType": "string"
       }
     ]
@@ -2790,6 +2790,19 @@
         "valueType": "string"
       },
       {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Classes",
+        "options": [
+          {
+            "name": "Carousel With Button",
+            "value": "carousel-with-button"
+          }
+        ]
+      },
+      {
         "component": "text",
         "name": "anchorText",
         "value": "",
@@ -2802,19 +2815,6 @@
         "value": "",
         "label": "Link",
         "valueType": "string"
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "classes",
-        "value": "",
-        "label": "Classes",
-        "options": [
-          {
-            "name": "Carousel With Button",
-            "value": "carousel-with-button"
-          }
-        ]
       }
     ]
   },

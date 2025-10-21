@@ -43,6 +43,19 @@
           "valueType": "string"
         },
         {
+          "component": "select",
+          "valueType": "string",
+          "name": "classes",
+          "value": "",
+          "label": "Classes",
+          "options": [
+            {
+              "name": "Carousel With Button",
+              "value": "carousel-with-button"
+            }
+          ]
+        },
+        {
           "component": "text",
           "name": "anchorText",
           "value": "",
@@ -55,19 +68,6 @@
           "value": "",
           "label": "Link",
           "valueType": "string"
-        },
-        {
-          "component": "select",
-          "valueType": "string",
-          "name": "classes",
-          "value": "",
-          "label": "Classes",
-          "options": [
-            {
-              "name": "Carousel With Button",
-              "value": "carousel-with-button"
-            }
-          ]
         }
       ] 
     }
