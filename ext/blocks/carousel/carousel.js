@@ -12,17 +12,36 @@ export default function decorate(block) {
   const leftContent = document.createElement('div');
   const buttonMobileElement = document.createElement('div');
   let h2Element;
+  let anchorText = '';
+  let anchorLink = '';
 
   [...block.children].forEach((row) => {
     if (i > 1) {
       const li = document.createElement('li');
       moveInstrumentation(row, li);
+      
+      // Extract eyebrow if present (first child that's plain text/single line)
+      const firstChild = row.firstElementChild;
+      let eyebrow = null;
+      if (firstChild && firstChild.children.length === 0 && firstChild.textContent.trim()) {
+        eyebrow = firstChild.textContent.trim();
+        firstChild.remove();
+      }
+      
       while (row.firstElementChild) li.append(row.firstElementChild);
 
       [...li.children].forEach((div) => {
-        div.className = (div.children.length === 1 && div.querySelector('picture'))
-          ? 'cards-card-image'
-          : 'cards-card-body';
+        if (div.children.length === 1 && div.querySelector('picture')) {
+          div.className = 'cards-card-image';
+          // Add eyebrow to image container if it exists
+          if (eyebrow) {
+            const eyebrowEl = document.createElement('em');
+            eyebrowEl.textContent = eyebrow;
+            div.appendChild(eyebrowEl);
+          }
+        } else {
+          div.className = 'cards-card-body';
+        }
       });
       slider.append(li);
     } else {
@@ -31,10 +50,48 @@ export default function decorate(block) {
         if (contentEl.id) {
           h2Element = contentEl.id;
         }
+        
+        // Check for separate anchor text and link fields
+        const cells = contentEl.querySelectorAll(':scope > div');
+        if (cells.length >= 3) {
+          // Check if third cell contains anchor text
+          const anchorTextCell = cells[2];
+          if (anchorTextCell && anchorTextCell.textContent.trim()) {
+            anchorText = anchorTextCell.textContent.trim();
+            anchorTextCell.remove();
+          }
+          // Check if fourth cell contains link
+          if (cells.length >= 4) {
+            const linkCell = cells[3];
+            if (linkCell) {
+              const linkElement = linkCell.querySelector('a');
+              if (linkElement) {
+                anchorLink = linkElement.href;
+              } else if (linkCell.textContent.trim()) {
+                anchorLink = linkCell.textContent.trim();
+              }
+              linkCell.remove();
+            }
+          }
+        }
+        
         const button = contentEl.querySelector('a.button, button');
         if (button) {
           button.setAttribute('aria-describedby', h2Element);
           buttonMobileElement.appendChild(button.cloneNode(true));
+        } else if (anchorText && anchorLink && isBottomCarousel) {
+          // Create button from separate fields if no button exists
+          const newButton = document.createElement('a');
+          newButton.href = anchorLink;
+          newButton.className = 'button';
+          newButton.textContent = anchorText;
+          newButton.setAttribute('aria-describedby', h2Element);
+          
+          const buttonContainer = document.createElement('p');
+          buttonContainer.appendChild(newButton);
+          contentEl.appendChild(buttonContainer);
+          
+          buttonMobileElement.appendChild(newButton.cloneNode(true));
         }
 
         // Append the rest of the content to leftContent

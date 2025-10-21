@@ -43,6 +43,20 @@
           "valueType": "string"
         },
         {
+          "component": "text",
+          "name": "anchorText",
+          "value": "",
+          "label": "Anchor Text",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "name": "link",
+          "value": "",
+          "label": "Link",
+          "valueType": "string"
+        },
+        {
           "component": "select",
           "valueType": "string",
           "name": "classes",

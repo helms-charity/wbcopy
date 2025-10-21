@@ -79,6 +79,13 @@
       "id": "card",
       "fields": [
         {
+          "component": "text",
+          "name": "eyebrow",
+          "value": "",
+          "label": "Eyebrow",
+          "valueType": "string"
+        },
+        {
           "component": "reference",
           "valueType": "string",
           "name": "image",
