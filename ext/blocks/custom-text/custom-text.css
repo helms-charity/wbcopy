@@ -22,8 +22,15 @@
     border-radius: var(--border-radius-large);
     box-shadow: var(--box-shadow-medium);
     max-width: 100%;
-    width: 50%;
+    width: 100%;
+    padding: 200px 0;
+}
+
+@media (width >=1024px) {
+.section.sticky-section > .custom-text-wrapper > .custom-text.block {
+    width: 44%;
     padding: 320px 0;
+    }
 }
 
 .section.sticky-section > .custom-text-wrapper > .custom-text.block p {
