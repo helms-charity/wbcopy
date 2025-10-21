@@ -17,6 +17,7 @@ export default function decorate(block) {
 
   [...block.children].forEach((row) => {
     if (i > 1) {
+      console.log('i > 1');
       const li = document.createElement('li');
       moveInstrumentation(row, li);
 
@@ -29,6 +30,7 @@ export default function decorate(block) {
       }
 
       while (row.firstElementChild) li.append(row.firstElementChild);
+      console.log('appended', row.firstElementChild);
 
       [...li.children].forEach((div) => {
         if (div.children.length === 1 && div.querySelector('picture')) {
