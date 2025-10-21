@@ -12,17 +12,38 @@ export default function decorate(block) {
   const leftContent = document.createElement('div');
   const buttonMobileElement = document.createElement('div');
   let h2Element;
+  let anchorText = '';
+  let anchorLink = '';
 
   [...block.children].forEach((row) => {
     if (i > 1) {
       const li = document.createElement('li');
       moveInstrumentation(row, li);
-      while (row.firstElementChild) li.append(row.firstElementChild);
 
+      // Extract eyebrow if present (last child after text field)
+      const cells = row.querySelectorAll(':scope > div');
+      let eyebrow = null;
+      if (cells.length >= 4) {
+        const eyebrowCell = cells[3]; // 4th field = eyebrow
+        if (eyebrowCell && eyebrowCell.textContent.trim() && eyebrowCell.children.length === 0) {
+          eyebrow = eyebrowCell.textContent.trim();
+          eyebrowCell.remove();
+        }
+      }
+
+      while (row.firstElementChild) li.append(row.firstElementChild);
       [...li.children].forEach((div) => {
-        div.className = (div.children.length === 1 && div.querySelector('picture'))
-          ? 'cards-card-image'
-          : 'cards-card-body';
+        if (div.children.length === 1 && div.querySelector('picture')) {
+          div.className = 'cards-card-image';
+          // Add eyebrow to image container if it exists
+          if (eyebrow) {
+            const eyebrowEl = document.createElement('em');
+            eyebrowEl.textContent = eyebrow;
+            div.appendChild(eyebrowEl);
+          }
+        } else {
+          div.className = 'cards-card-body';
+        }
       });
       slider.append(li);
     } else {
@@ -31,6 +52,31 @@ export default function decorate(block) {
         if (contentEl.id) {
           h2Element = contentEl.id;
         }
+
+        // Check for separate anchor text and link fields
+        const cells = contentEl.querySelectorAll(':scope > div');
+        if (cells.length >= 4) {
+          // Anchor text is now 4th field (index 3)
+          const anchorTextCell = cells[3];
+          if (anchorTextCell && anchorTextCell.textContent.trim()) {
+            anchorText = anchorTextCell.textContent.trim();
+            anchorTextCell.remove();
+          }
+          // Link is now 5th field (index 4)
+          if (cells.length >= 5) {
+            const linkCell = cells[4];
+            if (linkCell) {
+              const linkElement = linkCell.querySelector('a');
+              if (linkElement) {
+                anchorLink = linkElement.href;
+              } else if (linkCell.textContent.trim()) {
+                anchorLink = linkCell.textContent.trim();
+              }
+              linkCell.remove();
+            }
+          }
+        }
+
         const button = contentEl.querySelector('a.button, button');
         if (button) {
           button.setAttribute('aria-describedby', h2Element);
@@ -45,6 +91,23 @@ export default function decorate(block) {
     }
     i += 1;
   });
+
+  // Create button from anchor text and link fields after processing all header rows
+  if (isBottomCarousel && anchorText && anchorLink && !leftContent.querySelector('a.button, button')) {
+    const newButton = document.createElement('a');
+    newButton.href = anchorLink;
+    newButton.className = 'button';
+    newButton.textContent = anchorText;
+    if (h2Element) {
+      newButton.setAttribute('aria-describedby', h2Element);
+    }
+
+    const buttonContainer = document.createElement('p');
+    buttonContainer.appendChild(newButton);
+    leftContent.appendChild(buttonContainer);
+
+    buttonMobileElement.appendChild(newButton.cloneNode(true));
+  }
 
   // Optimise pictures
   slider.querySelectorAll('picture > img').forEach((img) => {

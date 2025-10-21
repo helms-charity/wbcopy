@@ -2762,6 +2762,13 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "eyebrow",
+        "value": "",
+        "label": "Eyebrow",
+        "valueType": "string"
       }
     ]
   },
@@ -2794,6 +2801,20 @@
             "value": "carousel-with-button"
           }
         ]
+      },
+      {
+        "component": "text",
+        "name": "anchorText",
+        "value": "",
+        "label": "Anchor Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "value": "",
+        "label": "Link",
+        "valueType": "string"
       }
     ]
   },

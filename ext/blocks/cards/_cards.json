@@ -99,6 +99,13 @@
           "value": "",
           "label": "Text",
           "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "eyebrow",
+          "value": "",
+          "label": "Eyebrow",
+          "valueType": "string"
         }
       ]
     }
