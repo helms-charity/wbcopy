@@ -2762,13 +2762,6 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "eyebrow",
-        "value": "",
-        "label": "Eyebrow",
-        "valueType": "string"
       }
     ]
   },
@@ -2814,6 +2807,40 @@
         "name": "linkText",
         "value": "",
         "label": "Anchor Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "carousel-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false,
+        "description": "Max 1 Item"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "",
+        "label": "Alternate Text"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "eyebrow",
+        "value": "",
+        "label": "Eyebrow",
         "valueType": "string"
       }
     ]
