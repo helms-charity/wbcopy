@@ -17,21 +17,21 @@ export default function decorate(block) {
 
   [...block.children].forEach((row) => {
     if (i > 1) {
-      console.log('i > 1');
       const li = document.createElement('li');
       moveInstrumentation(row, li);
 
-      // Extract eyebrow if present (first child that's plain text/single line)
-      const firstChild = row.firstElementChild;
+      // Extract eyebrow if present (last child after text field)
+      const cells = row.querySelectorAll(':scope > div');
       let eyebrow = null;
-      if (firstChild && firstChild.children.length === 0 && firstChild.textContent.trim()) {
-        eyebrow = firstChild.textContent.trim();
-        firstChild.remove();
+      if (cells.length >= 4) {
+        const eyebrowCell = cells[3]; // 4th field = eyebrow
+        if (eyebrowCell && eyebrowCell.textContent.trim() && eyebrowCell.children.length === 0) {
+          eyebrow = eyebrowCell.textContent.trim();
+          eyebrowCell.remove();
+        }
       }
 
       while (row.firstElementChild) li.append(row.firstElementChild);
-      console.log('appended', row.firstElementChild);
-
       [...li.children].forEach((div) => {
         if (div.children.length === 1 && div.querySelector('picture')) {
           div.className = 'cards-card-image';
@@ -55,16 +55,16 @@ export default function decorate(block) {
 
         // Check for separate anchor text and link fields
         const cells = contentEl.querySelectorAll(':scope > div');
-        if (cells.length >= 3) {
-          // Check if third cell contains anchor text
-          const anchorTextCell = cells[2];
+        if (cells.length >= 4) {
+          // Anchor text is now 4th field (index 3)
+          const anchorTextCell = cells[3];
           if (anchorTextCell && anchorTextCell.textContent.trim()) {
             anchorText = anchorTextCell.textContent.trim();
             anchorTextCell.remove();
           }
-          // Check if fourth cell contains link
-          if (cells.length >= 4) {
-            const linkCell = cells[3];
+          // Link is now 5th field (index 4)
+          if (cells.length >= 5) {
+            const linkCell = cells[4];
             if (linkCell) {
               const linkElement = linkCell.querySelector('a');
               if (linkElement) {
