@@ -19,7 +19,7 @@ export default function decorate(block) {
     if (i > 1) {
       const li = document.createElement('li');
       moveInstrumentation(row, li);
-      
+
       // Extract eyebrow if present (first child that's plain text/single line)
       const firstChild = row.firstElementChild;
       let eyebrow = null;
@@ -27,7 +27,7 @@ export default function decorate(block) {
         eyebrow = firstChild.textContent.trim();
         firstChild.remove();
       }
-      
+
       while (row.firstElementChild) li.append(row.firstElementChild);
 
       [...li.children].forEach((div) => {
@@ -50,7 +50,7 @@ export default function decorate(block) {
         if (contentEl.id) {
           h2Element = contentEl.id;
         }
-        
+
         // Check for separate anchor text and link fields
         const cells = contentEl.querySelectorAll(':scope > div');
         if (cells.length >= 3) {
@@ -74,24 +74,11 @@ export default function decorate(block) {
             }
           }
         }
-        
+
         const button = contentEl.querySelector('a.button, button');
         if (button) {
           button.setAttribute('aria-describedby', h2Element);
           buttonMobileElement.appendChild(button.cloneNode(true));
-        } else if (anchorText && anchorLink && isBottomCarousel) {
-          // Create button from separate fields if no button exists
-          const newButton = document.createElement('a');
-          newButton.href = anchorLink;
-          newButton.className = 'button';
-          newButton.textContent = anchorText;
-          newButton.setAttribute('aria-describedby', h2Element);
-          
-          const buttonContainer = document.createElement('p');
-          buttonContainer.appendChild(newButton);
-          contentEl.appendChild(buttonContainer);
-          
-          buttonMobileElement.appendChild(newButton.cloneNode(true));
         }
 
         // Append the rest of the content to leftContent
@@ -102,6 +89,23 @@ export default function decorate(block) {
     }
     i += 1;
   });
+
+  // Create button from anchor text and link fields after processing all header rows
+  if (isBottomCarousel && anchorText && anchorLink && !leftContent.querySelector('a.button, button')) {
+    const newButton = document.createElement('a');
+    newButton.href = anchorLink;
+    newButton.className = 'button';
+    newButton.textContent = anchorText;
+    if (h2Element) {
+      newButton.setAttribute('aria-describedby', h2Element);
+    }
+
+    const buttonContainer = document.createElement('p');
+    buttonContainer.appendChild(newButton);
+    leftContent.appendChild(buttonContainer);
+
+    buttonMobileElement.appendChild(newButton.cloneNode(true));
+  }
 
   // Optimise pictures
   slider.querySelectorAll('picture > img').forEach((img) => {
