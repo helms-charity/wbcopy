@@ -102,11 +102,12 @@ export default function decorate(block) {
       newButton.setAttribute('aria-describedby', h2Element);
     }
 
-    const buttonContainer = document.createElement('p');
-    buttonContainer.appendChild(newButton);
-    leftContent.appendChild(buttonContainer);
+    const buttonWrapper = document.createElement('p');
+    buttonWrapper.className = 'button-container';
+    buttonWrapper.appendChild(newButton);
 
-    buttonMobileElement.appendChild(newButton.cloneNode(true));
+    // Add button to mobile element for responsive display
+    buttonMobileElement.appendChild(buttonWrapper.cloneNode(true));
   }
 
   // Optimise pictures
@@ -157,9 +158,17 @@ export default function decorate(block) {
     }
   } else {
     block.appendChild(leftContent);
+    // Add desktop button wrapper if button exists
+    if (buttonMobileElement.children.length > 0) {
+      const desktopButtonWrapper = document.createElement('div');
+      desktopButtonWrapper.className = 'carousel-button-desktop';
+      desktopButtonWrapper.appendChild(buttonMobileElement.firstChild.cloneNode(true));
+      block.appendChild(desktopButtonWrapper);
+    }
   }
   block.append(slider);
   if (isBottomCarousel) {
+    buttonMobileElement.className = 'carousel-button-mobile';
     block.appendChild(buttonMobileElement);
   }
   createSlider(block);

@@ -215,3 +215,34 @@
   text-align:center;
   text-transform: none;
 }
+
+/* Carousel button positioning for carousel-with-button variant */
+.carousel.carousel-with-button .carousel-button-desktop {
+  margin-top: var(--spacing-medium);
+  margin-bottom: var(--spacing-medium);
+}
+
+.carousel.carousel-with-button .carousel-button-desktop .button-container {
+  margin: 0;
+  text-align: left;
+}
+
+.carousel.carousel-with-button .carousel-button-mobile {
+  display: none;
+}
+
+@media (width <= 767.9px) {
+  .carousel.carousel-with-button .carousel-button-desktop {
+    display: none;
+  }
+
+  .carousel.carousel-with-button .carousel-button-mobile {
+    display: block;
+    margin-top: var(--spacing-medium);
+  }
+
+  .carousel.carousel-with-button .carousel-button-mobile .button-container {
+    margin: 0;
+    text-align: left;
+  }
+}
