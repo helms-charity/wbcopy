@@ -16,20 +16,33 @@ export default function decorate(block) {
   let anchorLink = '';
 
   [...block.children].forEach((row) => {
-    if (i > 1) {
+    const cells = row.querySelectorAll(':scope > div');
+
+    // Detect if this row is just the link button (from Universal Editor form fields)
+    // It will be a single cell containing only a link, no images
+    const isLinkRow = cells.length === 1
+                      && cells[0].querySelector('a')
+                      && !cells[0].querySelector('picture, img')
+                      && cells[0].children.length === 1; // Only contains the link
+
+    if (i > 1 && !isLinkRow) {
       const li = document.createElement('li');
       moveInstrumentation(row, li);
 
-      // Extract eyebrow if present (last child after text field)
-      const cells = row.querySelectorAll(':scope > div');
+      // Extract eyebrow using content-based detection
+      // Find cell that's plain text, no picture, short length (< 50 chars)
       let eyebrow = null;
-      if (cells.length >= 4) {
-        const eyebrowCell = cells[3]; // 4th field = eyebrow
-        if (eyebrowCell && eyebrowCell.textContent.trim() && eyebrowCell.children.length === 0) {
-          eyebrow = eyebrowCell.textContent.trim();
-          eyebrowCell.remove();
+      [...cells].forEach((cell) => {
+        const text = cell.textContent.trim();
+        if (text
+            && text.length < 50
+            && !cell.querySelector('picture, img, h1, h2, h3, h4, h5, h6')
+            && cell !== cells[0] // Not the image cell
+            && cell !== cells[1]) { // Not the alt text cell
+          eyebrow = text;
+          cell.remove();
         }
-      }
+      });
 
       while (row.firstElementChild) li.append(row.firstElementChild);
       [...li.children].forEach((div) => {
@@ -37,15 +50,24 @@ export default function decorate(block) {
           div.className = 'cards-card-image';
           // Add eyebrow to image container if it exists
           if (eyebrow) {
-            const eyebrowEl = document.createElement('em');
+            const eyebrowEl = document.createElement('span');
+            eyebrowEl.className = 'card-eyebrow';
             eyebrowEl.textContent = eyebrow;
-            div.appendChild(eyebrowEl);
+            // Insert eyebrow as first child of image container
+            div.insertBefore(eyebrowEl, div.firstChild);
           }
         } else {
           div.className = 'cards-card-body';
         }
       });
       slider.append(li);
+    } else if (isLinkRow && isBottomCarousel) {
+      // Extract the link info from the Universal Editor generated row
+      const linkElement = cells[0].querySelector('a');
+      if (linkElement) {
+        anchorText = linkElement.textContent.trim();
+        anchorLink = linkElement.href;
+      }
     } else {
       const contentEl = row;
       if (contentEl) {
@@ -53,30 +75,34 @@ export default function decorate(block) {
           h2Element = contentEl.id;
         }
 
-        // Check for separate anchor text and link fields
-        const cells = contentEl.querySelectorAll(':scope > div');
-        if (cells.length >= 4) {
-          // Anchor text is now 4th field (index 3)
-          const anchorTextCell = cells[3];
-          if (anchorTextCell && anchorTextCell.textContent.trim()) {
-            anchorText = anchorTextCell.textContent.trim();
-            anchorTextCell.remove();
-          }
-          // Link is now 5th field (index 4)
-          if (cells.length >= 5) {
-            const linkCell = cells[4];
-            if (linkCell) {
-              const linkElement = linkCell.querySelector('a');
-              if (linkElement) {
-                anchorLink = linkElement.href;
-              } else if (linkCell.textContent.trim()) {
-                anchorLink = linkCell.textContent.trim();
-              }
-              linkCell.remove();
+        // Extract anchor text and link using content-based detection
+        // Look for short text cells and link cells, regardless of position
+        const headerCells = contentEl.querySelectorAll(':scope > div');
+        [...headerCells].forEach((cell) => {
+          const text = cell.textContent.trim();
+          const linkEl = cell.querySelector('a');
+
+          // Skip if it's title (has heading tags) or description (long text)
+          const isTitle = cell.querySelector('h1, h2, h3, h4, h5, h6');
+          const isDescription = text.length > 100;
+
+          if (!isTitle && !isDescription && text && text.length < 50 && text.length > 0) {
+            // Check if it's a link or plain text
+            if (linkEl && !anchorLink) {
+              // This is the link field
+              anchorText = linkEl.textContent.trim();
+              anchorLink = linkEl.href;
+              cell.remove();
+            } else if (!linkEl && !cell.querySelector('select') && !anchorText) {
+              // This might be anchor text field (plain text, short)
+              // But only if we haven't found it yet and it's not a select/dropdown
+              anchorText = text;
+              cell.remove();
             }
           }
-        }
+        });
 
+        // Check if there's an existing button in the content
         const button = contentEl.querySelector('a.button, button');
         if (button) {
           button.setAttribute('aria-describedby', h2Element);
@@ -158,16 +184,17 @@ export default function decorate(block) {
     }
   } else {
     block.appendChild(leftContent);
-    // Add desktop button wrapper if button exists
-    if (buttonMobileElement.children.length > 0) {
-      const desktopButtonWrapper = document.createElement('div');
-      desktopButtonWrapper.className = 'carousel-button-desktop';
-      desktopButtonWrapper.appendChild(buttonMobileElement.firstChild.cloneNode(true));
-      block.appendChild(desktopButtonWrapper);
-    }
   }
   block.append(slider);
-  if (isBottomCarousel) {
+  // Add button AFTER the cards slider for carousel-with-button
+  if (isBottomCarousel && buttonMobileElement.children.length > 0) {
+    // Desktop button
+    const desktopButtonWrapper = document.createElement('div');
+    desktopButtonWrapper.className = 'carousel-button-desktop';
+    desktopButtonWrapper.appendChild(buttonMobileElement.firstChild.cloneNode(true));
+    block.appendChild(desktopButtonWrapper);
+
+    // Mobile button
     buttonMobileElement.className = 'carousel-button-mobile';
     block.appendChild(buttonMobileElement);
   }

@@ -57,7 +57,7 @@
         },
         {
           "component": "text",
-          "name": "linkText",
+          "name": "anchorText",
           "value": "",
           "label": "Anchor Text",
           "valueType": "string"

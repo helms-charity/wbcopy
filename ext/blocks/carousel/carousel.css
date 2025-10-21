@@ -107,8 +107,8 @@
   width: 100%;
 }
 
-/* Badge/Tag styling at the top of cards */
-.carousel .cards-card-image em {
+/* Badge/Tag styling at the top of cards (eyebrow) */
+.carousel .card-eyebrow {
   position: absolute;
   top: 16px;
   left: 16px;
