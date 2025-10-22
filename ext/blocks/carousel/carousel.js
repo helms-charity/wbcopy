@@ -1,14 +1,12 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 import createSlider from '../../scripts/slider.js';
-import { isAuthoring } from '../../scripts/reference-limiter.js';
 
 export default function decorate(block) {
   const isBottomCarousel = block.classList.contains('carousel-with-button');
 
   let i = 0;
   const slider = document.createElement('ul');
-  // Only create leftContent when we actually need it
   const leftContent = document.createElement('div');
   let h2Element;
   let anchorText = '';
@@ -17,145 +15,60 @@ export default function decorate(block) {
   [...block.children].forEach((row) => {
     const cells = row.querySelectorAll(':scope > div');
 
-    // Detect if this row is just the link button (from Universal Editor form fields)
-    // It will be a single cell containing only a link, no images
-    const isLinkRow = cells.length === 1
-                      && cells[0].querySelector('a')
-                      && !cells[0].querySelector('picture, img')
-                      && cells[0].children.length === 1; // Only contains the link
+    // Detect if this row is a link-only row (for anchorText/link extraction)
+    const hasOnlyLink = cells.length === 1
+      && cells[0].querySelector('a')
+      && !cells[0].querySelector('picture, img, h1, h2, h3, h4, h5, h6');
 
-    if (i > 1 && !isLinkRow) {
+    // Detect if this row is a card (has image or multiple cells with text/heading)
+    const isCard = cells.length >= 2
+      && (cells[0].querySelector('picture, img') || cells[1].querySelector('h3, h4'));
+
+    // Header rows (i <= 1): Title and Description
+    if (i <= 1) {
+      const contentEl = row;
+      if (contentEl && contentEl.id) {
+        h2Element = contentEl.id;
+      }
+      leftContent.append(contentEl);
+    } else if (hasOnlyLink && isBottomCarousel) {
+      // Link row: Extract anchorText and link
+      const linkEl = cells[0].querySelector('a');
+      if (linkEl) {
+        anchorText = linkEl.textContent.trim();
+        anchorLink = linkEl.href;
+      }
+      // Don't process this row further - it's not a card
+    } else if (isCard) {
+      // Card row: cells[0] = image, cells[1] = text, cells[2] = eyebrow (optional)
       const li = document.createElement('li');
       moveInstrumentation(row, li);
 
-      // Extract eyebrow using robust multi-criteria detection
       let eyebrow = null;
-      const eyebrowCandidates = [];
-
-      [...cells].forEach((cell) => {
-        const text = cell.textContent.trim();
-        const hasPicture = cell.querySelector('picture, img');
-        const hasHeading = cell.querySelector('h1, h2, h3, h4, h5, h6');
-        const hasParagraph = cell.querySelector('p');
-
-        // Collect plain text cells that could be eyebrows
-        if (text && !hasPicture && !hasHeading && text.length > 0) {
-          eyebrowCandidates.push({
-            cell,
-            text,
-            hasParagraph,
-            length: text.length,
-            wordCount: text.split(/\s+/).length,
-            hasPunctuation: /[.!?]/.test(text),
-          });
-        }
-      });
-
-      // Find the best eyebrow candidate:
-      // - Short text (1-3 words, < 50 chars)
-      // - No paragraph wrapper (or if it has one, very short)
-      // - No punctuation (eyebrows are labels, not sentences)
-      const eyebrowMatch = eyebrowCandidates
-        .filter((c) => c.wordCount <= 4 && c.length < 50 && !c.hasPunctuation)
-        .sort((a, b) => {
-          // Prefer non-paragraph over paragraph
-          if (!a.hasParagraph && b.hasParagraph) return -1;
-          if (a.hasParagraph && !b.hasParagraph) return 1;
-          // Then prefer shorter
-          return a.length - b.length;
-        })[0];
-
-      if (eyebrowMatch) {
-        eyebrow = eyebrowMatch.text;
-        eyebrowMatch.cell.remove();
+      if (cells[2]) {
+        eyebrow = cells[2].textContent.trim();
       }
 
-      while (row.firstElementChild) li.append(row.firstElementChild);
-      [...li.children].forEach((div) => {
-        if (div.children.length === 1 && div.querySelector('picture')) {
-          div.className = 'cards-card-image';
-          // Add eyebrow to image container if it exists
-          if (eyebrow) {
-            const eyebrowEl = document.createElement('span');
-            eyebrowEl.className = 'card-eyebrow';
-            eyebrowEl.textContent = eyebrow;
-            // Insert eyebrow as first child of image container
-            div.insertBefore(eyebrowEl, div.firstChild);
-          }
-        } else {
-          div.className = 'cards-card-body';
+      // Process image cell
+      if (cells[0]) {
+        cells[0].className = 'cards-card-image';
+        // Add eyebrow to image container if it exists
+        if (eyebrow) {
+          const eyebrowEl = document.createElement('span');
+          eyebrowEl.className = 'card-eyebrow';
+          eyebrowEl.textContent = eyebrow;
+          cells[0].insertBefore(eyebrowEl, cells[0].firstChild);
         }
-      });
+        li.append(cells[0]);
+      }
+
+      // Process text cell
+      if (cells[1]) {
+        cells[1].className = 'cards-card-body';
+        li.append(cells[1]);
+      }
+
       slider.append(li);
-    } else if (isLinkRow && isBottomCarousel) {
-      // Extract the link info from the Universal Editor generated row
-      const linkElement = cells[0].querySelector('a');
-      if (linkElement) {
-        anchorText = linkElement.textContent.trim();
-        anchorLink = linkElement.href;
-      }
-    } else {
-      const contentEl = row;
-      if (contentEl) {
-        if (contentEl.id) {
-          h2Element = contentEl.id;
-        }
-
-        // Extract anchor text and link using robust multi-criteria detection
-        const headerCells = contentEl.querySelectorAll(':scope > div');
-        let linkCellFound = null;
-        const textCellCandidates = [];
-
-        // First pass: Identify all cells with their characteristics
-        [...headerCells].forEach((cell) => {
-          const text = cell.textContent.trim();
-          const linkEl = cell.querySelector('a');
-          const hasParagraph = cell.querySelector('p');
-          const hasHeading = cell.querySelector('h1, h2, h3, h4, h5, h6, strong');
-          const hasSelect = cell.querySelector('select');
-
-          // Find link cell (contains <a> tag, not inside heading)
-          if (linkEl && !hasHeading && !linkCellFound) {
-            linkCellFound = { cell, linkEl };
-          }
-
-          // Collect potential text-only cells (not title, not description, not select)
-          if (!linkEl && !hasHeading && !hasSelect && text && text.length > 0) {
-            textCellCandidates.push({
-              cell,
-              text,
-              hasParagraph,
-              length: text.length,
-              hasPunctuation: /[.!?]/.test(text), // Descriptions often have punctuation
-              wordCount: text.split(/\s+/).length,
-            });
-          }
-        });
-
-        // Extract link if found
-        if (linkCellFound && isBottomCarousel) {
-          anchorText = linkCellFound.linkEl.textContent.trim();
-          anchorLink = linkCellFound.linkEl.href;
-          linkCellFound.cell.remove();
-        } else if (textCellCandidates.length > 0 && isBottomCarousel) {
-          // If no link cell, find anchor text from candidates
-          // Prioritize: shortest, no punctuation, fewest words
-          const anchorCandidate = textCellCandidates
-            .filter((c) => !c.hasParagraph && !c.hasPunctuation && c.wordCount <= 3)
-            .sort((a, b) => a.length - b.length)[0];
-
-          if (anchorCandidate) {
-            anchorText = anchorCandidate.text;
-            // Note: link would need to be in a separate field
-            anchorCandidate.cell.remove();
-          }
-        }
-
-        // Append the rest of the content to leftContent
-        leftContent.append(contentEl);
-      }
-
-      leftContent.className = isBottomCarousel ? 'main-heading' : 'default-content-wrapper';
     }
     i += 1;
   });
@@ -218,6 +131,8 @@ export default function decorate(block) {
     });
   }
   /* ------------------------------------------------------------- */
+
+  leftContent.className = isBottomCarousel ? 'main-heading' : 'default-content-wrapper';
 
   // Replace original block content
   block.textContent = '';

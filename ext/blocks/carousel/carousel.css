@@ -236,15 +236,17 @@
 .carousel-wrapper > .carousel-controls {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   order: 2;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  gap: 20px;
 }
 
 .carousel-controls > .carousel-button {
-  flex: 0 1 auto;
-  min-width: 0;
+  flex: 0 0 auto;
+  min-width: fit-content;
 }
 
 .carousel-controls > .carousel-button .button-container {
@@ -270,13 +272,12 @@
   background-color: #036580;
 }
 
-/* Navigation buttons - pushed to right with margin-left auto */
+/* Navigation buttons - positioned on right via parent justify-content */
 .carousel-controls > .carousel-navigation-buttons {
-  flex: 0 1 auto;
+  flex: 0 0 auto;
   display: flex;
   gap: 12px;
-  margin-left: auto;
-  min-width: 0;
+  min-width: fit-content;
 }
 
 .carousel-controls .carousel-navigation-buttons .button-container {
@@ -350,7 +351,6 @@
 
   .carousel-controls > .carousel-button {
     width: 100%;
-    margin-right: 0;
   }
 
   .carousel-controls > .carousel-navigation-buttons {
