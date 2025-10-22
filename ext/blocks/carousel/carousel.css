@@ -216,33 +216,145 @@
   text-transform: none;
 }
 
-/* Carousel button positioning for carousel-with-button variant */
-.carousel.carousel-with-button .carousel-button-desktop {
-  margin-top: var(--spacing-medium);
-  margin-bottom: var(--spacing-medium);
+/* Carousel button and navigation positioning for carousel-with-button variant */
+.section > .carousel-wrapper:has(.carousel-with-button),
+.carousel-container > .carousel-wrapper:has(.carousel-with-button) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  gap: var(--spacing-medium);
 }
 
-.carousel.carousel-with-button .carousel-button-desktop .button-container {
+.carousel-wrapper > .carousel.carousel-with-button {
+  width: 100%;
+  order: 1;
+}
+
+/* Controls container - responsive flex layout */
+.carousel-wrapper > .carousel-controls {
+  display: flex;
+  align-items: center;
+  order: 2;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-controls > .carousel-button {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.carousel-controls > .carousel-button .button-container {
   margin: 0;
-  text-align: left;
 }
 
-.carousel.carousel-with-button .carousel-button-mobile {
-  display: none;
+/* Style the Learn More button */
+.carousel-controls > .carousel-button .button-container .button {
+  background-color: #047D95;
+  color: white;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  border: none;
+  white-space: nowrap;
 }
 
-@media (width <= 767.9px) {
-  .carousel.carousel-with-button .carousel-button-desktop {
-    display: none;
+.carousel-controls > .carousel-button .button-container .button:hover {
+  background-color: #036580;
+}
+
+/* Navigation buttons - pushed to right with margin-left auto */
+.carousel-controls > .carousel-navigation-buttons {
+  flex: 0 1 auto;
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+  min-width: 0;
+}
+
+.carousel-controls .carousel-navigation-buttons .button-container {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.carousel-controls .carousel-navigation-buttons .button-container button {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  border: 2px solid #047D95;
+  background-color: white;
+  color: #047D95;
+  font-size: 24px;
+  font-weight: normal;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Hide the SVG images */
+.carousel-controls .carousel-navigation-buttons .button-container button img {
+  display: none !important;
+}
+
+/* Add < > symbols */
+.carousel-controls .carousel-navigation-buttons .button-container button.prev::before {
+  content: '\003C';
+  display: block;
+  font-size: 20px;
+}
+
+.carousel-controls .carousel-navigation-buttons .button-container button.next::before {
+  content: '\003E';
+  display: block;
+  font-size: 20px;
+}
+
+.carousel-controls .carousel-navigation-buttons .button-container button:hover {
+  background-color: #047D95;
+  color: white;
+}
+
+.carousel-controls .carousel-navigation-buttons .button-container button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #ccc;
+}
+
+/* No media queries needed - flexbox handles it naturally */
+
+/* For very small screens, stack button and navigation */
+@media (width <= 600px) {
+  .carousel-wrapper > .carousel-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
 
-  .carousel.carousel-with-button .carousel-button-mobile {
-    display: block;
-    margin-top: var(--spacing-medium);
+  .carousel-controls > .carousel-button {
+    width: 100%;
+    margin-right: 0;
   }
 
-  .carousel.carousel-with-button .carousel-button-mobile .button-container {
-    margin: 0;
-    text-align: left;
+  .carousel-controls > .carousel-navigation-buttons {
+    width: 100%;
+    justify-content: center;
   }
 }

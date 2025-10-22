@@ -10,7 +10,6 @@ export default function decorate(block) {
   const slider = document.createElement('ul');
   // Only create leftContent when we actually need it
   const leftContent = document.createElement('div');
-  const buttonMobileElement = document.createElement('div');
   let h2Element;
   let anchorText = '';
   let anchorLink = '';
@@ -29,20 +28,47 @@ export default function decorate(block) {
       const li = document.createElement('li');
       moveInstrumentation(row, li);
 
-      // Extract eyebrow using content-based detection
-      // Find cell that's plain text, no picture, short length (< 50 chars)
+      // Extract eyebrow using robust multi-criteria detection
       let eyebrow = null;
+      const eyebrowCandidates = [];
+
       [...cells].forEach((cell) => {
         const text = cell.textContent.trim();
-        if (text
-            && text.length < 50
-            && !cell.querySelector('picture, img, h1, h2, h3, h4, h5, h6')
-            && cell !== cells[0] // Not the image cell
-            && cell !== cells[1]) { // Not the alt text cell
-          eyebrow = text;
-          cell.remove();
+        const hasPicture = cell.querySelector('picture, img');
+        const hasHeading = cell.querySelector('h1, h2, h3, h4, h5, h6');
+        const hasParagraph = cell.querySelector('p');
+
+        // Collect plain text cells that could be eyebrows
+        if (text && !hasPicture && !hasHeading && text.length > 0) {
+          eyebrowCandidates.push({
+            cell,
+            text,
+            hasParagraph,
+            length: text.length,
+            wordCount: text.split(/\s+/).length,
+            hasPunctuation: /[.!?]/.test(text),
+          });
         }
       });
+
+      // Find the best eyebrow candidate:
+      // - Short text (1-3 words, < 50 chars)
+      // - No paragraph wrapper (or if it has one, very short)
+      // - No punctuation (eyebrows are labels, not sentences)
+      const eyebrowMatch = eyebrowCandidates
+        .filter((c) => c.wordCount <= 4 && c.length < 50 && !c.hasPunctuation)
+        .sort((a, b) => {
+          // Prefer non-paragraph over paragraph
+          if (!a.hasParagraph && b.hasParagraph) return -1;
+          if (a.hasParagraph && !b.hasParagraph) return 1;
+          // Then prefer shorter
+          return a.length - b.length;
+        })[0];
+
+      if (eyebrowMatch) {
+        eyebrow = eyebrowMatch.text;
+        eyebrowMatch.cell.remove();
+      }
 
       while (row.firstElementChild) li.append(row.firstElementChild);
       [...li.children].forEach((div) => {
@@ -75,38 +101,54 @@ export default function decorate(block) {
           h2Element = contentEl.id;
         }
 
-        // Extract anchor text and link using content-based detection
-        // Look for short text cells and link cells, regardless of position
+        // Extract anchor text and link using robust multi-criteria detection
         const headerCells = contentEl.querySelectorAll(':scope > div');
+        let linkCellFound = null;
+        const textCellCandidates = [];
+
+        // First pass: Identify all cells with their characteristics
         [...headerCells].forEach((cell) => {
           const text = cell.textContent.trim();
           const linkEl = cell.querySelector('a');
+          const hasParagraph = cell.querySelector('p');
+          const hasHeading = cell.querySelector('h1, h2, h3, h4, h5, h6, strong');
+          const hasSelect = cell.querySelector('select');
 
-          // Skip if it's title (has heading tags) or description (long text)
-          const isTitle = cell.querySelector('h1, h2, h3, h4, h5, h6');
-          const isDescription = text.length > 100;
+          // Find link cell (contains <a> tag, not inside heading)
+          if (linkEl && !hasHeading && !linkCellFound) {
+            linkCellFound = { cell, linkEl };
+          }
 
-          if (!isTitle && !isDescription && text && text.length < 50 && text.length > 0) {
-            // Check if it's a link or plain text
-            if (linkEl && !anchorLink) {
-              // This is the link field
-              anchorText = linkEl.textContent.trim();
-              anchorLink = linkEl.href;
-              cell.remove();
-            } else if (!linkEl && !cell.querySelector('select') && !anchorText) {
-              // This might be anchor text field (plain text, short)
-              // But only if we haven't found it yet and it's not a select/dropdown
-              anchorText = text;
-              cell.remove();
-            }
+          // Collect potential text-only cells (not title, not description, not select)
+          if (!linkEl && !hasHeading && !hasSelect && text && text.length > 0) {
+            textCellCandidates.push({
+              cell,
+              text,
+              hasParagraph,
+              length: text.length,
+              hasPunctuation: /[.!?]/.test(text), // Descriptions often have punctuation
+              wordCount: text.split(/\s+/).length,
+            });
           }
         });
 
-        // Check if there's an existing button in the content
-        const button = contentEl.querySelector('a.button, button');
-        if (button) {
-          button.setAttribute('aria-describedby', h2Element);
-          buttonMobileElement.appendChild(button.cloneNode(true));
+        // Extract link if found
+        if (linkCellFound && isBottomCarousel) {
+          anchorText = linkCellFound.linkEl.textContent.trim();
+          anchorLink = linkCellFound.linkEl.href;
+          linkCellFound.cell.remove();
+        } else if (textCellCandidates.length > 0 && isBottomCarousel) {
+          // If no link cell, find anchor text from candidates
+          // Prioritize: shortest, no punctuation, fewest words
+          const anchorCandidate = textCellCandidates
+            .filter((c) => !c.hasParagraph && !c.hasPunctuation && c.wordCount <= 3)
+            .sort((a, b) => a.length - b.length)[0];
+
+          if (anchorCandidate) {
+            anchorText = anchorCandidate.text;
+            // Note: link would need to be in a separate field
+            anchorCandidate.cell.remove();
+          }
         }
 
         // Append the rest of the content to leftContent
@@ -118,8 +160,9 @@ export default function decorate(block) {
     i += 1;
   });
 
-  // Create button from anchor text and link fields after processing all header rows
-  if (isBottomCarousel && anchorText && anchorLink && !leftContent.querySelector('a.button, button')) {
+  // Create button element from anchor text and link fields
+  let buttonElement = null;
+  if (isBottomCarousel && anchorText && anchorLink) {
     const newButton = document.createElement('a');
     newButton.href = anchorLink;
     newButton.className = 'button';
@@ -128,12 +171,12 @@ export default function decorate(block) {
       newButton.setAttribute('aria-describedby', h2Element);
     }
 
+    buttonElement = document.createElement('div');
+    buttonElement.className = 'carousel-button';
     const buttonWrapper = document.createElement('p');
     buttonWrapper.className = 'button-container';
     buttonWrapper.appendChild(newButton);
-
-    // Add button to mobile element for responsive display
-    buttonMobileElement.appendChild(buttonWrapper.cloneNode(true));
+    buttonElement.appendChild(buttonWrapper);
   }
 
   // Optimise pictures
@@ -186,32 +229,28 @@ export default function decorate(block) {
     block.appendChild(leftContent);
   }
   block.append(slider);
-  // Add button AFTER the cards slider for carousel-with-button
-  if (isBottomCarousel && buttonMobileElement.children.length > 0) {
-    // Desktop button
-    const desktopButtonWrapper = document.createElement('div');
-    desktopButtonWrapper.className = 'carousel-button-desktop';
-    desktopButtonWrapper.appendChild(buttonMobileElement.firstChild.cloneNode(true));
-    block.appendChild(desktopButtonWrapper);
-
-    // Mobile button
-    buttonMobileElement.className = 'carousel-button-mobile';
-    block.appendChild(buttonMobileElement);
-  }
   createSlider(block);
-  const cardList = block.querySelector('ul');
-  cardList.setAttribute('tabindex', '-1');
-  const cards = cardList.querySelectorAll('li');
-  const MAX_CARDS = 7;
-  if (cards.length > MAX_CARDS) {
-    if (isAuthoring()) {
-      const warning = document.createElement('div');
-      warning.textContent = '⚠️ Only 7 cards are allowed. Extra cards have been ignored.';
-      warning.style.color = 'red';
-      block.prepend(warning);
+
+  // Add button element to wrapper AFTER createSlider so navigation buttons exist
+  if (isBottomCarousel && buttonElement) {
+    const wrapper = block.parentElement;
+    const navigationButtons = wrapper.querySelector('.carousel-navigation-buttons');
+
+    // Create a container for both button and navigation to keep them on the same line
+    const controlsContainer = document.createElement('div');
+    controlsContainer.className = 'carousel-controls';
+
+    // Add button to controls container
+    controlsContainer.appendChild(buttonElement);
+
+    // Move navigation buttons into the same container
+    if (navigationButtons) {
+      controlsContainer.appendChild(navigationButtons);
     }
 
-    const extraCards = Array.from(cards).slice(MAX_CARDS);
-    extraCards.forEach((card) => card.remove());
+    // Add the controls container to the wrapper
+    wrapper.appendChild(controlsContainer);
   }
+  const cardList = block.querySelector('ul');
+  cardList.setAttribute('tabindex', '-1');
 }
