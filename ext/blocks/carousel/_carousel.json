@@ -22,6 +22,21 @@
           }
         }
       }
+    },
+    {
+      "title": "Carousel Card",
+      "id": "carousel-card",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Carousel Card",
+              "model": "carousel-card"
+            }
+          }
+        }
+      }
     }
   ], 
   "models": [
