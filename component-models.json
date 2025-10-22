@@ -2135,7 +2135,7 @@
         "name": "style",
         "value": [],
         "label": "Variant style",
-        "valueType": "array",
+        "valueType": "string[]",
         "options": [
           {
             "name": "🎨Background",
@@ -2892,7 +2892,7 @@
         "component": "multiselect",
         "name": "classes",
         "value": "",
-        "label": "Column Styles (TEST: string[])",
+        "label": "Column Styles",
         "valueType": "string[]",
         "maxSize": 4,
         "options": [
