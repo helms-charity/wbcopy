@@ -63,10 +63,10 @@
 
 /* Apply consistent styling to all cards links */
 .cards a[href] {
-  text-underline-offset: 14px !important; /* Lower underlines for all cards */
-  font-size: var(--font-size-300) !important; /* Consistent size for all card links */
-  font-weight: var(--font-weight-700) !important; /* Bold text for all card links */
-  text-decoration-color: #fff !important; /* White underlines for all card links */
+  text-underline-offset: 14px; /* Lower underlines for all cards */
+  font-size: var(--font-size-300); /* Consistent size for all card links */
+  font-weight: var(--font-weight-700); /* Bold text for all card links */
+  text-decoration-color: #fff; /* White underlines for all card links */
 }
 
 /* Removed specific styling - using global styling for all cards links */
@@ -363,15 +363,25 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   position: relative;
 }
 
+/* Center the main section title */
+.section:has(.cards.sticky-columns-card) h1,
+.section:has(.cards.sticky-columns-card) h2,
+.section:has(.cards.sticky-columns-card) > div > h1,
+.section:has(.cards.sticky-columns-card) > div > h2 {
+  text-align: center;
+}
+
 .cards.sticky-columns-card > ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: 3rem;
-  max-width: 1200px;
+  gap: 1.5rem;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
   align-items: start;
+  justify-content: center;
+  width: 100%;
 }
 
 /* Left column - sticky behavior */
@@ -397,30 +407,55 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   grid-row: 2;
 }
 
-/* Remove borders from sticky columns cards - flexible World Bank Academy proportions */
+/* Remove borders from sticky columns cards - World Bank Academy exact dimensions */
 .cards.sticky-columns-card > ul > li {
   border: none;
   background: transparent;
   overflow: visible; /* Allow content to flow naturally */
   border-radius: 8px;
-  min-height: 350px; /* Minimum height like World Bank Academy */
-  max-width: 100%; /* Responsive width */
+  width: 646px; /* World Bank Academy exact width */
+  max-width: 100%; /* Responsive on smaller screens */
+  position: relative; /* For badge positioning */
 }
 
 /* Card styling */
 .cards.sticky-columns-card .cards-card-image {
   border-radius: 8px 8px 0 0;
-  overflow: hidden;
+  overflow: visible;
   line-height: 0;
   margin-bottom: 0;
+  position: relative;
 }
 
 .cards.sticky-columns-card .cards-card-image img {
-  width: 100%;
-  height: 250px; /* Proportional to World Bank Academy */
+  width: 646px; /* World Bank Academy exact image width */
+  height: 364px; /* World Bank Academy exact image height (363.715px) */
+  max-width: 100%; /* Responsive on smaller screens */
   object-fit: cover;
   border-radius: 8px 8px 0 0;
   display: block;
+}
+
+/* Badge "New for 2025" on first card - generated with CSS */
+.cards.sticky-columns-card > ul > li:first-child .cards-card-image::before {
+  content: "New for 2025";
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  z-index: 2;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background: white;
+  display: flex;
+  padding: 6px 14px;
+  justify-content: center;
+  align-items: center;
+  color: #001c2d;
+  text-align: center;
+  font-size: 12px;
+  font-weight: var(--font-weight-600);
+  line-height: 20px;
+  letter-spacing: -0.5px;
 }
 
 .cards.sticky-columns-card .cards-card-body {
@@ -434,7 +469,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 
 /* Text styling */
 .cards.sticky-columns-card .cards-card-body p {
-  color: var(--text-on-dark-subdued) !important; /* Color from screenshot */
+  color: var(--text-on-dark-subdued); /* Color from screenshot */
   font-size: var(--font-size-300);
   line-height: 1.4;
   margin: 0;
@@ -445,17 +480,22 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 }
 
 .cards.sticky-columns-card .cards-card-body p:nth-of-type(1):not(.button-container) {
-  color: var(--text-on-dark-subdued) !important; /* Same color for description paragraphs */
+  color: var(--text-on-dark-subdued); /* Same color for description paragraphs */
   font-size: var(--font-size-300);
   line-height: 1.5;
   margin-bottom: 1.5rem;
 }
 
 .cards.sticky-columns-card .cards-card-body p:nth-of-type(2) a {
-  color: #fff !important; /* Same color for description paragraphs */
+  color: #fff; /* Same color for description paragraphs */
   font-size: var(--font-size-300);
   line-height: 1.5;
   margin-bottom: 1.5rem;
+}
+
+/* Reduce spacing before button-containers to match left card */
+.cards.sticky-columns-card .cards-card-body p:not(.button-container):last-of-type {
+  margin-bottom: 0;
 }
 
 .cards.sticky-columns-card .cards-card-body .button-container {
@@ -466,7 +506,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 }
 
 .cards.sticky-columns-card .cards-card-body .button-container:first-of-type {
-  margin-top: 1.5rem;
+  margin-top: 0;
 }
 
 .cards.sticky-columns-card .cards-card-body .button-container:not(:last-of-type) {
@@ -478,27 +518,28 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 /* Override button styling to appear as simple text links */
 .cards.sticky-columns-card .cards-card-body .button,
 .cards.sticky-columns-card .cards-card-body a.button {
-  background: transparent !important; /* Remove button background */
-  color: #fff !important; /* White text like other links */
-  text-decoration: underline !important; /* Add underline */
-  text-decoration-thickness: 2px;
-  padding: 0 !important; /* Remove button padding */
-  border: none !important; /* Remove button border */
-  border-radius: 0 !important; /* Remove button rounded corners */
-  box-shadow: none !important; /* Remove button shadow */
-  font-weight: var(--font-weight-600);
-  display: inline !important;
+  background: transparent; /* Remove button background */
+  color: #fff; /* White text like other links */
+  text-decoration: underline; /* Add underline */
+  text-decoration-thickness: 1px;
+  padding: 0; /* Remove button padding */
+  border: none; /* Remove button border */
+  border-radius: 0; /* Remove button rounded corners */
+  box-shadow: none; /* Remove button shadow */
+  font-weight: var(--font-weight-700);
+  display: inline;
 }
 
 /* H3 headers */
 .cards.sticky-columns-card .cards-card-body h3,
 .cards.sticky-columns-card .cards-card-body h3 a {
-  color: #fff !important;
-  font-size: var(--font-size-500);
+  color: #fff;
+  font-size: var(--font-size-600);
   font-weight: var(--font-weight-700);
   margin: 0 0 0.75rem;
-  line-height: 1.2;
-  text-decoration: none !important;
+  line-height: 150%;
+  letter-spacing: -0.084px;
+  text-decoration: none;
 }
 
 /* Hover effects */
@@ -508,14 +549,14 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 
 /* Change underline colors when hovering over the card */
 .cards.sticky-columns-card > ul > li:hover .cards-card-body a[href] {
-  text-decoration-color: var(--text-on-light-link-hover) !important;
+  text-decoration-color: var(--blue-50-base, #0071bc);
 }
 
 /* Responsive design */
 @media (width >= 768px) {
   .cards.sticky-columns-card > ul {
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 1.5rem;
     padding: 3rem;
   }
 }
@@ -523,7 +564,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 @media (width >= 1024px) {
   .cards.sticky-columns-card > ul {
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 1.5rem;
     padding: 4rem;
   }
 }
