@@ -484,7 +484,7 @@ margin-bottom: var(--spacing-xlarge);
 
 @media (width <=768px) {
   .bottom-carousel ul {
-    grid-auto-columns: 79%;
+    grid-template-columns: repeat(7, 79%);
     margin-bottom: var(--spacing-xlarge);
   }
 
@@ -492,7 +492,7 @@ margin-bottom: var(--spacing-xlarge);
 
 @media (width <=992px) {
   .bottom-carousel ul {
-    grid-auto-columns: 50%;
+    grid-template-columns: repeat(7, 50%);
     margin-bottom: var(--spacing-xlarge);
   }
 
@@ -500,7 +500,7 @@ margin-bottom: var(--spacing-xlarge);
 
 @media (width >=1024px) {
   .bottom-carousel ul {
-    grid-auto-columns: 30%;
+    grid-template-columns: repeat(7, 30%);
     margin-bottom: var(--spacing-xxlarge);
   }
 
@@ -515,7 +515,7 @@ margin-bottom: var(--spacing-xlarge);
 
 @media (width >=1200px) {
   .bottom-carousel ul {
-    grid-auto-columns: 22%;
+    grid-template-columns: repeat(7, 22%);
     margin-bottom: var(--spacing-xlarge);
   }
 
