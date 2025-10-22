@@ -128,6 +128,13 @@ html[dir="rtl"] .section > div.carousel-wrapper {
   user-select: none;
 }
 
+/* Unlimited cards for carousel-with-button variant */
+.carousel.carousel-with-button>ul {
+  grid-auto-flow: column;
+  grid-auto-columns: 455px;
+  grid-template-columns: none;
+}
+
 .carousel>ul.is-dragging {
   cursor: default;
   scroll-snap-type: none;
@@ -303,6 +310,12 @@ html[dir="rtl"] .section > div.carousel-wrapper {
     gap: 0 8px;
   }
 
+  /* Unlimited cards for carousel-with-button variant */
+  .carousel.carousel-with-button>ul {
+    grid-auto-columns: 430px;
+    grid-template-columns: none;
+  }
+
   .carousel>.prev,
   .carousel>.next {
     right: var(--nav-height);
@@ -417,6 +430,12 @@ html[dir="rtl"] .section > div.carousel-wrapper {
     grid-template-rows: 430px;
     gap: 0 4px;
   }
+
+  /* Unlimited cards for carousel-with-button variant */
+  .carousel.carousel-with-button>ul {
+    grid-auto-columns: 360px;
+    grid-template-columns: none;
+  }
 }
 
 @media only screen and (width > 1024px) {
@@ -465,7 +484,7 @@ margin-bottom: var(--spacing-xlarge);
 
 @media (width <=768px) {
   .bottom-carousel ul {
-    grid-template-columns: repeat(7, 79%);
+    grid-auto-columns: 79%;
     margin-bottom: var(--spacing-xlarge);
   }
 
@@ -473,7 +492,7 @@ margin-bottom: var(--spacing-xlarge);
 
 @media (width <=992px) {
   .bottom-carousel ul {
-    grid-template-columns: repeat(7, 50%);
+    grid-auto-columns: 50%;
     margin-bottom: var(--spacing-xlarge);
   }
 
@@ -481,7 +500,7 @@ margin-bottom: var(--spacing-xlarge);
 
 @media (width >=1024px) {
   .bottom-carousel ul {
-    grid-template-columns: repeat(7, 30%);
+    grid-auto-columns: 30%;
     margin-bottom: var(--spacing-xxlarge);
   }
 
@@ -496,7 +515,7 @@ margin-bottom: var(--spacing-xlarge);
 
 @media (width >=1200px) {
   .bottom-carousel ul {
-    grid-template-columns: repeat(7, 22%);
+    grid-auto-columns: 22%;
     margin-bottom: var(--spacing-xlarge);
   }
 
