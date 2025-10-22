@@ -2796,17 +2796,17 @@
         ]
       },
       {
+        "component": "text",
+        "name": "anchorText",
+        "value": "",
+        "label": "Anchor Text",
+        "valueType": "string"
+      },
+      {
         "component": "aem-content",
         "name": "link",
         "value": "",
         "label": "Link",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "linkText",
-        "value": "",
-        "label": "Anchor Text",
         "valueType": "string"
       }
     ]
@@ -2892,8 +2892,8 @@
         "component": "multiselect",
         "name": "classes",
         "value": "",
-        "label": "Column Styles (TEST: string[])",
-        "valueType": "string[]",
+        "label": "Column Styles",
+        "valueType": "string",
         "maxSize": 4,
         "options": [
           {

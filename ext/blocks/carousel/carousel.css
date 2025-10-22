@@ -107,8 +107,8 @@
   width: 100%;
 }
 
-/* Badge/Tag styling at the top of cards */
-.carousel .cards-card-image em {
+/* Badge/Tag styling at the top of cards (eyebrow) */
+.carousel .card-eyebrow {
   position: absolute;
   top: 16px;
   left: 16px;
@@ -214,4 +214,145 @@
   color: #000d1ab2;
   text-align:center;
   text-transform: none;
+}
+
+/* Carousel button and navigation positioning for carousel-with-button variant */
+.section > .carousel-wrapper:has(.carousel-with-button),
+.carousel-container > .carousel-wrapper:has(.carousel-with-button) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  gap: var(--spacing-medium);
+}
+
+.carousel-wrapper > .carousel.carousel-with-button {
+  width: 100%;
+  order: 1;
+}
+
+/* Controls container - responsive flex layout */
+.carousel-wrapper > .carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  order: 2;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.carousel-controls > .carousel-button {
+  flex: 0 0 auto;
+  min-width: fit-content;
+}
+
+.carousel-controls > .carousel-button .button-container {
+  margin: 0;
+}
+
+/* Style the Learn More button */
+.carousel-controls > .carousel-button .button-container .button {
+  background-color: #047D95;
+  color: white;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  border: none;
+  white-space: nowrap;
+}
+
+.carousel-controls > .carousel-button .button-container .button:hover {
+  background-color: #036580;
+}
+
+/* Navigation buttons - positioned on right via parent justify-content */
+.carousel-controls > .carousel-navigation-buttons {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 12px;
+  min-width: fit-content;
+}
+
+.carousel-controls .carousel-navigation-buttons .button-container {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.carousel-controls .carousel-navigation-buttons .button-container button {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  border: 2px solid #047D95;
+  background-color: white;
+  color: #047D95;
+  font-size: 24px;
+  font-weight: normal;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Hide the SVG images */
+.carousel-controls .carousel-navigation-buttons .button-container button img {
+  display: none !important;
+}
+
+/* Add < > symbols */
+.carousel-controls .carousel-navigation-buttons .button-container button.prev::before {
+  content: '\003C';
+  display: block;
+  font-size: 20px;
+}
+
+.carousel-controls .carousel-navigation-buttons .button-container button.next::before {
+  content: '\003E';
+  display: block;
+  font-size: 20px;
+}
+
+.carousel-controls .carousel-navigation-buttons .button-container button:hover {
+  background-color: #047D95;
+  color: white;
+}
+
+.carousel-controls .carousel-navigation-buttons .button-container button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #ccc;
+}
+
+/* For very small screens, stack button and navigation */
+@media (width <= 600px) {
+  .carousel-wrapper > .carousel-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .carousel-controls > .carousel-button {
+    width: 100%;
+  }
+
+  .carousel-controls > .carousel-navigation-buttons {
+    width: 100%;
+    justify-content: center;
+  }
 }
