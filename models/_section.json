@@ -236,7 +236,7 @@
             "name": "style",
             "value": [],
             "label": "Variant style",
-            "valueType": "array",
+            "valueType": "string[]",
             "options": [
               {
                 "name": "🎨Background",

@@ -2135,7 +2135,7 @@
         "name": "style",
         "value": [],
         "label": "Variant style",
-        "valueType": "array",
+        "valueType": "string[]",
         "options": [
           {
             "name": "🎨Background",
@@ -2893,7 +2893,7 @@
         "name": "classes",
         "value": "",
         "label": "Column Styles",
-        "valueType": "string",
+        "valueType": "string[]",
         "maxSize": 4,
         "options": [
           {
