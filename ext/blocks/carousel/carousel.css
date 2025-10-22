@@ -339,8 +339,6 @@
   color: #ccc;
 }
 
-/* No media queries needed - flexbox handles it naturally */
-
 /* For very small screens, stack button and navigation */
 @media (width <= 600px) {
   .carousel-wrapper > .carousel-controls {
