@@ -24,13 +24,9 @@
   flex-direction: column;
 }
 
-.carousel.carousel-with-button > ul > li > a {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
+/* Removed: Cards are no longer wrapped in anchor tags for carousel-with-button */
+
+/* Links are now only on the heading text */
 
 .carousel .cards-card-image {
   line-height: 0;
@@ -118,10 +114,16 @@
   text-decoration: none;
   cursor: pointer;
   text-align: left;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  display: inline;
 }
 
 .carousel .cards-card-body > *:first-child a:hover {
-  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
 }
 
 .carousel .cards-card-body > *:last-child {
