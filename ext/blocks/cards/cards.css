@@ -378,10 +378,9 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   gap: 1rem;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
-  align-items: start;
-  justify-content: center;
+  padding: 1rem;
   width: 100%;
+  box-sizing: border-box;
 }
 
 /* Mobile: cards stack vertically by default */
@@ -407,8 +406,8 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   background: transparent;
   overflow: visible; /* Allow content to flow naturally */
   border-radius: 8px;
-  width: 646px; /* World Bank Academy exact width */
-  max-width: 100%; /* Responsive on smaller screens */
+  width: 100%; /* Scale to fit grid cell */
+  min-width: 0; /* Allow shrinking below content size */
   position: relative; /* For badge positioning */
 }
 
@@ -419,12 +418,13 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   line-height: 0;
   margin-bottom: 0;
   position: relative;
+  min-width: 0; /* Allow image container to shrink */
 }
 
 .cards.sticky-columns-card .cards-card-image img {
-  width: 646px; /* World Bank Academy exact image width */
-  height: 364px; /* World Bank Academy exact image height (363.715px) */
-  max-width: 100%; /* Responsive on smaller screens */
+  width: 100%; /* Fill card width */
+  height: auto; /* Maintain aspect ratio */
+  aspect-ratio: 646 / 364; /* World Bank aspect ratio */
   object-fit: cover;
   border-radius: 8px 8px 0 0;
   display: block;
@@ -459,6 +459,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
   margin: 0; /* World Bank Academy margin structure */
   transition: background-color 0.3s ease;
+  min-width: 0; /* Allow card body to shrink */
 }
 
 /* Text styling */
@@ -546,13 +547,17 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   text-decoration-color: var(--text-on-light-link-hover);
 }
 
-/* Responsive design - matching World Bank Academy pattern */
-@media (width >= 1480px) {
+/* Responsive design - Adjusted breakpoint for 646px cards to fit without overlap */
+@media (width >= 1040px) {
   .cards.sticky-columns-card > ul {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-rows: auto auto;
     gap: 1.5rem 1rem;
     padding: 3rem;
+  }
+  
+  .cards.sticky-columns-card > ul > li {
+    max-width: 646px; /* Apply max-width only on larger screens */
   }
   
   /* Tablet & Desktop: Left column - sticky behavior */
@@ -578,18 +583,8 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   }
 }
 
-@media (width >= 1600px) {
+@media (width >= 1480px) {
   .cards.sticky-columns-card > ul {
-    gap: 1.5rem 0;
     padding: 4rem;
-  }
-  
-  /* Apply negative margin ONLY on desktop for tight spacing */
-  .cards.sticky-columns-card > ul > li {
-    margin-left: -20px;
-  }
-  
-  .cards.sticky-columns-card > ul > li:first-child {
-    margin-left: 0; /* Keep first card in place */
   }
 }
