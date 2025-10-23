@@ -193,11 +193,15 @@ export default async function createSlider(block) {
   };
 
   function moveDirection(itemWidth, option) {
-    if (option === '+') {
-      carouselItems.scrollLeft += itemWidth;
-    } else {
-      carouselItems.scrollLeft -= itemWidth;
-    }
+    const targetScrollLeft = option === '+'
+      ? carouselItems.scrollLeft + itemWidth
+      : carouselItems.scrollLeft - itemWidth;
+
+    // Use smooth scrolling for better UX
+    carouselItems.scrollTo({
+      left: targetScrollLeft,
+      behavior: 'smooth',
+    });
   }
 
   // Button Event Handler
