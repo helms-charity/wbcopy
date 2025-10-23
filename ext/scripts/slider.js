@@ -4,17 +4,7 @@ import {
 
 loadCSS(`${window.hlx.codeBasePath}/styles/slider.css`);
 
-// Handling Next / Previous Arrow Image
-function arrowIcon(props) {
-  const icon = document.createElement('img');
-  icon.src = `${window.hlx.codeBasePath}/icons/${props}.svg`;
-  icon.alt = `${props}`;
-  icon.loading = 'lazy';
-  icon.dataset.iconName = `${props}`;
-  return icon;
-}
-
-// Handling Anchor Tag
+// Create navigation button (arrows are styled via CSS using loopicon font)
 function arrow(props) {
   const p = document.createElement('p');
   p.className = 'button-container';
@@ -22,7 +12,7 @@ function arrow(props) {
   anchor.className = `button ${props}`;
   anchor.title = `${props}`;
   anchor.type = 'button';
-  anchor.append(arrowIcon(props));
+  // No image needed - arrow icons are rendered via CSS ::before pseudo-elements
   p.append(anchor);
   return p;
 }

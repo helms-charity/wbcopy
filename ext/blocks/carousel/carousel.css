@@ -17,16 +17,11 @@
   flex-direction: column;
 }
 
-/* Ensure carousel-with-button cards have proper structure */
 .carousel.carousel-with-button > ul > li {
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
-
-/* Removed: Cards are no longer wrapped in anchor tags for carousel-with-button */
-
-/* Links are now only on the heading text */
 
 .carousel .cards-card-image {
   line-height: 0;
@@ -56,7 +51,6 @@
   padding: 0;
 }
 
-/* Card body - stacked below image */
 .carousel .cards-card-body {
   position: relative;
   background: var(--blue-120);
@@ -74,18 +68,14 @@
   min-height: 0;
 }
 
-/* Hover effect - lighter blue */
 .carousel > ul > li:hover .cards-card-body {
-  /* background: rgb(4 125 149); */
   background: var(--blue-80);
 }
 
-/* Disable hover effect when dragging */
 .carousel > ul.is-dragging > li:hover .cards-card-body {
   background: var(--blue-120);
 }
 
-/* Card link styling */
 .carousel > ul > li > a {
   display: block;
   text-decoration: none;
@@ -372,7 +362,6 @@
   }
 
   .carousel.carousel-with-button .cards-card-body > *:first-child {
-    /* font-size: clamp(20px, 1.8vw, 23px); */
     line-height: 1.3;
     margin-bottom: 12px;
   }
@@ -540,7 +529,6 @@
   overflow: visible;
 }
 
-/* Constrain main-heading to content width for carousel-with-button */
 .carousel.carousel-with-button .main-heading {
   max-width: 1600px;
   margin: 0 auto 2rem;
@@ -695,10 +683,6 @@
   font-family: loopicon, monospace;
 }
 
-/* Hide the SVG images */
-.carousel-controls .carousel-navigation-buttons .button-container button img {
-  display: none !important;
-}
 
 /* Add chevron icons using loopicon font */
 .carousel-controls .carousel-navigation-buttons .button-container button.prev::before {
