@@ -47,11 +47,38 @@ export default async function createSlider(block) {
   const itemList = [...document.querySelectorAll('.carousel > ul > li')];
   const carouselItems = document.querySelector('.carousel > ul');
 
-  // Add drag-to-scroll functionality
+  // Add drag-to-scroll functionality with momentum
   let isDown = false;
   let startX;
   let scrollLeftStart;
   let hasMoved = false;
+  let lastX;
+  let lastTime;
+  let velocityX = 0;
+
+  // Momentum function
+  function applyMomentum(element, velocity) {
+    let currentVelocity = velocity * 25; // Scale velocity for effect (higher = faster)
+    const deceleration = 0.97; // Deceleration factor (0.97 = 3% reduction per frame)
+    const minVelocity = 0.5; // Stop when velocity is very small
+
+    // Temporarily disable scroll snap to allow smooth momentum
+    const originalScrollSnapType = element.style.scrollSnapType;
+    element.style.scrollSnapType = 'none';
+
+    function animate() {
+      if (Math.abs(currentVelocity) > minVelocity) {
+        element.scrollLeft -= currentVelocity;
+        currentVelocity *= deceleration;
+        requestAnimationFrame(animate);
+      } else {
+        // Re-enable scroll snap after momentum stops
+        element.style.scrollSnapType = originalScrollSnapType || '';
+      }
+    }
+
+    animate();
+  }
 
   // Prevent default drag behavior on images and links
   carouselItems.querySelectorAll('img, a').forEach((element) => {
@@ -65,8 +92,15 @@ export default async function createSlider(block) {
     isDown = true;
     hasMoved = false;
     carouselItems.classList.add('is-dragging');
+
+    // Disable scroll snap during drag
+    carouselItems.style.scrollSnapType = 'none';
+
     startX = e.pageX - carouselItems.offsetLeft;
     scrollLeftStart = carouselItems.scrollLeft;
+    lastX = e.pageX;
+    lastTime = Date.now();
+    velocityX = 0;
     e.preventDefault();
   });
 
@@ -75,6 +109,19 @@ export default async function createSlider(block) {
     if (!isDown) return;
     e.preventDefault();
     hasMoved = true;
+
+    const currentTime = Date.now();
+    const currentX = e.pageX;
+    const timeDelta = currentTime - lastTime;
+
+    // Calculate velocity (pixels per millisecond)
+    if (timeDelta > 0) {
+      velocityX = (currentX - lastX) / timeDelta;
+    }
+
+    lastX = currentX;
+    lastTime = currentTime;
+
     const x = e.pageX - carouselItems.offsetLeft;
     const walk = x - startX; // 1:1 movement ratio with mouse
     carouselItems.scrollLeft = scrollLeftStart - walk;
@@ -85,11 +132,62 @@ export default async function createSlider(block) {
       isDown = false;
       carouselItems.classList.remove('is-dragging');
 
+      // Apply momentum if there was significant velocity
+      // Lower threshold to trigger more easily
+      if (Math.abs(velocityX) > 0.1) {
+        applyMomentum(carouselItems, velocityX);
+      } else {
+        // If no momentum, re-enable scroll snap immediately
+        carouselItems.style.scrollSnapType = '';
+      }
+
       // Reset hasMoved after a short delay to allow click prevention
       setTimeout(() => {
         hasMoved = false;
       }, 10);
     }
+  });
+
+  // Touch events for mobile momentum scrolling
+  carouselItems.addEventListener('touchstart', (e) => {
+    if (e.target.closest('button') || e.target.closest('a')) return;
+
+    const touch = e.touches[0];
+    startX = touch.pageX - carouselItems.offsetLeft;
+    scrollLeftStart = carouselItems.scrollLeft;
+    lastX = touch.pageX;
+    lastTime = Date.now();
+    velocityX = 0;
+    hasMoved = false;
+  }, { passive: true });
+
+  carouselItems.addEventListener('touchmove', (e) => {
+    const touch = e.touches[0];
+    hasMoved = true;
+
+    const currentTime = Date.now();
+    const currentX = touch.pageX;
+    const timeDelta = currentTime - lastTime;
+
+    if (timeDelta > 0) {
+      velocityX = (currentX - lastX) / timeDelta;
+    }
+
+    lastX = currentX;
+    lastTime = currentTime;
+  }, { passive: true });
+
+  carouselItems.addEventListener('touchend', () => {
+    if (hasMoved && Math.abs(velocityX) > 0.1) {
+      applyMomentum(carouselItems, velocityX);
+    } else {
+      // If no momentum, re-enable scroll snap immediately
+      carouselItems.style.scrollSnapType = '';
+    }
+
+    setTimeout(() => {
+      hasMoved = false;
+    }, 10);
   });
 
   // Prevent click events when dragging
@@ -196,36 +294,26 @@ export default async function createSlider(block) {
   // For carousel-with-button variant, use scroll-based button state management
   if (isCarouselWithButton) {
     const updateButtonStates = () => {
-      const scrollLeft = carouselItems.scrollLeft;
-      const scrollWidth = carouselItems.scrollWidth;
-      const clientWidth = carouselItems.clientWidth;
-      
+      const { scrollLeft } = carouselItems;
+      const { scrollWidth } = carouselItems;
+      const { clientWidth } = carouselItems;
+
       // Add small tolerance (10px) to handle sub-pixel rendering issues
       const tolerance = 10;
-      
+
       // Calculate the maximum scroll position
       const maxScroll = scrollWidth - clientWidth;
-      
+
       // Disable prev button when at the start
       moveLeftBtn.disabled = scrollLeft <= tolerance;
-      
+
       // Disable next button when at the end
       moveRightBtn.disabled = scrollLeft >= maxScroll - tolerance;
-      
-      // Debug logging (remove after testing)
-      console.log('Carousel scroll state:', {
-        scrollLeft,
-        clientWidth,
-        scrollWidth,
-        maxScroll,
-        prevDisabled: moveLeftBtn.disabled,
-        nextDisabled: moveRightBtn.disabled,
-      });
     };
 
     // Update button states on scroll
     carouselItems.addEventListener('scroll', updateButtonStates);
-    
+
     // Initial button state - wait for layout to be calculated
     // Use requestAnimationFrame to ensure DOM is fully rendered
     requestAnimationFrame(() => {
@@ -233,13 +321,13 @@ export default async function createSlider(block) {
         updateButtonStates();
       }, 100);
     });
-    
+
     // Update after window resize
     window.addEventListener('resize', () => {
       // Add delay after resize to ensure layout recalculation
       setTimeout(updateButtonStates, 100);
     });
-    
+
     // Update when images finish loading (affects carousel width)
     carouselItems.querySelectorAll('img').forEach((img) => {
       if (img.complete) {
