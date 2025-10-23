@@ -125,6 +125,10 @@ export default async function createSlider(block) {
     moveDirection(itemWidth, '+');
   }, true);
 
+  // Check if this is a carousel-with-button variant
+  const carouselBlock = wrapper.querySelector('.carousel');
+  const isCarouselWithButton = carouselBlock && carouselBlock.classList.contains('carousel-with-button');
+
   // Observer Callback Function
   const callBack = (entries) => {
     const dir = document.documentElement.dir || 'ltr';
@@ -150,6 +154,11 @@ export default async function createSlider(block) {
         target.classList.add('opacity');
       }
     });
+
+    // Skip button state management for carousel-with-button (handled by scroll event)
+    if (isCarouselWithButton) {
+      return;
+    }
 
     try {
       if (entries[0].target.parentElement.children[0].className === 'active') {
@@ -183,4 +192,61 @@ export default async function createSlider(block) {
   itemList.forEach((item) => {
     observer.observe(item);
   });
+
+  // For carousel-with-button variant, use scroll-based button state management
+  if (isCarouselWithButton) {
+    const updateButtonStates = () => {
+      const scrollLeft = carouselItems.scrollLeft;
+      const scrollWidth = carouselItems.scrollWidth;
+      const clientWidth = carouselItems.clientWidth;
+      
+      // Add small tolerance (10px) to handle sub-pixel rendering issues
+      const tolerance = 10;
+      
+      // Calculate the maximum scroll position
+      const maxScroll = scrollWidth - clientWidth;
+      
+      // Disable prev button when at the start
+      moveLeftBtn.disabled = scrollLeft <= tolerance;
+      
+      // Disable next button when at the end
+      moveRightBtn.disabled = scrollLeft >= maxScroll - tolerance;
+      
+      // Debug logging (remove after testing)
+      console.log('Carousel scroll state:', {
+        scrollLeft,
+        clientWidth,
+        scrollWidth,
+        maxScroll,
+        prevDisabled: moveLeftBtn.disabled,
+        nextDisabled: moveRightBtn.disabled,
+      });
+    };
+
+    // Update button states on scroll
+    carouselItems.addEventListener('scroll', updateButtonStates);
+    
+    // Initial button state - wait for layout to be calculated
+    // Use requestAnimationFrame to ensure DOM is fully rendered
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        updateButtonStates();
+      }, 100);
+    });
+    
+    // Update after window resize
+    window.addEventListener('resize', () => {
+      // Add delay after resize to ensure layout recalculation
+      setTimeout(updateButtonStates, 100);
+    });
+    
+    // Update when images finish loading (affects carousel width)
+    carouselItems.querySelectorAll('img').forEach((img) => {
+      if (img.complete) {
+        updateButtonStates();
+      } else {
+        img.addEventListener('load', updateButtonStates, { once: true });
+      }
+    });
+  }
 }
