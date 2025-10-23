@@ -110,16 +110,19 @@
 /* Badge/Tag styling at the top of cards (eyebrow) */
 .carousel .card-eyebrow {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  background-color: rgb(255 255 255 / 95%);
+  top: 30px;
+  left: 40px;
+  background: var(--background-white);
   color: var(--text-on-light-highlight, #002838);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: var(--font-size-300, 14px);
-  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--lift-button-border-radius);
+  border: 1px solid var(--outline-transparent);
+  font-size: 12px;
+  text-align: center;
+  font-weight: var(--lift-button-label-font-weight);
   font-style: normal;
-  line-height: 1;
+  line-height: 20px;
+  letter-spacing: -0.5px;
   z-index: 2;
 }
 
@@ -253,50 +256,49 @@
   margin: 0;
 }
 
-/* Style the Learn More button */
-.carousel-controls > .carousel-button .button-container .button {
-  background-color: #047D95;
-  color: white;
-  padding: 12px 32px;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-  border: none;
-  white-space: nowrap;
+/* Style the Learn More button - with high specificity to override slider.css */
+.carousel-wrapper > .carousel-controls > .carousel-button .button-container a.button:any-link,
+.carousel-wrapper > .carousel-controls > .carousel-button .button-container .button {
+  background-color: unset;
+  color: var(--text-on-light-link-primary-enabled);
+  padding: 0 0 var(--spacing-xxsmall) 0;
+  border-radius: 0;
+  font-size: var(--font-size-300);
+  font-weight: var(--body-font-weight-bold);
+  border-bottom: 2px solid var(--divider-on-light-emphasis);
 }
 
-.carousel-controls > .carousel-button .button-container .button:hover {
-  background-color: #036580;
+.carousel-wrapper > .carousel-controls > .carousel-button .button-container a.button:any-link:hover,
+.carousel-wrapper > .carousel-controls > .carousel-button .button-container .button:hover {
+  border-bottom-color: var(--blue-40);
+  background-color: unset;
 }
 
 /* Navigation buttons - positioned on right via parent justify-content */
 .carousel-controls > .carousel-navigation-buttons {
   flex: 0 0 auto;
   display: flex;
-  gap: 12px;
+  gap: 24px;
   min-width: fit-content;
 }
 
 .carousel-controls .carousel-navigation-buttons .button-container {
   display: flex;
-  gap: 12px;
+  gap: 24px;
   margin: 0;
   padding: 0;
   flex-shrink: 0;
 }
 
 .carousel-controls .carousel-navigation-buttons .button-container button {
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
   border-radius: 50%;
-  border: 2px solid #047D95;
-  background-color: white;
-  color: #047D95;
-  font-size: 24px;
+  border: 2px solid var(--accent-blue-primary-60);
+  background-color: transparent;
+  color: var(--accent-blue-primary-60);
+  font-size: 16px;
   font-weight: normal;
   cursor: pointer;
   display: inline-flex;
@@ -307,6 +309,7 @@
   margin: 0;
   position: relative;
   flex-shrink: 0;
+  font-family: loopicon, monospace;
 }
 
 /* Hide the SVG images */
@@ -314,29 +317,42 @@
   display: none !important;
 }
 
-/* Add < > symbols */
+/* Add chevron icons using loopicon font */
 .carousel-controls .carousel-navigation-buttons .button-container button.prev::before {
-  content: '\003C';
+  content: '\e117';
   display: block;
-  font-size: 20px;
+  font-family: loopicon, monospace;
+  font-style: normal;
+  speak: never;
 }
 
 .carousel-controls .carousel-navigation-buttons .button-container button.next::before {
-  content: '\003E';
+  content: '\e118';
   display: block;
-  font-size: 20px;
+  font-family: loopicon, monospace;
+  font-style: normal;
+  speak: never;
 }
 
 .carousel-controls .carousel-navigation-buttons .button-container button:hover {
-  background-color: #047D95;
-  color: white;
+  background-color: var(--accent-blue-primary-60);
+  color: var(--background-white);
+  border-color: var(--accent-blue-primary-60);
 }
 
 .carousel-controls .carousel-navigation-buttons .button-container button:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
-  border-color: #ccc;
-  color: #ccc;
+  border-color: var(--accent-blue-primary-60);
+  color: var(--accent-blue-primary-60);
+  background-color: transparent;
+}
+
+.carousel-controls .carousel-navigation-buttons .button-container button:disabled:hover {
+  background-color: transparent;
+  color: var(--accent-blue-primary-60);
+  border-color: var(--accent-blue-primary-60);
+  opacity: 0.35;
 }
 
 /* For very small screens, stack button and navigation */
