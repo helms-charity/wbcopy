@@ -375,7 +375,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: 1.5rem;
+  gap: 1.5rem 0;
   max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
@@ -393,6 +393,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   bottom: 2rem; /* Natural sticky stop */
   height: fit-content;
   align-self: start;
+  margin-left: 0; /* Override negative margin */
 }
 
 /* Second image - right column, top */
@@ -534,7 +535,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 .cards.sticky-columns-card .cards-card-body h3,
 .cards.sticky-columns-card .cards-card-body h3 a {
   color: #fff;
-  font-size: var(--font-size-600);
+  font-size: var(--font-size-500);
   font-weight: var(--font-weight-700);
   margin: 0 0 0.75rem;
   line-height: 150%;
@@ -553,10 +554,10 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 }
 
 /* Responsive design */
-@media (width >= 768px) {
+@media (width >= 768px) and (width < 1024px) {
   .cards.sticky-columns-card > ul {
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 1.5rem 1rem;
     padding: 3rem;
   }
 }
@@ -564,8 +565,17 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
 @media (width >= 1024px) {
   .cards.sticky-columns-card > ul {
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 1.5rem 0;
     padding: 4rem;
+  }
+  
+  /* Apply negative margin ONLY on desktop for tight spacing */
+  .cards.sticky-columns-card > ul > li {
+    margin-left: -20px;
+  }
+  
+  .cards.sticky-columns-card > ul > li:first-child {
+    margin-left: 0; /* Keep first card in place */
   }
 }
 
