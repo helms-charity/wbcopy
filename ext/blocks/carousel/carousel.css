@@ -551,7 +551,7 @@
 
 .section > .carousel-wrapper:has(.carousel-with-button) .carousel > ul,
 .carousel-container > .carousel-wrapper:has(.carousel-with-button) .carousel > ul {
-  overflow: hidden auto;
+  overflow: auto hidden;
   padding-left: calc((100vw - min(1600px, 100vw - var(--section-gutter-space) * 2)) / 2 + var(--section-gutter-space));
   padding-right: calc((100vw - min(1600px, 100vw - var(--section-gutter-space) * 2)) / 2 + var(--section-gutter-space));
   -webkit-overflow-scrolling: touch;

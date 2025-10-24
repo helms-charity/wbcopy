@@ -138,47 +138,21 @@ export default async function createSlider(block) {
     }
   });
 
-  // Touch events for mobile momentum scrolling
-  carouselItems.addEventListener('touchstart', (e) => {
-    if (e.target.closest('button') || e.target.closest('a')) return;
-
-    const touch = e.touches[0];
-    startX = touch.pageX - carouselItems.offsetLeft;
-    scrollLeftStart = carouselItems.scrollLeft;
-    lastX = touch.pageX;
-    lastTime = Date.now();
-    velocityX = 0;
+  // Touch events - minimal interference, just for click prevention
+  carouselItems.addEventListener('touchstart', () => {
     hasMoved = false;
   }, { passive: true });
 
-  carouselItems.addEventListener('touchmove', (e) => {
-    const touch = e.touches[0];
+  carouselItems.addEventListener('touchmove', () => {
     hasMoved = true;
-
-    const currentTime = Date.now();
-    const currentX = touch.pageX;
-    const timeDelta = currentTime - lastTime;
-
-    if (timeDelta > 0) {
-      velocityX = (currentX - lastX) / timeDelta;
-    }
-
-    lastX = currentX;
-    lastTime = currentTime;
   }, { passive: true });
 
   carouselItems.addEventListener('touchend', () => {
-    if (hasMoved && Math.abs(velocityX) > 0.1) {
-      applyMomentum(carouselItems, velocityX);
-    } else {
-      // If no momentum, re-enable scroll snap immediately
-      carouselItems.style.scrollSnapType = '';
-    }
-
+    // Keep hasMoved true briefly to prevent accidental clicks
     setTimeout(() => {
       hasMoved = false;
-    }, 10);
-  });
+    }, 150);
+  }, { passive: true });
 
   // Prevent click events when dragging
   carouselItems.addEventListener('click', (e) => {
