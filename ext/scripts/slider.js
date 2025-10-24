@@ -4,17 +4,7 @@ import {
 
 loadCSS(`${window.hlx.codeBasePath}/styles/slider.css`);
 
-// Handling Next / Previous Arrow Image
-function arrowIcon(props) {
-  const icon = document.createElement('img');
-  icon.src = `${window.hlx.codeBasePath}/icons/${props}.svg`;
-  icon.alt = `${props}`;
-  icon.loading = 'lazy';
-  icon.dataset.iconName = `${props}`;
-  return icon;
-}
-
-// Handling Anchor Tag
+// Create navigation button (arrows are styled via CSS using loopicon font)
 function arrow(props) {
   const p = document.createElement('p');
   p.className = 'button-container';
@@ -22,7 +12,7 @@ function arrow(props) {
   anchor.className = `button ${props}`;
   anchor.title = `${props}`;
   anchor.type = 'button';
-  anchor.append(arrowIcon(props));
+  // No image needed - arrow icons are rendered via CSS ::before pseudo-elements
   p.append(anchor);
   return p;
 }
@@ -47,11 +37,38 @@ export default async function createSlider(block) {
   const itemList = [...document.querySelectorAll('.carousel > ul > li')];
   const carouselItems = document.querySelector('.carousel > ul');
 
-  // Add drag-to-scroll functionality
+  // Add drag-to-scroll functionality with momentum
   let isDown = false;
   let startX;
   let scrollLeftStart;
   let hasMoved = false;
+  let lastX;
+  let lastTime;
+  let velocityX = 0;
+
+  // Momentum function
+  function applyMomentum(element, velocity) {
+    let currentVelocity = velocity * 25; // Scale velocity for effect (higher = faster)
+    const deceleration = 0.97; // Deceleration factor (0.97 = 3% reduction per frame)
+    const minVelocity = 0.5; // Stop when velocity is very small
+
+    // Temporarily disable scroll snap to allow smooth momentum
+    const originalScrollSnapType = element.style.scrollSnapType;
+    element.style.scrollSnapType = 'none';
+
+    function animate() {
+      if (Math.abs(currentVelocity) > minVelocity) {
+        element.scrollLeft -= currentVelocity;
+        currentVelocity *= deceleration;
+        requestAnimationFrame(animate);
+      } else {
+        // Re-enable scroll snap after momentum stops
+        element.style.scrollSnapType = originalScrollSnapType || '';
+      }
+    }
+
+    animate();
+  }
 
   // Prevent default drag behavior on images and links
   carouselItems.querySelectorAll('img, a').forEach((element) => {
@@ -65,8 +82,15 @@ export default async function createSlider(block) {
     isDown = true;
     hasMoved = false;
     carouselItems.classList.add('is-dragging');
+
+    // Disable scroll snap during drag
+    carouselItems.style.scrollSnapType = 'none';
+
     startX = e.pageX - carouselItems.offsetLeft;
     scrollLeftStart = carouselItems.scrollLeft;
+    lastX = e.pageX;
+    lastTime = Date.now();
+    velocityX = 0;
     e.preventDefault();
   });
 
@@ -75,6 +99,19 @@ export default async function createSlider(block) {
     if (!isDown) return;
     e.preventDefault();
     hasMoved = true;
+
+    const currentTime = Date.now();
+    const currentX = e.pageX;
+    const timeDelta = currentTime - lastTime;
+
+    // Calculate velocity (pixels per millisecond)
+    if (timeDelta > 0) {
+      velocityX = (currentX - lastX) / timeDelta;
+    }
+
+    lastX = currentX;
+    lastTime = currentTime;
+
     const x = e.pageX - carouselItems.offsetLeft;
     const walk = x - startX; // 1:1 movement ratio with mouse
     carouselItems.scrollLeft = scrollLeftStart - walk;
@@ -85,12 +122,37 @@ export default async function createSlider(block) {
       isDown = false;
       carouselItems.classList.remove('is-dragging');
 
+      // Apply momentum if there was significant velocity
+      // Lower threshold to trigger more easily
+      if (Math.abs(velocityX) > 0.1) {
+        applyMomentum(carouselItems, velocityX);
+      } else {
+        // If no momentum, re-enable scroll snap immediately
+        carouselItems.style.scrollSnapType = '';
+      }
+
       // Reset hasMoved after a short delay to allow click prevention
       setTimeout(() => {
         hasMoved = false;
       }, 10);
     }
   });
+
+  // Touch events - minimal interference, just for click prevention
+  carouselItems.addEventListener('touchstart', () => {
+    hasMoved = false;
+  }, { passive: true });
+
+  carouselItems.addEventListener('touchmove', () => {
+    hasMoved = true;
+  }, { passive: true });
+
+  carouselItems.addEventListener('touchend', () => {
+    // Keep hasMoved true briefly to prevent accidental clicks
+    setTimeout(() => {
+      hasMoved = false;
+    }, 150);
+  }, { passive: true });
 
   // Prevent click events when dragging
   carouselItems.addEventListener('click', (e) => {
@@ -105,11 +167,15 @@ export default async function createSlider(block) {
   };
 
   function moveDirection(itemWidth, option) {
-    if (option === '+') {
-      carouselItems.scrollLeft += itemWidth;
-    } else {
-      carouselItems.scrollLeft -= itemWidth;
-    }
+    const targetScrollLeft = option === '+'
+      ? carouselItems.scrollLeft + itemWidth
+      : carouselItems.scrollLeft - itemWidth;
+
+    // Use smooth scrolling for better UX
+    carouselItems.scrollTo({
+      left: targetScrollLeft,
+      behavior: 'smooth',
+    });
   }
 
   // Button Event Handler
@@ -124,6 +190,10 @@ export default async function createSlider(block) {
     const itemWidth = parseInt(carouselItems.scrollWidth / totalItems, 10);
     moveDirection(itemWidth, '+');
   }, true);
+
+  // Check if this is a carousel-with-button variant
+  const carouselBlock = wrapper.querySelector('.carousel');
+  const isCarouselWithButton = carouselBlock && carouselBlock.classList.contains('carousel-with-button');
 
   // Observer Callback Function
   const callBack = (entries) => {
@@ -150,6 +220,11 @@ export default async function createSlider(block) {
         target.classList.add('opacity');
       }
     });
+
+    // Skip button state management for carousel-with-button (handled by scroll event)
+    if (isCarouselWithButton) {
+      return;
+    }
 
     try {
       if (entries[0].target.parentElement.children[0].className === 'active') {
@@ -183,4 +258,51 @@ export default async function createSlider(block) {
   itemList.forEach((item) => {
     observer.observe(item);
   });
+
+  // For carousel-with-button variant, use scroll-based button state management
+  if (isCarouselWithButton) {
+    const updateButtonStates = () => {
+      const { scrollLeft } = carouselItems;
+      const { scrollWidth } = carouselItems;
+      const { clientWidth } = carouselItems;
+
+      // Add small tolerance (10px) to handle sub-pixel rendering issues
+      const tolerance = 10;
+
+      // Calculate the maximum scroll position
+      const maxScroll = scrollWidth - clientWidth;
+
+      // Disable prev button when at the start
+      moveLeftBtn.disabled = scrollLeft <= tolerance;
+
+      // Disable next button when at the end
+      moveRightBtn.disabled = scrollLeft >= maxScroll - tolerance;
+    };
+
+    // Update button states on scroll
+    carouselItems.addEventListener('scroll', updateButtonStates);
+
+    // Initial button state - wait for layout to be calculated
+    // Use requestAnimationFrame to ensure DOM is fully rendered
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        updateButtonStates();
+      }, 100);
+    });
+
+    // Update after window resize
+    window.addEventListener('resize', () => {
+      // Add delay after resize to ensure layout recalculation
+      setTimeout(updateButtonStates, 100);
+    });
+
+    // Update when images finish loading (affects carousel width)
+    carouselItems.querySelectorAll('img').forEach((img) => {
+      if (img.complete) {
+        updateButtonStates();
+      } else {
+        img.addEventListener('load', updateButtonStates, { once: true });
+      }
+    });
+  }
 }
