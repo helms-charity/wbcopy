@@ -23,7 +23,7 @@ function createVideoPlayer(videoSrc) {
         class: 'pause-icon controls', src: pauseIcon, width: 28, height: 28, alt: 'pause animation',
       })),
     ),
-    video({ id: 'videoPlayer', preload: 'none'},
+    video({ id: 'videoPlayer', preload: 'none' },
       source({ src: videoSrc, type: 'video/mp4', media: '(min-width: 768px)' }, 'Your browser does not support the video tag.'),
     ),
   );
