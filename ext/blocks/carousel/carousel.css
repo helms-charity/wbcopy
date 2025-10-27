@@ -212,23 +212,32 @@
   }
 
   .carousel.carousel-with-button .cards-card-body {
-    padding: clamp(16px, 3.5vw, 20px);
+    padding: var(--spacing-xlarge) var(--spacing-xlarge) var(--spacing-none) var(--spacing-xlarge);
     flex: 1;
     min-height: 0;
   }
 
   .carousel.carousel-with-button .cards-card-body > *:first-child {
-    font-size: clamp(16px, 3.5vw, 20px);
-    line-height: 1.3;
+    font-size: var(--font-size-600);
+    color: var(--gray-alpha-white-90-a);
+    font-style: normal;
+    font-weight: var(--body-font-weight-bold);
+    line-height: 150%;
+    letter-spacing: -0.084px;
+    margin-bottom: var(--spacing-xsmall);
   }
 
   .carousel.carousel-with-button .cards-card-body > *:last-child {
-    font-size: clamp(13px, 2.8vw, 15px);
-    line-height: 1.45;
+    font-size: var(--font-size-300);
+    color: var(--text-on-dark-subdued);
+    font-weight: var(--body-font-weight-regular);
+    line-height: 150%;
+    position: relative;
+    z-index: 2;
+    margin-bottom: var(--spacing-large);
   }
 }
 
-/* Small tablets: 640px - 991px */
 @media (width >= 640px) and (width <= 991px) {
    .section > .carousel-wrapper:has(.carousel-with-button) .carousel > ul,
   .carousel-container > .carousel-wrapper:has(.carousel-with-button) .carousel > ul {
@@ -255,7 +264,6 @@
     flex: 0 0 min(421px, 42vw);
     min-width: min(421px, 42vw);
     max-width: min(421px, 42vw);
-    height: 445px;
     gap: 0;
   }
 
@@ -266,24 +274,31 @@
   }
 
   .carousel.carousel-with-button .cards-card-body {
-    padding: 24px;
-    flex: 1;
-    min-height: 0;
+    padding: var(--spacing-xlarge) var(--spacing-xlarge) var(--spacing-none) var(--spacing-xlarge);
   }
 
   .carousel.carousel-with-button .cards-card-body > *:first-child {
-    font-size: 20px;
-    line-height: 1.3;
+    color: var(--text-on-dark-emphasis);
+    font-size: var(--font-size-600);
+    font-style: normal;
+    font-weight: var(--body-font-weight-bold);
+    line-height: 150%;
+    letter-spacing: -0.084px;
+    margin-bottom: var(--spacing-xsmall);
   }
 
   .carousel.carousel-with-button .cards-card-body > *:last-child {
-    font-size: 15px;
-    line-height: 1.4;
+  color: var(--text-on-dark-subdued);
+  font-size: var(--font-size-300);
+  font-weight: var(--body-font-weight-regular);
+  line-height: 150%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 0;
   }
 }
 
-/* Tablets: 992px - 1024px */
-@media (width >= 992px) and (width <= 1024px) {
+@media (width >= 992px) and (width <= 1023px) {
   .section > .carousel-wrapper:has(.carousel-with-button) .carousel > ul,
   .carousel-container > .carousel-wrapper:has(.carousel-with-button) .carousel > ul {
      gap: 15px;
@@ -293,7 +308,6 @@
     flex: 0 0 min(288px, 28vw);
     min-width: min(288px, 28vw);
     max-width: min(288px, 28vw);
-    height: 424px;
     gap: 0;
   }
 
@@ -304,19 +318,32 @@
   }
 
   .carousel.carousel-with-button .cards-card-body {
-    padding: 24px;
+    padding: var(--spacing-xlarge) var(--spacing-xlarge) var(--spacing-none) var(--spacing-xlarge);
     flex: 1;
     min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .carousel.carousel-with-button .cards-card-body > *:first-child {
-    font-size: 21px;
-    line-height: 1.3;
+    color: var(--text-on-dark-emphasis);
+    font-size: var(--font-size-600);
+    font-style: normal;
+    font-weight: var(--body-font-weight-bold);
+    line-height: 150%;
+    letter-spacing: -0.084px;
+    margin-bottom: var(--spacing-xsmall);
   }
 
   .carousel.carousel-with-button .cards-card-body > *:last-child {
-    font-size: 15px;
-    line-height: 1.45;
+    color: var(--text-on-dark-subdued);
+    font-size: var(--font-size-300);
+    font-weight: var(--body-font-weight-regular);
+    line-height: 150%;
+    position: relative;
+    z-index: 2;
+    margin-bottom: var(--spacing-large);
   }
 
   .carousel.carousel-with-button .main-heading h2{
@@ -328,8 +355,7 @@
   }
 }
 
-/* Desktop: 1025px - 1200px - Cards scale from 264px to 360px */
-@media (width >= 1025px) and (width <= 1200px) {
+@media (width >= 1024px) and (width <= 1200px) {
   .carousel.carousel-with-button > ul > li {
     flex: 0 0 max(264px, min(360px, 30vw));
     min-width: max(264px, min(360px, 30vw));
@@ -353,23 +379,26 @@
   }
 
   .carousel.carousel-with-button .cards-card-body {
-    /* padding: clamp(20px, 2vw, 24px); */
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    padding: var(--spacing-xlarge) var(--spacing-xlarge) var(--spacing-none) var(--spacing-xlarge);
   }
 
   .carousel.carousel-with-button .cards-card-body > *:first-child {
-    line-height: 1.3;
-    margin-bottom: 12px;
+    color: var(--text-on-dark-emphasis);
+    font-size: var(--font-size-600);
+    font-weight: var(--body-font-weight-bold);
+    line-height: 150%;
+    letter-spacing: -0.084px;
+    margin-bottom: var(--spacing-xsmall);
   }
 
   .carousel.carousel-with-button .cards-card-body > *:last-child {
-    font-size: 15px;
-    line-height: 1.45;
-    margin-bottom: 0;
+    color: var(--text-on-dark-subdued);
+    font-size: var(--font-size-300);
+    font-weight: var(--body-font-weight-regular);
+    line-height: 150%;
+    position: relative;
+    z-index: 2;
+    margin-bottom: var(--spacing-large);
   }
 }
 
@@ -379,7 +408,7 @@
   .carousel-container > .carousel-wrapper:has(.carousel-with-button) .carousel > ul {
     column-gap:25px;
   }
-  
+
   .carousel.carousel-with-button > ul > li {
     flex: 0 0 clamp(360px, 28vw, 455px);
     min-width: clamp(360px, 28vw, 455px);
@@ -394,13 +423,23 @@
   }
 
   .carousel.carousel-with-button .cards-card-body > *:first-child {
-    font-size: clamp(22px, 1.8vw, 24px);
-    line-height: 1.3;
+    color: var(--text-on-dark-emphasis);
+    font-size: var(--font-size-600);
+    font-style: normal;
+    font-weight: var(--body-font-weight-bold);
+    line-height: 150%;
+    letter-spacing: -0.084px;
+    margin-bottom: var(--spacing-xsmall);
   }
 
   .carousel.carousel-with-button .cards-card-body > *:last-child {
-    font-size: clamp(15px, 1.2vw, 16px);
-    line-height: 1.5;
+    color: var(--text-on-dark-subdued);
+    font-size: var(--font-size-300);
+    font-weight: var(--body-font-weight-regular);
+    line-height: 150%;
+    position: relative;
+    z-index: 2;
+    margin-bottom: var(--spacing-large);
   }
 }
 
@@ -424,11 +463,14 @@
   }
 
   .carousel.carousel-with-button .cards-card-body > *:first-child {
-    font-size: 24px;
-    margin-bottom: 16px;
-    line-height: 1.3;
+    color: var(--text-on-dark-emphasis);
+    font-size: var(--font-size-600);
+    font-style: normal;
+    font-weight: var(--body-font-weight-bold);
+    line-height: 150%;
+    letter-spacing: -0.084px;
+    margin-bottom: var(--spacing-xsmall);
   }
-
 }
 
 /* Keep existing responsive adjustments for non-carousel-with-button carousels */
@@ -682,7 +724,6 @@
   flex-shrink: 0;
   font-family: loopicon, monospace;
 }
-
 
 /* Add chevron icons using loopicon font */
 .carousel-controls .carousel-navigation-buttons .button-container button.prev::before {
