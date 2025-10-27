@@ -113,21 +113,31 @@ export default function decorate(block) {
       const oldLink = bodyDiv?.querySelector('a');
       if (!imgDiv || !bodyDiv || !oldLink) return;
 
-      const a = document.createElement('a');
-      a.href = oldLink.href;
-      a.title = oldLink.title;
-      moveInstrumentation(oldLink, a);
+      // Create link for the title only
+      const titleLink = document.createElement('a');
+      titleLink.href = oldLink.href;
+      titleLink.title = oldLink.title;
+      titleLink.textContent = oldLink.textContent;
+      moveInstrumentation(oldLink, titleLink);
 
-      const newBody = document.createElement('div');
-      newBody.className = 'cards-card-body';
-      const p = document.createElement('p');
-      p.className = 'button-container';
-      p.textContent = oldLink.textContent;
-      newBody.appendChild(p);
+      // Find the heading (h3, h4, etc.) and wrap it with the link
+      const heading = bodyDiv.querySelector('h3, h4, h5, h6');
+      if (heading) {
+        heading.textContent = '';
+        heading.appendChild(titleLink);
+      } else {
+        // Fallback: if no heading, wrap the first paragraph
+        const firstP = bodyDiv.querySelector('p');
+        if (firstP && firstP.contains(oldLink)) {
+          firstP.textContent = '';
+          firstP.appendChild(titleLink);
+        }
+      }
 
-      a.append(imgDiv, newBody);
-      li.textContent = '';
-      li.appendChild(a);
+      // Remove the old link if it still exists
+      if (oldLink.parentNode) {
+        oldLink.remove();
+      }
     });
   }
   /* ------------------------------------------------------------- */
