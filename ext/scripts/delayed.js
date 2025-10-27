@@ -5,7 +5,6 @@ import {
 } from './aem.js';
 import {
   a, span, i,
-  section,
 } from './dom-helpers.js';
 import {
   isInternalPage, scriptEnabled, PATH_PREFIX, formatDate, getLanguage,
@@ -17,7 +16,7 @@ async function getUserIp() {
     const data = await res.json();
     return data.ip || '';
   } catch (e) {
-    console.error('IP fetch failed', e);
+    // console.error('IP fetch failed', e);
     return '';
   }
 }
@@ -28,13 +27,13 @@ async function renderWBDataLayer() {
   const userIp = await getUserIp();
   let bUnit = getMetadata('originating_unit');
   if (bUnit && bUnit.length > 0) {
-    bUnit = bUnit.substring(bUnit.lastIndexOf(",") + 1).trim();
+    bUnit = bUnit.substring(bUnit.lastIndexOf(',') + 1).trim();
   }
-  let site_Section = getMetadata('site_section');
-  if (!site_Section || site_Section.length < 1) {
-    site_Section = getMetadata('pagename');
-    const match = site_Section.match(/:(.*)/);
-    site_Section = match ? match[1] : null; 
+  let siteSection = getMetadata('site_section');
+  if (!siteSection || siteSection.length < 1) {
+    siteSection = getMetadata('pagename');
+    const match = siteSection.match(/:(.*)/);
+    siteSection = match ? match[1] : null;
   }
   window.wbgData.page = {
     pageInfo: {
@@ -46,11 +45,11 @@ async function renderWBDataLayer() {
       pageFirstPub: formatDate(firstPubDateStr),
       pageLastMod: formatDate(lastPubDateStr),
       webpackage: getMetadata('webpackage_id') || '',
-      topicTag : getMetadata('topic_tag') || '',
+      topicTag: getMetadata('topic_tag') || '',
       hier1: getMetadata('hier1') || '',
     },
     sectionInfo: {
-      siteSection:  getMetadata('site_section') || site_Section || '',
+      siteSection: getMetadata('site_section') || siteSection || '',
       subsectionP2: getMetadata('subsectionp2') || '',
       subsectionP3: getMetadata('subsectionp3') || '',
       subsectionP4: getMetadata('subsectionp4') || '',

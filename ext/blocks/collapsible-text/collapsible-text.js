@@ -1,4 +1,4 @@
-import { a, div, h2 } from '../../scripts/dom-helpers.js';
+import { a, h2 } from '../../scripts/dom-helpers.js';
 
 function applyCollapse(text, collapsibleText, readMoreLabel, readLessLabel) {
   text.classList.add('visible-text');
@@ -14,8 +14,8 @@ function applyCollapse(text, collapsibleText, readMoreLabel, readLessLabel) {
   let readMoreAnchor;
   if (readMoreLabel) {
     readMoreAnchor = a(
-      { href: '#', class: 'read-more-button' , 'aria-expanded': 'false' },
-      readMoreLabel.textContent || 'Read More'
+      { href: '#', class: 'read-more-button', 'aria-expanded': 'false' },
+      readMoreLabel.textContent || 'Read More',
     );
     const p = readMoreLabel.querySelector('p');
     if (p) {
@@ -28,7 +28,7 @@ function applyCollapse(text, collapsibleText, readMoreLabel, readLessLabel) {
   if (readLessLabel) {
     readLessAnchor = a(
       { href: '#', class: 'read-less-button', 'aria-expanded': 'true' },
-      readLessLabel.textContent || 'Read Less'
+      readLessLabel.textContent || 'Read Less',
     );
     readLessAnchor.style.display = 'none';
     const p2 = readLessLabel.querySelector('p');
@@ -43,7 +43,7 @@ function applyCollapse(text, collapsibleText, readMoreLabel, readLessLabel) {
       e.preventDefault();
 
       const appendedElements = text.querySelectorAll('.collapse-elements');
-      appendedElements.forEach(el => {
+      appendedElements.forEach((el) => {
         el.style.display = '';
       });
 
@@ -57,7 +57,7 @@ function applyCollapse(text, collapsibleText, readMoreLabel, readLessLabel) {
           const collapseLis = [...firstCollapseEl.querySelectorAll('li')];
           collapseLis.forEach((li) => {
             lastVisibleEl.appendChild(li);
-            li.classList.add('collapse-elements');  // <-- add class here
+            li.classList.add('collapse-elements'); // <-- add class here
           });
           firstCollapseEl.remove();
 
@@ -74,18 +74,18 @@ function applyCollapse(text, collapsibleText, readMoreLabel, readLessLabel) {
         } else {
           const children = [...collapseContainer.children];
           let ref = lastVisibleEl;
-          children.forEach(child => {
+          children.forEach((child) => {
             ref.insertAdjacentElement('afterend', child);
-            child.classList.add('collapse-elements');  // <-- add class here
+            child.classList.add('collapse-elements'); // <-- add class here
             ref = child;
           });
         }
       } else {
         const children = [...collapseContainer.children];
         let ref = lastVisibleEl;
-        children.forEach(child => {
+        children.forEach((child) => {
           ref.insertAdjacentElement('afterend', child);
-          child.classList.add('collapse-elements');  // <-- add class here
+          child.classList.add('collapse-elements'); // <-- add class here
           ref = child;
         });
       }
@@ -95,60 +95,58 @@ function applyCollapse(text, collapsibleText, readMoreLabel, readLessLabel) {
       readLessAnchor.style.display = '';
     });
 
+    readLessAnchor.addEventListener('click', (e) => {
+      e.preventDefault();
 
-   readLessAnchor.addEventListener('click', (e) => {
-     e.preventDefault();
+      const visibleContainer = text.querySelector('div');
+      const collapseContainer = collapsibleText.querySelector('div');
 
-     const visibleContainer = text.querySelector('div');
-     const collapseContainer = collapsibleText.querySelector('div');
+      // Look for the last visible UL in the visible container
+      const lastVisibleEl = visibleContainer?.lastElementChild;
 
-     // Look for the last visible UL in the visible container
-     const lastVisibleEl = visibleContainer?.lastElementChild;
+      // Find all collapse elements
+      const collapseEls = text.querySelectorAll('.collapse-elements');
 
-     // Find all collapse elements
-     const collapseEls = text.querySelectorAll('.collapse-elements');
+      if (lastVisibleEl && lastVisibleEl.tagName === 'UL') {
+        // Move all li elements with .collapse-elements back into a UL in collapsibleText
+        const newCollapseUl = document.createElement('ul');
+        collapseEls.forEach((el) => {
+          if (el.tagName === 'LI') {
+            newCollapseUl.appendChild(el);
+          }
+        });
+        if (newCollapseUl.children.length) {
+          collapseContainer.insertAdjacentElement('afterbegin', newCollapseUl);
+        }
 
-     if (lastVisibleEl && lastVisibleEl.tagName === 'UL') {
-       // Move all li elements with .collapse-elements back into a UL in collapsibleText
-       const newCollapseUl = document.createElement('ul');
-       collapseEls.forEach(el => {
-         if (el.tagName === 'LI') {
-           newCollapseUl.appendChild(el);
-         }
-       });
-       if (newCollapseUl.children.length) {
-         collapseContainer.insertAdjacentElement('afterbegin', newCollapseUl);
-       }
+        // Move any merged extra content after UL into collapsibleText
+        const mergedExtraContent = visibleContainer.querySelectorAll('.merged-extra-content');
+        mergedExtraContent.forEach((extra) => {
+          collapseContainer.appendChild(extra);
+        });
+      } else {
+        // Move any non-UL collapse-elements back into collapsibleText
+        collapseEls.forEach((el) => {
+          if (el.tagName !== 'LI') {
+            collapseContainer.appendChild(el);
+          }
+        });
+      }
 
-       // Move any merged extra content after UL into collapsibleText
-       const mergedExtraContent = visibleContainer.querySelectorAll('.merged-extra-content');
-       mergedExtraContent.forEach(extra => {
-         collapseContainer.appendChild(extra);
-       });
-     } else {
-       // Move any non-UL collapse-elements back into collapsibleText
-       collapseEls.forEach(el => {
-         if (el.tagName !== 'LI') {
-           collapseContainer.appendChild(el);
-         }
-       });
-     }
+      // Clear collapse-elements class
+      collapseEls.forEach((el) => {
+        el.classList.remove('collapse-elements', 'merged-extra-content');
+      });
 
-     // Clear collapse-elements class
-     collapseEls.forEach(el => {
-       el.classList.remove('collapse-elements', 'merged-extra-content');
-     });
+      collapsibleText.style.display = 'none';
+      readMoreAnchor.style.display = '';
+      readLessAnchor.style.display = 'none';
 
-     collapsibleText.style.display = 'none';
-     readMoreAnchor.style.display = '';
-     readLessAnchor.style.display = 'none';
-
-     text.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
+      text.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
     });
-   });
-
   }
 
   // Hide read more if no collapsible content

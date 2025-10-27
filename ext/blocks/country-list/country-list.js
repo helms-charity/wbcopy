@@ -1,10 +1,9 @@
 import { li, p } from '../../scripts/dom-helpers.js';
-import { fetchCountriesList } from '../../scripts/utils.js';
 import {
-  getLanguage, PATH_PREFIX, fetchLanguageNavigation,
+  getLanguage, PATH_PREFIX, fetchCountriesList,
 } from '../../scripts/utils.js';
 
-var allVal = 'All';
+const allVal = 'All';
 
 function scrolltab() {
   const minScreenWidth = 320;
@@ -12,14 +11,14 @@ function scrolltab() {
 
   let scrollAmount = getScrollAmountByScreen(window.innerWidth);
 
-  const alphaTabs = document.querySelector(".alpha-tabs");
-  const ul = document.querySelector(".alpha-tabs ul");
-  const leftBtn = document.querySelector(".scroll-btn.left");
-  const rightBtn = document.querySelector(".scroll-btn.right");
+  const alphaTabs = document.querySelector('.alpha-tabs');
+  const ul = document.querySelector('.alpha-tabs ul');
+  const leftBtn = document.querySelector('.scroll-btn.left');
+  const rightBtn = document.querySelector('.scroll-btn.right');
 
-  const isRTL = getComputedStyle(alphaTabs).direction === "rtl";
+  const isRTL = getComputedStyle(alphaTabs).direction === 'rtl';
 
-  if (!ul.style.left) ul.style.left = "0px";
+  if (!ul.style.left) ul.style.left = '0px';
 
   const getLeftPosi = () => parseInt(ul.style.left, 10) || 0;
   const widthOfList = () => ul.scrollWidth;
@@ -38,31 +37,31 @@ function scrolltab() {
     const leftPos = getLeftPosi();
 
     if (widthOfRightHidden() > 1) {
-      rightBtn.style.display = "block";
+      rightBtn.style.display = 'block';
     } else {
-      rightBtn.style.display = "none";
+      rightBtn.style.display = 'none';
     }
 
     if (isRTL) {
       if (leftPos > 0) {
-        leftBtn.style.display = "block";
+        leftBtn.style.display = 'block';
       } else {
-        ul.style.left = "0px";
-        leftBtn.style.display = "none";
+        ul.style.left = '0px';
+        leftBtn.style.display = 'none';
       }
     } else {
       if (leftPos < 0) {
-        leftBtn.style.display = "block";
+        leftBtn.style.display = 'block';
       } else {
-        ul.style.left = "0px";
-        leftBtn.style.display = "none";
+        ul.style.left = '0px';
+        leftBtn.style.display = 'none';
       }
     }
   };
 
   reAdjust();
 
-  window.addEventListener("resize", () => {
+  window.addEventListener('resize', () => {
     scrollAmount = getScrollAmountByScreen(window.innerWidth);
 
     const leftPos = getLeftPosi();
@@ -101,7 +100,7 @@ function scrolltab() {
         ul.style.left = `${leftPos - scrollBy}px`; // English: move content left
       }
 
-      leftBtn.style.display = "block";
+      leftBtn.style.display = 'block';
     }
 
     setTimeout(reAdjust, 350);

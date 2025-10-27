@@ -1,12 +1,10 @@
 export default function decorate(block) {
-
   const pictures = [...block.querySelectorAll('picture')];
-  const [imgD, imgT, imgM, alt] = [...block.children];
+  const [, , , alt] = [...block.children];
   const p = alt.querySelector('p');
-  let altText ='Default Alt';
-  if(p)
-  {
-   altText = p.textContent.trim();
+  let altText = 'Default Alt';
+  if (p) {
+    altText = p.textContent.trim();
   }
 
   // Extract image URLs from <img src="">

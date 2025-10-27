@@ -152,7 +152,7 @@ function createSlider(block) {
 export default async function decorate(block) {
   const isDataCardVariation = block.classList.contains('data-card-variation');
   if (isDataCardVariation) {
-    const [rte1, rte2, rte3,buttonTextLink,...cards] = [...block.children];
+    const [rte1, rte2, rte3, ,...cards] = [...block.children];
     rte1.className = 'main-heading';
     if (rte1 && rte2 && rte3) {
       block.append(createRTEContainer([rte1, rte2, rte3]));
@@ -165,18 +165,15 @@ export default async function decorate(block) {
     block.append(dataCardItems);
 
     cards.forEach((row) => {
-      if(row.innerHTML.trim() != '')
-      {
-          row.className = 'data-card';
-          const [tag, title, description, link, disclaimer] = [...row.children];
-          tag.className = 'data-card-tag';
-          if(title)
-          {
-             title.className = 'data-card-title';
-          }
-          if(description)
-          {
-            description.className = 'data-card-description';
+      if (row.innerHTML.trim() !== '') {
+        row.className = 'data-card';
+        const [tag, title, description, link, disclaimer] = [...row.children];
+        tag.className = 'data-card-tag';
+        if (title) {
+          title.className = 'data-card-title';
+        }
+        if (description) {
+          description.className = 'data-card-description';
           }
           if(disclaimer)
           {

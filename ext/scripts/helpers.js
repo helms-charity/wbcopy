@@ -262,14 +262,14 @@ export const getRegionForCountry = (countryCode, countriesMapping) => {
 export const isValidValue = (value) => (
   value !== null &&
   value !== undefined &&
-  value !== "" &&
-  value !== "null" &&
-  value !== "NaN"
+  value !== '' &&
+  value !== 'null' &&
+  value !== 'NaN'
 );
 
 // Find the latest non-null value and its index
 export const findLatestValue = (yAxis) => {
-  for (let i = yAxis.length - 1; i >= 0; i--) {
+  for (let i = yAxis.length - 1; i >= 0; i -= 1) {
     if (isValidValue(yAxis[i])) {
       return { value: parseFloat(yAxis[i]), index: i };
     }
@@ -279,7 +279,7 @@ export const findLatestValue = (yAxis) => {
 
 // Find the previous non-null value before a given index
 export const findPreviousValue = (yAxis, fromIndex) => {
-  for (let i = fromIndex - 1; i >= 0; i--) {
+  for (let i = fromIndex - 1; i >= 0; i -= 1) {
     if (isValidValue(yAxis[i])) {
       return { value: parseFloat(yAxis[i]), index: i };
     }
@@ -289,33 +289,33 @@ export const findPreviousValue = (yAxis, fromIndex) => {
 
 // Get arrow icon based on trend comparison
 export const getArrowIcon = (xAxis, yAxis) => {
-  if (!xAxis || !yAxis || xAxis.length < 2 || yAxis.length < 2) return "";
-  
+  if (!xAxis || !yAxis || xAxis.length < 2 || yAxis.length < 2) return '';
+
   const { value: latestValue, index: latestIndex } = findLatestValue(yAxis);
   const { value: previousValue } = findPreviousValue(yAxis, latestIndex);
-  
+
   if (latestValue !== null && previousValue !== null) {
     if (latestValue > previousValue) return '<i class="lp lp-arrow-up"></i>';
     if (latestValue < previousValue) return '<i class="lp lp-arrow-down"></i>';
   }
-  return "";
+  return '';
 };
 
 // Load Swiper dependencies
 export const loadSwiperDependencies = async () => {
   // Check if Swiper CSS is loaded
   if (!document.querySelector('link[href*="swiper"]')) {
-    const swiperCSS = document.createElement("link");
-    swiperCSS.rel = "stylesheet";
-    swiperCSS.href = "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
+    const swiperCSS = document.createElement('link');
+    swiperCSS.rel = 'stylesheet';
+    swiperCSS.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
     document.head.appendChild(swiperCSS);
   }
 
   // Check if Swiper JS is loaded
-  if (typeof Swiper === "undefined") {
+  if (typeof Swiper === 'undefined') {
     await new Promise((resolve) => {
-      const swiperJS = document.createElement("script");
-      swiperJS.src = "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js";
+      const swiperJS = document.createElement('script');
+      swiperJS.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
       swiperJS.onload = resolve;
       document.head.appendChild(swiperJS);
     });
@@ -324,8 +324,8 @@ export const loadSwiperDependencies = async () => {
 
 // Initialize Swiper carousel with default configuration
 export const initializeSwiper = (container) => {
-  if (typeof Swiper === "undefined") {
-    console.warn("Swiper library not found. Please include Swiper.js");
+  if (typeof Swiper === 'undefined') {
+    // console.warn('Swiper library not found. Please include Swiper.js');
     return null;
   }
 
@@ -334,11 +334,11 @@ export const initializeSwiper = (container) => {
     spaceBetween: 16,
     loop: false,
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
     pagination: {
-      el: ".swiper-pagination",
+      el: '.swiper-pagination',
       clickable: true,
     },
     breakpoints: {

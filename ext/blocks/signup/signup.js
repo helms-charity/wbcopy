@@ -41,7 +41,7 @@ const CONSTANTS = {
   NEWSLETTER_APPLICATION_NAME: 'newsletterApplicationName',
   NEWSLETTER_NEW_SUBSCRIBER_EMAIL_TEMPLATE: 'newsletterNewSubscriberEmailTemplate',
   NEWSLETTER_EXISTING_SUBSCRIBER_EMAIL_TEMPLATE: 'newsletterExistingSubscriberEmailTemplate',
-  EALERTS_SUBSCRIPTION_API_URL: 'ealertsSubscriptionApiUrl'
+  EALERTS_SUBSCRIPTION_API_URL: 'ealertsSubscriptionApiUrl',
 };
 
 async function callConsentAPI(email, firstName, placeholders) {
@@ -67,27 +67,27 @@ async function callConsentAPI(email, firstName, placeholders) {
 
 async function callRealtimeAPI(placeholders) {
   try {
-		const response = await fetch(placeholders[CONSTANTS.REALTIME_ENDPOINT]);
-		if (!response.ok) {
-			throw new Error('Failed to fetch realtime data');
-		}
-    
-		const data = await response.json();
-		const botScoreHeader = response.headers.get('x-bot-score');
-		const botScore = botScoreHeader !== null ? parseInt(botScoreHeader, 10) : null; // Convert to number, set null if missing
+    const response = await fetch(placeholders[CONSTANTS.REALTIME_ENDPOINT]);
+    if (!response.ok) {
+      throw new Error('Failed to fetch realtime data');
+    }
 
-		const realtime = {
-			ipAddress: data.ipAddress
-		};
+    const data = await response.json();
+    const botScoreHeader = response.headers.get('x-bot-score');
+    const botScore = botScoreHeader !== null ? parseInt(botScoreHeader, 10) : null;
 
-		if (Number.isInteger(botScore)) {
-			realtime.botScore = botScore; // Add botScore only if valid
-		}
+    const realtime = {
+      ipAddress: data.ipAddress,
+    };
 
-		return realtime;
-	} catch (error) {
-		console.error('Error fetching realtime data:', error);
-	}
+    if (Number.isInteger(botScore)) {
+      realtime.botScore = botScore;
+    }
+
+    return realtime;
+  } catch (error) {
+    // console.error('Error fetching realtime data:', error);
+  }
 }
 
 function callEalertSubscription(url, email, countries, resources) {

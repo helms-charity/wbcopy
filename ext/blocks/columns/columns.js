@@ -22,19 +22,19 @@ export default function decorate(block) {
   if (block.classList.contains('columns-feature-card')) {
     const cards = [...block.firstElementChild.children];
     cards.forEach((card) => {
-    const [_title, thumbnail, description, ...button] = [...card.children];
-    const img = thumbnail?.querySelector('img');
-    if (img) {
-      if (!img.hasAttribute('alt') || img.alt.trim() === '') {
-        img.alt = 'Default Alt';
-      }
+      const [_title, thumbnail, description, ...button] = [...card.children];
+      const img = thumbnail?.querySelector('img');
+      if (img) {
+        if (!img.hasAttribute('alt') || img.alt.trim() === '') {
+          img.alt = 'Default Alt';
+        }
 
-      if (img.src && img.src.trim() !== '' && !img.src.includes('error')) {
-        thumbnail.classList.add('columns-feature-card-thumbnail');
-      } else if (img.src.includes('error')) {
-        thumbnail.classList.add('menulist-img');
+        if (img.src && img.src.trim() !== '' && !img.src.includes('error')) {
+          thumbnail.classList.add('columns-feature-card-thumbnail');
+        } else if (img.src.includes('error')) {
+          thumbnail.classList.add('menulist-img');
+        }
       }
-    }
       description?.classList.add('columns-feature-card-description');
 
       if (!description || button.length === 0) return;
@@ -66,8 +66,12 @@ export default function decorate(block) {
 
     card.classList.add('teaser');
 
-    let thumbnail, _title = null, titleIndex = -1;
-    const webtopic = [], description = [], button = [];
+    let thumbnail;
+    let _title = null;
+    let titleIndex = -1;
+    const webtopic = [];
+    const description = [];
+    const button = [];
 
     const allChildren = [...card.children];
 
@@ -114,9 +118,9 @@ export default function decorate(block) {
 
     thumbnail?.classList.add('cmp-image');
     _title?.classList.add('cmp-teaser__title');
-    webtopic.forEach(el => el.classList.add('cmp-webtopic'));
-    description.forEach(el => el.classList.add('cmp-teaser__description'));
-    button.forEach(el => el.classList.add('cmp-teaser__action-container'));
+    webtopic.forEach((el) => el.classList.add('cmp-webtopic'));
+    description.forEach((el) => el.classList.add('cmp-teaser__description'));
+    button.forEach((el) => el.classList.add('cmp-teaser__action-container'));
 
     if (!_title || description.length === 0 || button.length === 0) return;
 
@@ -126,16 +130,15 @@ export default function decorate(block) {
     card.appendChild(cardContent);
 
     moveInstrumentation(_title, cardContent);
-    webtopic.forEach(el => moveInstrumentation(el, cardContent));
-    description.forEach(el => moveInstrumentation(el, cardContent));
-    button.forEach(el => moveInstrumentation(el, cardContent));
+    webtopic.forEach((el) => moveInstrumentation(el, cardContent));
+    description.forEach((el) => moveInstrumentation(el, cardContent));
+    button.forEach((el) => moveInstrumentation(el, cardContent));
   });
 }
 
   // News Banner Bottom Variation
   if (block.classList.contains('columns-news-banner-bottom')) {
     const childComponents = [...block.firstElementChild.children];
-    
     childComponents.forEach((childComponent, index) => {
       const allChildren = [...childComponent.children];
       if (index === 0) {

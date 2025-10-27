@@ -1,17 +1,14 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
-import { getLanguage, PATH_PREFIX } from '../../scripts/utils.js';
+import { div } from '../../scripts/dom-helpers.js';
 
 /**
- * Switch block handler
- * @param {HTML} ClassName The container
- * @param {HTML} ul The content pass in a parent class
+ * loads and decorates the footer
+ * @param {Element} block The footer block element
  */
-function switchBlock(className, ul) {
-  const listName = document.createElement('div');
-  listName.className = className;
-  listName.appendChild(ul);
-  return listName;
+
+function switchBlock(className, element) {
+  const newElement = element.cloneNode(true);
+  newElement.className = className;
+  return newElement;
 }
 
 /**
@@ -20,8 +17,8 @@ function switchBlock(className, ul) {
  */
 function addAttributes(span) {
   const iconName = Array.from(span.classList)
-      .find((c) => c.startsWith('icon-'))
-      .substring(5);
+    .find((c) => c.startsWith('icon-'))
+    .substring(5);
   const iconsvgs = {
     facebook: `<svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.09489 3.21362H9.875V0.173047C9.56847 0.131958 8.51222 0.0385742 7.28239 0.0385742C4.71563 0.0385742 2.95767 1.62236 2.95767 4.5322V7.21045H0.125V10.6096H2.95767V19.1636H6.42926V10.6096H9.14744L9.57955 7.21045H6.42926V4.86838C6.42926 3.88599 6.69886 3.21362 8.09489 3.21362Z" fill="white"/>
@@ -49,135 +46,69 @@ function addAttributes(span) {
 </defs>
 </svg>
 `,
-    linkedin: `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M15.1482 15.7853H12.0114V10.915C12.0114 9.75487 11.9918 8.25779 10.3809 8.25779C8.77004 8.25779 8.49557 9.5248 8.49557 10.8307V15.7853H5.35874V5.76913H8.3714V7.1366H8.41388C9.02817 6.09642 10.1685 5.47425 11.3841 5.51962C14.5634 5.51962 15.1482 7.5935 15.1482 10.2928V15.7886V15.7853ZM1.82001 4.39843C0.816881 4.39843 0 3.59156 0 2.5935C0 1.59544 0.813614 0.788574 1.82001 0.788574C2.82641 0.788574 3.64002 1.59544 3.64002 2.5935C3.64002 3.59156 2.82641 4.39843 1.82001 4.39843ZM3.38842 15.7853H0.248332V5.76913H3.38842V15.7886V15.7853Z" fill="white"/>
+    instagram: `<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1971_10355)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.865 0.788574C2.629 0.788574 0 3.41757 0 6.65357V14.9236C0 18.1596 2.629 20.7886 5.865 20.7886H14.135C17.371 20.7886 20 18.1596 20 14.9236V6.65357C20 3.41757 17.371 0.788574 14.135 0.788574H5.865ZM14.135 2.60357C16.369 2.60357 18.185 4.41957 18.185 6.65357V14.9236C18.185 17.1576 16.369 18.9736 14.135 18.9736H5.865C3.631 18.9736 1.815 17.1576 1.815 14.9236V6.65357C1.815 4.41957 3.631 2.60357 5.865 2.60357H14.135ZM15.3125 4.41857C14.8103 4.41857 14.4062 4.82268 14.4062 5.32482C14.4062 5.82696 14.8103 6.23107 15.3125 6.23107C15.8146 6.23107 16.2188 5.82696 16.2188 5.32482C16.2188 4.82268 15.8146 4.41857 15.3125 4.41857ZM10 5.32482C7.239 5.32482 5 7.56382 5 10.3248C5 13.0858 7.239 15.3248 10 15.3248C12.761 15.3248 15 13.0858 15 10.3248C15 7.56382 12.761 5.32482 10 5.32482ZM10 7.13982C11.759 7.13982 13.185 8.56582 13.185 10.3248C13.185 12.0838 11.759 13.5098 10 13.5098C8.241 13.5098 6.815 12.0838 6.815 10.3248C6.815 8.56582 8.241 7.13982 10 7.13982Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_1971_10355">
+<rect width="20" height="20" fill="white" transform="translate(0 0.788574)"/>
+</clipPath>
+</defs>
 </svg>
 `,
-    youtube: `<svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18.6044 2.8445C18.3858 2.03645 17.7403 1.39717 16.923 1.18237C15.4395 0.788574 9.5 0.788574 9.5 0.788574C9.5 0.788574 3.56055 0.788574 2.07699 1.18237C1.25973 1.39717 0.614247 2.03645 0.395616 2.8445C0 4.30718 0 7.3655 0 7.3655C0 7.3655 0 10.4238 0.395616 11.8865C0.614247 12.6945 1.25973 13.3338 2.07699 13.5486C3.56055 13.9424 9.5 13.9424 9.5 13.9424C9.5 13.9424 15.4395 13.9424 16.923 13.5486C17.7403 13.3338 18.3858 12.6945 18.6044 11.8865C19 10.4238 19 7.3655 19 7.3655C19 7.3655 19 4.30718 18.6044 2.8445ZM7.55836 10.1425V4.58846L12.5244 7.3655L7.55836 10.1425Z" fill="white"/>
+    youtube: `<svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.8459 1.42584C18.6637 1.64424 19.3094 2.28994 19.5278 3.10774C19.9284 4.61324 19.9284 7.78857 19.9284 7.78857C19.9284 7.78857 19.9284 10.9639 19.5278 12.4694C19.3094 13.2872 18.6637 13.9329 17.8459 14.1513C16.3404 14.5519 9.96423 14.5519 9.96423 14.5519C9.96423 14.5519 3.58803 14.5519 2.08253 14.1513C1.26473 13.9329 0.619029 13.2872 0.400629 12.4694C0 10.9639 0 7.78857 0 7.78857C0 7.78857 0 4.61324 0.400629 3.10774C0.619029 2.28994 1.26473 1.64424 2.08253 1.42584C3.58803 1.02521 9.96423 1.02521 9.96423 1.02521C9.96423 1.02521 16.3404 1.02521 17.8459 1.42584ZM13.1713 7.78857L7.97139 10.7886V4.78854L13.1713 7.78857Z" fill="white"/>
 </svg>
 `,
-    flickr: `<svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4.42829 0.788574C1.98252 0.788574 0 2.7711 0 5.21687C0 7.66264 1.98252 9.64516 4.42829 9.64516C6.87406 9.64516 8.85659 7.66264 8.85659 5.21687C8.85659 2.7711 6.87406 0.788574 4.42829 0.788574ZM15.5711 0.788574C13.1254 0.788574 11.1428 2.7711 11.1428 5.21687C11.1428 7.66264 13.1254 9.64516 15.5711 9.64516C18.0169 9.64516 19.9994 7.66264 19.9994 5.21687C19.9994 2.7711 18.0169 0.788574 15.5711 0.788574Z" fill="white"/>
-</svg>
-`,
-    instagram: `<svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0096 0.788574H4.99045C2.23886 0.788574 0 3.00504 0 5.72912V13.1441C0 15.8685 2.23886 18.0846 4.99045 18.0846H12.0096C14.7615 18.0846 17 15.8682 17 13.1441V5.72912C17.0004 3.00504 14.7615 0.788574 12.0096 0.788574ZM15.7205 13.1441C15.7205 15.1698 14.0557 16.818 12.0096 16.818H4.99045C2.94427 16.818 1.27945 15.1698 1.27945 13.1441V5.72912C1.27945 3.7034 2.94427 2.05523 4.99045 2.05523H12.0096C14.0557 2.05523 15.7205 3.7034 15.7205 5.72912V13.1441ZM8.52284 4.81783C7.31419 4.78278 6.16319 5.23077 5.28151 6.07834C4.37721 6.94795 3.85864 8.16331 3.85864 9.41262C3.85864 11.9463 5.94095 14.0078 8.50021 14.0078C9.73588 14.0078 10.8964 13.5291 11.7671 12.6595C12.6265 11.8014 13.1144 10.6544 13.1414 9.4296C13.1695 8.14994 12.7721 7.03755 11.9912 6.21238C11.1675 5.34169 9.96797 4.85938 8.52284 4.81783ZM11.5777 9.39564C11.5397 11.1135 10.188 12.4593 8.49985 12.4593C6.81167 12.4593 5.42238 11.0926 5.42238 9.41262C5.42238 8.57914 5.76797 7.76879 6.3712 7.18929C6.92626 6.65567 7.64153 6.36448 8.39293 6.36448C8.42102 6.36448 8.44912 6.36484 8.47722 6.36556C9.49684 6.39483 10.3172 6.70806 10.8496 7.27094C11.3449 7.79444 11.5967 8.52929 11.5777 9.39564ZM14.3362 4.68778C14.3362 5.27958 13.8516 5.75934 13.2538 5.75934C12.656 5.75934 12.1714 5.27958 12.1714 4.68778C12.1714 4.09597 12.656 3.61621 13.2538 3.61621C13.8516 3.61621 14.3362 4.09597 14.3362 4.68778Z" fill="white"/>
+    linkedin: `<svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1971_10361)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.591797 2.3668C0.591797 1.22814 1.54214 0.277802 2.6808 0.277802H16.3178C17.4565 0.277802 18.4068 1.22814 18.4068 2.3668V16.0038C18.4068 17.1425 17.4565 18.0928 16.3178 18.0928H2.6808C1.54214 18.0928 0.591797 17.1425 0.591797 16.0038V2.3668ZM7.49988 15.2238V7.56184H5.05088V15.2238H7.49988ZM6.27538 6.53684C7.09138 6.53684 7.66288 5.93484 7.66288 5.18384C7.64688 4.41684 7.09138 3.83084 6.29138 3.83084C5.49138 3.83084 4.90288 4.41684 4.90288 5.18384C4.90288 5.93484 5.47438 6.53684 6.25938 6.53684H6.27538ZM14.5179 15.2238V10.8748C14.5179 10.6618 14.5339 10.4478 14.5979 10.2978C14.7739 9.87084 15.1639 9.42684 15.8159 9.42684C16.6799 9.42684 17.0219 10.0768 17.0219 11.0298V15.2238H19.4709V10.7458C19.4709 8.48684 18.2629 7.40984 16.6639 7.40984C15.3679 7.40984 14.7899 8.11684 14.5019 8.61684H14.5179V7.56184H12.0689C12.1009 8.29684 12.0689 15.2238 12.0689 15.2238H14.5179Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_1971_10361">
+<rect width="18.4068" height="18.4068" fill="white" transform="translate(0.591797 0.277802)"/>
+</clipPath>
+</defs>
 </svg>
 `,
   };
-  span.innerHTML += iconsvgs[iconName];
-  // Icon link analytics
-  const iconLink = span.parentElement;
-  iconLink.dataset.customlink = 'sm:footer';
-  iconLink.ariaLabel = `${iconName} icon`;
-  iconLink.dataset.text = iconName;
-}
 
-/**
- * Images / Icons Handler
- * @param {Element} [element] Element containing icons
- */
-function addElementProperties(element) {
-  const icons = [...element.querySelectorAll('span.icon')];
-  icons.forEach((span) => {
-    addAttributes(span);
-    span.removeChild(span.firstElementChild);
-  });
-}
-
-/**
- * Add anchor tag & properties for logo.
- * @param {Element} [element] Element containing icons
- */
-function addAnchorTag(element) {
-  const lang = getLanguage();
-  const anchorLink = document.createElement('a');
-  const logoImage = element.querySelector('img');
-  anchorLink.href = `${PATH_PREFIX}/${lang}`;
-  anchorLink.title = logoImage.alt;
-  anchorLink.appendChild(element);
-  return anchorLink;
-}
-
-/**
- * HTML handler
- * @param {HTML} ClassName The container
- * @param {HTML} ul The content pass in a parent class
- */
-function htmlParser(htmlObj, ul, prepend = '') {
-  [...htmlObj].forEach((contentValue) => {
-    addElementProperties(contentValue);
-
-    const li = document.createElement('li');
-    if (contentValue.tagName === 'PICTURE') {
-      const pictureTagHandler = addAnchorTag(contentValue);
-      li.appendChild(pictureTagHandler);
-    } else {
-      li.appendChild(contentValue);
-    }
-
-    if (prepend) {
-      if (contentValue.textContent.trim()) {
-        ul.prepend(li);
-      }
-    } else {
-      ul.append(li);
-    }
-  });
+  if (iconsvgs[iconName]) {
+    span.innerHTML = iconsvgs[iconName];
+  }
 }
 
 export default async function decorate(block) {
-  // load footer as fragment
-  const footerMeta = getMetadata('footer');
-  const lang = getLanguage();
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : `${PATH_PREFIX}/${lang}/footer`;
-  const fragment = await loadFragment(footerPath);
-
-  // decorate footer DOM
-  block.textContent = '';
-  const section = document.createElement('section');
-  section.className = 'default-content-wrapper section bg-primary-blue-90';
-
-  const rows = fragment.firstElementChild.querySelectorAll('.columns-wrapper');
+  const section = div({ class: 'footer-section' });
   const classes = ['ft-social', 'ft-main', 'ft-legal'];
-  [...rows].forEach((rowValue, rowIndex) => {
-    rowValue.className = classes[rowIndex];
-    const columns = rowValue.querySelectorAll('.columns > div > div');
-    [...columns].forEach((columnValue) => {
-      // Handling "a" tag.
-      const ul = document.createElement('ul');
-      const anchorTag = columnValue.querySelectorAll('div > p > a');
-      htmlParser(anchorTag, ul);
 
-      // Handling "picture" tag.
-      const pictureTag = columnValue.querySelectorAll('div > picture');
-      htmlParser(pictureTag, ul);
-
-      // Handline "p" tag.
-      const pTag = columnValue.querySelectorAll('div > p');
-      htmlParser(pTag, ul, 'prepend');
-
-      switch (rowValue.className) {
-        case 'ft-social':
-          rowValue.append(switchBlock('ft-social-list', ul));
-          break;
-        case 'ft-main':
-          rowValue.append(switchBlock('ft-main-item', ul));
-          break;
-        case 'ft-legal':
-          rowValue.append(switchBlock('ft-legal-list', ul));
-          break;
-        default:
-      }
-
-      // Subscribe newsletter analytics
-      if (rowValue.className === 'ft-main') {
-        const subscribeLink = ul.querySelector('a[href*="newsletter"]');
-        if (subscribeLink) {
-          subscribeLink.dataset.form = 'world bank group newsletters::newsletter';
+  [...block.children].forEach((rowValue, index) => {
+    rowValue.className = classes[index];
+    [...rowValue.children].forEach((column) => {
+      const ul = column.querySelector('ul');
+      if (ul) {
+        switch (rowValue.className) {
+          case 'ft-social':
+            column.append(switchBlock('ft-social-list', ul));
+            break;
+          case 'ft-main':
+            rowValue.append(switchBlock('ft-main-item', ul));
+            break;
+          case 'ft-legal':
+            column.append(switchBlock('ft-legal-list', ul));
+            break;
+          default:
+            break;
         }
       }
+      if (rowValue.className === 'ft-main') {
+        rowValue.removeChild(column);
+      }
+    });
+
+    [...rowValue.querySelectorAll('span[class*="icon-"]')].forEach((span) => {
+      addAttributes(span);
     });
     rowValue.removeChild(rowValue.firstElementChild);
     section.append(rowValue);

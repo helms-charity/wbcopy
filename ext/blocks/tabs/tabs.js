@@ -1,6 +1,6 @@
 import { getMetadata, toClassName, fetchPlaceholders } from '../../scripts/aem.js';
 import {
-  a, button, div, span, i
+  a, button, div, span, i,
 } from '../../scripts/dom-helpers.js';
 import { getLanguage, fetchData, scriptEnabled, getFormattedDates, getTaxonomy } from '../../scripts/utils.js';
 import { loadFragment } from '../fragment/fragment.js';

@@ -11,7 +11,7 @@ function createStructure(firstContainer, secondContainer, block) {
   );
   block.append(sectionsContainer);
 }
-//updating social link
+// updating social link
 function createSocialMediaLink(linkName, className, iconPath, name) {
   if (linkName && linkName.textContent.trim()) {
     const anchor = document.createElement('a');
@@ -113,7 +113,7 @@ export default async function decorate(block) {
   mediaInquiries.className = 'media-inquiries';
   resources.className = 'resources';
   const profileImg = profileImage.querySelector('div > picture > img');
-  if(profileImg){
+  if (profileImg) {
     const optimizedPic = createOptimizedPicture(profileImg.src, displayName.innerText, true);
     const newProfilePic = optimizedPic.querySelector('img');
     newProfilePic.width = 460;

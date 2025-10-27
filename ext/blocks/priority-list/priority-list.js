@@ -89,11 +89,13 @@ function handlePriorityListScroll(leftColumnContainer, cards) {
 }
 
 function generateUUID() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        const r = Math.random() * 16 | 0,
-              v = c === 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-    });
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    // eslint-disable-next-line no-bitwise
+    const r = Math.random() * 16 | 0;
+    // eslint-disable-next-line no-bitwise
+    const v = c === 'x' ? r : ((r & 0x3) | 0x8);
+    return v.toString(16);
+  });
 }
 
 export default async function decorate(block) {
@@ -124,7 +126,7 @@ export default async function decorate(block) {
     createCard(card);
     cardsContainer.append(card);
   });
-  cardsContainer.querySelectorAll('p.button-container').forEach(p => {
+  cardsContainer.querySelectorAll('p.button-container').forEach((p) => {
     const a = p.querySelector('a');
     if (a) {
       a.classList.remove('button');
@@ -132,48 +134,46 @@ export default async function decorate(block) {
       p.replaceWith(a);
     }
   });
-    cardsContainer.querySelectorAll('li').forEach(li => {
-      const parent = li.parentElement;
-      const grandparent = parent && parent.parentElement;
-      if ((grandparent && grandparent.tagName === 'LI')){
-        li.querySelectorAll('a').forEach(a => {
-          a.removeAttribute('title');  
-        });
-           return;
-      }
-      const a = li.querySelector('a');
-      if (a) {
-        const anchorId = generateUUID();
-        a.id = anchorId;
-        a.classList.add('priority-topic-title');
-        a.setAttribute('role','heading');
-        a.setAttribute('aria-level','4');
+  cardsContainer.querySelectorAll('li').forEach((li) => {
+    const parent = li.parentElement;
+    const grandparent = parent && parent.parentElement;
+    if (grandparent && grandparent.tagName === 'LI') {
+      li.querySelectorAll('a').forEach((a) => {
         a.removeAttribute('title');
+      });
+      return;
+    }
+    const a = li.querySelector('a');
+    if (a) {
+      const anchorId = generateUUID();
+      a.id = anchorId;
+      a.classList.add('priority-topic-title');
+      a.setAttribute('role', 'heading');
+      a.setAttribute('aria-level', '4');
+      a.removeAttribute('title');
 
-        const nextSibling = a.nextElementSibling;
-        const isNextSiblingUl = nextSibling && nextSibling.tagName === 'UL';
-        if (isNextSiblingUl) {
-          const ul = nextSibling;
-          ul.setAttribute('aria-labelledby', anchorId);
-        }
+      const nextSibling = a.nextElementSibling;
+      const isNextSiblingUl = nextSibling && nextSibling.tagName === 'UL';
+      if (isNextSiblingUl) {
+        const ul = nextSibling;
+        ul.setAttribute('aria-labelledby', anchorId);
       }
-    });
+    }
+  });
 
   const leftColumnContainer = div({ class: 'left-column-container' });
   const rightColumnContainer = div({ class: 'right-column-container' });
-  if(textContainer.textContent.trim() === '') {
+  if (textContainer.textContent.trim() === '') {
     textContainer.remove();
-  }else{
-      rightColumnContainer.append(textContainer);
+  } else {
+    rightColumnContainer.append(textContainer);
   }
 
   rightColumnContainer.append(cardsContainer);
   const imageContainer = div({ class: 'image-container' });
   const firstimg = cards.at(0).querySelector('img');
   if (firstimg) {
-    imageContainer.style.backgroundImage = `url(${
-      firstimg.src
-    })`;
+    imageContainer.style.backgroundImage = `url(${firstimg.src})`;
   }
   leftColumnContainer.append(imageContainer);
   block.append(leftColumnContainer);

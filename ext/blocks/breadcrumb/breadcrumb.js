@@ -1,15 +1,15 @@
 import { fetchSearch, LANGUAGE_ROOT } from '../../scripts/scripts.js';
 import {
-  ol, li, a, span, nav
+  ol, li, a, span, nav,
 } from '../../scripts/dom-helpers.js';
 
 export default async function decorate(block) {
   const results = await fetchSearch();
   const regex = '^/(.*?)/?$';
   const pathSegments = window.location.pathname.replace(regex, '$1').split('/');
-  const navtab = nav ({ class: 'breadcrumb-navtab' });
+  const navtab = nav({ class: 'breadcrumb-navtab' });
   const list = ol({ class: 'breadcrumb', itemtype: 'https://schema.org/BreadcrumbList', itemscope: '' });
-  navtab.setAttribute('aria-label','Breadcrumb');
+  navtab.setAttribute('aria-label', 'Breadcrumb');
   const { origin } = window.location;
   let pagePath = '';
   let metaContent = 1;
@@ -36,26 +36,22 @@ export default async function decorate(block) {
         const pageInfo = pageObj[0];
         let label = pageInfo.bcTitle || pageInfo.navTitle || pageInfo.title;
         if (label) {
-          label = label.replace(/&amp;/g, "&");
+          label = label.replace(/&amp;/g, '&');
         }
         if (pageInfo.path === window.location.pathname) {
           const labelElement = span({ itemprop: 'name', class: 'current-page' }, label);
           const anchor = a({
-            href: ''            
+            href: '',
           }, labelElement);
           anchor.setAttribute('aria-current', 'page');
           crumb.append(anchor);
         } else {
-          
-          var displayPath = pagePath;
-          var displayLabel = label;
-          if(pagePath.endsWith('/region')) {
-            
+          let displayPath = pagePath;
+          let displayLabel = label;
+          if (pagePath.endsWith('/region')) {
             displayPath = displayPath.replace('/region', '/where-we-work');
             displayLabel = getPageLabel(displayPath, results);
-          } 
-          else if(pagePath.endsWith('/country')) {
-            
+          } else if (pagePath.endsWith('/country')) {
             displayPath = displayPath.replace('/country', '/where-we-work');
             displayLabel = getPageLabel(displayPath, results);
           }              
@@ -86,7 +82,7 @@ export default async function decorate(block) {
   block.innerHTML = navtab.outerHTML;
 }
 function getPageLabel(pagePath, results) {
-  const pageObj = results.find(item => item.path === pagePath);
+  const pageObj = results.find((item) => item.path === pagePath);
   if (pageObj) {
     return pageObj.bcTitle || pageObj.navTitle || pageObj.title || '';
   }

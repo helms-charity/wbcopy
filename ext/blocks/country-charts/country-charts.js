@@ -9,17 +9,17 @@
  * - Supports multiple chart types (line charts show region comparison, pie charts remain country-only)
  */
 
-import { COLOR_MAP } from "../../scripts/theme.js";
+import { COLOR_MAP } from '../../scripts/theme.js';
 import {
   fetchCodeListAndCountryList, fetchIndicatorMetadata,
   fetchIndicatorsDataForSpecificIndicator, fetchDisaggregationDataForSpecificIndicator,
   fetchLineChartData,
-} from "../../scripts/api.js";
+} from '../../scripts/api.js';
 import {
   loadHighchartsScript, formatNumberOnUnitMeasure, formatUnitMeasure, formatValues,
   getRecentYear, getArrowIcon, loadSwiperDependencies, initializeSwiper,
   createSourceContent, getCountryColor, getRegionForCountry,
-} from "../../scripts/helpers.js";
+} from '../../scripts/helpers.js';
 import { LINE_CHART_OPTIONS } from "../../scripts/constants.js";
 import { fetchPlaceholders } from "../../scripts/aem.js";
 import { PATH_PREFIX, getLanguage } from "../../scripts/utils.js";

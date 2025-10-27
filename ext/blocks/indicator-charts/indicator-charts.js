@@ -25,7 +25,7 @@ async function createLeftChart(block, Highcharts, config, selector) {
   const pageType = config?.pageType || '';
 
   const langCode = getLanguage();
-  const isRTL = langCode === 'ar'; 
+  const isRTL = langCode === 'ar';
 
   const indicatorNameEndpoint = globalProperties?.metadataApiEndpoint;
   const indicatorMetadata = await fetchIndicatorMetadata(
@@ -45,11 +45,11 @@ async function createLeftChart(block, Highcharts, config, selector) {
   };
 
   const regionToFetch = getRegionToFetch(selector);
-  const { indicatorData, disaggregationData } = await fetchLineChartData(urlsForLineChart, { 
+  const { indicatorData, disaggregationData } = await fetchLineChartData(urlsForLineChart, {
     pageType,
-    datasetId, 
-    indicatorId, 
-    regionCode: regionToFetch 
+    datasetId,
+    indicatorId,
+    regionCode: regionToFetch,
   });
   const data = indicatorData[0] || {};
   const yAxisRaw = data?.data?.yAxis || [];

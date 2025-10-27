@@ -2,15 +2,17 @@ import { createOptimizedPicture, toClassName } from '../../scripts/aem.js';
 import { moveInstrumentation, CLASS_MAIN_HEADING } from '../../scripts/scripts.js';
 import { a, div } from '../../scripts/dom-helpers.js';
 import { processTags, getTaxonomy } from '../../scripts/utils.js';
-import { isAuthoring } from '../../scripts/reference-limiter.js';
+// import { isAuthoring } from '../../scripts/reference-limiter.js';
 
 async function processTag(tag) {
   const tagTxt = tag.innerText;
   if (tagTxt) {
-    const tagValues = tagTxt.split(',').map(t => t.trim()).filter(Boolean);
+    const tagValues = tagTxt.split(',').map((t) => t.trim()).filter(Boolean);
     const taxonomyNames = [];
+    // eslint-disable-next-line no-restricted-syntax
     for (const tagValue of tagValues) {
       tag.classList.add(toClassName(processTags(tagValue, 'content-type')));
+      // eslint-disable-next-line no-await-in-loop
       taxonomyNames.push(await getTaxonomy(tagValue, 'content-type'));
     }
     if (tag.firstElementChild) {
@@ -22,7 +24,6 @@ async function processTag(tag) {
 }
 
 export default function decorate(block) {
-
   block.setAttribute('data-editor-editable', 'true');
 
   block.addEventListener('click', (e) => {
@@ -34,28 +35,27 @@ export default function decorate(block) {
 
   if (isMiniCardWithButton) {
     const [heading, button, ...cards] = [...block.children];
-    let buttonElementDesktop = button;
+    const buttonElementDesktop = button;
     const buttonElementMobile = button.cloneNode(true);
     if (heading && buttonElementDesktop) {
-      [...buttonElementDesktop.children].forEach(child => {
+      [...buttonElementDesktop.children].forEach((child) => {
         heading.appendChild(child);
       });
       buttonElementDesktop.remove();
     }
-    createCards(heading, cards)
+    createCards(heading, cards);
     block.appendChild(buttonElementMobile);
-  }
-  else {
-    //const [heading, button, ...cards] = [...block.children];
+  } else {
+    // const [heading, button, ...cards] = [...block.children];
     const children = [...block.children];
     const heading = children[0];
     const button = children[1];
     let cards = children.slice(2);
-    if(button && button.textContent.trim() !== '') {
+    if (button && button.textContent.trim() !== '') {
       cards = children.slice(1);
     }
 
-    createCards(heading, cards)
+    createCards(heading, cards);
   }
   function createCards(heading, cards) {
     if (heading) {
@@ -65,8 +65,8 @@ export default function decorate(block) {
     cards.forEach(async (row) => {
       row.className = 'mini-card';
       const [imageDiv, tagDiv, titleDiv, dateDiv, timeDiv, locationDiv, linkDiv, alt, desc, eyebrowTextDiv, classes] = row.children;
-      //const imgTag = imageDiv ? imageDiv.querySelector('img') : null;
-      /*if ((!imgTag || !imgTag.src)) { // Check if image is missing
+      // const imgTag = imageDiv ? imageDiv.querySelector('img') : null;
+      /* if ((!imgTag || !imgTag.src)) { // Check if image is missing
         if (isAuthoring()) { // warn only in authoring mode
           const warning = document.createElement('div');
           warning.style.color = 'red';
@@ -78,13 +78,13 @@ export default function decorate(block) {
         }
       } else {
         timeDiv.className = 'mini-card-time';
-      }*/
-        timeDiv.className = 'mini-card-time';
-        imageDiv.className = 'mini-card-image';
-        tagDiv.className = 'mini-card-tag';
-        titleDiv.className = 'mini-card-title';
-        dateDiv.className = 'mini-card-date';
-        locationDiv.className = 'mini-card-location';
+      } */
+      timeDiv.className = 'mini-card-time';
+      imageDiv.className = 'mini-card-image';
+      tagDiv.className = 'mini-card-tag';
+      titleDiv.className = 'mini-card-title';
+      dateDiv.className = 'mini-card-date';
+      locationDiv.className = 'mini-card-location';
 
       if (desc) {
         const buttonContainer = desc.querySelector('.button-container');
