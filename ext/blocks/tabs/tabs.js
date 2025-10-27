@@ -2,7 +2,9 @@ import { getMetadata, toClassName, fetchPlaceholders } from '../../scripts/aem.j
 import {
   a, button, div, span, i,
 } from '../../scripts/dom-helpers.js';
-import { getLanguage, fetchData, scriptEnabled, getFormattedDates, getTaxonomy } from '../../scripts/utils.js';
+import {
+  getLanguage, fetchData, scriptEnabled, getFormattedDates, getTaxonomy,
+} from '../../scripts/utils.js';
 import { loadFragment } from '../fragment/fragment.js';
 import { fetchLanguagePlaceholders } from '../../scripts/scripts.js';
 
@@ -31,20 +33,6 @@ async function getTabUrl(type) {
   }
 }
 
-function formatDate(dateString) {
-  if (dateString) {
-    const date = new Date(dateString);
-    const months = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December',
-    ];
-    const month = months[date.getMonth()];
-    const day = date.getDate();
-    const year = date.getFullYear();
-    return `${month} ${day}, ${year}`;
-  }
-  return '';
-}
 
 function getActualValue(value) {
   if (typeof value === 'string') {
@@ -75,39 +63,35 @@ function createListElement(masterType, link, heading, date) {
 }
 
 async function updateDatesTranslation(data, type, prop) {
-  if (data && data.hasOwnProperty(type)) {
-    let dateArray = [];
-    let value = data[type];
-    for (const key in value) {
-      if (Object.prototype.hasOwnProperty.call(value, key)) {
-        const item = value[key];
-        if (Object.keys(item).length > 0) {
-          dateArray.push(item[prop] ? item[prop] : '');
-        }
+  if (data && Object.prototype.hasOwnProperty.call(data, type)) {
+    const dateArray = [];
+    const value = data[type];
+    Object.keys(value).forEach((key) => {
+      const item = value[key];
+      if (Object.keys(item).length > 0) {
+        dateArray.push(item[prop] ? item[prop] : '');
       }
-    }
-    
-    let dateData = await getFormattedDates(dateArray, langCode);
-    if (dateData && dateData.hasOwnProperty('dateArray')) {
-      let dateArr = dateData.dateArray;
+    });
+
+    const dateData = await getFormattedDates(dateArray, langCode);
+    if (dateData && Object.prototype.hasOwnProperty.call(dateData, 'dateArray')) {
+      const dateArr = dateData.dateArray;
       if (dateArr.length > 0) {
         let index = 0;
-        for (const key in value) {
-          if (Object.prototype.hasOwnProperty.call(value, key)) {
-            const item = value[key];
-            if (Object.keys(item).length > 0) {
-              let translatedDate = dateArr[index];
-              if (translatedDate) {
-                item[prop] = translatedDate;
-              }
+        Object.keys(value).forEach((key) => {
+          const item = value[key];
+          if (Object.keys(item).length > 0) {
+            const translatedDate = dateArr[index];
+            if (translatedDate) {
+              item[prop] = translatedDate;
             }
           }
-          index++;
-        }
+          index += 1;
+        });
       }
     }
   }
-  
+
   return data;
 }
 
@@ -131,16 +115,16 @@ async function showMoreButton(tabPanel, loadMoreFn) {
 }
 
 function populateTab(data, tabPanel, elementType, createItemFn, disableLoadMore, displayItems) {
-  if (data && elementType === 'documents' && data[elementType].hasOwnProperty('facets')) {
+  if (data && elementType === 'documents' && Object.prototype.hasOwnProperty.call(data[elementType], 'facets')) {
     delete data[elementType].facets; // Remove facets if present
   }
   const items = data?.value || Object.values(data[elementType] || {});
-  
+
   let displayedItemsCount = 0;
   let itemsPerPage = displayItems || 5;
 
   let tabLiWrapper = null;
-  let is2ColumnView = tabPanel.classList.contains('two-column-view');
+  const is2ColumnView = tabPanel.classList.contains('two-column-view');
   if (is2ColumnView) {
     itemsPerPage = displayItems || 4;
     tabLiWrapper = div({ class: 'tab-li-wrapper' });
@@ -154,7 +138,11 @@ function populateTab(data, tabPanel, elementType, createItemFn, disableLoadMore,
       if (Object.keys(item).length !== 0) {
         const liElement = createItemFn(item);
         if (liElement) {
-          tabLiWrapper ? tabLiWrapper.appendChild(liElement) : tabPanel.appendChild(liElement);
+          if (tabLiWrapper) {
+            tabLiWrapper.appendChild(liElement);
+          } else {
+            tabPanel.appendChild(liElement);
+          }
         }
       }
     });
@@ -171,14 +159,18 @@ function populateTab(data, tabPanel, elementType, createItemFn, disableLoadMore,
         if (Object.keys(item).length !== 0 && (index < itemsPerPage)) {
           const liElement = createItemFn(item);
           if (liElement) {
-            tabLiWrapper ? tabLiWrapper.appendChild(liElement) : tabPanel.appendChild(liElement);
+            if (tabLiWrapper) {
+              tabLiWrapper.appendChild(liElement);
+            } else {
+              tabPanel.appendChild(liElement);
+            }
           }
         }
       });
     } else {
       loadMoreItems();
     }
-  } 
+  }
 }
 
 function populateBlogTab(data, tabPanel, disableLoadMore, displayItems, type) {
@@ -221,7 +213,8 @@ function populateProjectTab(data, tabPanel, disableLoadMore, displayItems) {
 function populateAllTab(data, tabPanel, disableLoadMore, displayItems) {
   populateTab(data, tabPanel, 'everything', (item) => {
     const heading = item.title;
-    const masterType = item.displayconttype_exact !== undefined ? item.displayconttype_exact : item.docty_exact;
+    const masterType = item.displayconttype_exact !== undefined
+      ? item.displayconttype_exact : item.docty_exact;
     const liLink = item.url;
     const date = item.master_date;
     if (item.contenttype !== 'People' && (heading || liLink || date)) {
@@ -313,20 +306,20 @@ async function decorateTab(tabPanel, type) {
 
   let displayItems = tabPanel.children[7]?.textContent.trim();
   if (displayItems) {
-    displayItems = parseInt(tabPanel.children[7]?.textContent.trim());
+    displayItems = parseInt(tabPanel.children[7]?.textContent.trim(), 10);
   }
 
   let disableLoadMore = false;
   if (tabPanel.children[7]?.textContent) {
     disableLoadMore = tabPanel.children[8].textContent.trim() === 'true';
   }
-  
-  let seeMoreButtonLabel = tabPanel.children[9]?.textContent.trim();
+
+  const seeMoreButtonLabel = tabPanel.children[9]?.textContent.trim();
   let seeMoreButtonLink = '';
   if (tabPanel.children[10] && tabPanel.children[10].querySelector('a')) {
     seeMoreButtonLink = tabPanel.children[10].querySelector('a').getAttribute('href');
   }
-  
+
   const tabReference = tabPanel;
   tabPanel.innerHTML = '';
   showSpinner(tabReference);
@@ -342,26 +335,26 @@ async function decorateTab(tabPanel, type) {
     } else if (type === 'news') {
       populateNewsTab(await updateDatesTranslation(data, 'documents', 'lnchdt'), tabPanel, disableLoadMore, displayItems);
     } else if (type === 'events') {
-      let eventsData = {};
-      for (const key in data) {
-        if (Object.prototype.hasOwnProperty.call(data, key)) {
-          const item = data[key];
-          if (key === 'SearchResults') {
-            let documents = {};
-            data[key].forEach((doc) => {
-              if (doc.hasOwnProperty('document')) {
-                if (doc.document && doc.document.hasOwnProperty('id') && doc.document.hasOwnProperty('structData')) {
-                  const document = doc.document;
-                  documents[document.id] = document.structData;
-                }
+      const eventsData = {};
+      Object.keys(data).forEach((key) => {
+        const item = data[key];
+        if (key === 'SearchResults') {
+          const documents = {};
+          data[key].forEach((doc) => {
+            if (Object.prototype.hasOwnProperty.call(doc, 'document')) {
+              if (doc.document
+                && Object.prototype.hasOwnProperty.call(doc.document, 'id')
+                && Object.prototype.hasOwnProperty.call(doc.document, 'structData')) {
+                const { document } = doc;
+                documents[document.id] = document.structData;
               }
-            });
-            eventsData[key] = documents;
-          } else {
-            eventsData[key] = item;
-          }
+            }
+          });
+          eventsData[key] = documents;
+        } else {
+          eventsData[key] = item;
         }
-      }
+      });
       populateEventsTab(await updateDatesTranslation(eventsData, 'SearchResults', 'eventStartDate'), tabPanel, disableLoadMore, displayItems);
     } else {
       populateAllTab(await updateDatesTranslation(data, 'everything', 'master_date'), tabPanel, disableLoadMore, displayItems);
@@ -400,17 +393,17 @@ export default async function decorate(block) {
   const tabContainer = div({ class: 'tab-navigation' });
   const tabList = div({ class: 'tabs-list', role: 'tablist' });
 
-  const rightButton = button({ 
+  const rightButton = button({
     class: 'right-btn',
     'aria-label': 'Scroll tabs right',
     type: 'button',
-    tabIndex: 0
+    tabIndex: 0,
   }, i({ class: 'lp lp-chevron-right' }));
-  const leftButton = button({ 
+  const leftButton = button({
     class: 'left-btn',
     'aria-label': 'Scroll tabs left',
     type: 'button',
-    tabIndex: 0
+    tabIndex: 0,
   }, i({ class: 'lp lp-chevron-left' }));
   const dir = document.documentElement.dir || 'ltr';
   const offset = 150;
@@ -427,7 +420,7 @@ export default async function decorate(block) {
       rightButton.style.display = scrollableWidth > 0 && scrollLeftValue < scrollableWidth ? 'block' : 'none';
     }
   };
-  
+
   rightButton.addEventListener('click', () => {
     tabList.scrollLeft += dir === 'rtl' ? -offset : offset;
     iconVisibility();
@@ -444,7 +437,7 @@ export default async function decorate(block) {
     const id = toClassName(tab.textContent);
     const tabpanel = block.children[i];
     const tabType = tabpanel.children[1].textContent;
-    tabpanel.className = 'tabs-panel' + (tabpanel.children[6] ? ` ${tabpanel.children[6].textContent}` : '');
+    tabpanel.className = `tabs-panel${tabpanel.children[6] ? ` ${tabpanel.children[6].textContent}` : ''}`;
     tabpanel.id = `tabpanel-${id}`;
     tabpanel.setAttribute('aria-hidden', !!i);
     tabpanel.setAttribute('aria-labelledby', `tab-${id}`);
@@ -485,13 +478,13 @@ export default async function decorate(block) {
 
       if (event.key === 'ArrowLeft') {
         const previousTab = currentIndex === 0
-            ? tabBtn[tabBtn.length - 1]
-            : tabBtn[currentIndex - 1];
+          ? tabBtn[tabBtn.length - 1]
+          : tabBtn[currentIndex - 1];
         previousTab.focus();
       } else if (event.key === 'ArrowRight') {
         const nextTab = currentIndex === tabBtn.length - 1
-            ? tabBtn[0]
-            : tabBtn[currentIndex + 1];
+          ? tabBtn[0]
+          : tabBtn[currentIndex + 1];
         nextTab.focus();
       }
     });
@@ -520,10 +513,9 @@ export default async function decorate(block) {
     if (path === '') return;
     const ablosutePath = path.replace('.html', '');
     const tabPanel = link.closest('[role=tabpanel]');
-    if(path === currentPath)
-    {
-       tabPanel.innerHTML = '';
-       return;
+    if (path === currentPath) {
+      tabPanel.innerHTML = '';
+      return;
     }
     const fragment = await loadFragment(ablosutePath);
     // decorate footer DOM
@@ -532,21 +524,26 @@ export default async function decorate(block) {
     tabPanel.append(content);
   });
 
-
   function getISOFormattedDate(dateString) {
-    let timeString = 'T00:00:00Z';
-    let day = '', month = '', year = '';
+    const timeString = 'T00:00:00Z';
+    let day = '';
+    let month = '';
+    let year = '';
 
     if (/^[A-Za-z]+ \d{1,2}, \d{4}$/.test(dateString) || /^[A-Za-z]+ \d{1,2},\d{4}$/.test(dateString)) {
-      let dateSplit = dateString.split(',');
-      let monthSplit = dateSplit[0].split(' ');
+      const dateSplit = dateString.split(',');
+      const monthSplit = dateSplit[0].split(' ');
 
-      day = monthSplit[1];
-      month = monthSplit[0];
+      [, day] = monthSplit;
+      [month] = monthSplit;
       year = dateSplit[1].trim();
 
-      if (months.indexOf(month) !== -1) {
-        month = (months.indexOf(month) + 1).toString().padStart(2, '0');
+      const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December',
+      ];
+      if (monthNames.indexOf(month) !== -1) {
+        month = (monthNames.indexOf(month) + 1).toString().padStart(2, '0');
       }
 
       if (day) {
@@ -556,24 +553,25 @@ export default async function decorate(block) {
     }
     return dateString;
   }
-  
+
+  // eslint-disable-next-line no-unused-vars
   async function getTranslatedDatesManual(items) {
-    let dateArray = [];
+    const dateArray = [];
     items.forEach((item) => {
-      let cardDate = item.querySelector('.mini-card-date p');
+      const cardDate = item.querySelector('.mini-card-date p');
       if (cardDate) {
         dateArray.push(getISOFormattedDate(cardDate.textContent));
       }
     });
 
     if (dateArray.length > 0) {
-      let dateData = await getFormattedDates(dateArray, langCode);
-      if (dateData && dateData.hasOwnProperty('dateArray')) {
-        let dateArr = dateData.dateArray;
+      const dateData = await getFormattedDates(dateArray, langCode);
+      if (dateData && Object.prototype.hasOwnProperty.call(dateData, 'dateArray')) {
+        const dateArr = dateData.dateArray;
         if (dateArr.length > 0) {
           items.forEach((item, index) => {
-            let cardDate = item.querySelector('.mini-card-date p');
-            let translatedDate = dateArr[index];
+            const cardDate = item.querySelector('.mini-card-date p');
+            const translatedDate = dateArr[index];
             if (cardDate && translatedDate) {
               cardDate.innerText = translatedDate;
             }
@@ -582,11 +580,11 @@ export default async function decorate(block) {
       }
     }
   }
-  
+
   window.setTimeout(() => {
     block.querySelectorAll('[type="manual"] .mini-cards-container').forEach(async (cardContainer) => {
-      let cardContainerParent = cardContainer.parentNode;
-      let items = cardContainer.querySelectorAll('.mini-card');
+      const cardContainerParent = cardContainer.parentNode;
+      const items = cardContainer.querySelectorAll('.mini-card');
       let onLoad = true;
       let displayedItemsCount = 0;
       const itemsPerPage = 5;
@@ -595,16 +593,16 @@ export default async function decorate(block) {
         if (onLoad) {
           items.forEach((item, index) => {
             if (index >= itemsPerPage) {
-              item.classList.add("hide");
+              item.classList.add('hide');
             }
           });
 
           onLoad = false;
           await showMoreButton(cardContainerParent, loadMoreItemsManual);
         } else {
-          const remainingItems = Array.prototype.slice.call(items,  displayedItemsCount, displayedItemsCount + itemsPerPage);
+          const remainingItems = Array.prototype.slice.call(items, displayedItemsCount, displayedItemsCount + itemsPerPage);
           remainingItems.forEach((item) => {
-            item.classList.remove("hide");
+            item.classList.remove('hide');
           });
 
           if ((displayedItemsCount + itemsPerPage) >= items.length) {

@@ -82,7 +82,7 @@ export async function fetchIndicatorMetadata(url, indicatorIds, pageType, header
     search: '*',
     top: 1000,
     skip: 0,
-    filter: `series_description/idno eq ${indicatorIds.map((id) => `'${id}'`)} ${ pageType === 'topic' ? "and tags/any(t2: (t2/tag_group eq 'feature-topic-profile' ))" : ''}`,
+    filter: `series_description/idno eq ${indicatorIds.map((id) => `'${id}'`)} ${pageType === 'topic' ? "and tags/any(t2: (t2/tag_group eq 'feature-topic-profile' ))" : ''}`,
   };
   const response = await fetchData(url, 'POST', data, headers);
   return response?.value?.[0];
@@ -98,7 +98,7 @@ export async function fetchIndicatorNames(url, pageType, indicatorIds, headers) 
     search: '*',
     top: 1000,
     skip: 0,
-    filter: `series_description/idno eq ${indicatorIds.map((id) => `'${id}'`).join(' or series_description/idno eq ')} ${ pageType === 'topic' ? "and tags/any(t2: (t2/tag_group eq 'feature-topic-profile' ))" : ''}`,
+    filter: `series_description/idno eq ${indicatorIds.map((id) => `'${id}'`).join(' or series_description/idno eq ')} ${pageType === 'topic' ? "and tags/any(t2: (t2/tag_group eq 'feature-topic-profile' ))" : ''}`,
   };
   const response = await fetchData(url, 'POST', data, headers);
   return response?.value?.reduce((acc, item) => {
@@ -110,7 +110,9 @@ export async function fetchIndicatorNames(url, pageType, indicatorIds, headers) 
   }, {}) || {};
 }
 
-export async function fetchLineChartData(url, { pageType, datasetId, indicatorId, regionCode }) {
+export async function fetchLineChartData(url, {
+  pageType, datasetId, indicatorId, regionCode,
+}) {
   const baseParams = `filter=DATASET='${datasetId}' AND IND_ID='${indicatorId}' AND REF_AREA='${pageType === 'topic' ? 'WLD' : regionCode}'`;
 
   const disaggregationData = await fetchDisaggregationData(`${url.disaggregation}?datasetId=${datasetId}&indicatorId=${indicatorId}`);
@@ -127,7 +129,9 @@ export async function fetchLineChartData(url, { pageType, datasetId, indicatorId
   return { indicatorData: data, disaggregationData };
 }
 
-export async function fetchIndicatorValue(url, { pageType, datasetId, indicatorId, regionCode }) {
+export async function fetchIndicatorValue(url, {
+  pageType, datasetId, indicatorId, regionCode,
+}) {
   const baseParams = `filter=DATASET='${datasetId}' AND IND_ID='${indicatorId}' AND REF_AREA='${pageType === 'topic' ? 'WLD' : regionCode}'`;
 
   const disaggregationData = await fetchDisaggregationData(`${url.disaggregation}?datasetId=${datasetId}&indicatorId=${indicatorId}`);
@@ -147,8 +151,6 @@ export async function fetchIndicatorValue(url, { pageType, datasetId, indicatorI
 // Fetch code list and country list from the API
 export const fetchCodeListAndCountryList = async (globalProperties) => {
   try {
-    const apiKeyName = globalProperties?.apiKeyName || '';
-    const apiKeyValue = globalProperties?.apiKeyValue || '';
     const codelistEndpoint = globalProperties?.codelistApiEndpoint || 'https://extdataportalqa.worldbank.org/qa/api/data360/metadata/codelist';
     const countryEndpoint = globalProperties?.countryApiEndpoint || 'https://extdataportalqa.worldbank.org/qa/api/data360/metadata/country';
 
@@ -200,11 +202,12 @@ export const fetchIndicatorsDataForSpecificIndicator = async (
   countryList,
 ) => {
   try {
-    let datasetID = specificDatasetId.toUpperCase() === 'HCI'
-      ? 'WB_HCI'
-      : specificDatasetId.toUpperCase() === 'HCP'
-        ? 'WB_HCP'
-        : specificDatasetId;
+    const datasetID = (() => {
+      const upperCaseId = specificDatasetId.toUpperCase();
+      if (upperCaseId === 'HCI') return 'WB_HCI';
+      if (upperCaseId === 'HCP') return 'WB_HCP';
+      return specificDatasetId;
+    })();
 
     const baseParams = `filter= DATASET='${datasetID}' AND IND_ID='${specificIndicatorId
       .trim()
@@ -213,8 +216,6 @@ export const fetchIndicatorsDataForSpecificIndicator = async (
     const { params: paramsWithT, isSecondAPICallEligible } = buildDisaggregationFiltersWithT(baseParams, disaggregationResponse, true);
     const finalParamsWithT = `${paramsWithT} AND REF_AREA='${countryCode}'`;
 
-    const apiKeyName = globalProperties?.apiKeyName || '';
-    const apiKeyValue = globalProperties?.apiKeyValue || '';
     const dataApiEndpoint = globalProperties?.dataApiEndpoint || 'https://extdataportal.worldbank.org/api/data360/data/indicator';
 
     const headers = {
@@ -272,15 +273,14 @@ export const fetchDisaggregationDataForSpecificIndicator = async (
   specificDatasetId,
   globalProperties,
 ) => {
-  const datasetID = specificDatasetId?.toUpperCase() === 'HCI'
-    ? 'WB_HCI'
-    : specificDatasetId?.toUpperCase() === 'HCP'
-      ? 'WB_HCP'
-      : specificDatasetId;
+  const datasetID = (() => {
+    const upperCaseId = specificDatasetId?.toUpperCase();
+    if (upperCaseId === 'HCI') return 'WB_HCI';
+    if (upperCaseId === 'HCP') return 'WB_HCP';
+    return specificDatasetId;
+  })();
   const params2 = `datasetId=${datasetID}&indicatorId=${specificIndicatorId}`;
 
-  const apiKeyName = globalProperties?.apiKeyName || '';
-  const apiKeyValue = globalProperties?.apiKeyValue || '';
   const disaggregationApiEndpoint = globalProperties?.disaggregationApiEndpoint || 'https://extdataportalqa.worldbank.org/qa/api/data360/metadata/disaggregation';
 
   const endpoint = `${disaggregationApiEndpoint}?${params2}`;

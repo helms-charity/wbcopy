@@ -48,12 +48,12 @@ async function applyChanges(event) {
       if (newBlock) {
         newBlock.style.display = 'none';
         block.insertAdjacentElement('afterend', newBlock);
-        
+
         decorateButtons(newBlock);
         decorateIcons(newBlock);
         decorateBlock(newBlock);
         decorateRichtext(newBlock);
-        await loadBlock(newBlock);        
+        await loadBlock(newBlock);
         block.style.display = 'none';
         block.remove();
         newBlock.style.display = null;
@@ -121,17 +121,4 @@ function attachEventListners(main) {
     });
 }
 
-
 attachEventListners(document.querySelector('main'));
-
-
-/**
- * Decorates a block.
- * @param {Element} block The block element
- */
-function decorateReferences(block) {
-  const shortBlockName = block.classList[0];
-  if (shortBlockName && !block.dataset.blockStatus) {
-    console.log("here");
-  }
-}

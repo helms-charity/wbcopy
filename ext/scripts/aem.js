@@ -159,6 +159,23 @@ function setup() {
  * Auto initializiation.
  */
 
+function isAuthoring() {
+  return window.location.hostname.includes('author');
+}
+
+/**
+ * Loads a CSS file dynamically.
+ * @param {string} cssPath - Path to the CSS file.
+ */
+function loadCSSFile(cssPath) {
+  if (!document.querySelector(`link[href="${cssPath}"]`)) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = cssPath;
+    document.head.appendChild(link);
+  }
+}
+
 function init() {
   setup();
   if (isAuthoring()) {
@@ -188,21 +205,6 @@ function init() {
   });
 }
 
-function isAuthoring() {
-    return window.location.hostname.includes('author');
-
-}
-
-/**
- * Loads a CSS file dynamically.
- * @param {string} cssPath - Path to the CSS file.
- */
-function loadCSSFile(cssPath) {
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = cssPath;
-  document.head.appendChild(link);
-}
 
 /**
  * Sanitizes a string for use as class name.
@@ -545,12 +547,12 @@ function decorateSections(main) {
             .filter((style) => style)
             .map((style) => toClassName(style.trim()));
           styles.forEach((style) => section.classList.add(style));
-        } else if(key === 'col-ctrl') {
+        } else if (key === 'col-ctrl') {
           // col-ctrl is used to control the column layout of the section
           section.dataset.colCtrl = meta[key];
-          section.classList.add(`${toClassName(meta[key])}`);
-          section.classList.add(`grid-section-container`);
-        }else {
+          section.classList.add(toClassName(meta[key]));
+          section.classList.add('grid-section-container');
+        } else {
           section.dataset[toCamelCase(key)] = meta[key];
         }
       });
@@ -568,14 +570,14 @@ async function decorateGrid(main) {
 
     // Parse column definitions
     const colBlocks = {};
-    for (let i = 1; i <= colCount; i++) {
+    for (let i = 1; i <= colCount; i += 1) {
       const attr = section.dataset[`col${i}Blocks`];
       colBlocks[i] = attr ? attr.split(',').map((b) => b.trim()) : [];
     }
 
     // Reverse map: blockName -> list of allowed columns
     const blockToCols = {};
-    for (let i = 1; i <= colCount; i++) {
+    for (let i = 1; i <= colCount; i += 1) {
       colBlocks[i].forEach((block) => {
         if (!blockToCols[block]) blockToCols[block] = [];
         blockToCols[block].push(i);
@@ -584,7 +586,7 @@ async function decorateGrid(main) {
 
     // Create column containers
     const columns = {};
-    for (let i = 1; i <= colCount; i++) {
+    for (let i = 1; i <= colCount; i += 1) {
       const col = document.createElement('div');
       col.classList.add(`col-ctrl-${i}`);
 
@@ -596,7 +598,9 @@ async function decorateGrid(main) {
         });
       } else {
         // Apply default responsive class if no custom class is set
-        const defaultWidths = { 1: 'col-md-12', 2: 'col-md-6', 3: 'col-md-4', 4: 'col-md-3' };
+        const defaultWidths = {
+          1: 'col-md-12', 2: 'col-md-6', 3: 'col-md-4', 4: 'col-md-3',
+        };
         col.classList.add(defaultWidths[colCount] || 'col-md-12');
       }
 
@@ -612,13 +616,13 @@ async function decorateGrid(main) {
       let blockName = null;
 
       if (child.classList.contains('default-content-wrapper')) {
-        if(child.hasChildNodes() && child.childElementCount >0 && child.children[0].classList.contains('auto-image-container')){
+        if (child.hasChildNodes() && child.childElementCount > 0 && child.children[0].classList.contains('auto-image-container')) {
           blockName = 'image';
-        }else{
+        } else {
           blockName = 'text';
         }
       } else {
-        const wrapperClass = [...child.classList].find(cls => cls.endsWith('-wrapper'));
+        const wrapperClass = [...child.classList].find((cls) => cls.endsWith('-wrapper'));
         if (wrapperClass) {
           blockName = wrapperClass.replace('-wrapper', '');
         }

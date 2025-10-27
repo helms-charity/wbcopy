@@ -6,7 +6,7 @@ import { fetchLanguagePlaceholders } from './scripts.js';
 
 export const PATH_PREFIX = '/ext';
 export const TAG_ROOT = 'world-bank:';
-export const SUPPORTED_LANGUAGES = ['en', 'zh', 'ru', 'fr', 'es', 'ar','ja'];
+export const SUPPORTED_LANGUAGES = ['en', 'zh', 'ru', 'fr', 'es', 'ar', 'ja'];
 export const RTL_LANGUAGES = ['ar']; // list of RTL Languages
 export const INTERNAL_PAGES = ['/footer', '/nav', '/fragments', '/data', '/drafts'];
 
@@ -314,18 +314,18 @@ export function cookiePopUp() {
   const hasCookieText = !!(placeholders && placeholders.cookiePopUpText);
   if (!hasCookieText) return;
 
-  let cookiePopUpTextElement = p(
-    { tabindex: 0 }
+  const cookiePopUpTextElement = p(
+    { tabindex: 0 },
   );
   cookiePopUpTextElement.innerHTML = placeholders.cookiePopUpText;
 
   if (placeholders.cookiePopUpLearnMoreLinkLabel) {
     cookiePopUpTextElement.append(a(
       { href: `${placeholders.cookiePopUpLearnMoreLink || '#'}` },
-      `${placeholders.cookiePopUpLearnMoreLinkLabel}`
+      `${placeholders.cookiePopUpLearnMoreLinkLabel}`,
     ));
   }
-  
+
   const cookieContainer = div(
     { class: 'container' },
     cookiePopUpTextElement,
@@ -377,11 +377,11 @@ export async function getFormattedDates(dateArray, language) {
   const languagePlaceholders = await fetchLanguagePlaceholders();
   const dateFormat = languagePlaceholders.dateFormat || 'x';
   const postData = {
-    'dateFormat': dateFormat,
-    'locale': language,
-    'hasLocale': 'true',
-    'hasDateFormat': dateFormat === 'x' ? 'false' : 'true',
-    'dateArray': dateArray
+    dateFormat,
+    locale: language,
+    hasLocale: 'true',
+    hasDateFormat: dateFormat === 'x' ? 'false' : 'true',
+    dateArray,
   };
   return fetchData('/wbg/aem/service/dateformat', 'POST', {}, postData);
 }
@@ -389,10 +389,8 @@ export async function getFormattedDates(dateArray, language) {
 export async function fetchCountriesList() {
   return fetch(`${PATH_PREFIX}/${getLanguage()}/country-list.json`)
     .then((resp) => (resp.ok ? resp.json() : {}))
-    .then((json) => {
-      return json && json.hasOwnProperty('data') ? json.data : [];
-    })
-    .catch(() => {
-      console.log(`failed to get countries list`, error);
+    .then((json) => (json && Object.prototype.hasOwnProperty.call(json, 'data') ? json.data : []))
+    .catch((error) => {
+      console.log('failed to get countries list', error);
     });
 }

@@ -110,14 +110,14 @@ export function loadHighchartsScript() {
       resolve(window.Highcharts);
       return;
     }
-    
+
     const loadAccessibilityModule = () => {
       const accessibilityScript = document.createElement('script');
       accessibilityScript.src = 'https://code.highcharts.com/modules/accessibility.js';
       accessibilityScript.onload = () => resolve(window.Highcharts);
       document.head.appendChild(accessibilityScript);
     };
-    
+
     if (window.Highcharts) {
       loadAccessibilityModule();
     } else {
@@ -260,11 +260,11 @@ export const getRegionForCountry = (countryCode, countriesMapping) => {
 
 // Check if a value is valid (not null, undefined, empty string, "null", or "NaN")
 export const isValidValue = (value) => (
-  value !== null &&
-  value !== undefined &&
-  value !== '' &&
-  value !== 'null' &&
-  value !== 'NaN'
+  value !== null
+  && value !== undefined
+  && value !== ''
+  && value !== 'null'
+  && value !== 'NaN'
 );
 
 // Find the latest non-null value and its index
@@ -352,28 +352,27 @@ export const initializeSwiper = (container) => {
 export const createSourceContent = (sources) => sources
   .map((item, index) => {
     const sourceText = item.uri
-      ? `<a href="${item.uri}" target="_blank">${item.source || 
-          (item.name ? `${item.name}, ${item.organization}` : item.organization)}</a>`
-      : item.source || (item.name ? `${item.name}, ${item.organization}` : item.organization);
+      ? `<a href="${item.uri}" target="_blank">${item.source
+          || (item.name ? `${item.name}, ${item.organization}` : item.organization)}</a>`
+      : item.source
+        || (item.name ? `${item.name}, ${item.organization}` : item.organization);
     return index > 0 ? `; ${sourceText}` : sourceText;
   })
-  .join("");
+  .join('');
 
-  
 // Parse indicators configuration string
-export const parseIndicatorsConfig = (indicatorsConfig) => 
-  indicatorsConfig.split(',').map(item => {
-    const [indicatorId, chartType] = item.trim().split('|');
-    return {
-      idno: indicatorId,
-      chartType: chartType || 'line'
-    };
-  }).filter(item => item.idno);
+export const parseIndicatorsConfig = (indicatorsConfig) => indicatorsConfig.split(',').map((item) => {
+  const [indicatorId, chartType] = item.trim().split('|');
+  return {
+    idno: indicatorId,
+    chartType: chartType || 'line',
+  };
+}).filter((item) => item.idno);
 
 // Get country color from region mapping
 export const getCountryColor = (countryCode, countriesMapping, COLOR_MAP) => {
   const regionCode = getRegionForCountry(countryCode, countriesMapping);
-  
+
   if (regionCode) {
     if (COLOR_MAP[`${regionCode}_countries`]) {
       const regionColors = COLOR_MAP[`${regionCode}_countries`];
@@ -383,7 +382,7 @@ export const getCountryColor = (countryCode, countriesMapping, COLOR_MAP) => {
       return COLOR_MAP[regionCode];
     }
   }
-  
+
   console.log(`No region found for ${countryCode}, using fallback color`);
   return null;
 };

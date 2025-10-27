@@ -7,8 +7,21 @@ import {
   a, span, i,
 } from './dom-helpers.js';
 import {
-  isInternalPage, scriptEnabled, PATH_PREFIX, formatDate, getLanguage,
+  isInternalPage, scriptEnabled, PATH_PREFIX, getLanguage,
 } from './utils.js';
+
+function formatDate(dObjStr) {
+  if (dObjStr) {
+    const dObj = new Date(dObjStr);
+    const yyyy = dObj.getFullYear();
+    let mm = dObj.getMonth() + 1;
+    let dd = dObj.getDate();
+    if (dd < 10) dd = `0${dd}`;
+    if (mm < 10) mm = `0${mm}`;
+    return `${mm}/${dd}/${yyyy}`;
+  }
+  return '';
+}
 
 async function getUserIp() {
   try {
