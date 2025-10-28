@@ -2228,7 +2228,154 @@ body.no-scroll {
  .section.hero-video-section > .video-wrapper {
  height: 60vh;
  }
-} 
+}
+
+/* Template - eventDetailsAcademy */
+
+/* Hero Section - 67/33 split with text and image */
+body.eventdetailsacademy .columns-container .columns.column-layout-67-33.columns-2-cols {
+  background-color: var(--neutral-solid-05-s, #f5f5f5);
+  padding: var(--spacing-huge, 60px) 0;
+}
+
+body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xlarge, 40px);
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-large, 32px);
+}
+
+body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols h1 {
+  color: var(--text-on-light-emphasis, #024);
+  font-size: var(--font-size-1200, 48px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0 0 var(--spacing-medium, 24px) 0;
+  text-transform: none;
+}
+
+body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols p {
+  color: var(--text-on-light-default, #4a4a4a);
+  font-size: var(--font-size-300, 18px);
+  line-height: 1.6;
+  margin: 0 0 var(--spacing-large, 32px) 0;
+}
+
+body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .button-container {
+  margin: 0;
+}
+
+body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .button {
+  background-color: var(--accent-blue-primary-70, #004370);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 24px;
+  font-size: var(--font-size-300, 16px);
+  font-weight: 700;
+  border: none;
+  display: inline-block;
+  text-decoration: none;
+}
+
+body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .button:hover {
+  background-color: var(--accent-blue-primary-90, #024);
+}
+
+body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .columns-img-col {
+  order: 2;
+}
+
+body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .columns-img-col img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Metadata Section - 5 columns */
+body.eventdetailsacademy .columns.columns-5-cols {
+  background-color: var(--neutral-solid-10-s, #e8f0f5);
+  padding: var(--spacing-xlarge, 40px) 0;
+}
+
+body.eventdetailsacademy .columns.columns-5-cols > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-large, 32px);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-large, 32px);
+}
+
+body.eventdetailsacademy .columns.columns-5-cols > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xsmall, 8px);
+  padding: var(--spacing-medium, 24px) 0;
+  border-top: 2px solid var(--divider-on-light-subdued, #d0d0d0);
+}
+
+body.eventdetailsacademy .columns.columns-5-cols > div > div:first-child {
+  border-top: none;
+}
+
+body.eventdetailsacademy .columns.columns-5-cols p {
+  margin: 0;
+}
+
+body.eventdetailsacademy .columns.columns-5-cols p strong {
+  color: var(--text-on-light-emphasis, #024);
+  font-size: var(--font-size-300, 18px);
+  font-weight: 700;
+  display: block;
+}
+
+body.eventdetailsacademy .columns.columns-5-cols p:not(:has(strong)) {
+  color: var(--text-on-light-default, #4a4a4a);
+  font-size: var(--font-size-400, 20px);
+  font-weight: 400;
+}
+
+/* Tablet breakpoint */
+@media (width >= 768px) {
+  body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols > div {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-huge, 60px);
+  }
+  
+  body.eventdetailsacademy .columns.columns-5-cols > div {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+  
+  body.eventdetailsacademy .columns.columns-5-cols > div > div {
+    border-top: none;
+    border-left: 2px solid var(--divider-on-light-subdued, #d0d0d0);
+    padding: 0 var(--spacing-medium, 24px);
+  }
+  
+  body.eventdetailsacademy .columns.columns-5-cols > div > div:first-child,
+  body.eventdetailsacademy .columns.columns-5-cols > div > div:nth-child(3) {
+    border-left: none;
+  }
+}
+
+/* Desktop breakpoint */
+@media (width >= 1024px) {
+  body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols > div {
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  body.eventdetailsacademy .columns.columns-5-cols > div {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  body.eventdetailsacademy .columns.columns-5-cols > div > div:nth-child(3) {
+    border-left: 2px solid var(--divider-on-light-subdued, #d0d0d0);
+  }
+}
 
 /* Universal Editor workaround - Add any CSS rules above this line */
 
