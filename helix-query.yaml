@@ -3,17 +3,17 @@ version: 1
 indices:
   pages:
     include:
-      - '/ext/en/**'
+      - '/en/**'
     exclude:
-      - '/ext/en/drafts'
-      - '/ext/en/drafts/**'
-      - '/ext/en/fragments'
-      - '/ext/en/fragments/**'
-      - '/ext/en/footer'
-      - '/ext/en/nav'
-      - '/ext/en/data'
-      - '/ext/en/data/**'
-    target: /ext/en/query-index.json
+      - '/en/drafts'
+      - '/en/drafts/**'
+      - '/en/fragments'
+      - '/en/fragments/**'
+      - '/en/footer'
+      - '/en/nav'
+      - '/en/data'
+      - '/en/data/**'
+    target: /en/query-index.json
     properties:
       title:
         select: head > meta[property="og:title"]
