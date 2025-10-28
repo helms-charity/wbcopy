@@ -13,7 +13,7 @@ indices:
       - '/en/nav'
       - '/en/data'
       - '/en/data/**'
-    target: /en/query-index.json
+    target: /ext/en/query-index.json
     properties:
       title:
         select: head > meta[property="og:title"]
