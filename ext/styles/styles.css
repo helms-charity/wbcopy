@@ -2216,7 +2216,7 @@ html.adobe-ue-edit {
     height: 600px;
   }
 
-  .section.hero-video-section > .iframe-container {
+  .section.iframe-container > .iframe-wrapper {
     height: 600px;
   }
 }
