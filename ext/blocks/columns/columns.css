@@ -287,6 +287,29 @@ html[dir="rtl"] .columns.columns-transform-teaser > div {
   object-fit: contain;
 }
 
+/* Specific responsive sizing for 3-column variant */
+.columns.columns-heading-with-description.columns-3-cols > div > div > p:first-child picture img {
+  width: 54px !important;
+  height: 54px !important;
+  padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
+}
+
+@media (width >= 768px) {
+  .columns.columns-heading-with-description.columns-3-cols > div > div > p:first-child picture img {
+    width: 54px !important;
+    height: 54px !important;
+    padding: var(--spacing-large) var(--spacing-large) var(--spacing-regular) var(--spacing-large);
+  }
+}
+
+@media (width >= 1024px) {
+  .columns.columns-heading-with-description.columns-3-cols > div > div > p:first-child picture img {
+    width: 54px !important;
+    height: 60px !important;
+    padding: var(--spacing-large) var(--spacing-large) 16px var(--spacing-large);
+  }
+}
+
 /* Style for second child paragraph (titles) in columns with heading-with-description variant */
 .columns.columns-heading-with-description > div > div > p:nth-child(2) {
   color: var(--accent-blue-primary-90);
@@ -302,8 +325,72 @@ html[dir="rtl"] .columns.columns-transform-teaser > div {
   color: var(--text-on-light-link-primary-enabled);
 }
 
+/* Specific styling for 3-column variant titles */
+.columns.columns-heading-with-description.columns-3-cols > div > div > p:nth-child(2) {
+  color: var(--text-on-light-link-primary-enabled);
+  font-size: var(--font-size-500);
+  font-style: normal;
+  font-weight: var(--body-font-weight-bold);
+  line-height: 150%;
+  letter-spacing: -0.25px;
+}
+
+/* Layout for 3-column variant: icon and title side by side */
+.columns.columns-heading-with-description.columns-3-cols > div > div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  column-gap: var(--spacing-small);
+  align-items: start;
+}
+
+.columns.columns-heading-with-description.columns-3-cols > div > div > p:first-child {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+}
+
+.columns.columns-heading-with-description.columns-3-cols > div > div > p:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: left;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.columns.columns-heading-with-description.columns-3-cols > div > div > p:nth-child(n+3) {
+  grid-column: 1 / -1;
+  margin-top: var(--spacing-regular);
+  color: var(--text-on-light-highlight);
+  font-size: var(--font-size-200);
+  font-style: normal;
+  font-weight: var(--body-font-weight-regular);
+  line-height: 150%;
+}
+
+/* Styling for links in 3rd paragraph of 3-column variant */
+.columns.columns-heading-with-description.columns-3-cols > div > div > p:nth-child(3) strong a {
+  font-size: var(--font-size-200);
+}
+
+.columns.columns-heading-with-description.columns-3-cols > div > div > p:first-child picture {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns-heading-with-description.columns-3-cols > div > div > p:first-child picture img {
+  padding: 0;
+  margin: 0;
+}
+
+/* RTL support for 3-column variant */
+html[dir="rtl"] .columns.columns-heading-with-description.columns-3-cols > div > div > p:nth-child(2) {
+  text-align: right;
+}
+
 .columns.columns-heading-with-description > div > div > p:nth-child(3) {
-  text-align: center;
+  text-align: left;
   color: var(--text-on-light-highlight);
   font-size: var(--font-size-200);
   line-height: 150%;
@@ -1243,7 +1330,7 @@ main .section.bg-default:first-child .default-content-wrapper p:has(picture) {
   font-size: var(--font-size-500);
   font-weight: var(--body-font-weight-regular);
   line-height: 150%;
-  margin: 0 0 var(--spacing-medium) 0 !important;
+  margin: 0 0 var(--spacing-medium) 0;
 }
 
 .bg-neutrals-20 .columns-feature-card .columns-feature-card-description ul,
@@ -1281,7 +1368,7 @@ main .section.bg-default:first-child .default-content-wrapper p:has(picture) {
 
 .bg-neutrals-20 .columns-feature-card .columns-feature-card-description ul li a:visited,
 .bg-neutrals-20 .columns-feature-card .columns-feature-card-content ul li a:visited {
-  color: var(--text-on-light-link-primary-enabled) !important;
+  color: var(--text-on-light-link-primary-enabled);
   text-decoration-color: var(--text-on-light-link-primary-enabled);
 }
 
@@ -1391,7 +1478,7 @@ main .section.bg-default:first-child .default-content-wrapper p:has(picture) {
 .columns.columns-feature-card > div > div > p:first-child {
   line-height: 112%;
   grid-area: title;
-  margin: 0 0 var(--spacing-large) 0 !important;
+  margin: 0 0 var(--spacing-large) 0;
 }
 
 .region-feature-card .heading-wrapper {
