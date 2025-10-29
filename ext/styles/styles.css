@@ -2232,6 +2232,13 @@ body.no-scroll {
 
 /* Template - eventDetailsAcademy */
 
+/* Override page swoosh background size */
+body.eventdetailsacademy.page-swoosh-half-curve::before {
+  background-size: 30%;
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
 /* General section spacing */
 body.eventdetailsacademy main .section {
   padding-bottom: var(--spacing-xxlarge);
@@ -2244,13 +2251,14 @@ body.eventdetailsacademy .columns-container .columns.column-layout-67-33.columns
 }
 
 body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols > div {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-xlarge, 40px);
-  align-items: center;
+  align-items: flex-start;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 var(--spacing-large, 32px);
+
+  /* padding: 0 var(--spacing-large, 32px); */
 }
 
 body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols h1 {
@@ -2298,8 +2306,13 @@ body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .button:hov
   background-color: var(--accent-blue-primary-90, #024);
 }
 
-body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .columns-img-col {
+body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols > div > div:first-child {
   order: 2;
+}
+
+body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .columns-img-col {
+  order: 1;
+  width: 100%;
 }
 
 body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .columns-img-col img {
@@ -2317,23 +2330,21 @@ body.eventdetailsacademy .columns.columns-5-cols {
 body.eventdetailsacademy .columns.columns-5-cols > div {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-large, 32px);
+  gap: 0;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 var(--spacing-large, 32px);
 }
 
 body.eventdetailsacademy .columns.columns-5-cols > div > div {
   display: flex;
   flex-direction: column;
   gap: 0;
-  padding: var(--spacing-medium, 24px) 0;
-  border-top: 1px solid var(--divider-on-light-subdued, #d0d0d0);
+  margin-bottom: var(--spacing-regular);
 }
 
 body.eventdetailsacademy .columns.columns-5-cols > div > div:first-child {
   border-top: none;
-  padding: 0 var(--spacing-large) 0 0;
+  padding-top: 0;
 }
 
 body.eventdetailsacademy .columns.columns-5-cols p {
@@ -2353,48 +2364,73 @@ body.eventdetailsacademy .columns.columns-5-cols p strong {
 }
 
 body.eventdetailsacademy .columns.columns-5-cols p:not(:has(strong)) {
-  color: var(--text-on-light-subdued, #666);
-  font-size: var(--font-size-400, 20px);
+  color: var(--neutral-alpha-70-a);
+  font-size: var(--font-size-500);
   font-weight: 400;
   font-family: var(--body-font-family);
 }
 
 /* Tablet breakpoint */
 @media (width >= 768px) {
-  body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols > div {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-huge, 60px);
-  }
-  
   body.eventdetailsacademy .columns.columns-5-cols > div {
     grid-template-columns: repeat(2, 1fr);
     gap: 0;
+
+    /* row-gap: var(--spacing-regular); */
   }
   
   body.eventdetailsacademy .columns.columns-5-cols > div > div {
     border-top: none;
     border-left: 1px solid var(--gray-alpha-black-24-a);
-    padding: 0 var(--spacing-medium, 24px);
+    padding: 0 0 0 var(--spacing-medium, 24px);
   }
   
   body.eventdetailsacademy .columns.columns-5-cols > div > div:first-child,
-  body.eventdetailsacademy .columns.columns-5-cols > div > div:nth-child(3) {
+  body.eventdetailsacademy .columns.columns-5-cols > div > div:nth-child(3),
+  body.eventdetailsacademy .columns.columns-5-cols > div > div:nth-child(5) {
     border-left: none;
     padding-left: 0;
+  }
+  
+  body.eventdetailsacademy .columns.columns-5-cols > div > div:nth-child(2) {
+    padding-right: 0;
   }
 }
 
 /* Desktop breakpoint */
 @media (width >= 1024px) {
+  /* Make swoosh background even smaller on desktop */
+  body.eventdetailsacademy.page-swoosh-half-curve::before {
+    background-size: 25%;
+  }
+  
   body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols > div {
+    display: grid;
     grid-template-columns: 2fr 1fr;
     padding: 0;
     gap:  var(--spacing-xxlarge);
+    align-items: center;
+  }
+  
+  body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols > div > div:first-child {
+    order: 0;
+    align-self: start;
+  }
+  
+  body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .columns-img-col {
+    order: 0;
+    width: auto;
+    align-self: center;
   }
   
   body.eventdetailsacademy .columns.columns-5-cols > div {
     grid-template-columns: repeat(5, 1fr);
     padding: 0;
+    row-gap: 0;
+  }
+  
+  body.eventdetailsacademy .columns.columns-5-cols > div > div {
+    padding: 0 var(--spacing-medium, 24px);
   }
   
   /* Reset 3rd child to have consistent border like others */
@@ -2403,10 +2439,14 @@ body.eventdetailsacademy .columns.columns-5-cols p:not(:has(strong)) {
     padding-left: var(--spacing-medium, 24px);
   }
   
-  /* Only first child has no left border */
+  /* Only first child has no left border and no left padding */
   body.eventdetailsacademy .columns.columns-5-cols > div > div:first-child {
     border-left: none;
     padding-left: 0;
+  }
+  
+  body.eventdetailsacademy .columns.columns-5-cols > div > div:nth-child(2) {
+    padding-right: var(--spacing-medium, 24px);
   }
 }
 
