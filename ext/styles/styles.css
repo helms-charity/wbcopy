@@ -1114,7 +1114,7 @@ html[dir="rtl"] {
   --lift-button-icon-size-large: 1.25rem;
   --lift-button-label-letter-spacing: -0.0312rem;
   --lift-button-label-v-padding: 0rem;
-  --lift-button-label-font-size: 0.875rem;
+  --lift-button-label-font-size: 1rem;
   --lift-button-label-line-height: 1.5rem;
   --lift-button-label-font-weight: 700;
 }
@@ -2287,7 +2287,7 @@ body.program-detail .columns.column-layout-67-33.columns-2-cols .button {
   align-items: center;
   text-align: center;
   font-family: var(--global-font-family);
-  font-size: var(--lift-button-label-font-size);
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: var(--lift-button-label-font-weight);
   line-height: var(--lift-button-label-line-height);
