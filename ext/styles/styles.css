@@ -2230,38 +2230,37 @@ body.no-scroll {
  }
 }
 
-/* Template - eventDetailsAcademy */
+/* Template - program-detail */
 
 /* Override page swoosh background size */
-body.eventdetailsacademy.page-swoosh-half-curve::before {
+body.program-detail.page-swoosh-half-curve::before {
   background-size: 30%;
   background-position: top left;
   background-repeat: no-repeat;
 }
 
 /* General section spacing */
-body.eventdetailsacademy main .section {
+body.program-detail main .section {
   padding-bottom: var(--spacing-xxlarge);
 }
 
 /* Hero Section - 67/33 split with text and image */
-body.eventdetailsacademy .columns-container .columns.column-layout-67-33.columns-2-cols {
+body.program-detail .columns-container .columns.column-layout-67-33.columns-2-cols {
   background-color: var(--neutral-solid-05-s, #f5f5f5);
-  padding: var(--spacing-medium) var(--spacing-huge);
+  padding: var(--spacing-large) 0;
 }
 
-body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols > div {
+body.program-detail .columns.column-layout-67-33.columns-2-cols > div {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xlarge, 40px);
   align-items: flex-start;
   max-width: 1440px;
   margin: 0 auto;
-
-  /* padding: 0 var(--spacing-large, 32px); */
+  padding: 0 var(--spacing-huge);
 }
 
-body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols h1 {
+body.program-detail .columns.column-layout-67-33.columns-2-cols h1 {
   margin-bottom: var(--spacing-small);
   line-height: 112%;
   font-family: var(--heading-font-family);
@@ -2269,7 +2268,7 @@ body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols h1 {
   color: var(--text-on-light-highlight);
 }
 
-body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols p {
+body.program-detail .columns.column-layout-67-33.columns-2-cols p {
   color: var(--text-on-light-default);
   font-size: var(--font-size-300);
   font-style: normal;
@@ -2278,11 +2277,11 @@ body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols p {
   margin-bottom: var(--spacing-medium);
 }
 
-body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .button-container {
+body.program-detail .columns.column-layout-67-33.columns-2-cols .button-container {
   margin: 0;
 }
 
-body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .button {
+body.program-detail .columns.column-layout-67-33.columns-2-cols .button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -2302,32 +2301,33 @@ body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .button {
   color: var(--text-on-dark-link-primary-enabled);
 }
 
-body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .button:hover {
+body.program-detail .columns.column-layout-67-33.columns-2-cols .button:hover {
   background-color: var(--accent-blue-primary-90, #024);
 }
 
-body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols > div > div:first-child {
+body.program-detail .columns.column-layout-67-33.columns-2-cols > div > div:first-child {
   order: 2;
 }
 
-body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .columns-img-col {
+body.program-detail .columns.column-layout-67-33.columns-2-cols .columns-img-col {
   order: 1;
   width: 100%;
 }
 
-body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .columns-img-col img {
+body.program-detail .columns.column-layout-67-33.columns-2-cols .columns-img-col img {
   width: 100%;
   height: auto;
+  border-radius: 0;
 }
 
 /* Metadata Section - 5 columns */
-body.eventdetailsacademy .columns.columns-5-cols {
+body.program-detail .columns.columns-5-cols {
   background-color: var(--neutral-solid-10-s);
   padding: var(--spacing-large) var(--spacing-huge) var(--spacing-xlarge) var(--spacing-huge);
   border-radius: 0 0 8px 8px;
 }
 
-body.eventdetailsacademy .columns.columns-5-cols > div {
+body.program-detail .columns.columns-5-cols > div {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
@@ -2335,35 +2335,35 @@ body.eventdetailsacademy .columns.columns-5-cols > div {
   margin: 0 auto;
 }
 
-body.eventdetailsacademy .columns.columns-5-cols > div > div {
+body.program-detail .columns.columns-5-cols > div > div {
   display: flex;
   flex-direction: column;
   gap: 0;
   margin-bottom: var(--spacing-regular);
 }
 
-body.eventdetailsacademy .columns.columns-5-cols > div > div:first-child {
+body.program-detail .columns.columns-5-cols > div > div:first-child {
   border-top: none;
   padding-top: 0;
 }
 
-body.eventdetailsacademy .columns.columns-5-cols p {
+body.program-detail .columns.columns-5-cols p {
   margin: 0;
   line-height: 1.4;
 }
 
-body.eventdetailsacademy .columns.columns-5-cols p:has(strong) {
+body.program-detail .columns.columns-5-cols p:has(strong) {
   margin-bottom: var(--spacing-xsmall, 8px);
 }
 
-body.eventdetailsacademy .columns.columns-5-cols p strong {
+body.program-detail .columns.columns-5-cols p strong {
   color: var(--text-on-light-emphasis, #024);
   font-weight: 700;
   display: block;
   font-family: var(--heading-font-family);
 }
 
-body.eventdetailsacademy .columns.columns-5-cols p:not(:has(strong)) {
+body.program-detail .columns.columns-5-cols p:not(:has(strong)) {
   color: var(--neutral-alpha-70-a);
   font-size: var(--font-size-500);
   font-weight: 400;
@@ -2372,27 +2372,27 @@ body.eventdetailsacademy .columns.columns-5-cols p:not(:has(strong)) {
 
 /* Tablet breakpoint */
 @media (width >= 768px) {
-  body.eventdetailsacademy .columns.columns-5-cols > div {
+  body.program-detail .columns.columns-5-cols > div {
     grid-template-columns: repeat(2, 1fr);
     gap: 0;
 
     /* row-gap: var(--spacing-regular); */
   }
   
-  body.eventdetailsacademy .columns.columns-5-cols > div > div {
+  body.program-detail .columns.columns-5-cols > div > div {
     border-top: none;
     border-left: 1px solid var(--gray-alpha-black-24-a);
     padding: 0 0 0 var(--spacing-medium, 24px);
   }
   
-  body.eventdetailsacademy .columns.columns-5-cols > div > div:first-child,
-  body.eventdetailsacademy .columns.columns-5-cols > div > div:nth-child(3),
-  body.eventdetailsacademy .columns.columns-5-cols > div > div:nth-child(5) {
+  body.program-detail .columns.columns-5-cols > div > div:first-child,
+  body.program-detail .columns.columns-5-cols > div > div:nth-child(3),
+  body.program-detail .columns.columns-5-cols > div > div:nth-child(5) {
     border-left: none;
     padding-left: 0;
   }
   
-  body.eventdetailsacademy .columns.columns-5-cols > div > div:nth-child(2) {
+  body.program-detail .columns.columns-5-cols > div > div:nth-child(2) {
     padding-right: 0;
   }
 }
@@ -2400,52 +2400,59 @@ body.eventdetailsacademy .columns.columns-5-cols p:not(:has(strong)) {
 /* Desktop breakpoint */
 @media (width >= 1024px) {
   /* Make swoosh background even smaller on desktop */
-  body.eventdetailsacademy.page-swoosh-half-curve::before {
+  body.program-detail.page-swoosh-half-curve::before {
     background-size: 25%;
   }
   
-  body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols > div {
+  body.program-detail .columns.column-layout-67-33.columns-2-cols > div {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    padding: 0;
-    gap:  var(--spacing-xxlarge);
+    padding: 0 var(--spacing-huge);
+    gap: 0;
     align-items: center;
   }
   
-  body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols > div > div:first-child {
+  body.program-detail .columns.column-layout-67-33.columns-2-cols > div > div:first-child {
     order: 0;
     align-self: start;
+    padding-right: var(--spacing-xxlarge);
   }
   
-  body.eventdetailsacademy .columns.column-layout-67-33.columns-2-cols .columns-img-col {
+  body.program-detail .columns.column-layout-67-33.columns-2-cols .columns-img-col {
     order: 0;
-    width: auto;
+    width: 100%;
     align-self: center;
   }
   
-  body.eventdetailsacademy .columns.columns-5-cols > div {
+  body.program-detail .columns.column-layout-67-33.columns-2-cols .columns-img-col img {
+    border-radius: 0;
+    width: 100%;
+    display: block;
+  }
+  
+  body.program-detail .columns.columns-5-cols > div {
     grid-template-columns: repeat(5, 1fr);
     padding: 0;
     row-gap: 0;
   }
   
-  body.eventdetailsacademy .columns.columns-5-cols > div > div {
+  body.program-detail .columns.columns-5-cols > div > div {
     padding: 0 var(--spacing-medium, 24px);
   }
   
   /* Reset 3rd child to have consistent border like others */
-  body.eventdetailsacademy .columns.columns-5-cols > div > div:nth-child(3) {
+  body.program-detail .columns.columns-5-cols > div > div:nth-child(3) {
     border-left: 1px solid var(--gray-alpha-black-24-a);
     padding-left: var(--spacing-medium, 24px);
   }
   
   /* Only first child has no left border and no left padding */
-  body.eventdetailsacademy .columns.columns-5-cols > div > div:first-child {
+  body.program-detail .columns.columns-5-cols > div > div:first-child {
     border-left: none;
     padding-left: 0;
   }
   
-  body.eventdetailsacademy .columns.columns-5-cols > div > div:nth-child(2) {
+  body.program-detail .columns.columns-5-cols > div > div:nth-child(2) {
     padding-right: var(--spacing-medium, 24px);
   }
 }
