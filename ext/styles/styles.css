@@ -1137,13 +1137,16 @@ body {
  font-family: var(--body-font-family);
  line-height: 1.4;
  color: var(--text-color);
- background: var(--neutral-solid-10-s);
  display: none;
  overflow-x: hidden;
 }
 
 body.appear {
  display: block;
+}
+
+body:has(main > div.section.hero-video-section) {
+ background: var(--neutral-solid-10-s);
 }
 
 header {
