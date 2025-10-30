@@ -2320,14 +2320,16 @@ body.program-detail .columns.column-layout-67-33.columns-2-cols .columns-img-col
   border-radius: 0;
 }
 
-/* Metadata Section - 5 columns */
-body.program-detail .columns.columns-5-cols {
+/* Metadata Section - Flexible columns (works with 2, 3, 4, 5+ columns) */
+
+/* Exclude column-layout classes to avoid catching hero section */
+body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) {
   background-color: var(--neutral-solid-10-s);
   padding: var(--spacing-large) var(--spacing-huge) var(--spacing-xlarge) var(--spacing-huge);
   border-radius: 0 0 8px 8px;
 }
 
-body.program-detail .columns.columns-5-cols > div {
+body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
@@ -2335,35 +2337,35 @@ body.program-detail .columns.columns-5-cols > div {
   margin: 0 auto;
 }
 
-body.program-detail .columns.columns-5-cols > div > div {
+body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div > div {
   display: flex;
   flex-direction: column;
   gap: 0;
   margin-bottom: var(--spacing-regular);
 }
 
-body.program-detail .columns.columns-5-cols > div > div:first-child {
+body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div > div:first-child {
   border-top: none;
   padding-top: 0;
 }
 
-body.program-detail .columns.columns-5-cols p {
+body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) p {
   margin: 0;
   line-height: 1.4;
 }
 
-body.program-detail .columns.columns-5-cols p:has(strong) {
+body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) p:has(strong) {
   margin-bottom: var(--spacing-xsmall, 8px);
 }
 
-body.program-detail .columns.columns-5-cols p strong {
+body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) p strong {
   color: var(--text-on-light-emphasis, #024);
   font-weight: 700;
   display: block;
   font-family: var(--heading-font-family);
 }
 
-body.program-detail .columns.columns-5-cols p:not(:has(strong)) {
+body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) p:not(:has(strong)) {
   color: var(--neutral-alpha-70-a);
   font-size: var(--font-size-500);
   font-weight: 400;
@@ -2372,27 +2374,24 @@ body.program-detail .columns.columns-5-cols p:not(:has(strong)) {
 
 /* Tablet breakpoint */
 @media (width >= 768px) {
-  body.program-detail .columns.columns-5-cols > div {
+  body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div {
     grid-template-columns: repeat(2, 1fr);
     gap: 0;
-
-    /* row-gap: var(--spacing-regular); */
   }
   
-  body.program-detail .columns.columns-5-cols > div > div {
+  body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div > div {
     border-top: none;
     border-left: 1px solid var(--gray-alpha-black-24-a);
     padding: 0 0 0 var(--spacing-medium, 24px);
   }
   
-  body.program-detail .columns.columns-5-cols > div > div:first-child,
-  body.program-detail .columns.columns-5-cols > div > div:nth-child(3),
-  body.program-detail .columns.columns-5-cols > div > div:nth-child(5) {
+  body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div > div:first-child,
+  body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div > div:nth-child(odd) {
     border-left: none;
     padding-left: 0;
   }
   
-  body.program-detail .columns.columns-5-cols > div > div:nth-child(2) {
+  body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div > div:nth-child(2) {
     padding-right: 0;
   }
 }
@@ -2430,30 +2429,46 @@ body.program-detail .columns.columns-5-cols p:not(:has(strong)) {
     display: block;
   }
   
-  body.program-detail .columns.columns-5-cols > div {
+  /* Auto-adjust columns based on content */
+  body.program-detail .section .columns.columns-2-cols:not([class*="column-layout-"]) > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  body.program-detail .section .columns.columns-3-cols:not([class*="column-layout-"]) > div {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  body.program-detail .section .columns.columns-4-cols:not([class*="column-layout-"]) > div {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  body.program-detail .section .columns.columns-5-cols:not([class*="column-layout-"]) > div {
     grid-template-columns: repeat(5, 1fr);
+  }
+  
+  body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div {
     padding: 0;
     row-gap: 0;
   }
   
-  body.program-detail .columns.columns-5-cols > div > div {
+  body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div > div {
     padding: 0 var(--spacing-medium, 24px);
   }
   
-  /* Reset 3rd child to have consistent border like others */
-  body.program-detail .columns.columns-5-cols > div > div:nth-child(3) {
+  /* Add left border to all columns except the first one */
+  body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div > div:not(:first-child) {
     border-left: 1px solid var(--gray-alpha-black-24-a);
     padding-left: var(--spacing-medium, 24px);
   }
   
-  /* Only first child has no left border and no left padding */
-  body.program-detail .columns.columns-5-cols > div > div:first-child {
-    border-left: none;
+  /* First child has no left border and no left padding */
+  body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div > div:first-child {
     padding-left: 0;
   }
   
-  body.program-detail .columns.columns-5-cols > div > div:nth-child(2) {
-    padding-right: var(--spacing-medium, 24px);
+  /* Last child has no right padding */
+  body.program-detail .section .columns[class*="columns-"]:not([class*="column-layout-"]) > div > div:last-child {
+    padding-right: 0;
   }
 }
 
