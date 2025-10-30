@@ -1146,7 +1146,7 @@ body.appear {
  display: block;
 }
 
-body:has(main div.hero-video-section){
+body:has(main > div.section.hero-video-section) {
  background: var(--neutral-solid-10-s);
 }
 
