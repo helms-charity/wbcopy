@@ -2135,7 +2135,7 @@
         "name": "style",
         "value": [],
         "label": "Variant style",
-        "valueType": "array",
+        "valueType": "string[]",
         "options": [
           {
             "name": "🎨Background",
@@ -2794,6 +2794,54 @@
             "value": "carousel-with-button"
           }
         ]
+      },
+      {
+        "component": "text",
+        "name": "anchorText",
+        "value": "",
+        "label": "Anchor Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "value": "",
+        "label": "Link",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "carousel-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false,
+        "description": "Max 1 Item"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "",
+        "label": "Alternate Text"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "eyebrow",
+        "value": "",
+        "label": "Eyebrow",
+        "valueType": "string"
       }
     ]
   },
@@ -2845,7 +2893,7 @@
         "name": "classes",
         "value": "",
         "label": "Column Styles",
-        "valueType": "string",
+        "valueType": "string[]",
         "maxSize": 4,
         "options": [
           {

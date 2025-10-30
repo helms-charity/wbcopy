@@ -128,6 +128,13 @@ html[dir="rtl"] .section > div.carousel-wrapper {
   user-select: none;
 }
 
+/* Unlimited cards for carousel-with-button variant */
+.carousel.carousel-with-button>ul {
+  grid-auto-flow: column;
+  grid-auto-columns: 455px;
+  grid-template-columns: none;
+}
+
 .carousel>ul.is-dragging {
   cursor: default;
   scroll-snap-type: none;
@@ -303,6 +310,12 @@ html[dir="rtl"] .section > div.carousel-wrapper {
     gap: 0 8px;
   }
 
+  /* Unlimited cards for carousel-with-button variant */
+  .carousel.carousel-with-button>ul {
+    grid-auto-columns: 430px;
+    grid-template-columns: none;
+  }
+
   .carousel>.prev,
   .carousel>.next {
     right: var(--nav-height);
@@ -416,6 +429,12 @@ html[dir="rtl"] .section > div.carousel-wrapper {
     grid-template-columns: repeat(7, 360px);
     grid-template-rows: 430px;
     gap: 0 4px;
+  }
+
+  /* Unlimited cards for carousel-with-button variant */
+  .carousel.carousel-with-button>ul {
+    grid-auto-columns: 360px;
+    grid-template-columns: none;
   }
 }
 
