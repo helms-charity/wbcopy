@@ -499,7 +499,7 @@ export default async function decorate(block) {
   const langCode = getLanguage();
   const navPath = navMeta
     ? new URL(navMeta, window.location).pathname
-    : `${PATH_PREFIX}/${langCode}/nav`;
+    : `/${langCode}/nav`;
   const fragment = await loadFragment(navPath);
   const placeholdersData = await fetchLanguagePlaceholders();
   fetchLanguageNavigation(`/${langCode}`);
