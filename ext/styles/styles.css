@@ -2470,4 +2470,8 @@ html.adobe-ue-edit {
   .section.hero-video-section > .video-wrapper {
     height: 600px;
   }
+
+  .section.iframe-container > .iframe-wrapper {
+    height: 600px;
+  }
 }

@@ -1,5 +1,8 @@
 import { fetchSearch, LANGUAGE_ROOT } from '../../scripts/scripts.js';
 import {
+  getLanguage,
+} from '../../scripts/utils.js';  
+import {
   ol, li, a, span, nav
 } from '../../scripts/dom-helpers.js';
 
@@ -20,7 +23,7 @@ export default async function decorate(block) {
     });
     // This condition is for homepage path
     if (!pagePath) {
-      const href = `${origin}${LANGUAGE_ROOT === '/ext/ja' ? '/ext/en' : LANGUAGE_ROOT}/home`;
+      const href = `${origin}/${getLanguage()}/home`;
       const homeSvg = `${window.hlx.codeBasePath}/icons/home.svg`;
       // TODO:localize the title and alt
       const homeLink = `<a itemprop='item' href='${href}' title='Home'><img itemprop='image'
