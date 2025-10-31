@@ -6,9 +6,9 @@ import {
   decorateSections,
   loadBlock,
   loadBlocks,
-} from '/content/wbcopy.resource/ext/scripts/aem.js';
-import { decorateRichtext } from '/content/wbcopy.resource/ext/scripts/editor-support-rte.js';
-import { decorateMain } from '/content/wbcopy.resource/ext/scripts/scripts.js';
+} from './aem.js';
+import { decorateRichtext } from './editor-support-rte.js';
+import { decorateMain } from './scripts.js';
 
 async function applyChanges(event) {
   console.log('[EditorSupport] 🔧 applyChanges called');
