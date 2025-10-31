@@ -350,7 +350,7 @@ html[dir="rtl"] .cards-wrapper .cards .cards-card-body p {
   aspect-ratio: 4/5;
   object-fit: cover;
   object-position: top;  
-}
+} 
 
 .cards.sticky-card.block .cards-card-body {
   background: linear-gradient(to bottom, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 100%) 80%);
