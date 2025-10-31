@@ -25,7 +25,7 @@
           "name": "classes",
           "value": "",
           "label": "Column Styles",
-          "valueType": "string",
+          "valueType": "string[]",
           "maxSize": 4,
           "options": [
             {
