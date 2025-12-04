@@ -5,7 +5,6 @@ import {
 } from './aem.js';
 import {
   a, span, i,
-  section,
 } from './dom-helpers.js';
 import {
   isInternalPage, scriptEnabled, PATH_PREFIX, formatDate, getLanguage,

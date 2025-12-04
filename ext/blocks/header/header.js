@@ -496,13 +496,13 @@ function handleMainMenuFocus(block, navSections, hamburger) {
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
- // const langCode = getLanguage();
+  const langCode = getLanguage();
   const navPath = navMeta
-  //  ? new URL(navMeta, window.location).pathname
-  //  : `/${langCode}/nav`;
+    ? new URL(navMeta, window.location).pathname
+    : `/${langCode}/nav`;
   const fragment = await loadFragment(navPath);
   const placeholdersData = await fetchLanguagePlaceholders();
-  // fetchLanguageNavigation(`/${langCode}`);
+  fetchLanguageNavigation(`/${langCode}`);
 
   // decorate nav DOM
   block.textContent = '';
