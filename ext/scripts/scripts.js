@@ -352,7 +352,7 @@ async function loadLazy(doc) {
   await createSkipToMainNavigationBtn();
   cookiePopUp();
   showCookieConsent();
- // loadHeader(doc.querySelector('header'));
+  loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
