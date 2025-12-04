@@ -178,6 +178,6 @@ async function loadDelayed() {
     renderWBDataLayer();
     await loadAdobeLaunch();
   }
-  await removeTitleAttrFromButtons();
+ // await removeTitleAttrFromButtons();
 }
 loadDelayed();
